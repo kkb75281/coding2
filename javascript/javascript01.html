@@ -33,7 +33,7 @@
             margin-bottom: 2vw;
         }
         #header nav ul li {  
-            display: inline-block
+            display: inline-block;
         }
         #header nav ul li a {    
             border: 1px solid #000;
@@ -100,9 +100,6 @@
             #plist {    
                 padding: 16px;
             }
-            .list {
-                padding: 16px;
-            }
             #main { 
                 padding: 16px;
             }
@@ -110,7 +107,7 @@
     </style>
 </head>
 <body>
-    <header>
+    <header id="header">
         <h1>javascript</h1>
         <nav>   
             <ul>
@@ -174,7 +171,7 @@
                 <div id="sample01" class="sample">   
                     <h2>02. 변수 : 데이터 저장 + 데이터 변경</h2>
                     <div class="code">
-    <pre><code class="language-js">{   
+<pre><code class="language-js">{   
         let x = 100;
         let y = 200;
         let z = "javascript";
@@ -196,7 +193,7 @@
                 <div id="sample01" class="sample">   
                     <h2>03. 변수 : 데이터 저장 + 데이터 변경 + 데이터 추가</h2>
                     <div class="code">
-    <pre><code class="language-js">{   
+<pre><code class="language-js">{   
         let x = 100;
         let y = 200;
         let z = "javascript";
@@ -218,7 +215,7 @@
                 <div id="sample01" class="sample">   
                     <h2>04. 변수 : 지역변수 + 전역변수 + 매개변수</h2>
                     <div class="code">
-    <pre><code class="language-js">{   
+<pre><code class="language-js">{   
         let x = 100;        //전역변수
         let y = 200;
 
@@ -246,7 +243,7 @@
                 <div id="sample01" class="sample">   
                     <h2>05. 상수 : 데이터 저장 + 데이터 변경X</h2>
                     <div class="code">
-    <pre><code class="language-js">{   
+<pre><code class="language-js">{   
         const x = 100;
         const y = 200;
         const z = "javascript";
@@ -265,7 +262,7 @@
                 <div id="sample01" class="sample">   
                     <h2>06. 배열 : 여러개의 데이터를 저장 : 표현방법1</h2>
                     <div class="code">
-    <pre><code class="language-js">{   
+<pre><code class="language-js">{   
         const arr = new Array(100, 200, "javascript");
 
         document.write("07. 배열");
@@ -281,7 +278,7 @@
                 <div id="sample01" class="sample">   
                     <h2>07. 배열 : 여러개의 데이터를 저장 : 표현방법2</h2>
                     <div class="code">
-    <pre><code class="language-js">{   
+<pre><code class="language-js">{   
         const arr = new Array();
         arr[0] = 100;
         arr[1] = 200;
@@ -300,7 +297,7 @@
                 <div id="sample01" class="sample">   
                     <h2>08. 배열 : 여러개의 데이터를 저장 : 표현방법3</h2>
                     <div class="code">
-    <pre><code class="language-js">{   
+<pre><code class="language-js">{   
         const arr = [];
         arr[0] = 100;
         arr[1] = 200;
@@ -319,7 +316,7 @@
                 <div id="sample01" class="sample">   
                     <h2>09. 배열 : 여러개의 데이터를 저장 : 표현방법4</h2>
                     <div class="code">
-    <pre><code class="language-js">{   
+<pre><code class="language-js">{   
         const arr = [100, 200, "javascript"]
 
         document.write("09. 배열");
