@@ -95,8 +95,12 @@
         .article .table .center {   
             text-align: center;
         }
-        .article .box {  
+        .article .box1 {  
             background-color: #f5f5f5;
+            padding: 15px;
+        }
+        .article .box2 {  
+            background-color: #d9e8f0;
             padding: 15px;
         }
 
@@ -136,7 +140,7 @@
                 <li><a href="markup.html">기본 규칙</a></li>
                 <li><a href="#">W3C validator</a></li>
                 <li><a href="semanticmarkup.html">시멘틱 마크업</a></li>
-                <li><a href="#">블록/인라인 요소</a></li>
+                <li><a href="blockinlineelement.html">블록/인라인 요소</a></li>
             </ul>
         </nav>
         <article class="article">   
@@ -150,13 +154,22 @@
                 받아들일 수 있는 환경이 아닐 수도 있습니다. 예를 들어 시각장애인의 경우에는 HTML 문서의 콘텐츠 정보를<br>
                 음성으로 전달해 주어야 하는데 이런 경우 전달하려는 태그의 의미가 적절해야 합니다.
             </p>
-<pre><p class="box">&lt;!DOCTYPE html&gt;<br>&lt;html lang="ko"&gt;<br>&lt;head&gt;<br>         &lt;meta charset="UTF-8"&gt;<br>         &lt;title&gt;시멘틱 마크업&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>         반응형웹<br>&lt;/body&gt;<br>&lt;/html&gt;<br></p></pre>
+<pre><p class="box1">&lt;!DOCTYPE html&gt;<br>&lt;html lang="ko"&gt;<br>&lt;head&gt;<br>         &lt;meta charset="UTF-8"&gt;<br>         &lt;title&gt;시멘틱 마크업&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>         반응형웹<br>&lt;/body&gt;<br>&lt;/html&gt;<br></p></pre>
             <p>
                 만약 '반응형웹'이 HTML 문서에서 제목으로 사용된다고 가정할 경우 위의 예시처럼 마크업을 하면,<br>
                 스크린 리더(음성낭독프로그램)에서는 그저 '반응형웹'이라고만 읽어주기 때문에 그것이 제목인지를 알 수가 없습니다.
             </p>
             <p>
                 이 부분을 제목을 의미하는 태그로 바꾸어 마크업해 보도록 하겠습니다.
+            </p>
+<pre><p class="box1">&lt;!DOCTYPE html&gt;<br>&lt;html lang="ko"&gt;<br>&lt;head&gt;<br>         &lt;meta charset="UTF-8"&gt;<br>         &lt;title&gt;시멘틱 마크업&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>         &lt;h1&gt;반응형웹&lt;/h1&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></p></pre>
+            <p>
+                위 예시에서 &lt;h1&gt;은 문서의 첫 제목을 의미하는 태그입니다. 이 부분을 '반응형웹' 헤딩 일이라고 읽어준다면<br>
+                "아!, 이 부분이 제목이구나."를 알 수 있게 됩니다.
+            </p>
+            <p class="box2">
+                >> 실제 마크업을 할 때는 작업자마다 콘텐츠의 의미를 해석하는 차이가 조금 있을 수도 있지만 가급적 시멘틱하게<br>
+                마크업을 하려고 노력하는 것이 중요합니다.
             </p>
         </article>
     </section>
