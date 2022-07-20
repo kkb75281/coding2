@@ -41,11 +41,12 @@
             <h2 class="t_tit">자바스크립트 연산자</h2>
             <p class="t_box">
                 프로그램에 필요한 수식을 만들 때 필요한 것이 연산자 입니다.
-                자바스크립트에서 연산자에는 산술 연산자. 대입 연산자, 논리 연산자 등이 있습니다.
+                자바스크립트에서 연산자에는 산술 연산자, 대입 연산자, 비교 연산자, 논리 연산자 등이 있습니다.
             </p>
 
             <hr>
 
+            <!-- 산술 연산자 -->
             <h3 class="t_tit2">산술 연산자</h3>
             <p class="t_desc">
                 산술 연산자는 사칙연산을 다루는 기본적이면서도 가장 많이 사용되는 연산자 입니다.
@@ -60,10 +61,19 @@
                 <tbody>
                     <tr>
                         <td class="ce" rowspan="2">+</td>
-                        <td>더하기 연산을 할 때 사용합니다.</td>
+                        <td>
+                            더하기 연산을 할 때 사용합니다.
+                        </td>
                     </tr>
                     <tr>
-                        <td>문자와 문자, 문자와 변수 등을 연결할 때 사용합니다.</td>
+                        <td>
+                            문자와 문자, 문자와 변수 등을 연결할 때 사용합니다.
+                            <div class="t_box">
+                                var subject = 'css';<br>
+                                var score = 100;<br>
+                                console.log(subject <i>+</i> '과목 성적은' <i>+</i> score); // css과목 성적은 100
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td class="ce">-</td>
@@ -78,8 +88,34 @@
                         <td>몫을 구할 때 사용합니다.</td>
                     </tr>
                     <tr>
-                        <td class="ce">%</td>
-                        <td>나머지를 구할 때 사용합니다.</td>
+                        <td class="ce" rowspan="2">%</td>
+                        <td>
+                            나머지를 구할 때 사용합니다.
+                            <div class="t_box">
+                                // var dividend = 0;<br>
+                                // var dividend = 1;<br>
+                                // var dividend = 2;<br>
+                                // var dividend = 3;<br>
+                                // var dividend = 4;<br>
+                                // var dividend = 5;<br>
+                                var remainder = <i>dividend % 3;</i><br>
+                                console.log(remainder); // 0, 1, 2, 0, 1, 2
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            '반복적인 숫자 구간의 패턴', 조건문을 이용한 '배수 판단' 등의 식을 만드는데도 사용합니다.
+                            <div class="t_box">
+                                // var dividend = 3;<br>
+                                // var dividend = 6;<br>
+                                // var dividend = 9;<br>
+                                var remainder = <i>dividend % 3;</i><br>
+                                var comment;<br>
+                                if (remainder === 0) { // 나머지가 0이면 comment = '3의 배수';}<br>
+                                console.log(comment); // 3의 배수
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td class="ce">++</td>
@@ -90,10 +126,11 @@
                         <td>1씩 감소시킬 때 사용합니다.</td>
                     </tr>
                 </tbody>
-            </table>
+            </table><br>
 
             <hr>
 
+            <!-- 대입 연산자 -->
             <h3 class="t_tit2">대입 연산자</h3>
             <p class="t_desc">
                 대입 연산자를 변수에 값을 대입할 때 사용하는 연산자로 기본적으로 오른쪽 값을 왼쪽에 대입합니다.
@@ -112,7 +149,14 @@
                     </tr>
                     <tr>
                         <td class="ce">+=</td>
-                        <td>num += 2는 num = num + 2와 같습니다.</td>
+                        <td>
+                            num += 2는 num = num + 2와 같습니다.
+                            <div class="t_box">
+                                var str = '자바스크립트';<br>
+                                var str <i>+=</i> '제이쿼리'; // str = '자바스크립트' + '제이쿼리'<br>
+                                console.log(str); // 자바스크립트 제이쿼리
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td class="ce">-=</td>
@@ -152,22 +196,26 @@
                         <td>a > b가 참이면 true, 거짓이면 false가 됩니다.</td>
                     </tr>
                     <tr>
-                        <td class="ce"><</td>
-                        <td>a < b가 참이면 true, 거짓이면 false가 됩니다.</td>
+                        <td class="ce">&lt;</td>
+                        <td>a &lt; b가 참이면 true, 거짓이면 false가 됩니다.</td>
                     </tr>
                     <tr>
                         <td class="ce">>=</td>
                         <td>a >= b가 참이면 true, 거짓이면 false가 됩니다.</td>
                     </tr>
                     <tr>
-                        <td class="ce"><=</td>
-                        <td>a <= b가 참이면 true, 거짓이면 false가 됩니다.</td>
+                        <td class="ce">&lt;=</td>
+                        <td>a &lt;= b가 참이면 true, 거짓이면 false가 됩니다.</td>
                     </tr>
                     <tr>
                         <td class="ce">==</td>
-                        <td>a == b, a와 b가 같으면 true, 같지 않으면 false가 됩니다.<br>
+                        <td>
+                            a == b, a와 b가 같으면 true, 같지 않으면 false가 됩니다.<br>
                             == 연산자의 경우 데이터 타입은 비교하지 않습니다.<br>
-                            ex) 5=='5'는 true</td>
+                            <div class="t_box">
+                                5 == '5'는 true가 나옵니다.
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td class="ce">!=</td>
@@ -175,8 +223,12 @@
                     </tr>
                     <tr>
                         <td class="ce">===</td>
-                        <td>a === b, a와 b가 같고 데이터 타입도 같으면 true, 같지 않으면 false가 됩니다.<br>
-                            ex) 5==='5'는 false</td>
+                        <td>
+                            a === b, a와 b가 같고 데이터 타입도 같으면 true, 같지 않으면 false가 됩니다.<br> 
+                            <div class="t_box">
+                                5 === '5'는 false가 나옵니다.
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td class="ce">!==</td>
@@ -200,22 +252,33 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="ce">&& (AND연산자)</td>
-                        <td>a && b, a와 b 모두 true일 때 true가 됩니다.<br><br>
-                            ex)<br>
-                            true && true = true<br>
-                            true && false = false<br>
-                            false && true = false<br>
-                            false && false = false</td>
+                        <td class="ce" rowspan="2">&& (AND연산자)</td>
+                        <td>
+                            a && b, a와 b 모두 true일 때 true가 됩니다.
+                            <div class="t_box">
+                                <pre>true && true = true     true && false = false
+false && true = false   false && false = false</pre>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            부등식 표현 또한 가능합니다.
+                            <div class="t_box">
+                                x > 20 <i>&&</i> x &lt; 30; // 20초과 30미만<br>
+                                x >= 20 <i>&&</i> x &lt;= 30; // str = 20이상 30이하
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td class="ce">|| (OR연산자)</td>
-                        <td>a || b, a와 b 중 하나만 true면 true가 됩니다.<br><br>
-                            ex)<br>
-                            true || true = true<br>
-                            true || false = true<br>
-                            false || true = true<br>
-                            false || false = false</td>
+                        <td>
+                            a || b, a와 b 중 하나만 true면 true가 됩니다.
+                            <div class="t_box">
+                                <pre>true || true = true     true || false = true
+false || true = true    false || false = false</pre>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td class="ce">! (NOT연산자)</td>
