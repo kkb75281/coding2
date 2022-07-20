@@ -14,7 +14,7 @@
         <h1>Javascript</h1>
         <nav class="header_nav">
             <ul>
-                <li><a href="javascript01.html">데이터 저장하기</a></li>
+                <li class="active"><a href="javascript01.html">데이터 저장하기</a></li>
                 <li><a href="javascript02.html">데이터 불러오기</a></li>
                 <li><a href="javascript03.html">데이터 실행하기</a></li>
                 <li><a href="javascript04.html">데이터 제어하기</a></li>
@@ -706,7 +706,7 @@ document.write(obj.d);
             document.querySelector(".sample13_result").innerHTML = obj.a + "<br>" + obj.b + "<br>" + obj.c;   
         }
 
-        // 14. 객체 : 배열 속에 객체
+        // 14. 객체 : 배열 속에 객체 ***
         {
             const obj = [
                 {a:100, b:200},
@@ -720,14 +720,14 @@ document.write(obj.d);
             document.querySelector(".sample14_result").innerHTML = obj[0].a + "<br>" + obj[0].b + "<br>" + obj[1].c;   
         }
 
-        // 15. 객체 : 객체 속에 배열
+        // 15. 객체 : 객체 속에 배열 ***
         {
             const obj = {
                 a:100,
                 b: [200,300],
                 c: {x:400, y: 500},
                 d: "javascript"
-            }
+            };
 
             //document.write(obj.a);
             //document.write(obj.b[0]);
@@ -738,6 +738,53 @@ document.write(obj.d);
 
             document.querySelector(".sample15_result").innerHTML = obj.a + "<br>" + obj.b[0] + "<br>" + obj.b[1] + "<br>" + obj.c.x + "<br>" + obj.c.y + "<br>" + obj.d;   
         }
+
+        // 16. 객체 : 객체 속에 변수, 리액트에서 많이 쓰임
+        {
+            const a = 100;
+            const b = 200;
+            const c = "javascript";
+
+            const obj = {a, b, c}
+
+            document.write(obj.a);
+            document.write(obj.b);
+            document.write(obj.c);
+        }
+
+        // 17. 객체 : 객체 속에 함수
+        {
+            const obj = {
+                a : 100,
+                b : [200, 300],
+                c : {x:400, y:500},
+                d : "javascript",
+                e : function(){
+                    document.write("자바스크립트가 실행되었습니다.");
+                },
+                f : function(){
+                    document.write(obj.d + "가 실행되었습니다.");
+                },
+                g : function(){
+                    document.write(this.d + "가 실행되었습니다.");
+                }
+            };
+
+            document.write(obj.a);
+            document.write(obj.b[0]);
+            document.write(obj.b[1]);
+            document.write(obj.b);
+            document.write(obj.c.x);
+            document.write(obj.c.y);
+            document.write(obj.c);
+            document.write(obj.d);
+            obj.e();
+            obj.f();
+            obj.g();
+
+        }
+
+        
 
     </script>
 </body>
