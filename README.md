@@ -14,3 +14,6 @@ https://kkb75281.github.io/coding2/html/index.html
 
 ### CSS 메인 페이지
 https://kkb75281.github.io/coding2/css/index.html
+
+### LAYOUT 메인 페이지
+https://kkb75281.github.io/coding2/layout/index.html
