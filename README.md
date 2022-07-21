@@ -17,4 +17,3 @@ https://kkb75281.github.io/coding2/html/alphabet.html
 
 ### CSS 메인 페이지
 https://kkb75281.github.io/coding2/css/index.html
-https://kkb75281.github.io/coding2/css/basic.html
