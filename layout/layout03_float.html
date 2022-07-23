@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃3</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        body {
+            background-color: #E1F5FE;
+        }
+        #wrap {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        #header {
+            width: 100%;
+            height: 100px;
+            background-color: #B3E5FC;
+        }
+        #nav {
+            width: 100%;
+            height: 100px;
+            background-color: #81D4FA;
+        }
+        #aside {
+            width: 25%;
+            height: 780px;
+            background-color: #4FC3F7;
+            float: left;
+        }
+        #article_1 {
+            width: 75%;
+            height: 260px;
+            background-color: #29B6F6;
+            float: right;
+        }
+        #article_2 {
+            width: 75%;
+            height: 260px;
+            background-color: #03A9F4;
+            float: right;
+        }
+        #section {
+            width: 75%;
+            height: 260px;
+            background-color: #039BE5;
+            float: right;
+        }
+        #footer {
+            width: 100%;
+            height: 100px;
+            background-color: #0288D1;
+            clear: both;
+        }
+        @media (max-width: 1280px){
+            #wrap {
+                width: 95%;
+            }
+            #article_2 {
+                width: 37.5%;
+                height: 520px;
+                float: left;
+            }
+            #section {
+                width: 37.5%;
+                height: 520px;
+                float: left;
+            }
+        }
+        @media (max-width: 768px){
+            #wrap {
+                width: 100%;
+            }
+            #aside {
+                width: 30%;
+                height: 780px;
+            }
+            #article_1 {
+                width: 70%;
+                height: 390px;
+            }
+            #article_2 {
+                width: 70%;
+                height: 390px;
+            }
+            #section {
+                display: none;
+            }
+        }
+        @media (max-width: 480px){
+            #wrap {
+                width: 100%;
+            }
+            #aside {
+                width: 100%;
+                height: 200px;
+            }
+            #article_1 {
+                width: 100%;
+                height: 430px;
+            }
+            #article_2 {
+                width: 100%;
+                height: 150px;
+            }
+            #section {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header"></div>
+        <div id="nav"></div>
+        <div id="aside"></div>
+        <div id="article_1"></div>
+        <div id="article_2"></div>
+        <div id="section"></div>
+        <div id="footer"></div>
+    </div>
+</body>
+</html>
