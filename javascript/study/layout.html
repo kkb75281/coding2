@@ -41,30 +41,46 @@
 
     <main id="main">
         <div class="document">
-            <h2 class="t_tit">기본 규칙</h2>
+            <h2 class="t_tit">Layout </h2>
             <p class="t_desc">
-                자바스크립트를 다루기 위해서는 기초적인 특징과 기본 문법이 있습니다.
-                가장 기본이기 때문에 이 부분을 숙지하고 자바스크립트를 <i>공부</i>하세요.
+                레이아웃이란 이미지나 글 등을 화면에서 보기 좋게 배열하는 것을 말합니다. 
+                이번 게시글에서는 <i>layout을 만드는 3가지 방법</i>을 알아보려고 합니다.
             </p>
 
             <hr>
 
-            <h3 class="t_tit2">자바스크립트란?</h3>
+            <h3 class="t_tit2">1. Float-based layout</h3>
             <p class="t_desc2">
-                JavaScript는 웹 페이지에서 복잡한 기능을 구현할 수 있도록 하는 스크립트 <i>프로그래밍 언어</i>입니다.
-                HTML은 정적인 레이아웃을 표현한다면, 자바스크립트는 동적인 기능을 표현합니다.
+                float의 사전적 의미는 '뜨다','떠돌다'이며 말 그대로 특정 요소를 뜨게 하도록 해주는 속성입니다.
+                플로팅 된 요소는 블럭 요소가 되며 display: inline-block;을 한 것과 같이 됩니다.
             </p>
+            <h4 class="t_tit3">01. float: 속성값(value);</h4>
+            <div class="t_box">
+                left; 요소를 왼쪽 방향으로 띄운다<br>
+                right; 요소를 오른쪽 방향으로 띄운다<br>
+                none; 기본값, 요소를 띄우지 않는다
+            </div>
+            <h4 class="t_tit3">02. 플로팅 해제</h4>
             <p class="t_desc">
-                자바스크립트는 1995년 넷스케이프 커뮤니케이션의 브렌던 아이크가 개발하였스며 Netscape Navigsator2.0에 구현되었습니다.
-                1996년에는 마이크로소프트사의 Internet Explorer3.0 탑재되었으며 java 애플릿으로 구현된 웹 브라우저의 지지부진한 보급과 맞물려 빠르게 보급되었습니다.
-                1997년부터 ESMAScript를 따르는 표준화 작업을 통해 현재는 모든 브라우저에서 지원됩니다.
+                플로팅한 요소는 기본적인 문서의 배치에서 벗어난 상태이기 때문에 레이아웃이 깨지는 버그가 발생합니다. 
+                이때 플로팅을 해제하는 방법 3가지를 알아보겠습니다.
             </p>
+            <div class="t_box">
+                clear; 임시로 플로팅 되는 것을 막기 위해 나온 속성<br>
+                overflow; 내가 지정한 영역 외에는 안보이게 해주는 속성, height 값이 없어지는 버그는 사라지지만 2차메뉴, 3차메뉴 만들게되면 쓰지 못한다.<br>
+                clearfix; 기본값, 요소를 띄우지 않는다
+            </div>
+            <p class="codepen" data-height="500" data-default-tab="css,result" data-slug-hash="GRxvNPO" data-user="kkb75281" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/kkb75281/pen/GRxvNPO">
+                if문</a> by kkb75281 (<a href="https://codepen.io/kkb75281">@kkb75281</a>)
+                on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
             <hr>
 
-            <h3 class="t_tit2">자바스크립트 기본 규칙</h3>
-            <h4 class="t_tit3">1. 세미콜론(;)</h4>
-            <p class="t_desc">
+            <h3 class="t_tit2">2. Flex-based layout</h3>
+            <p class="t_desc2">
                 하나의 실행문이 끝나면 마지막에 세미콜론(;)을 붙여 줍니다.
                 세미콜론(;)을 붙여주지 않아도 상관은 없습니다.
             </p>

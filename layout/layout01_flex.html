@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +8,7 @@
     <style>
         * {
             margin: 0;
+            padding: 0;
         }
         body {
             background-color: #FFF3E0;
@@ -19,50 +20,40 @@
             flex-wrap: wrap;   /* 가능한 영역 내에서 벗어나지 않고 여러행으로 나누어 표기 */
         }
         #header {
-            width: 1200px;
+            width: 100%;
             height: 100px;
             background-color: #FFE0B2;
         }
         #nav {
-            width: 1200px;
+            width: 100%;
             height: 100px;
             background-color: #FFCC80;
         }
         #aside {
-            width: 400px;
+            width: 33.5%;
             height: 780px;
             background-color: #FFB74D;
         }
         #section {
-            width: 800px;
+            width: 66.5%;
             height:780px;
             background-color: #FFA726;
         }
         #footer {
-            width: 1200px;
+            width: 100%;
             height: 100px;
             background-color: #FF9800;
         }
-        @media (max-width: 1280px){
+
+        /* 미디어쿼리 */
+        @media (max-width: 1300px){
             #wrap {
-                width: 95%;
-            }
-            #aside {
-                width: 30%;
-            }
-            #section {
-                width: 70%;
+                width: 96%;
             }
         }
         @media (max-width: 768px){
             #wrap {
                 width: 100%;
-            }
-            #aside {
-                width: 30%;
-            }
-            #section {
-                width: 70%;
             }
         }
         @media (max-width: 480px){
@@ -83,11 +74,11 @@
 </head>
 <body>
     <div id="wrap">
-        <div id="header"></div>
-        <div id="nav"></div>
-        <div id="aside"></div>
-        <div id="section"></div>
-        <div id="footer"></div>
+        <header id="header"></header>
+        <nav id="nav"></nav>
+        <aside id="aside"></aside>
+        <section id="section"></section>
+        <footer id="footer"></footer>
     </div>
 </body>
 </html>

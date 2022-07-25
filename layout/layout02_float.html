@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>레이아웃2</title>
+    <title>레이아웃2:float</title>
     <style>
         * {
             margin: 0;
+            padding: 0;
         }
         body {
             background-color: #E8F5E9;
@@ -20,6 +21,10 @@
             width: 100%;
             height: 100px;
             background-color: #C8E6C9;
+        }
+        #main {
+            width: 100%;
+            overflow: hidden;
         }
         #nav {
             width: 100%;
@@ -48,11 +53,12 @@
             width: 100%;
             height: 100px;
             background-color: #43A047;
-            clear: both;
         }
-        @media (max-width: 1280px){
+
+        /* 미디어쿼리 */
+        @media (max-width: 1300px){
             #wrap {
-                width: 95%;
+                width: 96%;
             }
         }
         @media (max-width: 768px){
@@ -62,12 +68,10 @@
             #aside {
                 width: 30%;
                 height: 630px;
-                float: left;
             }
             #article {
                 width: 70%;
                 height: 630px;
-                float: left;
             }
             #section {
                 width: 100%;
@@ -75,9 +79,6 @@
             }
         }
         @media (max-width: 480px){
-            #wrap {
-                width: 100%;
-            }
             #aside {
                 width: 100%;
                 height: 200px;
@@ -86,10 +87,6 @@
                 width: 100%;
                 height: 430px;
             }
-            #section {
-                width: 100%;
-                height: 150px;
-            }
         }
     </style>
 </head>
@@ -97,9 +94,11 @@
     <div id="wrap">
         <div id="header"></div>
         <div id="nav"></div>
-        <div id="aside"></div>
-        <div id="article"></div>
-        <div id="section"></div>
+        <div id="main">
+            <div id="aside"></div>
+            <div id="article"></div>
+            <div id="section"></div>
+        </div>
         <div id="footer"></div>
     </div>
 </body>
