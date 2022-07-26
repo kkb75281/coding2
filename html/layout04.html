@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/atom.css">
+
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 권규비</span>
+    </header>
+    <!-- //header -->
+    
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>래퍼런스 북</em></h2>
+        </header>
+        <nav class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초 문법</a></li>
+                <li><a href="block.html">블록 구조/인라인 구조</a></li>
+                <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+                <li><a href="sementic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li class="active"><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </nav>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">#레이아웃04</h2>
+                <p class="t_desc">
+                    이번 레이아웃은 전체 영역이 들어간 구조입니다. 
+                    실제 사이트에서 이런 구조를 많이 사용하며, <i>컨테이너</i>를 만들어서 가운데 영역을 설정합니다.
+                </p>
+                <div class="t_iframe">
+                    <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FlJNitiuz8rSWVNQNPIX8GE%2F%25EB%25A0%2588%25EC%259D%25B4%25EC%2595%2584%25EC%259B%2583%3Fnode-id%3D34%253A40" allowfullscreen></iframe>
+                </div>
+
+                <h3 class="t_tit2">float을 이용한 레이아웃</h3>
+                <p class="t_desc2">
+                    이번 레이아웃은 전체 영역이 들어간 구조입니다. 
+                    실제 사이트에서 이런 구조를 많이 사용하며, <i>컨테이너</i>를 만들어서 가운데 영역을 설정합니다.
+                </p>
+
+                <!-- float -->
+                <h3 class="t_tit2">1. float을 이용한 레이아웃</h3>
+                <p class="t_desc2">
+                    float의 사전적 의미는 '뜨다','떠돌다'이며 말 그대로 특정 요소를 뜨게 하도록 해주는 속성입니다.
+                    플로팅 된 요소는 블럭 요소가 되며 display: inline-block;을 한 것과 같이 됩니다.
+                </p>
+
+                <h4 class="t_tit3">1-1. <i>float</i>: 속성값(value);</h4>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>속성값</th>
+                            <th>의미</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ce">left</td>
+                            <td>요소를 왼쪽 방향으로 띄운다</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">right</td>
+                            <td>요소를 오른쪽 방향으로 띄운다</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">none</td>
+                            <td>기본값, 요소를 띄우지 않는다</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4 class="t_tit3">1-2. 플로팅 해제</h4>
+                <p class="t_desc">
+                    플롯의 원기능은 글씨와 이미지가 있을 때 정리해주기 위해 나온 속성으로
+                    플로팅한 요소는 기본적인 문서의 배치에서 벗어난 상태이기 때문에 레이아웃이 깨지는 버그가 발생합니다.<br>
+                    이때 플로팅을 해제하는 방법 3가지를 알아보겠습니다.
+                </p>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>속성값</th>
+                            <th>의미</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ce">clear</td>
+                            <td>임시로 플로팅 되는 것을 막기 위해 나온 속성</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">overflow</td>
+                            <td>
+                                overflow: hidden;<br>
+                                내가 지정한 영역 외에는 안보이게 해주는 속성<br>
+                                height 값이 없어지는 버그는 사라지지만 2차메뉴, 3차메뉴 만들게되면 쓰지 못한다
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ce">clearfix</td>
+                            <td>
+                                영역을 잡아주기 위한 속성<br>
+                                float을 사용한 부모박스에 적용시킨다
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="t_code">
+<pre><code class="language-css">* {
+    margin: 0;
+    padding: 0;
+}
+#header {
+    height: 100px;
+    background-color: #E0F2F1;
+}
+#nav {
+    height: 300px;
+    background-color: #80CBC4;
+}
+#section {
+    height: 580px;
+    background-color: #26A69A;
+}
+#footer {
+    height: 100px;
+    background-color: #00897B;
+}
+.container {
+    width: 1200px;
+    height: inherit;
+    margin: 0 auto;
+    background-color: rgba(0,0,0,0.3);
+}
+@media (max-width: 1220px){
+    .container {
+        width: 96%;
+    }
+}
+@media (max-width: 768px){
+    .container {
+        width: 100%;
+    }
+}
+</code></pre>
+                </div>
+
+                <h4 class="t_tit3">결과</h4>
+                <div class="t_iframe">
+                    <p class="codepen" data-height="300" data-slug-hash="YzaxbZw" data-user="kkb75281" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                        <span>See the Pen <a href="https://codepen.io/kkb75281/pen/YzaxbZw">
+                        layout4_float</a> by kkb75281 (<a href="https://codepen.io/kkb75281">@kkb75281</a>)
+                        on <a href="https://codepen.io">CodePen</a>.</span>
+                      </p>
+                      <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkb7528@naver.com">kkb7528@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

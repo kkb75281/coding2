@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/atom.css">
+
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 권규비</span>
+    </header>
+    <!-- //header -->
+    
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>래퍼런스 북</em></h2>
+        </header>
+        <nav class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초 문법</a></li>
+                <li><a href="block.html">블록 구조/인라인 구조</a></li>
+                <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+                <li><a href="sementic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li class="active"><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </nav>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">#레이아웃03</h2>
+                <p class="t_desc">
+                    이번 레이아웃은 전체 영역이 들어간 구조입니다. 
+                    실제 사이트에서 이런 구조를 많이 사용하며, <i>컨테이너</i>를 만들어서 가운데 영역을 설정합니다.
+                </p>
+                <div class="t_iframe">
+                    <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FlJNitiuz8rSWVNQNPIX8GE%2F%25EB%25A0%2588%25EC%259D%25B4%25EC%2595%2584%25EC%259B%2583%3Fnode-id%3D34%253A39" allowfullscreen></iframe>
+                </div>
+
+                <!-- float -->
+                <h3 class="t_tit2">1. float을 이용한 레이아웃</h3>
+                <p class="t_desc2">
+                    float의 사전적 의미는 '뜨다','떠돌다'이며 말 그대로 특정 요소를 뜨게 하도록 해주는 속성입니다.
+                    플로팅 된 요소는 블럭 요소가 되며 display: inline-block;을 한 것과 같이 됩니다.
+                </p>
+
+                <h4 class="t_tit3">1-1. <i>float</i>: 속성값(value);</h4>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>속성값</th>
+                            <th>의미</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ce">left</td>
+                            <td>요소를 왼쪽 방향으로 띄운다</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">right</td>
+                            <td>요소를 오른쪽 방향으로 띄운다</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">none</td>
+                            <td>기본값, 요소를 띄우지 않는다</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4 class="t_tit3">1-2. 플로팅 해제</h4>
+                <p class="t_desc">
+                    플롯의 원기능은 글씨와 이미지가 있을 때 정리해주기 위해 나온 속성으로
+                    플로팅한 요소는 기본적인 문서의 배치에서 벗어난 상태이기 때문에 레이아웃이 깨지는 버그가 발생합니다.<br>
+                    이때 플로팅을 해제하는 방법 3가지를 알아보겠습니다.
+                </p>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>속성값</th>
+                            <th>의미</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ce">clear</td>
+                            <td>임시로 플로팅 되는 것을 막기 위해 나온 속성</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">overflow</td>
+                            <td>
+                                overflow: hidden;<br>
+                                내가 지정한 영역 외에는 안보이게 해주는 속성<br>
+                                height 값이 없어지는 버그는 사라지지만 2차메뉴, 3차메뉴 만들게되면 쓰지 못한다
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ce">clearfix</td>
+                            <td>
+                                영역을 잡아주기 위한 속성<br>
+                                float을 사용한 부모박스에 적용시킨다
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="t_code">
+<pre><code class="language-css">* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #E1F5FE;
+}
+#wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+#header {
+    height: 100px;
+    background-color: #B3E5FC;
+}
+#nav {
+    height: 100px;
+    background-color: #81D4FA;
+}
+#main {
+    
+}
+#aside {
+    width: 30%;
+    height: 780px;
+    background-color: #4FC3F7;
+    float: left;
+}
+#article1 {
+    width: 70%;
+    height: 260px;
+    background-color: #29B6F6;
+    float: left;
+}
+#article2 {
+    width: 70%;
+    height: 260px;
+    background-color: #03A9F4;
+    float: left;
+}
+#article3 {
+    width: 70%;
+    height: 260px;
+    background-color: #039BE5;
+    float: left;
+}
+#footer {
+    height: 100px;
+    background-color: #0288D1;
+}
+
+/* clearfix */
+.clearfix ::before,
+.clearfix::after {
+    content: '';
+    display: block;
+    line-height: 0;
+}
+.clearfix::after {
+    clear: both;
+}
+
+/* 미디어쿼리 */
+@media(max-width: 1300px){
+    #wrap {
+        width: 96%;
+    }
+    #article2 {
+        width: 35%;
+        height: 520px;
+    }
+    #article3 {
+        width: 35%;
+        height: 520px;
+    }
+}
+@media(max-width: 768px){
+    #wrap {
+        width: 100%;
+    }
+    #article1 {
+        width: 70%;
+        height: 390px;
+    }
+    #article2 {
+        width: 70%;
+        height: 390px;
+    }
+    #article3 {
+        display: none;
+    }
+}
+@media(max-width: 480px){
+    #aside {
+    width: 100%;
+    height: 200px;
+    }
+    #article1 {
+        width: 100%;
+        height: 430px;
+    }
+    #article2 {
+        width: 100%;
+        height: 150px;
+    }
+}
+</code></pre>
+                </div>
+
+                <h4 class="t_tit3">결과</h4>
+                <div class="t_iframe">
+                    <p class="codepen" data-height="300" data-slug-hash="oNqedXP" data-user="kkb75281" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                        <span>See the Pen <a href="https://codepen.io/kkb75281/pen/oNqedXP">
+                        layout3_float</a> by kkb75281 (<a href="https://codepen.io/kkb75281">@kkb75281</a>)
+                        on <a href="https://codepen.io">CodePen</a>.</span>
+                      </p>
+                      <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+
+                <!-- flex -->
+                <h3 class="t_tit2">2. flex를 이용한 레이아웃</h3>
+                <p class="t_desc2">
+                    공간에 따라 크기를 유연하게 조절할 수 있으며 시각적인 순서와 방향을 정할 수 있다는 특징이 있으며 익스플로어에서는 사용할 수가 없습니다.<br>
+                    flex 레이아웃을 구성할 때는 플렉스 항목을 감싸는 부모 요소에 적용하면 됩니다.
+                </p>
+
+                <h4 class="t_tit3">2-1. <i>display</i>: 속성값(value);</h4>
+                <p class="t_desc">
+                    flex container를 정의하는 속성입니다.
+                </p>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>속성값</th>
+                            <th>의미</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ce">flex</td>
+                            <td>block 특성의 flex container를 정의</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">inline-flex</td>
+                            <td>inline 특성의 flex container를 정의</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4 class="t_tit3">2-2. <i>flex-wrap</i>: 속성값(value);</h4>
+                <p class="t_desc">
+                    플렉스 항목들의 열을 바꾸는 방법을 제어하는 속성으로 각각의 항목이 아닌 플렉스 컨테이너에 지정해줍니다.
+                </p>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>속성값</th>
+                            <th>의미</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ce">nowrap</td>
+                            <td>기본값, 플렉스 항목들이 wrap 되지 않도록 지정한다</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">wrap</td>
+                            <td>플렉스 항목들이 컨테이너 내에서 여러 줄로 열 바꿈을 할 수 있게 지정한다</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">wrap-reverse</td>
+                            <td>정렬 방향을 반대로 나열한다</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">initial</td>
+                            <td>기본값</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">inherit</td>
+                            <td>부모 요소로부터 값을 상속 받는다</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4 class="t_tit3">2-3. <i>flex-direction</i>: 속성값(value);</h4>
+                <p class="t_desc">
+                    플렉스 항목들의 흐름 방향을 제어하는 속성으로
+                    전체 플렉스 항목을 제어하기 때문에 각 항목이 아닌 플렉스 컨테이너에 지정해야 합니다. 
+                </p>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>속성값</th>
+                            <th>의미</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ce">row</td>
+                            <td>기본값, 왼쪽에서 오른쪽으로 나열한다</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">row-reverse</td>
+                            <td>오른쪽에서 왼쪽으로 나열한다</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">column</td>
+                            <td>수직으로 위쪽에서 아래쪽으로 나열한다</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">column-reverse</td>
+                            <td>수직으로 아래쪽에서 위쪽으로 나열한다</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="t_code">
+<pre><code class="language-css">* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #E1F5FE;
+}
+#wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+#header {
+    height: 100px;
+    background-color: #B3E5FC;
+}
+#nav {
+    height: 100px;
+    background-color: #81D4FA;
+}
+#main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 780px;
+}
+#aside {
+    width: 30%;
+    height: 780px;
+    background-color: #4FC3F7;
+}
+#article1 {
+    width: 70%;
+    height: 260px;
+    background-color: #29B6F6;
+}
+#article2-1 {
+    width: 100%;
+    height: 260px;
+    background-color: #03A9F4;
+}
+#article2-2 {
+    width: 100%;
+    height: 260px;
+    background-color: #039BE5;
+}
+#footer {
+    height: 100px;
+    background-color: #0288D1;
+}
+
+/* 미디어쿼리 */
+@media(max-width: 1300px){
+    #wrap {
+        width: 96%;
+    }
+    #article2 {
+        display: flex;
+    }
+    #article2-1 {
+        width: 50%;
+        height: 520px;
+    }
+    #article2-2 {
+        width: 50%;
+        height: 520px;
+    }
+}        
+@media(max-width: 768px){
+    #wrap {
+        width: 100%;
+    }
+    #article1{
+        width: 100%;
+        height: 390px;
+    }
+    #article2 {
+        display: flex;
+    }
+    #article2-1 {
+        width: 100%;
+        height: 390px;
+    }
+    #article2-2 {
+        display: none;
+    }
+}
+@media(max-width: 480px){
+    #aside {
+        width: 100%;
+        height: 200px;
+    }
+    #article1 {
+        height: 430px;
+    }
+    #article2-1 {
+        height: 150px;
+    }
+}
+</code></pre>
+                </div>
+
+                <h4 class="t_tit3">결과</h4>
+                <div class="t_iframe">
+                    <p class="codepen" data-height="300" data-slug-hash="Bardxoa" data-user="kkb75281" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                        <span>See the Pen <a href="https://codepen.io/kkb75281/pen/Bardxoa">
+                        layout3_flex</a> by kkb75281 (<a href="https://codepen.io/kkb75281">@kkb75281</a>)
+                        on <a href="https://codepen.io">CodePen</a>.</span>
+                      </p>
+                      <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+
+                <!-- grid -->
+                <h3 class="t_tit2">3. grid를 이용한 레이아웃</h3>
+                <p class="t_desc2">
+                    float이나 flex처럼 1차원적인 레이아웃이 아닌 2차원(행과 열)적인 레이아웃을 만드는 속성입니다.
+                </p>
+
+                <h4 class="t_tit3">3-1. <i>display</i>: 속성값(value);</h4>
+                <p class="t_desc">
+                    grid container를 정의하는 속성입니다.
+                </p>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>속성값</th>
+                            <th>의미</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ce">grid</td>
+                            <td>block 특성의 grid container를 정의</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">inline-grid</td>
+                            <td>inline 특성의 grid container를 정의</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4 class="t_tit3">3-2. <i>grid-area</i>: 이름 지정;</h4>
+                <p class="t_desc">
+                    그리드 영역의 이름을 지정해줍니다.
+                    이 속성은 grid container가 아닌 grid 요소에 적용해줍니다.
+                </p>
+
+                <h4 class="t_tit3">3-3. <i>grid-template-areas</i>: 그리드 영역 지정;</h4>
+                <p class="t_desc">
+                    지정해 놓은 그리드 영역을 템플릿으로 생성합니다.
+                    비어있는 영역은 .(마침표)를 사용하거나 none을 입력해 정의해 줄 수 있습니다.
+                </p>
+<pre><p class="t_box">.container {
+    grid-template-areas:
+        "header header header"
+        "nav nav ."
+        "aside article section"
+        "footer footer footer";
+}
+</p></pre>
+
+                <h4 class="t_tit3">3-4. <i>grid-template-columns</i>: 크기 지정;</h4>
+                <p class="t_desc">
+                    열의 크기를 지정합니다.
+                </p>
+<pre><p class="t_box">.container {
+    grid-template-columns: 300px 600px 300px;
+}
+</p></pre>
+
+                <h4 class="t_tit3">3-5. <i>grid-template-rows</i>: 크기 지정;</h4>
+                <p class="t_desc">
+                    행의 크기를 지정합니다.
+                </p>
+<pre><p class="t_box">.container {
+    grid-template-rows: 300px 600px 300px;
+}
+</p></pre>
+
+                <div class="t_code">
+<pre><code class="language-css">* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #E1F5FE;
+}
+#wrap {
+    width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "nav nav"
+        "aside article_1"
+        "aside article_2"
+        "aside section"
+        "footer footer"
+    ;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 100px 100px 260px 260px 260px 100px;
+}
+#header {
+    grid-area: header;
+    background-color: #B3E5FC;
+}
+#nav {
+    grid-area: nav;
+    background-color: #81D4FA;
+}
+#aside {
+    grid-area: aside;
+    background-color: #4FC3F7;
+}
+#article_1 {
+    grid-area: article_1;
+    background-color: #29B6F6;
+}
+#article_2 {
+    grid-area: article_2;
+    background-color: #03A9F4;
+}
+#section {
+    grid-area: section;
+    background-color: #039BE5;
+}
+#footer {
+    grid-area: footer;
+    background-color: #0288D1;
+}
+@media (max-width: 1300px){
+    #wrap {
+        width: 96%;
+        grid-template-areas: 
+            "header header header"
+            "nav nav nav"
+            "aside article_1 article_1"
+            "aside article_2 section"
+            "footer footer footer"
+        ;
+        grid-template-columns: 25% 37.5% 37.5%;
+        grid-template-rows: 100px 100px 260px 520px 100px;
+    }
+}
+@media (max-width: 768px){
+    #wrap {
+        width: 100%;
+        grid-template-areas: 
+            "header header"
+            "nav nav"
+            "aside article_1"
+            "aside article_2"
+            "footer footer"
+        ;
+        grid-template-columns: 30% 70%;
+        grid-template-rows: 100px 100px 390px 390px 100px;
+    }
+    #section {
+        display: none;
+    }
+}
+@media (max-width: 480px){
+    #wrap {
+        grid-template-areas: 
+            "header"
+            "nav"
+            "aside"
+            "article_1"
+            "article_2"
+            "footer"
+        ;
+        grid-template-columns: 100%;
+        grid-template-rows: 100px 100px 200px 430px 150px 100px;
+    }
+    #section {
+        display: none;
+    }
+}
+</code></pre>
+                </div>
+
+                <h4 class="t_tit3">결과</h4>
+                <div class="t_iframe">
+                    <p class="codepen" data-height="300" data-slug-hash="KKovRdg" data-user="kkb75281" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                        <span>See the Pen <a href="https://codepen.io/kkb75281/pen/KKovRdg">
+                        layout3_grid</a> by kkb75281 (<a href="https://codepen.io/kkb75281">@kkb75281</a>)
+                        on <a href="https://codepen.io">CodePen</a>.</span>
+                      </p>
+                      <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkb7528@naver.com">kkb7528@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>
