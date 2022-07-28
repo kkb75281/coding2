@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //선언적 함수
+    {
+        funtion func(){
+            document.write("함수가 실행되었습니다.1");
+        }
+    }
+
+    //익명 함수
+    {
+        const func = function (){
+            document.write("함수가 실행되었습니다.2");
+        }
+    }
+
+    // 매개변수 함수
+    {
+        function func(str){
+            document.write(str);
+        }
+        func("함수가 실행되었습니다.3");
+    }
+
+    //리턴값 함수
+    {
+        function func(){
+            const str = "함수가 실행되었습니다.4";
+            return str;
+        }
+        document.write(func());
+    }
+
+    //화살표 함수 - 선언적 함수
+    {
+        func = () => document.write("함수가 실행되었습니다.5");
+
+        func();
+    }
+
+    //화살표 함수 - 익명함수
+    {
+        const func = () => document.write("함수가 실행되었습니다.6");
+
+        const ();
+    }
+
+    //화살표 함수 - 매개변수 함수
+    {
+        func = str => document.write(str);
+
+        func("힘수가 실행되었습니다.7");
+    }
+
+    //화살표 함수 - 리턴값 함수
+    {
+        func = () => 
+    }
+    </script>
+</body>
+</html>
