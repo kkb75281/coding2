@@ -35,6 +35,7 @@
                 <li><a href="study/if.html">조건문</a></li>
                 <li><a href="study/type.html">데이터 타입</a></li>
                 <li><a href="study/function.html">함수</a></li>
+                <li><a href="study/var.html">전역변수/지역변수</a></li>
             </ul>
         </nav>
     </header>
@@ -465,7 +466,7 @@ arr.map(function(element, index, array){ //forEach 처럼 요소, 순서, 배열
             // num.forEach(function(el, i, arr){  //el : element, i : index
             //     document.write(el);
             // });
-// 
+ 
             // //forEach(element, index, array) : 3가지 인자(parameter)값
             // num.forEach(function(el, i, arr){  //el : element(요소), i : index(순서), arr : array(배열)
             //     document.write(el);
@@ -519,6 +520,36 @@ arr.map(function(element, index, array){ //forEach 처럼 요소, 순서, 배열
             //     document.write(array, "<br>");
             // });
 
+        }
+
+        // 암기(22.07.28)
+        {
+            const arr = [1,2,3,4,5,6,7,8,9];
+
+            //for문을 이용해서 하나씩 출력해주세요!
+            for(let i=0; i<arr.length; i++){
+                //document.write(arr[i]);
+            }
+
+            //forEach문을 이용해서 하나씩 출력해주세요!
+            arr.forEach(function(el){
+                //document.write(el);
+            })
+
+            //map()을 이용해서 하나씩 출력해주세요!
+            arr.map(function(el){
+                //document.write(el);
+            })
+
+            //for in을 이용해서 하나씩 출력해주세요!
+            for(let i in arr){
+                //document.write(arr[i]);
+            }
+
+            //for of을 이용해서 하나씩 출력해주세요!
+            for (let i of arr){
+                //document.write(i);
+            }
         }
 
     </script>
