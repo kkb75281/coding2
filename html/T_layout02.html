@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/atom.css">
+
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 권규비</span>
+    </header>
+    <!-- //header -->
+    
+    <main id="main">
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">#TYPE_2</h2>
+                <p class="t_desc">
+                    앞서 배운 <a href="https://kkb7528.tistory.com/6">float/flex/gid 방식</a>을 사용해 예제를 풀어봅시다.
+                    색상과 치수는 아래 피그마를 참고해주세요 !
+                </p>
+                <div class="t_iframe">
+                    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FlJNitiuz8rSWVNQNPIX8GE%2F%25EB%25A0%2588%25EC%259D%25B4%25EC%2595%2584%25EC%259B%2583%3Fnode-id%3D34%253A38" allowfullscreen></iframe>
+                </div>
+
+                <!-- float -->
+                <h3 class="t_tit2">1-1. float을 사용해서 만들어주세요 !</h3>
+        
+                <div class="t_code">
+<pre><code class="language-css">* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #E8F5E9;
+}
+#wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+#header {
+    width: 100%;
+    height: 100px;
+    background-color: #C8E6C9;
+}
+#main {
+    width: 100%;
+    overflow: hidden;
+}
+#nav {
+    width: 100%;
+    height: 100px;
+    background-color: #A5D6A7;
+}
+#aside {
+    width: 25%;
+    height: 780px;
+    background-color: #81C784;
+    float: left;
+}
+#article {
+    width: 50%;
+    height: 780px;
+    background-color: #66BB6A;
+    float: left;
+}
+#section {
+    width: 25%;
+    height: 780px;
+    background-color: #4CAF50;
+    float: left;
+}
+#footer {
+    width: 100%;
+    height: 100px;
+    background-color: #43A047;
+}
+
+/* 미디어쿼리 */
+@media (max-width: 1300px){
+    #wrap {
+        width: 96%;
+    }
+}
+@media (max-width: 768px){
+    #wrap {
+        width: 100%;
+    }
+    #aside {
+        width: 30%;
+        height: 630px;
+    }
+    #article {
+        width: 70%;
+        height: 630px;
+    }
+    #section {
+        width: 100%;
+        height: 150px;
+    }
+}
+@media (max-width: 480px){
+    #aside {
+        width: 100%;
+        height: 200px;
+    }
+    #article {
+        width: 100%;
+        height: 430px;
+    }
+}
+</code></pre>
+                </div>
+
+                <h3 class="t_tit2">1-2. 결과를 확인해봅시다 !</h3>
+                <div class="t_iframe">
+                    <p class="codepen" data-height="500" data-default-tab="result" data-slug-hash="bGvrMNN" data-user="kkb75281" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                        <span>See the Pen <a href="https://codepen.io/kkb75281/pen/bGvrMNN">
+                        layout2_float</a> by kkb75281 (<a href="https://codepen.io/kkb75281">@kkb75281</a>)
+                        on <a href="https://codepen.io">CodePen</a>.</span>
+                      </p>
+                      <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+
+                <!-- flex -->
+                <h3 class="t_tit2">2-1. flex를 사용해서 만들어주세요 !</h3>
+
+                <div class="t_code">
+<pre><code class="language-css">* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #E8F5E9;
+}
+#wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+#header {
+    height: 100px;
+    background-color: #C8E6C9;
+}
+#nav {
+    height: 100px;
+    background-color: #A5D6A7;
+}
+#main {
+    display: flex;
+}
+#aside {
+    width: 25%;
+    height: 780px;
+    background-color: #81C784;
+}
+#article {
+    width: 50%;
+    height: 780px;
+    background-color: #66BB6A;
+}
+#section {
+    width: 25%;
+    height: 780px;
+    background-color: #4CAF50;
+}
+#footer {
+    height: 100px;
+    background-color: #43A047;
+}
+
+/* 미디어쿼리 */
+@media (max-width: 1300px){
+    #wrap {
+        width: 96%;
+    }
+}
+@media (max-width: 768px){
+    #wrap {
+        width: 100%;
+    }
+    #main {
+        flex-wrap: wrap;
+    }
+    #aside {
+        width: 30%;
+        height: 630px;
+    }
+    #article {
+        width: 70%;
+        height: 630px;
+    }
+    #section {
+        width: 100%;
+        height: 150px;
+    }
+}
+@media (max-width: 480px){
+    #aside {
+        width: 100%;
+        height: 200px;
+    }
+    #article {
+        width: 100%;
+        height: 430px;
+    }
+}
+</code></pre>
+                </div>
+
+                <h4 class="t_tit3">2-2. 결과를 확인해봅시다 !</h4>
+                <div class="t_iframe">
+                    <p class="codepen" data-height="500" data-default-tab="result" data-slug-hash="LYdjmEr" data-user="kkb75281" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                        <span>See the Pen <a href="https://codepen.io/kkb75281/pen/LYdjmEr">
+                        layout2_flex</a> by kkb75281 (<a href="https://codepen.io/kkb75281">@kkb75281</a>)
+                        on <a href="https://codepen.io">CodePen</a>.</span>
+                      </p>
+                      <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+
+                <!-- grid -->
+                <h3 class="t_tit2">3-1. grid를 사용해서 만들어주세요 !</h3>
+
+                <div class="t_code">
+<pre><code class="language-css">* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #E8F5E9;
+}
+#wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+#header {
+    height: 100px;
+    background-color: #C8E6C9;
+}
+#nav {
+    height: 100px;
+    background-color: #A5D6A7;
+}
+#main {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 780px;
+}
+#aside {
+    background-color: #81C784;
+}
+#article {
+    background-color: #66BB6A;
+}
+#section {
+    background-color: #4CAF50;
+}
+#footer {
+    height: 100px;
+    background-color: #43A047;
+}
+
+/* 미디어쿼리 */
+@media (max-width: 1300px){
+    #wrap {
+        width: 96%;
+    }
+}
+@media (max-width: 768px){
+    #wrap {
+        width: 100%;
+    }
+    #main {
+        grid-template-areas: 
+            "aside article"
+            "section section"
+        ;
+        grid-template-columns: 30% 70%;
+        grid-template-rows: 630px 150px;
+    }
+    #aside {
+        grid-area: aside;
+    }
+    #article {
+        grid-area: article;
+    }
+    #section {
+        grid-area: section;
+    }
+}
+@media (max-width: 480px){
+    #main {
+        grid-template-areas: 
+            "aside"
+            "article"
+            "section"
+        ;
+        grid-template-columns: 100%;
+        grid-template-rows: 200px 430px 150px;
+    }
+}
+</code></pre>
+                </div>
+
+                <h4 class="t_tit3">3-2. 결과를 확인해봅시다 !</h4>
+                <div class="t_iframe">
+                    <p class="codepen" data-height="500" data-default-tab="result" data-slug-hash="wvmqjav" data-user="kkb75281" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                        <span>See the Pen <a href="https://codepen.io/kkb75281/pen/wvmqjav">
+                        layout2_grid</a> by kkb75281 (<a href="https://codepen.io/kkb75281">@kkb75281</a>)
+                        on <a href="https://codepen.io">CodePen</a>.</span>
+                      </p>
+                      <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkb7528@naver.com">kkb7528@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>
