@@ -54,10 +54,11 @@
             <!-- float -->
             <h3 class="t_tit2">1. Float-based layout</h3>
             <p class="t_desc2">
-                float의 사전적 의미는 '뜨다','떠돌다'이며 말 그대로 특정 요소를 뜨게 하도록 해주는 속성입니다.
+                float의 사전적 의미는 '뜨다','떠돌다'이며 말 그대로 특정 요소를 뜨게 하도록 해주는 속성입니다.<br>
                 플로팅 된 요소는 블럭 요소가 되며 display: inline-block;을 한 것과 같이 됩니다.
             </p><br>
             <h4 class="t_tit3">01. float: 속성값(value);</h4>
+            <img src="https://tistory2.daumcdn.net/tistory/5478752/skin/images/float_1.jpg" width="500" height="500">
             <table class="t_table">
                 <thead>
                     <tr>
@@ -79,7 +80,7 @@
                         <td>기본값, 요소를 띄우지 않는다</td>
                     </tr>
                 </tbody>
-            </table><br>
+            </table>
 
             <h4 class="t_tit3">02. 플로팅 해제</h4>
             <p class="t_desc">
@@ -97,7 +98,7 @@
                 <tbody>
                     <tr>
                         <td class="ce">clear</td>
-                        <td>임시로 플로팅 되는 것을 막기 위해 나온 속성</td>
+                        <td>float의 영향을 받지 않도록 해주는 속성</td>
                     </tr>
                     <tr>
                         <td class="ce">overflow</td>
@@ -123,11 +124,13 @@
             <h3 class="t_tit2">2. Flex-based layout</h3>
             <p class="t_desc2">
                 공간에 따라 크기를 유연하게 조절할 수 있으며 시각적인 순서와 방향을 정할 수 있다는 특징이 있으며 익스플로어에서는 사용할 수가 없습니다.<br>
-                flex 레이아웃을 구성할 때는 플렉스 항목을 감싸는 부모 요소에 적용하면 됩니다.
+                기본적인 구성은 부모 요소(container)와 자식 요소(item)으로 이루어지며, flex는 자식 요소를 감싸는 부모 요소에 적용하면 됩니다.
             </p><br>
             <h4 class="t_tit3">01. display: 속성값(value);</h4>
+            <img src="https://tistory3.daumcdn.net/tistory/5478752/skin/images/flex_1.jpg" width="500" height="500">
+            <img src="https://tistory2.daumcdn.net/tistory/5478752/skin/images/flex_2.jpg" width="500" height="500">
             <p class="t_desc">
-                flex container를 정의하는 속성입니다.
+                flex container를 정의하는 속성입니다. container와 그 주변 요소 사이의 관계를 생각하시면 됩니다.
             </p>
             <table class="t_table">
                 <thead>
@@ -245,6 +248,7 @@
                 </tbody>
             </table><br>
 
+            <img src="https://tistory4.daumcdn.net/tistory/5478752/skin/images/grid_1.jpg" width="500" height="500">
             <h4 class="t_tit3">02. grid-area: 이름 지정;</h4>
             <p class="t_desc">
                 그리드 영역의 이름을 지정해줍니다.
@@ -263,6 +267,7 @@
         "nav nav ."
         "aside article section"
         "footer footer footer"
+    ;
 }
 </code></pre></div>
 
@@ -272,7 +277,7 @@
             </p>
             <div class="t_code">
 <pre><code>.container {
-    grid-template-columns: 300px 600px 300px
+    grid-template-columns: 300px 600px 300px;
 }
 </code></pre></div>
 
@@ -282,7 +287,7 @@
             </p>
             <div class="t_code">
 <pre><code>.container {
-    grid-template-rows: 300px 600px 300px
+    grid-template-rows: 300px 600px 300px;
 }
 </code></pre></div>
             
