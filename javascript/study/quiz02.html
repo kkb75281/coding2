@@ -45,50 +45,67 @@
         <div class="document">
             <h2 class="t_tit">QUIZ를 만들어보자 !</h2>
             <p class="t_desc">
-                QUIZ의 여러 형태 중 <i>정답 확인하기</i> 형식으로 만들어봅시다.
+                QUIZ의 여러 형태 중 <i>주관식 답변</i> 형식으로 만들어봅시다.
             </p>
             <div class="t_iframe" style="min-height : 1000px; padding-top: 0;">
-                <iframe src="https://kkb75281.github.io/coding2/javascript/effect/quizEffect01.html" frameborder="0"></iframe>
+                <iframe src="https://kkb75281.github.io/coding2/javascript/effect/quizEffect02.html" frameborder="0"></iframe>
             </div>
 
             <div class="t_link">
-                <a href="https://github.com/kkb75281/coding2/blob/main/javascript/effect/quizEffect01.html" target="_blank">원본 소스 보기</a>
+                <a href="https://github.com/kkb75281/coding2/blob/main/javascript/effect/quizEffect02.html" target="_blank">원본 소스 보기</a>
             </div>
 
-            <h3 class="t_tit2">_ script를 살펴봅시다 !</h3>
+            <h3 class="t_tit2">script를 살펴봅시다 !</h3>
             <div class="t_code">
 <pre><code class=""language-js>&lt;script&gt;
     //선택자
-    const quizType = document.querySelector(".quiz__type");                               //퀴즈 종류
-    const quizNumber = document.querySelector(".quiz__question .number");       //퀴즈 번호
+    const quizType = document.querySelector(".quiz__type");                              //퀴즈 종류
+    const quizNumber = document.querySelector(".quiz__question .number");      //퀴즈 번호
     const quizAsk = document.querySelector(".quiz__question .ask");                    //퀴즈 질문
     const quizConfirm = document.querySelector(".quiz__answer .confirm");         //정답 확인 버튼
     const quizResult = document.querySelector(".quiz__answer .result");               //퀴즈 정답
-    const quizDog = document.querySelector(".quiz__view .dog");                       //강아지
+    const quizInput = document.querySelector(".quiz__answer .input");                //사용자 정답
+    const quizView = document.querySelector(".quiz__view");                              //강아지
 
     //문제 정보 (데이터 저장)
     const answerType = "웹디자인기능사";
-    const answerNum = 1;
-    const answerAsk = "인접하는 두 색의 경계 부분에 색상, 명도, 채도의 대비가 더욱 강하게 일어나는 현상을 무엇이라고 하는가?";
-    const answerResult = "연변대비";
+    const answerNum = "2";
+    const answerAsk = "기업의 새로운 이념 구축에 필요한 이미지와 커뮤니케이션 시스템을 의도적, 계획적으로 만들어 내는 기업 이미지 통합 전략은 무엇인가요?";
+    let answerResult = "CIP";
 
-    //문제 출력 (데이터 출력)
-    quizType.innerText = answerType;        //innerText 자바스크립트에서 만들어 놓은 객체
-    quizNumber.innerText = answerNum;
-    quizAsk.innerText = answerAsk;
-    quizResult.innerText = answerResult;
+    //문제 출력
+    quizType.textContent = answerType;      //innerText, textContent 같은 기능
+    quizNumber.textContent = answerNum;
+    quizAsk.textContent = answerAsk;
+    quizResult.textContent = "정답 : " + answerResult;
 
     //정답 숨기기
     quizResult.style.display = "none";
 
     //정답 확인
-    //정답 버튼을 클릭하면 확인 버튼은 안보이고 숨겨진 버튼이 보이도록
-    //정답을 확인하면 강아지가 웃고 있어야 함, class like 추가
-    quizConfirm.addEventListener("click", function(){        //버튼을 클릭하면 함수를실행해라
+    quizConfirm.addEventListener("click", () => {        //정답버튼을 클릭했을 때
+        quizInput.style.display = "none";
         quizConfirm.style.display = "none";
         quizResult.style.display = "block";
-        quizDog.classList.add("like");
-    });
+
+        //사용자 정답
+        const userWord = quizInput.value.toLowerCase().trim();     //= 우변을 좌변으로 치환, toLowerCase 소문자로 치환, trim 여백 없애기
+        answerResult = answerResult.toLowerCase().trim();       //answerResult const로 하면 상수라 변경 불가능, let으로 바꾸고 진행
+
+        console.log(userWord)
+        console.log(answerResult)
+
+        //사용자 정답 == 문제 정답 비교
+        if(userWord == answerResult) {
+            //정답일 경우
+            //alert("정답입니다.")
+            quizView.classList.add("like");
+        } else {
+            //오답일 경우
+            //alert("오답입니다.")
+            quizView.classList.add("dislike");
+        }
+    })
 &lt;/script&gt;
 </code></pre></div>
             <table class="t_table">
@@ -100,16 +117,16 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="ce">innerText</td>
-                        <td>Element 속성으로 사용자에게 보여지는 텍스트 값을 불러오는 속성입니다.</td>
+                        <td class="ce">textContent</td>
+                        <td>innerText와 같은 기능으로 쓰이지만 띄어쓰기를 포함해 텍스트를 있는 그대로 읽는다는 점이 다릅니다. </td>
                     </tr>
                     <tr>
-                        <td class="ce">addEventListener</td>
-                        <td>document의 특정요소에 event를 등록하는 속성으로 이번 퀴즈에서는 click 이벤트를 사용했습니다.</td>
+                        <td class="ce">toLowerCase()</td>
+                        <td>해당 문자열을 소문자로 변환시키는 속성입니다.</td>
                     </tr>
                     <tr>
-                        <td class="ce">Element.classList.add</td>
-                        <td>클래스를 추가하는 속성입니다.</td>
+                        <td class="ce">trim()</td>
+                        <td>문자열에 있는 공백을 없애주는 속성입니다.</td>
                     </tr>
                 </tbody>
             </table>
