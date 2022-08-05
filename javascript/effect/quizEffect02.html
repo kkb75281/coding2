@@ -107,7 +107,7 @@
             quizResult.style.display = "block";
 
             //사용자 정답
-            const userWord = quizInput.value.toLowerCase().trim();     //= 우변을 좌변으로 치환, toLowerCase 소문자로 치환, trim 여백 없애기
+            const userWord = quizInput.value.toLowerCase().trim();     //= 우변을 좌변으로 치환, value 값을 불러옴, toLowerCase 소문자로 치환, trim 여백 없애기
             answerResult = answerResult.toLowerCase().trim();       //answerResult const로 하면 상수라 변경 불가능, let으로 바꾸고 진행
 
             console.log(userWord)
