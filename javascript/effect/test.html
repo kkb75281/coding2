@@ -217,14 +217,39 @@
         ]
 
         //문제 출력
-        //1
-        // for(let i = 0; i < quizInfo.length; i++){
+        // 1
+        // quizType[0].textContent = quizInfo[0].answerType;
+        // quizNumber[0].textContent = quizInfo[0].answerNum;
+        // quizAsk[0].textContent = quizInfo[0].answerAsk;
+        // quizResult[0].textContent = quizInfo[0].answerResult;
+
+        // 2
+        // quizType[1].textContent = quizInfo[1].answerType;
+        // quizNumber[1].textContent = quizInfo[1].answerNum;
+        // quizAsk[1].textContent = quizInfo[1].answerAsk;
+        // quizResult[1].textContent = quizInfo[1].answerResult;
+
+        // 3
+        // quizType[2].textContent = quizInfo[2].answerType;
+        // quizNumber[2].textContent = quizInfo[2].answerNum;
+        // quizAsk[2].textContent = quizInfo[2].answerAsk;
+        // quizResult[2].textContent = quizInfo[2].answerResult;
+
+        // 4
+        // quizType[3].textContent = quizInfo[3].answerType;
+        // quizNumber[3].textContent = quizInfo[3].answerNum;
+        // quizAsk[3].textContent = quizInfo[3].answerAsk;
+        // quizResult[3].textContent = quizInfo[3].answerResult;
+
+        // for( let i = 0; i < quizInfo.length; i++){
         //     quizType[i].textContent = quizInfo[i].answerType;
         //     quizNumber[i].textContent = quizInfo[i].answerNum;
         //     quizAsk[i].textContent = quizInfo[i].answerAsk;
         //     quizResult[i].textContent = quizInfo[i].answerResult;
-        // }
-        quizInfo.forEach(function(e,i){
+        // };
+
+        //forEach는 순서를 인식, forEach(i) i만 쓰면 요소로 인식, forEach(e, i) 이렇게 써야 순서로 인식
+        quizInfo.forEach((e, i) => {
             quizType[i].textContent = quizInfo[i].answerType;
             quizNumber[i].textContent = quizInfo[i].answerNum;
             quizAsk[i].textContent = quizInfo[i].answerAsk;
@@ -232,12 +257,51 @@
         });
 
         //정답 숨기기
-        // for(let i=0; i<quizInfo.length; i++){
+        // quizResult[0].style.display = "none";
+        // quizResult[1].style.display = "none";
+        // quizResult[2].style.display = "none";
+        // quizResult[3].style.display = "none";
+
+        // for (let i=0; i<quizInfo.length; i++){
         //     quizResult[i].style.display = "none";
-        // }
-        quizInfo.forEach(function(e,i){
+        // };
+
+        quizInfo.forEach((e, i) => {
             quizResult[i].style.display = "none";
-        })
+        });
+
+        //정답 확인
+        //퀴즈 컨펌을 클릭 했을때 실행해라
+        // 버튼이 하나일 경우는 가능하지만
+        // quizConfirm.addEventListener("click", () => {
+        //     alert("ddd")
+        // });
+
+        //버튼이 여러개일 경우는 여러개가 있다는 것을 알려주고 실행해야 함
+        quizConfirm.forEach((btn, num) => {
+            btn.addEventListener("click", () => {
+                
+                //사용자 정답
+                const userWord = quizInput[num].value.toLowerCase().trim();
+
+                // console.log(userWord)
+                // console.log(quizInfo[num] = answerResult)
+
+                //사용자 정답과 문제 정답 비교
+                if(userWord == quizInfo[num].answerResult){
+                    alert("정답");
+                    quizView[num].classList.add("like");
+                    quizConfirm[num].style.display = "none";
+                } else {
+                    alert("오답");
+                    quizView[num].classList.add("dislike");
+                    quizConfirm[num].style.display = "none";
+                    quizResult[num].style.display = "block";
+                    quizInput[num].style.display = "none";
+                }
+            });
+        });
+
 
 
 
