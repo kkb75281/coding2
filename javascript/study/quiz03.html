@@ -156,11 +156,11 @@
             // console.log(quizInfo[num] = answerResult)
             //사용자 정답과 문제 정답 비교
             if(userWord == quizInfo[num].answerResult){
-                alert("정답");
+                //alert("정답");
                 quizView[num].classList.add("like");
                 quizConfirm[num].style.display = "none";
             } else {
-                alert("오답");
+                //alert("오답");
                 quizView[num].classList.add("dislike");
                 quizConfirm[num].style.display = "none";
                 quizResult[num].style.display = "block";
