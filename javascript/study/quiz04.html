@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+<body>
+    <header id="header">    
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operater.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">데이터 타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">전역변수/지역변수</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">QUIZ를 만들어보자 !</h2>
+            <p class="t_desc">
+                QUIZ의 여러 형태 중 <i>객관식(한문항)</i> 형식으로 만들어봅시다.
+            </p>
+            <div class="t_iframe" style="min-height : 1800px; padding-top: 0;">
+                <iframe src="https://kkb75281.github.io/coding2/javascript/effect/quizEffect04.html" frameborder="0"></iframe>
+            </div>
+
+            <div class="t_link">
+                <a href="https://github.com/kkb75281/coding2/blob/main/javascript/effect/quizEffect04.html" target="_blank">원본 소스 보기</a>
+            </div>
+
+            <h3 class="t_tit2">script를 살펴봅시다 !</h3>
+            <div class="t_code">
+<pre><code class=""language-js>&lt;script&gt;
+    //선택자
+    //타입이 여러개 중에 선택해서 불러오기 -> querySelector"All" 여러개 있다고 알려주기
+    const quizType = document.querySelector(".quiz__type");                     //퀴즈 종류
+    const quizNumber = document.querySelector(".quiz__question .number");       //퀴즈 번호
+    const quizAsk = document.querySelector(".quiz__question .ask");             //퀴즈 질문
+    const quizConfirm = document.querySelector(".quiz__answer .confirm");       //정답 확인 버튼
+    const quizResult = document.querySelector(".quiz__answer .result");         //퀴즈 정답
+    const quizView = document.querySelector(".quiz__view");                     //강아지
+    const quizSelects = document.querySelector(".quiz__selects");                //객관식 보기
+    const quizChoice = quizSelects.querySelectorAll(".choice");                    //객관식 보기
+    const quizSelect = quizSelects.querySelectorAll(".select");                    //객관식 보기
+
+    //문제정보
+    const quizInfo = [
+        {
+            answerType : "웹디자인기능사 2016년 04회",
+            answerNum : "1",
+            answerAsk : "다음 중 동화현상에 대한 설명으로 틀린 것은?",
+            answerChoice : ["색들끼리 서로 영향을 주어서 인접색에 가까운 것으로 느껴지는 현상을 말한다.", "색 자체가 명도나 채도가 높아서 시각적으로 빨리 눈에 띠는 성질을 말한다.", "동화현상에는 명도의 동화, 채도의 동화, 색상의 동화가 있다.", "동화현상은 눈의 양성적 또는 긍정적 잔상과의 관련으로서 설명된다."],
+            answerResult : "2",
+            answerEx : "시각적으로 눈에 잘 띄는 성질은 주목성이나 명시성으로 볼 수 있고 고명도 고채도 난색 종류가 그에 해당합니다."
+        }
+    ];
+
+    // 함수는 실행문, 여러개의 실행문을 모아서 정리
+    function updateQuiz(){
+        //문제출력
+        quizType.textContent = quizInfo[0].answerType;
+        quizNumber.textContent = quizInfo[0].answerNum;
+        quizAsk.textContent = quizInfo[0].answerAsk;
+        quizResult.textContent = quizInfo[0].answerEx;
+
+        //보기출력
+        for( let i=0; i&lt;quizSelect.length; i++ ){
+            quizChoice[i].textContent = quizInfo[0].answerChoice[i];
+        }
+
+        //해설 숨기기
+        quizResult.style.display = "none";
+    }
+    updateQuiz();
+
+    //정답 확인
+    function answerQuiz(){
+        //사용자가 선택한 정답과 문제 정답 일치 비교
+        //사용자가 클릭한 input 박스를 가지고 와야함 > checked(.css)
+
+        //보기가 4개 반복문으로 확인
+        for(let i=0; i&lt;quizSelect.length; i++){
+            if(quizSelect[i].checked == true){      //어떤 번호를 체크했는지 확인
+                //체크한 번호와 문제번호가 일치하는지 확인
+                if(quizSelect[i].value == quizInfo[0].answerResult){
+                    //alert("정답")
+                    quizView.classList.add("like")
+                } else {
+                    //alert("오답")
+                    quizView.classList.add("dislike")
+                    quizResult.style.display = "block";
+                    quizConfirm.style.display = "none";
+                }
+            }
+        }
+    }
+
+    //정답 클릭
+    quizConfirm.addEventListener("click", answerQuiz);
+&lt;/script&gt;
+</code></pre></div>
+            <p class="t_box">
+                <i>문제/보기 출력</i> |<br>
+                함수는 실행문으로 여러 실행문을 모아 정리해 줄 수 있습니다.
+            </p>
+            <p class="t_box">
+                <i>보기 출력</i> |<br>
+                4개가 있기 때문에 반복문을 사용하여 출력해줍니다.
+            </p>
+            <p class="t_box">
+                <i>정답 확인</i> |<br>
+                사용자가 어떤 답을 선택했는지 확인 > 사용자가 선택한 답과 정답 일치 여부 확인 > 일치하면 정답표시/ 그렇지 않으면 오답과 해설표시
+            </p>
+
+            
+            
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">    
+        <a href="mailto:kkb7528@naver.com">kkb7528@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <script>
+       
+    </script>
+</body>
+</html>

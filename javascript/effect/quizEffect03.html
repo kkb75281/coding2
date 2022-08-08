@@ -16,7 +16,7 @@
 
 <body>
     <header id="header">
-        <h1><a href="../javascript01.html">Quiz</a> <em>주관식 유형</em></h1>
+        <h1><a href="../javascript01.html">Quiz</a> <em>주관식(여러문제) 유형</em></h1>
         <nav>
             <ul>
                 <li><a href="quizEffect01.html">1</a></li>
@@ -282,7 +282,7 @@
             btn.addEventListener("click", () => {
                 
                 //사용자 정답
-                const userWord = quizInput[num].value.toLowerCase().trim();
+                const userWord = quizInput[num].value;//.toLowerCase().trim();
                 quizInfo[num].answerResult = quizInfo[num].answerResult.toLowerCase().trim();
 
                 // console.log(userWord)
