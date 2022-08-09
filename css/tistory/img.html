@@ -1,0 +1,116 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">벡터(Vector)와 비트맵(Bitmap)에 대해 알아봅시다 !</h2>
+        <p class="t_desc">
+            이미지 저장 포맷 종류인 벡터(Vector)와 비트맵(Bitmap)에 대해 알아보고 어떤 상황에 쓰면 적절할지 확인해봅시다.
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2">벡터(Vector)</h3>
+        <p class="t_desc2">
+            벡터는 점과 점을 연결해 수학적인 함수 관계로 이미지를 표현해 선과 면을 만들어 내는 것을 의미합니다.
+            점과 점이 연결되어 선이 되고, 선이 3개 이상 모이면 면을 만들 수 있습니다. 선은 두께와 색상, 곡률 값을 가지며 면은 색상 값을 가집니다.
+            이러한 점, 선, 면이 모여 벡터 그래픽을 구성하게 됩니다.
+        </p>
+
+        <p class="t_box">
+            <i>#깨짐 현상 없음</i><br>
+            벡터의 의미에서 볼 수 있듯이 수학적 좌표값으로 이루어져 있기 때문에 이미지를 줄이거나 늘렸을 때 깨지는 현상이 일어나지 않습니다.
+        </p>
+        <p class="t_box">
+            <i>#적은 용량</i><br>
+            픽셀로 구성되어 있는 비트맵보다 용량이 훨씬 작아 파일 관리가 편리합니다.
+        </p>
+        <p class="t_box">
+            <i>#세밀한 표현 어려움</i><br>
+            비트맵과 달리 색상의 자연스러운 변화나 세밀한 그림을 표현하기 어렵습니다.
+        </p>
+        <p class="t_box">
+            <i>#자유로운 수정</i><br>
+            벡터 포맷의 작업 파일이 보존되어 있다면 자유로운 수정이 가능해 유지, 관리가 편리합니다.
+        </p>
+        <p class="t_box" style="background-color: rgb(170, 170, 170); color: #fff; text-align: center; border-radius: 10px;">
+            AI, PDF, SVG
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2">비트맵(Bitmap)</h3>
+        <p class="t_desc2">
+            비트맵은 비트(bit)로 이루어진 지도(map), 즉 각 픽셀에 저장된 비트 정보의 집합이라고 볼 수 있습니다.
+            여기서 픽셀(Pixel)이란 이미지를 구성하는 최소단위의 점을 의미히며 디스플레이(Display)는 픽셀들의 배열로 구성되어 있습니다.
+            하나의 픽셀은 서브픽셀(Subpixel)로 구성되어 있고 각각의 픽셀에 특정 색을 넣어 이미지를 표현합니다.
+            일반적으로 웹 사이트에서 가장 많이 접할 수 있는 이미지 포맷 방식입니다.
+        </p>
+
+        <p class="t_box">
+            <i>#깨짐 현상</i><br>
+            이미지를 줄이는 것은 가능하나 확대하다보면 픽셀이 계단처럼 나타나는 계단 현상이 일어납니다.
+        </p>
+        <p class="t_box">
+            <i>#큰 용량</i><br>
+            비트맵은 픽셀로 구성되어 있기 때문에 사이즈가 커지면 커질수록 용량도 같이 늘어납니다.
+        </p>
+        <p class="t_box">
+            <i>#정교하고 다양한 색상</i><br>
+            많은 픽셀을 활용하여 다양하고 자연스러운 색감과 질감 등을 표현할 수 있습니다.
+        </p>
+        <p class="t_box" style="background-color: rgb(170, 170, 170); color: #fff; text-align: center; border-radius: 10px;">
+            JPG, JPEJ, PNG, GIF, BMP, EXIF, HEIF<br><br>
+
+            .JPG | 화려한 효과, 포토샵 효과 표현<br>
+            .PNG | 투명도 처리 가능, 용량 올라감<br>
+            .GIF | 256가지 색상밖에 지원 안됨 단순한 이미지, 애니메이션 구현 가능<br>
+            .Webp | PNG와 JPG의 장점을 모아서 새로 나옴 기존보다 소스 절약 화질 좋아짐
+        </p>
+
+        <hr>
+
+        <p class="t_desc" style="text-align: center; margin-top: 30px; margin-bottom: 0;">한눈에 확인해보는</p>
+        <h3 class="t_tit2" style="text-align: center; margin-top: 0;">
+            벡터와 비트맵의 차이
+        </h3>
+        <table class="t_table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>벡터(Vector)</th>
+                    <th>비트맵(Bitmap)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="ce">정의</td>
+                    <td>수학적 함수 관계로 이미지 표현</td>
+                    <td>각각의 픽셀에 정보를 저장하여 이미지 표현</td>
+                </tr>
+                <tr>
+                    <td class="ce">확대/축소</td>
+                    <td>변화 없음</td>
+                    <td>계단 현상</td>
+                </tr>
+                <tr>
+                    <td class="ce">장점</td>
+                    <td>선명한 표현, 자유로운 수정</td>
+                    <td>다양한 색감, 질감 표현 가능</td>
+                </tr>
+                <tr>
+                    <td class="ce">단점</td>
+                    <td>세밀한 표현의 한계</td>
+                    <td>큰 용량과 이미지 깨짐 현상</td>
+                </tr>
+                <tr>
+                    <td class="ce">확장자</td>
+                    <td>AI, SVG, VML 등</td>
+                    <td>JPG, PNG, GIF 등</td>
+                </tr>
+            </tbody>
+        </table>
+
+        
+
+        
+        
+    </div>
+</main>
