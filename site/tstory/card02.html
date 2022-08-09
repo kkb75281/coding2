@@ -1,0 +1,300 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">SITE를 만들어봅시다 !</h2>
+        <p class="t_desc">
+            이번에는 또 다른 형식의 카드 유형으로 사이트 구성을 만들어봅시다.
+        </p>
+        <div class="t_iframe">
+            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F9dsng1iVsw6HOFcutiPR1c%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D51%253A3" allowfullscreen></iframe>
+        </div>
+
+        <hr>
+
+        <h3 class="t_tit2">1. Figma 활용하기</h3>
+        <p class="t_box">
+            같은 디자인의 카드를 4개씩 총 8개 배열한 형태입니다. 먼저 공통적인 카드의 틀을 만들어 놓고 <i>component</i> 처리를 해서 배열해주면
+            혹여나 수정사항이 생긴다해도 하나를 수정하면 전체가 똑같이 반영되어 수정이 용이합니다.
+        </p>
+        
+        <div class="t_link">
+            <a href="https://github.com/kkb75281/coding2/blob/main/site/cardType02.html" target="_blank">원본 소스 보기</a>
+        </div>
+
+        <h3 class="t_tit2">2. CSS 살펴보기</h3>
+        <div class="t_code">
+<pre><code class=""language-js>&lt;style&gt;
+    /* fonts */
+    @import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+
+    .nexon {
+        font-family: "GmarketSans";
+        font-weight: 400;
+    }
+
+    /* reset */
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: normal;
+    }
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+    img {
+        width: 100%;
+    }
+
+    /* common */
+    .container {
+        width: 1160px;
+        padding: 0 20px;
+        margin: 0 auto;
+        min-width: 1160px;
+    }
+    .section {
+        padding: 120px 0;
+    }
+    .section > h2 {
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 1;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .section > p {
+        font-size: 22px;
+        font-weight: 3oo;
+        line-height: 1.4;
+        color: #666;
+        text-align: center;
+        margin-bottom: 70px;
+    }
+
+    /* cardType */
+    .card__inner {}
+    .card_top, .card_bottom {
+        display: flex;
+        justify-content: space-between;
+    }
+    .card {
+        width: 275px;
+    }
+    .card__header {
+        margin-bottom: 20px;
+    }
+    .card__body {
+        margin-bottom: 50px;
+    }
+    .card__body .tit {
+        font-size: 28px;
+        margin-bottom: 10px;
+        position: relative;
+    }
+    .card__body .btn {
+        position: absolute;
+        right: 0;
+    }
+    .card__body .desc {
+        font-size: 18px;
+        line-height: 1.4;
+        color: #666;
+        font-weight: 300;
+    }
+&lt;/style&gt;
+</code></pre></div>
+
+        <h3 class="t_tit2">3. HTML 살펴보기</h3>
+        <div class="t_code">
+<pre><code class=""language-js>&lt;body&gt;
+    &lt;section id="cardType" class="card__wrap nexon section"&gt;
+        &lt;h2>계절별 추천 여행지&lt;/h2&gt;
+        &lt;p&gt;
+            봄, 여름, 가을, 겨울 4계절별 각각에 맞는 여러 여행지와 추천 식당, 카페 등을 &lt;br&gt;
+            모아서 정리해보았습니다. 잘 참고하셔서 좋은 여행 되시길 바래요!
+        &lt;/p&gt;
+        &lt;div class="card__inner container"&gt;
+            &lt;div class="card_top"&gt;
+                &lt;article class="card"&gt;
+                    &lt;figure class="card__header"&gt;
+                        &lt;img src="img/card2_bg01.jpg" alt="봄 Spring_1"&gt;
+                    &lt;/figure&gt;
+                    &lt;div class="card__body"&gt;
+                        &lt;h3 class="tit"&gt;
+                            봄 Spring
+                            &lt;a href="/"&gt;
+                                &lt;span class="btn" aria-hidden="true"&gt;
+                                    &lt;svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+                                        &lt;rect width="28" height="28" rx="5" fill="#767676"/&gt;
+                                        &lt;path d="M8 13C7.44772 13 7 13.4477 7 14C7 14.5523 7.44772 15 8 15V13ZM20.7071 14.7071C21.0976 14.3166 21.0976 13.6834 20.7071 13.2929L14.3431 6.92893C13.9526 6.53841 13.3195 6.53841 12.9289 6.92893C12.5384 7.31946 12.5384 7.95262 12.9289 8.34315L18.5858 14L12.9289 19.6569C12.5384 20.0474 12.5384 20.6805 12.9289 21.0711C13.3195 21.4616 13.9526 21.4616 14.3431 21.0711L20.7071 14.7071ZM8 15L20 15V13L8 13V15Z" fill="#F1F1F1"/&gt;
+                                    &lt;/svg&gt;
+                                &lt;/span&gt;
+                            &lt;/a&gt;
+                        &lt;/h3&gt;
+                        &lt;p class="desc">봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 홍천 알파...&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/article&gt;
+                &lt;article class="card"&gt;
+                    &lt;figure class="card__header"&gt;
+                        &lt;img src="img/card2_bg02.jpg" alt="여름 Summer_1"&gt;
+                    &lt;/figure&gt;
+                    &lt;div class="card__body"&gt;
+                        &lt;h3 class="tit"&gt;
+                            여름 Summer
+                            &lt;a href="/"&gt;
+                                &lt;span class="btn" aria-hidden="true"&gt;
+                                    &lt;svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+                                        &lt;rect width="28" height="28" rx="5" fill="#767676"/&gt;
+                                        &lt;path d="M8 13C7.44772 13 7 13.4477 7 14C7 14.5523 7.44772 15 8 15V13ZM20.7071 14.7071C21.0976 14.3166 21.0976 13.6834 20.7071 13.2929L14.3431 6.92893C13.9526 6.53841 13.3195 6.53841 12.9289 6.92893C12.5384 7.31946 12.5384 7.95262 12.9289 8.34315L18.5858 14L12.9289 19.6569C12.5384 20.0474 12.5384 20.6805 12.9289 21.0711C13.3195 21.4616 13.9526 21.4616 14.3431 21.0711L20.7071 14.7071ZM8 15L20 15V13L8 13V15Z" fill="#F1F1F1"/&gt;
+                                    &lt;/svg&gt;
+                                &lt;/span&gt;
+                            &lt;/a&gt;
+                        &lt;/h3&gt;
+                        &lt;p class="desc">봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 홍천 알파...&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/article&gt;
+                &lt;article class="card"&gt;
+                    &lt;figure class="card__header"&gt;
+                        &lt;img src="img/card2_bg03.jpg" alt="가을 Fall_1"&gt;
+                    &lt;/figure&gt;
+                    &lt;div class="card__body"&gt;
+                        &lt;h3 class="tit"&gt;
+                            가을 Fall
+                            &lt;a href="/"&gt;
+                                &lt;span class="btn" aria-hidden="true"&gt;
+                                    &lt;svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+                                        &lt;rect width="28" height="28" rx="5" fill="#767676"/&gt;
+                                        &lt;path d="M8 13C7.44772 13 7 13.4477 7 14C7 14.5523 7.44772 15 8 15V13ZM20.7071 14.7071C21.0976 14.3166 21.0976 13.6834 20.7071 13.2929L14.3431 6.92893C13.9526 6.53841 13.3195 6.53841 12.9289 6.92893C12.5384 7.31946 12.5384 7.95262 12.9289 8.34315L18.5858 14L12.9289 19.6569C12.5384 20.0474 12.5384 20.6805 12.9289 21.0711C13.3195 21.4616 13.9526 21.4616 14.3431 21.0711L20.7071 14.7071ZM8 15L20 15V13L8 13V15Z" fill="#F1F1F1"/&gt;
+                                    &lt;/svg&gt;
+                                &lt;/span&gt;
+                            &lt;/a&gt;
+                        &lt;/h3&gt;
+                        &lt;p class="desc">봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 홍천 알파...&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/article&gt;
+                &lt;article class="card"&gt;
+                    &lt;figure class="card__header"&gt;
+                        &lt;img src="img/card2_bg04.jpg" alt="겨울 Winter_1"&gt;
+                    &lt;/figure&gt;
+                    &lt;div class="card__body"&gt;
+                        &lt;h3 class="tit"&gt;
+                            겨울 Winter
+                            &lt;a href="/"&gt;
+                                &lt;span class="btn" aria-hidden="true"&gt;
+                                    &lt;svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+                                        &lt;rect width="28" height="28" rx="5" fill="#767676"/&gt;
+                                        &lt;path d="M8 13C7.44772 13 7 13.4477 7 14C7 14.5523 7.44772 15 8 15V13ZM20.7071 14.7071C21.0976 14.3166 21.0976 13.6834 20.7071 13.2929L14.3431 6.92893C13.9526 6.53841 13.3195 6.53841 12.9289 6.92893C12.5384 7.31946 12.5384 7.95262 12.9289 8.34315L18.5858 14L12.9289 19.6569C12.5384 20.0474 12.5384 20.6805 12.9289 21.0711C13.3195 21.4616 13.9526 21.4616 14.3431 21.0711L20.7071 14.7071ZM8 15L20 15V13L8 13V15Z" fill="#F1F1F1"/&gt;
+                                    &lt;/svg&gt;
+                                &lt;/span&gt;
+                            &lt;/a&gt;
+                        &lt;/h3&gt;
+                        &lt;p class="desc">봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 홍천 알파...&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/article&gt;
+            &lt;/div&gt;
+            &lt;div class="card_bottom"&gt;
+                &lt;article class="card"&gt;
+                    &lt;figure class="card__header"&gt;
+                        &lt;img src="img/card2_bg05.jpg" alt="봄 Spring_2"&gt;
+                    &lt;/figure&gt;
+                    &lt;div class="card__body"&gt;
+                        &lt;h3 class="tit"&gt;
+                            봄 Spring
+                            &lt;a href="/"&gt;
+                                &lt;span class="btn" aria-hidden="true"&gt;
+                                    &lt;svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+                                        &lt;rect width="28" height="28" rx="5" fill="#767676"/&gt;
+                                        &lt;path d="M8 13C7.44772 13 7 13.4477 7 14C7 14.5523 7.44772 15 8 15V13ZM20.7071 14.7071C21.0976 14.3166 21.0976 13.6834 20.7071 13.2929L14.3431 6.92893C13.9526 6.53841 13.3195 6.53841 12.9289 6.92893C12.5384 7.31946 12.5384 7.95262 12.9289 8.34315L18.5858 14L12.9289 19.6569C12.5384 20.0474 12.5384 20.6805 12.9289 21.0711C13.3195 21.4616 13.9526 21.4616 14.3431 21.0711L20.7071 14.7071ZM8 15L20 15V13L8 13V15Z" fill="#F1F1F1"/&gt;
+                                    &lt;/svg&gt;
+                                &lt;/span&gt;
+                            &lt;/a&gt;
+                        &lt;/h3&gt;
+                        &lt;p class="desc">봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 홍천 알파...&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/article&gt;
+                &lt;article class="card"&gt;
+                    &lt;figure class="card__header"&gt;
+                        &lt;img src="img/card2_bg06.jpg" alt="여름 Summer_2"&gt;
+                    &lt;/figure&gt;
+                    &lt;div class="card__body"&gt;
+                        &lt;h3 class="tit"&gt;
+                            여름 Summer
+                            &lt;a href="/"&gt;
+                                &lt;span class="btn" aria-hidden="true"&gt;
+                                    &lt;svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+                                        &lt;rect width="28" height="28" rx="5" fill="#767676"/&gt;
+                                        &lt;path d="M8 13C7.44772 13 7 13.4477 7 14C7 14.5523 7.44772 15 8 15V13ZM20.7071 14.7071C21.0976 14.3166 21.0976 13.6834 20.7071 13.2929L14.3431 6.92893C13.9526 6.53841 13.3195 6.53841 12.9289 6.92893C12.5384 7.31946 12.5384 7.95262 12.9289 8.34315L18.5858 14L12.9289 19.6569C12.5384 20.0474 12.5384 20.6805 12.9289 21.0711C13.3195 21.4616 13.9526 21.4616 14.3431 21.0711L20.7071 14.7071ZM8 15L20 15V13L8 13V15Z" fill="#F1F1F1"/&gt;
+                                    &lt;/svg&gt;
+                                &lt;/span&gt;
+                            &lt;/a&gt;
+                        &lt;/h3&gt;
+                        &lt;p class="desc">봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 홍천 알파...&lt;/p&gt;
+                    &lt;/div>&gt;
+                &lt;/article>&gt;
+                &lt;article class="card">&gt;
+                    &lt;figure class="card__header">&gt;
+                        &lt;img src="img/card2_bg07.jpg" alt="가을 Fall_2">&gt;
+                    &lt;/figure>&gt;
+                    &lt;div class="card__body">&gt;
+                        &lt;h3 class="tit">&gt;
+                            가을 Fall
+                            &lt;a href="/">&gt;
+                                &lt;span class="btn" aria-hidden="true">&gt;
+                                    &lt;svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">&gt;
+                                        &lt;rect width="28" height="28" rx="5" fill="#767676"/>&gt;
+                                        &lt;path d="M8 13C7.44772 13 7 13.4477 7 14C7 14.5523 7.44772 15 8 15V13ZM20.7071 14.7071C21.0976 14.3166 21.0976 13.6834 20.7071 13.2929L14.3431 6.92893C13.9526 6.53841 13.3195 6.53841 12.9289 6.92893C12.5384 7.31946 12.5384 7.95262 12.9289 8.34315L18.5858 14L12.9289 19.6569C12.5384 20.0474 12.5384 20.6805 12.9289 21.0711C13.3195 21.4616 13.9526 21.4616 14.3431 21.0711L20.7071 14.7071ZM8 15L20 15V13L8 13V15Z" fill="#F1F1F1"/&gt;
+                                    &lt;/svg&gt;
+                                &lt;/span&gt;
+                            &lt;/a&gt;
+                        &lt;/h3&gt;
+                        &lt;p class="desc">봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 홍천 알파...&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/article&gt;
+                &lt;article class="card"&gt;
+                    &lt;figure class="card__header"&gt;
+                        &lt;img src="img/card2_bg08.jpg" alt="겨울 Winter_2"&gt;
+                    &lt;/figure&gt;
+                    &lt;div class="card__body"&gt;
+                        &lt;h3 class="tit"&gt;
+                            겨울 Winter
+                            &lt;a href="/"&gt;
+                                &lt;span class="btn" aria-hidden="true"&gt;
+                                    &lt;svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+                                        &lt;rect width="28" height="28" rx="5" fill="#767676"/&gt;
+                                        &lt;path d="M8 13C7.44772 13 7 13.4477 7 14C7 14.5523 7.44772 15 8 15V13ZM20.7071 14.7071C21.0976 14.3166 21.0976 13.6834 20.7071 13.2929L14.3431 6.92893C13.9526 6.53841 13.3195 6.53841 12.9289 6.92893C12.5384 7.31946 12.5384 7.95262 12.9289 8.34315L18.5858 14L12.9289 19.6569C12.5384 20.0474 12.5384 20.6805 12.9289 21.0711C13.3195 21.4616 13.9526 21.4616 14.3431 21.0711L20.7071 14.7071ZM8 15L20 15V13L8 13V15Z" fill="#F1F1F1"/&gt;
+                                    &lt;/svg&gt;
+                                &lt;/span&gt;
+                            &lt;/a&gt;
+                        &lt;/h3&gt;
+                        &lt;p class="desc"&gt;봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 홍천 알파...&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/article&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/body&gt;
+</code></pre></div>
+        <p class="t_box">
+            <i>aria-hidden |</i><br>
+            버튼을 클릭 했을 때 관련 콘텐츠가 펼쳐지거나, 탭을 활성화 하는 등 사용자가 페이지에서 컨트롤과 상호작용한 후 불필요한 콘텐츠가 되는 경우 쓰는 속성입니다. 
+            이러한 속성은 스크린 리터와 같은 보조기술에서도 탐색할 수 없어 사용자의 편의성에 맞춰 설정해주시면 됩니다.
+        </p>
+
+        <h3 class="t_tit2">3. 결과 확인하기</h3>
+        <div class="t_iframe">
+            <iframe src="https://kkb75281.github.io/coding2/site/cardType/cardType02.html" frameborder="0"></iframe>
+        </div>
+        <div class="t_link">
+            <a href="https://github.com/kkb75281/coding2/blob/main/site/cardType02.html" target="_blank">원본 소스 보기</a>
+        </div>
+        <div class="t_link">
+            <a href="https://kkb75281.github.io/coding2/site/cardType/cardType02.html" target="_blank">실제 사이트 보기</a>
+        </div>
+        
+
+        
+        
+    </div>
+</main>
