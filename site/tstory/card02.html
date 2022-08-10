@@ -23,9 +23,9 @@
     /* fonts */
     @import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
 
-    .nexon {
+    .gmark {
         font-family: "GmarketSans";
-        font-weight: 400;
+        font-weight: 500;
     }
 
     /* reset */
@@ -54,9 +54,8 @@
     .section {
         padding: 120px 0;
     }
-    .section > h2 {
+    .section > h2 {     /* +는 형제 바로 밑에 있는 자식은 > */
         font-size: 50px;
-        font-weight: 500;
         line-height: 1;
         text-align: center;
         margin-bottom: 20px;
@@ -64,41 +63,70 @@
     .section > p {
         font-size: 22px;
         font-weight: 3oo;
-        line-height: 1.4;
         color: #666;
         text-align: center;
         margin-bottom: 70px;
     }
+    .gray {
+        background-color: #f5f5f5;
+    }
+    
+    /* ir 효과(image replace 효과, 이미지 대체효과 == alt, 스크린 리더기에는 읽히고 우리 눈에는 안보이게) */
+    .ir {
+        display: block;
+        overflow: hidden;
+        font-size: 0;
+        line-height: 0;
+        text-indent: -9999px;       /* 들여쓰기 */
+    }
 
-    /* cardType */
-    .card__inner {}
-    .card_top, .card_bottom {
+    /* cardType02 */
+    .card__inner {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
     }
-    .card {
-        width: 275px;
-    }
-    .card__header {
-        margin-bottom: 20px;
-    }
-    .card__body {
-        margin-bottom: 50px;
-    }
-    .card__body .tit {
-        font-size: 28px;
-        margin-bottom: 10px;
+    .card__inner .card {
+        width: 24%;
         position: relative;
     }
-    .card__body .btn {
+    .card__inner .card:first-child {        /* 익스플로어 고려해서 nth 말고 퍼스트찰드로 */
+        margin-bottom: 50px;
+    }
+    .card__inner .card img {
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    .card__inner .card .tit {
+        font-size: 28px;
+        margin-bottom: 10px;
+        /* 한줄효과 */
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding-right: 20px;
+    }
+    .card__inner .card .desc {
+        font-size: 18px;
+        font-weight: 300;
+        color: #666;
+        line-height: 1.4;
+        /* 세줄효과 */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; 
+        -webkit-box-orient: vertical;
+    }
+    .card__inner .card .more {
+        width: 28px;
+        height: 28px;
+        background-image: url(img/arrow.svg);
+        display: block;
         position: absolute;
         right: 0;
-    }
-    .card__body .desc {
-        font-size: 18px;
-        line-height: 1.4;
-        color: #666;
-        font-weight: 300;
+        top: 230px;
+        border-radius: 5px;
     }
 &lt;/style&gt;
 </code></pre></div>
@@ -106,169 +134,61 @@
         <h3 class="t_tit2">3. HTML 살펴보기</h3>
         <div class="t_code">
 <pre><code class=""language-js>&lt;body&gt;
-    &lt;section id="cardType" class="card__wrap nexon section"&gt;
-        &lt;h2>계절별 추천 여행지&lt;/h2&gt;
+    &lt;section id="cardType02" class="card__wrap gmark section gray"&gt;
+        &lt;h2&gt;계절별 추천 여행지&lt;/h2&gt;
         &lt;p&gt;
-            봄, 여름, 가을, 겨울 4계절별 각각에 맞는 여러 여행지와 추천 식당, 카페 등을 &lt;br&gt;
+            봄, 여름, 가을, 겨울 4계절별 각각에 맞는 여러 여행지와 추천 식당, 카페 등을&lt;br&gt;
             모아서 정리해보았습니다. 잘 참고하셔서 좋은 여행 되시길 바래요!
         &lt;/p&gt;
         &lt;div class="card__inner container"&gt;
-            &lt;div class="card_top"&gt;
-                &lt;article class="card"&gt;
-                    &lt;figure class="card__header"&gt;
-                        &lt;img src="img/card2_bg01.jpg" alt="봄 Spring_1"&gt;
-                    &lt;/figure&gt;
-                    &lt;div class="card__body"&gt;
-                        &lt;h3 class="tit"&gt;
-                            봄 Spring
-                            &lt;a href="/"&gt;
-                                &lt;span class="btn" aria-hidden="true"&gt;
-                                    &lt;svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
-                                        &lt;rect width="28" height="28" rx="5" fill="#767676"/&gt;
-                                        &lt;path d="M8 13C7.44772 13 7 13.4477 7 14C7 14.5523 7.44772 15 8 15V13ZM20.7071 14.7071C21.0976 14.3166 21.0976 13.6834 20.7071 13.2929L14.3431 6.92893C13.9526 6.53841 13.3195 6.53841 12.9289 6.92893C12.5384 7.31946 12.5384 7.95262 12.9289 8.34315L18.5858 14L12.9289 19.6569C12.5384 20.0474 12.5384 20.6805 12.9289 21.0711C13.3195 21.4616 13.9526 21.4616 14.3431 21.0711L20.7071 14.7071ZM8 15L20 15V13L8 13V15Z" fill="#F1F1F1"/&gt;
-                                    &lt;/svg&gt;
-                                &lt;/span&gt;
-                            &lt;/a&gt;
-                        &lt;/h3&gt;
-                        &lt;p class="desc">봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 홍천 알파...&lt;/p&gt;
-                    &lt;/div&gt;
-                &lt;/article&gt;
-                &lt;article class="card"&gt;
-                    &lt;figure class="card__header"&gt;
-                        &lt;img src="img/card2_bg02.jpg" alt="여름 Summer_1"&gt;
-                    &lt;/figure&gt;
-                    &lt;div class="card__body"&gt;
-                        &lt;h3 class="tit"&gt;
-                            여름 Summer
-                            &lt;a href="/"&gt;
-                                &lt;span class="btn" aria-hidden="true"&gt;
-                                    &lt;svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
-                                        &lt;rect width="28" height="28" rx="5" fill="#767676"/&gt;
-                                        &lt;path d="M8 13C7.44772 13 7 13.4477 7 14C7 14.5523 7.44772 15 8 15V13ZM20.7071 14.7071C21.0976 14.3166 21.0976 13.6834 20.7071 13.2929L14.3431 6.92893C13.9526 6.53841 13.3195 6.53841 12.9289 6.92893C12.5384 7.31946 12.5384 7.95262 12.9289 8.34315L18.5858 14L12.9289 19.6569C12.5384 20.0474 12.5384 20.6805 12.9289 21.0711C13.3195 21.4616 13.9526 21.4616 14.3431 21.0711L20.7071 14.7071ZM8 15L20 15V13L8 13V15Z" fill="#F1F1F1"/&gt;
-                                    &lt;/svg&gt;
-                                &lt;/span&gt;
-                            &lt;/a&gt;
-                        &lt;/h3&gt;
-                        &lt;p class="desc">봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 홍천 알파...&lt;/p&gt;
-                    &lt;/div&gt;
-                &lt;/article&gt;
-                &lt;article class="card"&gt;
-                    &lt;figure class="card__header"&gt;
-                        &lt;img src="img/card2_bg03.jpg" alt="가을 Fall_1"&gt;
-                    &lt;/figure&gt;
-                    &lt;div class="card__body"&gt;
-                        &lt;h3 class="tit"&gt;
-                            가을 Fall
-                            &lt;a href="/"&gt;
-                                &lt;span class="btn" aria-hidden="true"&gt;
-                                    &lt;svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
-                                        &lt;rect width="28" height="28" rx="5" fill="#767676"/&gt;
-                                        &lt;path d="M8 13C7.44772 13 7 13.4477 7 14C7 14.5523 7.44772 15 8 15V13ZM20.7071 14.7071C21.0976 14.3166 21.0976 13.6834 20.7071 13.2929L14.3431 6.92893C13.9526 6.53841 13.3195 6.53841 12.9289 6.92893C12.5384 7.31946 12.5384 7.95262 12.9289 8.34315L18.5858 14L12.9289 19.6569C12.5384 20.0474 12.5384 20.6805 12.9289 21.0711C13.3195 21.4616 13.9526 21.4616 14.3431 21.0711L20.7071 14.7071ZM8 15L20 15V13L8 13V15Z" fill="#F1F1F1"/&gt;
-                                    &lt;/svg&gt;
-                                &lt;/span&gt;
-                            &lt;/a&gt;
-                        &lt;/h3&gt;
-                        &lt;p class="desc">봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 홍천 알파...&lt;/p&gt;
-                    &lt;/div&gt;
-                &lt;/article&gt;
-                &lt;article class="card"&gt;
-                    &lt;figure class="card__header"&gt;
-                        &lt;img src="img/card2_bg04.jpg" alt="겨울 Winter_1"&gt;
-                    &lt;/figure&gt;
-                    &lt;div class="card__body"&gt;
-                        &lt;h3 class="tit"&gt;
-                            겨울 Winter
-                            &lt;a href="/"&gt;
-                                &lt;span class="btn" aria-hidden="true"&gt;
-                                    &lt;svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
-                                        &lt;rect width="28" height="28" rx="5" fill="#767676"/&gt;
-                                        &lt;path d="M8 13C7.44772 13 7 13.4477 7 14C7 14.5523 7.44772 15 8 15V13ZM20.7071 14.7071C21.0976 14.3166 21.0976 13.6834 20.7071 13.2929L14.3431 6.92893C13.9526 6.53841 13.3195 6.53841 12.9289 6.92893C12.5384 7.31946 12.5384 7.95262 12.9289 8.34315L18.5858 14L12.9289 19.6569C12.5384 20.0474 12.5384 20.6805 12.9289 21.0711C13.3195 21.4616 13.9526 21.4616 14.3431 21.0711L20.7071 14.7071ZM8 15L20 15V13L8 13V15Z" fill="#F1F1F1"/&gt;
-                                    &lt;/svg&gt;
-                                &lt;/span&gt;
-                            &lt;/a&gt;
-                        &lt;/h3&gt;
-                        &lt;p class="desc">봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 홍천 알파...&lt;/p&gt;
-                    &lt;/div&gt;
-                &lt;/article&gt;
-            &lt;/div&gt;
-            &lt;div class="card_bottom"&gt;
-                &lt;article class="card"&gt;
-                    &lt;figure class="card__header"&gt;
-                        &lt;img src="img/card2_bg05.jpg" alt="봄 Spring_2"&gt;
-                    &lt;/figure&gt;
-                    &lt;div class="card__body"&gt;
-                        &lt;h3 class="tit"&gt;
-                            봄 Spring
-                            &lt;a href="/"&gt;
-                                &lt;span class="btn" aria-hidden="true"&gt;
-                                    &lt;svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
-                                        &lt;rect width="28" height="28" rx="5" fill="#767676"/&gt;
-                                        &lt;path d="M8 13C7.44772 13 7 13.4477 7 14C7 14.5523 7.44772 15 8 15V13ZM20.7071 14.7071C21.0976 14.3166 21.0976 13.6834 20.7071 13.2929L14.3431 6.92893C13.9526 6.53841 13.3195 6.53841 12.9289 6.92893C12.5384 7.31946 12.5384 7.95262 12.9289 8.34315L18.5858 14L12.9289 19.6569C12.5384 20.0474 12.5384 20.6805 12.9289 21.0711C13.3195 21.4616 13.9526 21.4616 14.3431 21.0711L20.7071 14.7071ZM8 15L20 15V13L8 13V15Z" fill="#F1F1F1"/&gt;
-                                    &lt;/svg&gt;
-                                &lt;/span&gt;
-                            &lt;/a&gt;
-                        &lt;/h3&gt;
-                        &lt;p class="desc">봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 홍천 알파...&lt;/p&gt;
-                    &lt;/div&gt;
-                &lt;/article&gt;
-                &lt;article class="card"&gt;
-                    &lt;figure class="card__header"&gt;
-                        &lt;img src="img/card2_bg06.jpg" alt="여름 Summer_2"&gt;
-                    &lt;/figure&gt;
-                    &lt;div class="card__body"&gt;
-                        &lt;h3 class="tit"&gt;
-                            여름 Summer
-                            &lt;a href="/"&gt;
-                                &lt;span class="btn" aria-hidden="true"&gt;
-                                    &lt;svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
-                                        &lt;rect width="28" height="28" rx="5" fill="#767676"/&gt;
-                                        &lt;path d="M8 13C7.44772 13 7 13.4477 7 14C7 14.5523 7.44772 15 8 15V13ZM20.7071 14.7071C21.0976 14.3166 21.0976 13.6834 20.7071 13.2929L14.3431 6.92893C13.9526 6.53841 13.3195 6.53841 12.9289 6.92893C12.5384 7.31946 12.5384 7.95262 12.9289 8.34315L18.5858 14L12.9289 19.6569C12.5384 20.0474 12.5384 20.6805 12.9289 21.0711C13.3195 21.4616 13.9526 21.4616 14.3431 21.0711L20.7071 14.7071ZM8 15L20 15V13L8 13V15Z" fill="#F1F1F1"/&gt;
-                                    &lt;/svg&gt;
-                                &lt;/span&gt;
-                            &lt;/a&gt;
-                        &lt;/h3&gt;
-                        &lt;p class="desc">봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 홍천 알파...&lt;/p&gt;
-                    &lt;/div>&gt;
-                &lt;/article>&gt;
-                &lt;article class="card">&gt;
-                    &lt;figure class="card__header">&gt;
-                        &lt;img src="img/card2_bg07.jpg" alt="가을 Fall_2">&gt;
-                    &lt;/figure>&gt;
-                    &lt;div class="card__body">&gt;
-                        &lt;h3 class="tit">&gt;
-                            가을 Fall
-                            &lt;a href="/">&gt;
-                                &lt;span class="btn" aria-hidden="true">&gt;
-                                    &lt;svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">&gt;
-                                        &lt;rect width="28" height="28" rx="5" fill="#767676"/>&gt;
-                                        &lt;path d="M8 13C7.44772 13 7 13.4477 7 14C7 14.5523 7.44772 15 8 15V13ZM20.7071 14.7071C21.0976 14.3166 21.0976 13.6834 20.7071 13.2929L14.3431 6.92893C13.9526 6.53841 13.3195 6.53841 12.9289 6.92893C12.5384 7.31946 12.5384 7.95262 12.9289 8.34315L18.5858 14L12.9289 19.6569C12.5384 20.0474 12.5384 20.6805 12.9289 21.0711C13.3195 21.4616 13.9526 21.4616 14.3431 21.0711L20.7071 14.7071ZM8 15L20 15V13L8 13V15Z" fill="#F1F1F1"/&gt;
-                                    &lt;/svg&gt;
-                                &lt;/span&gt;
-                            &lt;/a&gt;
-                        &lt;/h3&gt;
-                        &lt;p class="desc">봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 홍천 알파...&lt;/p&gt;
-                    &lt;/div&gt;
-                &lt;/article&gt;
-                &lt;article class="card"&gt;
-                    &lt;figure class="card__header"&gt;
-                        &lt;img src="img/card2_bg08.jpg" alt="겨울 Winter_2"&gt;
-                    &lt;/figure&gt;
-                    &lt;div class="card__body"&gt;
-                        &lt;h3 class="tit"&gt;
-                            겨울 Winter
-                            &lt;a href="/"&gt;
-                                &lt;span class="btn" aria-hidden="true"&gt;
-                                    &lt;svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
-                                        &lt;rect width="28" height="28" rx="5" fill="#767676"/&gt;
-                                        &lt;path d="M8 13C7.44772 13 7 13.4477 7 14C7 14.5523 7.44772 15 8 15V13ZM20.7071 14.7071C21.0976 14.3166 21.0976 13.6834 20.7071 13.2929L14.3431 6.92893C13.9526 6.53841 13.3195 6.53841 12.9289 6.92893C12.5384 7.31946 12.5384 7.95262 12.9289 8.34315L18.5858 14L12.9289 19.6569C12.5384 20.0474 12.5384 20.6805 12.9289 21.0711C13.3195 21.4616 13.9526 21.4616 14.3431 21.0711L20.7071 14.7071ZM8 15L20 15V13L8 13V15Z" fill="#F1F1F1"/&gt;
-                                    &lt;/svg&gt;
-                                &lt;/span&gt;
-                            &lt;/a&gt;
-                        &lt;/h3&gt;
-                        &lt;p class="desc"&gt;봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 홍천 알파...&lt;/p&gt;
-                    &lt;/div&gt;
-                &lt;/article&gt;
-            &lt;/div&gt;
+            lt;article class="card"&gt;
+                lt;img src="img/card_bg02_01.jpg" alt="봄 Spring"&gt;
+                lt;h3 class="tit">봄 Spring&lt;/h3&gt;
+                lt;p class="desc"&gt;봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 추천 드릴 곳은 홍천 알파카월드 입니다.&lt;/p&gt;
+                lt;a href="#" class="more"&gt;&lt;span class="ir">더보기&lt;/span&gt;lt;/a&gt;
+            lt;/article&gt;
+            lt;article class="card"&gt;
+                lt;img src="img/card_bg02_02.jpg" alt="여름 Summer"&gt;
+                lt;h3 class="tit"&gt;여름 Summerlt;/h3&gt;
+                lt;p class="desc"&gt;봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 추천 드릴 곳은 홍천 알파카월드 입니다.&lt;/p&gt;
+                lt;a href="#" class="more"&gt;lt;span class="ir"&gt;더보기lt;/span&gt;lt;/a&gt;
+            lt;/article&gt;
+            &lt;article class="card"&gt;
+                &lt;img src="img/card_bg02_03.jpg" alt="가을 Fall"&gt;
+                &lt;h3 class="tit"&gt;가을 Fall&lt;/h3&gt;
+                &lt;p class="desc"&gt;봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 추천 드릴 곳은 홍천 알파카월드 입니다.&lt;/p&gt;
+                &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+            &lt;/article&gt;
+            &lt;article class="card"&gt;
+                &lt;img src="img/card_bg02_04.jpg" alt="겨울 Winter"&gt;
+                &lt;h3 class="tit"&gt;겨울 Winter&lt;/h3&gt;
+                &lt;p class="desc"&gt;봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 추천 드릴 곳은 홍천 알파카월드 입니다.&lt;/p&gt;
+                &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+            &lt;/article&gt;
+            &lt;article class="card"&gt;
+                &lt;img src="img/card_bg02_05.jpg" alt="봄 Spring"&gt;
+                &lt;h3 class="tit"&gt;봄 Spring&lt;/h3&gt;
+                &lt;p class="desc"&gt;봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 추천 드릴 곳은 홍천 알파카월드 입니다.&lt;/p&gt;
+                &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+            &lt;/article&gt;
+            &lt;article class="card"&gt;
+                &lt;img src="img/card_bg02_06.jpg" alt="여름 Summer"&gt;
+                &lt;h3 class="tit"&gt;여름 Sumemr&lt;/h3&gt;
+                &lt;p class="desc"&gt;봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 추천 드릴 곳은 홍천 알파카월드 입니다.&lt;/p&gt;
+                &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+            &lt;/article&gt;
+            &lt;article class="card"&gt;
+                &lt;img src="img/card_bg02_07.jpg" alt="가을 Fall"&gt;
+                &lt;h3 class="tit"&gt;가을 Fall&lt;/h3&gt;
+                &lt;p class="desc"&gt;봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 추천 드릴 곳은 홍천 알파카월드 입니다.&lt;/p&gt;
+                &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+            &lt;/article&gt;
+            &lt;article class="card"&gt;
+                &lt;img src="img/card_bg02_08.jpg" alt="겨울 Winter"&gt;
+                &lt;h3 class="tit"&gt;겨울 Winter&lt;/h3&gt;
+                &lt;p class="desc"&gt;봄봄봄 봄이 왔어요 ~ 얇은 가디건 하나만 입어도 춥지 않은 봄이 왔습니다. 첫 번째 여행지로 추천 드릴 곳은 홍천 알파카월드 입니다.&lt;/p&gt;
+                &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+            &lt;/article&gt;
         &lt;/div&gt;
     &lt;/section&gt;
 &lt;/body&gt;
