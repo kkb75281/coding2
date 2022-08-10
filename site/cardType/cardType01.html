@@ -69,6 +69,11 @@
         .card__body .tit {
             font-size: 24px;
             margin-bottom: 10px;
+            /* 한줄효과 */
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            padding-right: 20px;
         }
         .card__body .desc {
             font-size: 18px;
@@ -76,17 +81,23 @@
             color: #666;
             margin-bottom: 20px;
             font-weight: 300;
+            /* 세줄효과 */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; 
+            -webkit-box-orient: vertical;
         }
     </style>
 </head>
 <body>
-    <section id="cardType" class="card__wrap nexon section">
+    <section id="cardType01" class="card__wrap nexon section">
         <h2>운동하자 운동 👟</h2>
         <p>운동의 시작, 스트레칭부터 다양한 스포츠의 종류를 알아봅시다.</p>
         <div class="card__inner container">
             <article class="card">
                 <figure class="card__header">
-                    <img src="img/card_bg01.jpg" alt="스트레칭(Stretching)">
+                    <img src="img/card_bg01_01.jpg" alt="스트레칭(Stretching)">
                 </figure>
                 <div class="card__body">
                     <h3 class="tit">스트레칭(Stretching)</h3>
@@ -103,7 +114,7 @@
             </article>
             <article class="card">
                 <figure class="card__header">
-                    <img src="img/card_bg02.jpg" alt="피겨 스케이팅(Figure Skating)">
+                    <img src="img/card_bg01_02.jpg" alt="피겨 스케이팅(Figure Skating)">
                 </figure>
                 <div class="card__body">
                     <h3 class="tit">피겨 스케이팅(Figure)</h3>
@@ -120,7 +131,7 @@
             </article>
             <article class="card">
                 <figure class="card__header">
-                    <img src="img/card_bg03.jpg" alt="서핑(Surfing)">
+                    <img src="img/card_bg01_03.jpg" alt="서핑(Surfing)">
                 </figure>
                 <div class="card__body">
                     <h3 class="tit">서핑(Surfing)</h3>
