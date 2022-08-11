@@ -477,7 +477,9 @@ document.write(Object.entries(obj));      //전체
                     <details>
                         <summary>결과보기</summary>
                         <div class="sample14_result">
-                            100200javascript
+                            a,b,c<br>
+                            100,200,javascript<br>
+                            a,100,b,200,c,javascript
                         </div>
                     </details>
                 </div>
@@ -485,7 +487,7 @@ document.write(Object.entries(obj));      //전체
 
             <!-- sample15 -->
             <div id="sample15" class="sample">
-                <h3>15. 객체 : 데이터 불러오기 : Object</h3>
+                <h3>15. 객체 : 데이터 불러오기 : 변수</h3>
                 <p>
                     ...
                 </p>
@@ -566,7 +568,7 @@ obj.map((el) => {
                     <details>
                         <summary>결과보기</summary>
                         <div class="sample17_result">
-                            100200javascript
+                            [object Object]100200javascript
                         </div>
                     </details>
                 </div>
@@ -832,9 +834,9 @@ document.write("d" in obj);
                 c:"javascript"
             }
 
-            //document.write(Object.keys(obj));     //키
-            //document.write(Object.values(obj));       //값
-            //document.write(Object.entries(obj));      //전체
+            // document.write(Object.keys(obj));     //키
+            // document.write(Object.values(obj));       //값
+            // document.write(Object.entries(obj));      //전체
         }
 
         //15. 객체 : 변수
@@ -849,9 +851,9 @@ document.write("d" in obj);
             const name2 = obj.b;
             const name3 = obj.c;
 
-            //document.write(name1);      //불러오기
-            //document.write(name2);
-            //document.write(name3);
+            // document.write(name1);      //불러오기
+            // document.write(name2);
+            // document.write(name3);
         }
 
         //16. 객체 : for in (for of는 배열에서), 뷰에서 많이 쓰임
@@ -874,10 +876,10 @@ document.write("d" in obj);
             ];
             
             obj.map((el) => {
-                //document.write(el);     //[Object Object] 안에 객체값이니까 객체 불러오는 걸 써야함
-                //document.write(el.a);
-                //document.write(el.b);
-                //document.write(el.c);
+                // document.write(el);     //[Object Object] 안에 객체값이니까 객체 불러오는 걸 써야함
+                // document.write(el.a);
+                // document.write(el.b);
+                // document.write(el.c);
             });
         }
 
@@ -889,14 +891,14 @@ document.write("d" in obj);
                 b: 200,
                 c: "javascript"
             }
-            document.write(obj.hasOwnProperty("a"));
-            document.write(obj.hasOwnProperty("b"));
-            document.write(obj.hasOwnProperty("c"));
-            document.write(obj.hasOwnProperty("d"));
-            document.write("a" in obj);     //obj 속 a에 데이터가 있는지 없는지
-            document.write("b" in obj);
-            document.write("c" in obj);
-            document.write("d" in obj);
+            // document.write(obj.hasOwnProperty("a"));
+            // document.write(obj.hasOwnProperty("b"));
+            // document.write(obj.hasOwnProperty("c"));
+            // document.write(obj.hasOwnProperty("d"));
+            // document.write("a" in obj);     //obj 속 a에 데이터가 있는지 없는지
+            // document.write("b" in obj);
+            // document.write("c" in obj);
+            // document.write("d" in obj);
         }
 
     </script>
