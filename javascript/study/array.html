@@ -1,0 +1,194 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">배열에 대해 알아보자 !</h2>
+        <p class="t_desc">
+            자바스크립트를 다루기 위해서는 기초적인 특징과 기본 문법이 있습니다.
+            가장 기본이기 때문에 이 부분을 숙지하고 자바스크립트를 <i>공부</i>하세요.
+        </p>
+        <div class="t_box">
+            01. 배열 속성 : length : 배열 길이 구하기 : 반환(숫자)
+            02. 배열 메서드 : join() : 배열 요소 문자열을 결합 : 반환(문자열)
+            03. 배열 메서드 : push() : 배열 마지막 요소에 추가 : 반환(숫자)
+            04. 배열 메서드 : pop() : 배열 마지막 요소를 삭제 : 반환(삭제된 요소)
+        </div>
+
+        <hr>
+
+        <h3 class="t_tit2">01. 배열 속성 : length : 배열 길이 구하기 : 반환(숫자)</h3>
+        <p class="t_desc">
+            length 속성은 배열의 길이를 구할 수 있습니다.
+        </p>
+        <table class="t_table">
+            <thead>
+                <th>번호</th>
+                <th>기본값</th>
+                <th>메서드</th>
+                <th>리턴값</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="ce">1</td>
+                    <td class="ce">[100, 200, 300, 400, 500]</td>
+                    <td class="ce" rowspan="3">length</td>
+                    <td class="ce">5</td>
+                </tr>
+                <tr>
+                    <td class="ce">2</td>
+                    <td class="ce">['a', 'b', 'c', 'd', 'f']</td>
+                    <td class="ce">5</td>
+                </tr>
+                <tr>
+                    <td class="ce">3</td>
+                    <td class="ce">[1, 2, ['a', 'b']]</td>
+                    <td class="ce">3</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="t_code">
+<pre><code>const arrNum = [ 100, 200, 300, 400, 500 ];
+
+//01.
+document.querySelector(".sample01_N1").innerHTML = "1";
+document.querySelector(".sample01_Q1").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample01_M1").innerHTML = "length";
+document.querySelector(".sample01_P1").innerHTML = arrNum.length;
+
+//02.
+const arrTxt = ['a', 'b', 'c', 'd', 'f'];
+document.querySelector(".sample01_N2").innerHTML = "2";
+document.querySelector(".sample01_Q2").innerHTML = "['a', 'b', 'c', 'd', 'f']";
+document.querySelector(".sample01_M2").innerHTML = "length";
+document.querySelector(".sample01_P2").innerHTML = arrTxt.length;
+
+//03.
+const arr = [1, 2, ['a', 'b']];
+document.querySelector(".sample01_N3").innerHTML = "3";
+document.querySelector(".sample01_Q3").innerHTML = "[1, 2, ['a', 'b']]";
+document.querySelector(".sample01_M3").innerHTML = "length";
+document.querySelector(".sample01_P3").innerHTML = arr.length;
+</code></pre>
+        </div>
+
+        <h3 class="t_tit2">02. 배열 메서드 : join() : 배열 요소 문자열을 결합 : 반환(문자열)</h3>
+        <p class="t_desc">
+            join( ) 메서드는 배열을 문자열로 리턴시켜줍니다.
+        </p>
+        <table class="t_table">
+            <thead>
+                <th>번호</th>
+                <th>기본값</th>
+                <th>메서드</th>
+                <th>리턴값</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="ce">1</td>
+                    <td class="ce" rowspan="4">[100, 200, 300, 400, 500]</td>
+                    <td class="ce">join('')</td>
+                    <td class="ce">100200300400500</td>
+                </tr>
+                <tr>
+                    <td class="ce">2</td>
+                    <td class="ce">join(' ')</td>
+                    <td class="ce">100 200 300 400 500</td>
+                </tr>
+                <tr>
+                    <td class="ce">3</td>
+                    <td class="ce">join('⭑')</td>
+                    <td class="ce">100⭑200⭑300⭑400⭑500</td>
+                </tr>
+                <tr>
+                    <td class="ce">4</td>
+                    <td class="ce">join('-')</td>
+                    <td class="ce">100-200-300-400-500</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="t_code">
+<pre><code>const arrNum = [100, 200, 300, 400, 500];
+const text1 = arrNum.join('');
+const text2 = arrNum.join(' ');
+const text3 = arrNum.join('⭑');
+const text4 = arrNum.join('-');
+
+//01
+document.querySelector(".sample02_N1").innerHTML = "1";
+document.querySelector(".sample02_Q1").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample02_M1").innerHTML = "join('')";
+document.querySelector(".sample02_P1").innerHTML = text1;
+
+//02
+document.querySelector(".sample02_N2").innerHTML = "2";
+document.querySelector(".sample02_Q2").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample02_M2").innerHTML = "join(' ')";
+document.querySelector(".sample02_P2").innerHTML = text2;
+
+//03
+document.querySelector(".sample02_N3").innerHTML = "3";
+document.querySelector(".sample02_Q3").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample02_M3").innerHTML = "join('⭑')";
+document.querySelector(".sample02_P3").innerHTML = text3;
+
+//04
+document.querySelector(".sample02_N4").innerHTML = "4";
+document.querySelector(".sample02_Q4").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample02_M4").innerHTML = "join('-')";
+document.querySelector(".sample02_P4").innerHTML = text4;
+</code></pre>
+        </div>
+
+        <h3 class="t_tit2">03.04 배열 메서드 : push() / pop()</h3>
+        <p class="t_desc">
+            push()메서드는 배열 마지막 요소에 추가시켜 줍니다.<br>
+            pop() 메서드는 리턴값 마지막 요소 꺼내서 반환시켜 줍니다.
+        </p>
+        <table class="t_table">
+            <thead>
+                <th>번호</th>
+                <th>기본값</th>
+                <th>메서드</th>
+                <th>리턴값</th>
+                <th>결과값</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="ce">1</td>
+                    <td class="ce" rowspan="2">[100, 200, 300, 400, 500]</td>
+                    <td class="ce">push(600)</td>
+                    <td class="ce">6</td>
+                    <td class="ce">100,200,300,400,500,600</td>
+                </tr>
+                <tr>
+                    <td class="ce">2</td>
+                    <td class="ce">pop()</td>
+                    <td class="ce">500</td>
+                    <td class="ce">100,200,300,400</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="t_code">
+<pre><code>//01
+const arrNum = [100, 200, 300, 400, 500];
+const arrPush = arrNum.push(600);       //배열에 추가
+
+document.querySelector(".sample03_N1").innerHTML = "1";
+document.querySelector(".sample03_Q1").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample03_M1").innerHTML = "push(600)";
+document.querySelector(".sample03_P1").innerHTML = arrPush;     //6
+document.querySelector(".sample03_A1").innerHTML = arrNum;      //100,200,300,400,500,600
+
+//02
+const arrNum2 = [100, 200, 300, 400, 500];
+const arrPush2 = arrNum2.push(); 
+
+document.querySelector(".sample03_N2").innerHTML = "2";
+document.querySelector(".sample03_Q2").innerHTML = "[100, 200, 300, 400, 500]";
+document.querySelector(".sample03_M2").innerHTML = "push()";
+document.querySelector(".sample03_P2").innerHTML = arrPush2;        //500
+document.querySelector(".sample03_A2").innerHTML = arrNum2;         //100,200,300,400
+</code></pre>
+        </div>
+        
+        
+    </div>
+</main>
