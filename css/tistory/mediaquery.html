@@ -1,0 +1,252 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">미디어쿼리(media quert)에 대해 알아봅시다 !</h2>
+        <p class="t_desc2">
+            설명 찾아서 쓰기
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2">[ &lt;link ~ media = ""&gt; ]</h3>
+        <div class="t_code">
+<pre><code>&lt;link rel="stylesheet" type="text/css" media="all and (min-width: 1000px)" href="style_pc.css"&gt;</code></pre>
+        </div>
+        <p class="t_box">
+            1000px 보다 넓은 해상도일 때에 style_pc.css를 연결한다는 뜻
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2">[ @media ]</h3>
+        <div class="t_code">
+<pre><code>@media all and (min-width: 1000px) {
+    모든 기기에서 해상도가 최소 1000px 인 경우 적용할 속성들 ...
+}  
+</code></pre>
+        </div>
+        <p class="t_desc">
+            로딩 시 성능 저하가 일어나지 않도록 CSS 파일을 하나로 만들고 CSS 내부에서 조건에 따라 분기시키는 것이 일반적인 형태의 반응형 웹 CSS 입니다.
+            all은 Media Type을 나타내며 and 전, 후에 띄어 씁니다.
+        </p>
+
+        <h4 class="t_tit3">[ @media_예제를 풀어보자 ! ]</h4>
+        <p class="t_desc">
+            모바일과 태블릿, PC 기기에 따라 레이아웃이 달라지는 media query를 만들어봅시다.
+        </p>
+        <div class="t_iframe">
+            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FOsKGaBZpBxUa0wpgyw7aBs%2FUntitled%3Fnode-id%3D0%253A1" allowfullscreen></iframe>
+        </div>
+        <table class="t_table">
+            <thead>
+                <tr>
+                    <th>Media Type</th>
+                    <th>설명</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>all</td>
+                    <td>기본값; 모든 미디어 장치에 사용</td>
+                </tr>
+                <tr>
+                    <td>print</td>
+                    <td>프린터에 사용</td>
+                </tr>
+                <tr>
+                    <td>screen</td>
+                    <td>PC, 태블릿, 스마트폰에 사용</td>
+                </tr>
+                <tr>
+                    <td>speech</td>
+                    <td>스크린리더기가 페이지를 읽는데 사용</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="t_code">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;오르셰미술관&lt;/title&gt;
+    &lt;link rel="stylesheet" href="ex2-75style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="wrap"&gt;
+        &lt;header&gt;
+            &lt;h1&gt;Musee d'Orsay&lt;/h1&gt;
+        &lt;/header&gt;
+        &lt;div id="container" class="clear"&gt;
+            &lt;div class="lnb"&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;작가의 작품&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;작가의 시대&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;작가의 일생&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div class="content"&gt;
+                &lt;h2&gt;PICTURES&lt;/h2&gt;
+                &lt;p&gt;
+                    &lt;a href="#"&gt;피리부는 소년&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;고흐의 방&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;황색 그리스도가 있는 화가의 자화상&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;오페라좌의 관련악단&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;만종&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;제비꽃 장식을 단 베르트모리조&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;피리부는 소년&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;고흐의 방&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;황색 그리스도가 있는 화가의 자화상&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;오페라좌의 관련악단&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;만종&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;제비꽃 장식을 단 베르트모리조&lt;/a&gt;&lt;br&gt;
+                &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="aside"&gt;
+                &lt;ul class="ext"&gt;
+                    &lt;li&gt;&lt;h2&gt;Workshop Go&lt;/h2&gt;&lt;a href="#">Life drawing workshop&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;h2&gt;Summer Exhibition&lt;/h2&gt;
+                        &lt;a href="#"&gt;A-level Summer Exibitiob Online 2010&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;h2&gt;RA Collection&lt;/h2&gt;&lt;a href="#"&gt;RA Collections&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;footer&gt;
+            &lt;p&gt;&copy;2018 Les Amis du Musee d'Orsay. All rights reserved.&lt;/p&gt;
+        &lt;/footer&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </div>
+
+        <h4 class="t_tit3">[ @media_css를 확인해보자 ! ]</h4>
+        <div class="t_code">
+<pre><code>/* 모바일 버전 */
+h1, h2, ul, li, p, div {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li {
+    list-style-type: none;
+}
+.clear:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+a {
+    line-height: 1.5;
+    color: #333;
+}
+body {
+    background: #f1f1f1;
+    font-size: 13px;
+}
+header {
+    background: coral;
+}
+h1 {
+    font-size: 25px;
+    color: #cc0;
+    padding: 10px;
+    color: #fff;
+}
+.lnb li {
+    margin: 10px;
+    padding: 10px;
+    background: lightgreen;
+}
+.content {
+    padding: 20px;
+}
+h2 {
+    font-size: 20px;
+}
+.ext {
+    margin: 10px;
+    padding: 20px;
+    background: lightgreen;
+}
+footer {
+    padding: 10px;
+    background: #aaa;
+}
+
+/* 태블릿 버전*/
+@media all and (min-width:768px) and (max-width: 1024px) {
+    .lnb {
+        float: left;
+        width: 25%;
+    }
+    .content {
+        float: left;
+        width: 75%;
+    }
+    .aside {
+        clear: both;
+    }
+}
+
+/* PC 버전 */
+@media all and (min-width: 1025px) {
+    .wrap {
+        max-width: 1280px; 
+        margin: 0 auto;
+    }
+    .lnb {
+        float: left;
+        width: 20%;
+    }
+    .content {
+        float: left;
+        width: 50%;
+    }
+    .aside {
+        float: right;
+        width: 30%;
+    }
+}
+</code></pre>
+        </div>
+
+        <hr>
+
+        <h3 class="t_tit2">[ media query를 흉내내는 script ]</h3>
+        <div class="t_code">
+<pre><code>function initLayout() {
+    var widthWin = $(window).width();
+    if (widthWin &lt; 1000) $('body').addClass('mob').removeClass('pc');
+    else $('body').removeClass('mob').addClass('pc');
+}
+</code></pre>
+        </div>
+        <p class="t_box">
+            창의 가로 크기가<br>
+            1) 1000px 미만 : body에 mob 클래스 붙이고 pc 클래스 제거<br>
+            2) 1000px 이상 : body에 pc 클래스 붙이고 mob 클래스 제거
+        </p>
+        <div class="t_code">
+<pre><code>$(window).resize(function() {
+    initLayout();    
+});
+</code></pre>
+        </div>
+        <p class="t_box">
+            창의 크기가 바뀔 때마다 실행
+        </p>
+        <div class="t_code">
+<pre><code>...
+    body.mob {
+        max-width: 720px;
+    }
+...
+</code></pre>
+        </div>
+        <p class="t_box">
+            css에서 body.mob에 속성을 추가하면 모바일 버전의 속성이 등록됨
+        </p>
+        
+        
+        
+    </div>
+</main>
