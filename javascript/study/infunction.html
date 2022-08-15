@@ -46,46 +46,76 @@
 
     <main id="main">
         <div class="document">
-            <h2 class="t_tit">배열에 대해 알아보자 !</h2>
+            <h2 class="t_tit">내장 함수에 대해 알아보자 !</h2>
             <p class="t_desc">
-                배열 속성, 메서드에 대해 알아봅시다 ! 앞으로 내용이 더 추가 될 예정입니다 :D
+                내장 함수는 자바스크립트에 기본적으로 내장되어 있는 함수들을 말합니다.
             </p>
-            <div class="t_box" style="line-height: 2;">
-                01. 배열 속성 : length : 배열 길이 구하기 : 반환(숫자)<br>
-                02. 배열 메서드 : join() : 배열 요소 문자열을 결합 : 반환(문자열)<br>
-                03. 배열 메서드 : push() : 배열 마지막 요소에 추가 : 반환(숫자)<br>
-                04. 배열 메서드 : pop() : 배열 마지막 요소를 삭제 : 반환(삭제된 요소)
-            </div>
     
             <hr>
     
-            <h3 class="t_tit2">01. 배열 속성 : length : 배열 길이 구하기 : 반환(숫자)</h3>
+            <h3 class="t_tit2">01. 인코딩, 디코딩 함수</h3>
             <p class="t_desc">
-                length 속성은 배열의 길이를 구할 수 있습니다.
+                'http://icoxpublish.com/search?query=자바스크립트'와 같이 URL 주소에 쿼리 정보를 전송하여 데이터를 처리해야 되는 프로그램의 경우 
+                한글과 같은 유니코드 문자가 포함되어 있으면 오류가 발생할 수 있습니다. 이 경우 인코딩 함수를 이용해 문자를 부호화시키고 이 문자를 다시 디코딩함수를 이용하여 
+                원래 문자로 되돌릴 수 있습니다.
             </p>
             <table class="t_table">
                 <thead>
-                    <th>번호</th>
-                    <th>기본값</th>
-                    <th>메서드</th>
-                    <th>리턴값</th>
+                    <th>함수명</th>
+                    <th>설명</th>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="ce">1</td>
-                        <td class="ce">[100, 200, 300, 400, 500]</td>
-                        <td class="ce" rowspan="3">length</td>
-                        <td class="ce">5</td>
+                        <td class="ce">encodeURIComponent( )</td>
+                        <td>영문, 숫자와 ( ) - _ . ~ * ! '을 제외한 문자를 인코딩</td>
                     </tr>
                     <tr>
-                        <td class="ce">2</td>
-                        <td class="ce">['a', 'b', 'c', 'd', 'f']</td>
-                        <td class="ce">5</td>
+                        <td class="ce">decodeURIComponent( )</td>
+                        <td>encodeURIComponent( )의 디코딩 함수</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="t_tit2">02. 숫자, 유/무한 값 판별 함수</h3>
+            <table class="t_table">
+                <thead>
+                    <th>함수명</th>
+                    <th>설명</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">isNaN( )</td>
+                        <td>숫자(false)인지 아닌지(true)를 판별하는 함수(NaN = Not a Number)</td>
                     </tr>
                     <tr>
-                        <td class="ce">3</td>
-                        <td class="ce">[1, 2, ['a', 'b']]</td>
-                        <td class="ce">3</td>
+                        <td class="ce">isFinite( )</td>
+                        <td>유한값(true)인지 무한값(false)인지를 판별하는 함수</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="t_tit2">03. 숫자, 문자 변환 함수</h3>
+            <table class="t_table">
+                <thead>
+                    <th>함수명</th>
+                    <th>설명</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">Number( )</td>
+                        <td>숫자로 변환해 주는 함수</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">perselnt( )</td>
+                        <td>숫자와 문자가 포함되어 있을 경우 정수 부분만 숫자로 변환</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">parseFloat( )</td>
+                        <td>유한값(true)인지 무한값(false)인지를 판별하는 함수</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">String( )</td>
+                        <td>문자로 바꾸어 주는 함수</td>
                     </tr>
                 </tbody>
             </table>
