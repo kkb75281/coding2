@@ -27,13 +27,7 @@ li {
 
 /* header */
 #header {
-    display: flex;
-    justify-content: space-between;
-}
-#header h1 {
-    margin: 10px;
-    font-family: "Tmon";
-    font-size: 40px;
+    
 }
 #header nav {
     margin: 10px;
