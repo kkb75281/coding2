@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색 이팩트</title>
+
+    <link rel="stylesheet" href="../assets/css/search.css">
+
+    <link href="https://webfontworld.github.io/tmon/Tmon.css" rel="stylesheet">
+    <link href="https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css" rel="stylesheet">
+</head>
+<body>
+    <header id="header">
+        <h1>Search</h1>
+        <nav>
+            <ul>
+                <li class="active"><a href="searchEffect01.html">1</a>
+                    <ul class="sub">
+                        <li class="active"><a href="searchEffect01.html">HTML</a></li>
+                        <li><a href="searchEffect01_css.html">CSS</a></li>
+                        <li><a href="searchEffect01_javascript.html">JAVASCRIPT</a></li>
+                    </ul>
+                </li>
+                <li><a href="searchEffect02.html">2</a></li>
+                <li><a href="searchEffect03.html">3</a></li>
+                <li><a href="searchEffect04.html">4</a></li>
+                <li><a href="searchEffect05.html">5</a></li>
+                <li><a href="searchEffect06.html">6</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="search__wrap">
+            <span>indexOf()를 이용하여 검색하기</span>
+            <h1>HTML 태그 검색하기</h1>
+            <div class="search__box">
+                <label for="search">검색하기</label>
+                <input type="text" id="search" placeholder="HTML 태그를 입력해주세요!">
+            </div>
+            <div class="search__list">
+                <div class="html">
+                    <ul>
+                        <li data-name="a"><strong>a</strong> : a 태그는 다른 페이지 이동을 설정합니다.</li>
+                        <li data-name="abbr"><strong>abbr</strong> : abbr 태그는 줄임말이나 머리글자를 표현하는데 사용합니다.</li>
+                        <li data-name="acronym"><strong>acronym</strong> : acronym 태그는 줄임말이나 머리글자를 표현하는데 사용합니다.</li>
+                        <li data-name="address"><strong>address</strong> : address 태그는 웹 페이지의 연락처 정보를 설정합니다.</li>
+                        <li data-name="applet"><strong>applet</strong> : applet 태그는 애플랫 요소를 설정합니다.</li>
+                        <li data-name="area"><strong>area</strong> : area 태그는 이미지 맵의 영역을 정의합니다.</li>
+                        <li data-name="article"><strong>article</strong> : article 태그는 사이트의 독립적인 컨텐츠 섹션을 설정합니다.</li>
+                        <li data-name="aside"><strong>aside</strong> : aside 태그는 주요 콘텐츠의 보조적 컨텐츠 섹션을 설정합니다.</li>
+                        <li data-name="audio"><strong>audio</strong> : audio 태그는 오디오 파일을 설정합니다.</li>
+                        <li data-name="b"><strong>b</strong> : b 태그는 다른 텍스트와 구별 할 때 설정합니다.</li>
+                        <li data-name="base"><strong>base</strong> : base 태그는 모든 문서의 기본이 되는 URL을 설정합니다.</li>
+                        <li data-name="basefont"><strong>basefont</strong> : basefont 태그는 문서의 기본 폰트, 사이즈, 종류를 설정합니다.</li>
+                        <li data-name="bdi"><strong>bdi</strong> : bdi 태그는 텍스트의 출력 방향 영역을 설정합니다.</li>
+                        <li data-name="bdo"><strong>bdo</strong> : bdo 태그는 텍스트의 방향을 설정합니다.</li>
+                        <li data-name="big"><strong>big</strong> : big 태그는 스트의 크기를 크게 설정합니다.</li>
+                        <li data-name="blockquote"><strong>blockquote</strong> : blockquote 태그는 긴 문장의 인용문을 설정합니다.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkb7528@naver.com">kkb7528@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script>
+        //선택자
+        const searchBox = document.querySelector(".search__box input");   //input 박스(검색 영역)
+        const searchList = document.querySelectorAll(".search__list ul li");   //목록 리스트
+
+        searchBox.addEventListener("keyup", () => {
+            const searchWord = searchBox.value;     //사용자가 입력한 키워드
+            
+            searchList.forEach(el => {
+                const cssName = el.dataset.name;
+
+                if(cssName.indexOf(searchWord)){
+                    el.classList.add("hide");
+                } else {
+                    el.classList.remove("hide");    //indexOf()값이 0이 되는 값만 hide를 지워준다.
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

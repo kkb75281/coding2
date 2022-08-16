@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+<body>
+    <header id="header">    
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operater.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">데이터 타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">전역변수/지역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+                <li><a href="array.html">배열 객체</a></li>
+                <li><a href="infunction.html">내장 함수</a></li>
+                <li><a href="regex.html">정규식 표현</a></li>
+                <li><a href="slice.html">문자열 메서드(변경)</a></li>
+                <li><a href="indexOf.html">문자열 메서드(검색)</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">문자열 메서드(변경)에 대해 알아보자 !</h2>
+            <p class="t_desc2">
+                다양한 문자열 메서드 중 문자열에서 원하는 값을 추출하여 문자열로 반환하는 <i>slice(), substring(), substr()</i>에 대해 알아봅시다.
+            </p>
+    
+            <hr>
+    
+            <h3 class="t_tit2">01. slice( );</h3>
+            <p class="t_box">
+                "문자열".slice(시작 위치)<br>
+                "문자열".slice(시작 위치, 끝나는 위치)<br>
+                //문자열을 배열처럼 생각하고 하나씩 부른다<br>
+                //시작 위치의 값 &lt; 끝나는 위치의 값
+            </p>
+            <div class="t_code">
+<pre><code>const str1 = "javascript reference";
+const currentstr1 = str1.slice(0);  //javascript reference
+const currentstr2 = str1.slice(1);  //avascript reference
+const currentstr3 = str1.slice(2);  //vascript reference
+const currentstr4 = str1.slice(0, 1);  //j
+const currentstr5 = str1.slice(0, 2);  //ja
+const currentstr6 = str1.slice(0, 3);  //jav
+const currentstr7 = str1.slice(1, 2);  //a
+const currentstr8 = str1.slice(1, 3);  //av
+const currentstr9 = str1.slice(1, 4);  //ava
+const currentstr10 = str1.slice(-1);  //e 뒤에서부터 소환
+const currentstr11 = str1.slice(-2);  //ce
+const currentstr12 = str1.slice(-3);  //nce
+const currentstr13 = str1.slice(-3, -1);  //nc (앞뒤 마이너스 값은 크기 잘 보고 적어야함)
+const currentstr14 = str1.slice(-3, -2);  //n
+const currentstr15 = str1.slice(-3, -3);  //
+const currentstr16 = str1.slice(1, 4);  //ava
+const currentstr17 = str1.slice(4, 1);  //''에러(null값)
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">02. substring( );</h3>
+            <p class="t_box">
+                //시작 위치의 값 &lt; 끝나는 위치의 값<br>
+                //시작값이 끝나는 값보다 클 경우 두 값을 바꿔서 처리(에러 방지)
+            </p>
+            <div class="t_code">
+<pre><code>const currentstr16 = str1.slice(1, 4);  //ava
+const currentstr17 = str1.slice(4, 1);  //''에러(null값)
+const currentstr18 = str1.substring(1, 4);  //ava
+const currentstr19 = str1.substring(4, 1);  //ava (slice에서는 에러가 뜨지만 substring은 자동으로 바꿔서 처리)
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">03. substr( );</h3>
+            <p class="t_box">
+                "문자열".substr(시작 위치)<br>
+                "문자열".substr(시작 위치, 길이)<br>
+                //웹표준에는 없어졌지만 쓸 수는 있다.
+            </p>
+            <div class="t_code">
+<pre><code>const currentstr20 = str1.substr(0);  //javascript reference
+const currentstr21 = str1.substr(1);  //avascript reference
+const currentstr22 = str1.substr(2);  //vascript reference
+const currentstr23 = str1.substr(0, 1);  //j
+const currentstr24 = str1.substr(0, 2);  //ja
+const currentstr25 = str1.substr(0, 3);  //jav
+const currentstr26 = str1.substr(1, 2);  //av
+const currentstr27 = str1.substr(1, 3);  //ava
+const currentstr28 = str1.substr(1, 4);  //avas
+const currentstr29 = str1.substr(-1);  //e
+const currentstr30 = str1.substr(-2);  //ce
+const currentstr31 = str1.substr(-3);  //nce
+const currentstr32 = str1.substr(-1, 1);  //e
+const currentstr33 = str1.substr(-2, 2);  //ce
+const currentstr34 = str1.substr(-3, 3);  //nce
+</code></pre>
+            </div>
+            
+    
+            
+            
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">    
+        <a href="mailto:kkb7528@naver.com">kkb7528@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <script>
+       
+    </script>
+</body>
+</html>
