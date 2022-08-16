@@ -1,8 +1,8 @@
 <main id="main">
     <div class="document">
-        <h2 class="t_tit">QUIZ를 만들어보자 !</h2>
+        <h2 class="t_tit">SEARCH 효과를 만들어보자 !</h2>
         <p class="t_desc">
-            QUIZ의 여러 형태 중 <i>객관식(한문항)</i> 형식으로 만들어봅시다.
+            SEARCH 효과를 만들어 HTML/CSS/JAVASCRIPT 검색 페이지를 만들어봅시다.
         </p>
         <div class="t_iframe" style="min-height : 900px; padding-top: 0;">
             <iframe src="https://kkb75281.github.io/coding2/javascript/effect/searchEffect01.html" frameborder="0"></iframe>
@@ -16,84 +16,34 @@
         <div class="t_code">
 <pre><code class=""language-js>&lt;script&gt;
 //선택자
-//타입이 여러개 중에 선택해서 불러오기 -> querySelector"All" 여러개 있다고 알려주기
-const quizType = document.querySelector(".quiz__type");                     //퀴즈 종류
-const quizNumber = document.querySelector(".quiz__question .number");       //퀴즈 번호
-const quizAsk = document.querySelector(".quiz__question .ask");             //퀴즈 질문
-const quizConfirm = document.querySelector(".quiz__answer .confirm");       //정답 확인 버튼
-const quizResult = document.querySelector(".quiz__answer .result");         //퀴즈 정답
-const quizView = document.querySelector(".quiz__view");                     //강아지
-const quizSelects = document.querySelector(".quiz__selects");                //객관식 보기
-const quizChoice = quizSelects.querySelectorAll(".choice");                    //객관식 보기
-const quizSelect = quizSelects.querySelectorAll(".select");                    //객관식 보기
+const searchBox = document.querySelector(".search__box input");   //input 박스(검색 영역)
+const searchList = document.querySelectorAll(".search__list ul li");   //목록 리스트
 
-//문제정보
-const quizInfo = [
-    {
-        answerType : "웹디자인기능사 2016년 04회",
-        answerNum : "1",
-        answerAsk : "다음 중 동화현상에 대한 설명으로 틀린 것은?",
-        answerChoice : ["색들끼리 서로 영향을 주어서 인접색에 가까운 것으로 느껴지는 현상을 말한다.", "색 자체가 명도나 채도가 높아서 시각적으로 빨리 눈에 띠는 성질을 말한다.", "동화현상에는 명도의 동화, 채도의 동화, 색상의 동화가 있다.", "동화현상은 눈의 양성적 또는 긍정적 잔상과의 관련으로서 설명된다."],
-        answerResult : "2",
-        answerEx : "시각적으로 눈에 잘 띄는 성질은 주목성이나 명시성으로 볼 수 있고 고명도 고채도 난색 종류가 그에 해당합니다."
-    }
-];
+searchBox.addEventListener("keyup", () => {
+    const searchWord = searchBox.value;     //사용자가 입력한 키워드
+    
+    searchList.forEach(el => {
+        const cssName = el.dataset.name;
 
-// 함수는 실행문, 여러개의 실행문을 모아서 정리
-function updateQuiz(){
-    //문제출력
-    quizType.textContent = quizInfo[0].answerType;
-    quizNumber.textContent = quizInfo[0].answerNum;
-    quizAsk.textContent = quizInfo[0].answerAsk;
-    quizResult.textContent = quizInfo[0].answerEx;
-
-    //보기출력
-    for( let i=0; i&lt;quizSelect.length; i++ ){
-        quizChoice[i].textContent = quizInfo[0].answerChoice[i];
-    }
-
-    //해설 숨기기
-    quizResult.style.display = "none";
-}
-updateQuiz();
-
-//정답 확인
-function answerQuiz(){
-    //사용자가 선택한 정답과 문제 정답 일치 비교
-    //사용자가 클릭한 input 박스를 가지고 와야함 > checked(.css)
-
-    //보기가 4개 반복문으로 확인
-    for(let i=0; i&lt;quizSelect.length; i++){
-        if(quizSelect[i].checked == true){      //어떤 번호를 체크했는지 확인
-            //체크한 번호와 문제번호가 일치하는지 확인
-            if(quizSelect[i].value == quizInfo[0].answerResult){
-                //alert("정답")
-                quizView.classList.add("like")
-            } else {
-                //alert("오답")
-                quizView.classList.add("dislike")
-                quizResult.style.display = "block";
-                quizConfirm.style.display = "none";
-            }
+        if(cssName.indexOf(searchWord)){
+            el.classList.add("hide");
+        } else {
+            el.classList.remove("hide");    //indexOf()값이 0이 되는 값만 hide를 지워준다.
         }
-    }
-}
-
-//정답 클릭
-quizConfirm.addEventListener("click", answerQuiz);
+    });
+});
 &lt;/script&gt;
 </code></pre></div>
         <p class="t_box">
-            <i>문제/보기 출력</i> |<br>
-            함수는 실행문으로 여러 실행문을 모아 정리해 줄 수 있습니다.
+            addEventListener("<i>keyup</i>") |<br>
+            이벤트 메서드 중 keyup은 키를 눌렀다가 뗐을 때 이벤트가 실행됩니다.
         </p>
         <p class="t_box">
-            <i>보기 출력</i> |<br>
-            4개가 있기 때문에 반복문을 사용하여 출력해줍니다.
+            <i>indexOf</i> |<br>
+            문자열 메서드인 indexOf는 문자열에서 특정 문자의 위치를 찾아 숫자로 반환시켜 줍니다.
         </p>
-        <p class="t_box">
-            <i>정답 확인</i> |<br>
-            사용자가 어떤 답을 선택했는지 확인 > 사용자가 선택한 답과 정답 일치 여부 확인 > 일치하면 정답표시/ 그렇지 않으면 오답과 해설표시
+        <p class="t_box" style="background-color: rgb(170, 170, 170); color: #fff; text-align: center; border-radius: 10px;">
+            indexOf( )를 활용해 0(false)이 되는 값만 hide를 지워 원하는 값이 나타날 수 있도록 해줍니다.
         </p>
 
         
