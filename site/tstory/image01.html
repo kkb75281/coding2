@@ -1,0 +1,152 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">SITE를 만들어봅시다 !</h2>
+        <p class="t_desc">
+            우리가 평소에 자주 볼 수 있는 사이트를 생각해보면 수많은 레이아웃과 유형들로 이루어져 있음을 알 수 있습니다. <br>
+            오늘은 그 중에서도 이미지 유형 첫번째 방법을 배워봅시다.
+        </p>
+        <div class="t_iframe">
+            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F9dsng1iVsw6HOFcutiPR1c%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D402%253A123" allowfullscreen></iframe>
+        </div>
+
+        <hr>
+
+        <h3 class="t_tit2">1. CSS 살펴보기</h3>
+        <div class="t_code">
+<pre><code class=""language-js>&lt;style&gt;
+    /* fonts */
+    @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+
+    .nexon {
+        font-family: "NexonLv1Gothic";
+        font-weight: 400;
+    }
+
+    /* reset */
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: normal;
+    }
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+    img {
+        width: 100%;
+    }
+
+    /* common */
+    .container {
+        width: 1160px;
+        padding: 0 20px;
+        margin: 0 auto;
+        min-width: 1160px;
+    }
+    .section {
+        padding: 120px 0;
+    }
+    .section > h2 {
+        font-size: 50px;
+        line-height: 1;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .section > p {
+        font-size: 22px;
+        font-weight: 3oo;
+        color: #666;
+        text-align: center;
+        margin-bottom: 70px;
+    }
+
+    /* imageType */
+    .image__inner {
+        display: flex;
+        justify-content: space-between;
+    }
+    .image {
+        width: 49%;
+        height: 370px;
+        color: #fff;
+        padding: 200px 30px 30px 30px;
+        box-sizing: border-box;
+    }
+    .image.img1 {
+        background: url(img/11.jpg) no-repeat center;
+    }
+    .image.img2 {
+        background: url(img/22.jpg) no-repeat center;
+    }
+    .image__title {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+    .image__desc {
+        font-size: 16px;
+        font-weight: 300;
+        margin-bottom: 10px;
+        line-height: 1.5;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; 
+        -webkit-box-orient: vertical;
+    }
+    .image__btn {
+        font-size: 16px;
+        color: #fff;
+        background-color: #787878;
+        padding: 10px 20px;
+        display: inline-block;
+    }
+    .image__btn.gray {
+        background-color: #333333;
+    }
+&lt;/style&gt;
+</code></pre></div>
+        <p class="t_box">
+            #1. background: url(img/22.jpg) no-repeat center;<br>
+            배경에 사진을 넣고 반복없이 가운데 정렬을 해줍니다.
+        </p>
+
+        <h3 class="t_tit2">2. HTML 살펴보기</h3>
+        <div class="t_code">
+<pre><code class=""language-js>&lt;body&gt;
+    &lt;section id="imgageType01" class="image__wrap nexon section"&gt;
+        &lt;h2&gt;운동하자 운동 👟&lt;/h2&gt;
+        &lt;p&gt;운동의 시작, 스트레칭부터 다양한 스포츠의 종류를 알아봅시다.&lt;/p&gt;
+        &lt;div class="image__inner container"&gt;
+            &lt;article class="image img1"&gt;
+                &lt;h3 class="image__title"&gt;운동하자 운동&lt;/h3&gt;
+                &lt;p class="image__desc"&gt;운동의 시작, 스트레칭부터 다양한 스포츠의 종류를 알아봅시다. 운동의 시작, 스트레칭부터 다양한 스포츠의 종류를 알아봅시다. 운동의 시작, 스트레칭부터 다양한 스포츠의 종류를 알아봅시다.&lt;/p&gt;
+                &lt;a class="image__btn" href="/" title="자세히 보기"&gt;자세히 보기&lt;/a&gt;
+            &lt;/article&gt;
+            &lt;article class="image img2"&gt;
+                &lt;h3 class="image__title"&gt;운동하자 운동&lt;/h3&gt;
+                &lt;p class="image__desc"&gt;운동의 시작, 스트레칭부터 다양한 스포츠의 종류를 알아봅시다. 운동의 시작, 스트레칭부터 다양한 스포츠의 종류를 알아봅시다. 운동의 시작, 스트레칭부터 다양한 스포츠의 종류를 알아봅시다.&lt;/p&gt;
+                &lt;a class="image__btn gray" href="/" title="자세히 보기"&gt;자세히 보기&lt;/a&gt;
+            &lt;/article&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/body&gt;
+</code></pre></div>
+
+        <h3 class="t_tit2">4. 결과 확인하기</h3>
+        <div class="t_iframe">
+            <iframe src="https://kkb75281.github.io/coding2/site/imageType/imageType01.html" frameborder="0" width="100%" height="auto"></iframe>
+        </div>
+        <div class="t_link">
+            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/site/imageType/imageType01.html" target="_blank">원본 소스 보기</a>
+        </div>
+        <div class="t_link">
+            <a class="center" href="https://kkb75281.github.io/coding2/site/imageType/imageType01.html" target="_blank">실제 사이트 보기</a>
+        </div>
+        
+
+        
+        
+    </div>
+</main>

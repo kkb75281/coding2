@@ -92,7 +92,7 @@ li {
     margin-bottom: 10px;
 }
 .search__box {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 .search__box label {
     position:absolute;
@@ -115,6 +115,19 @@ li {
 }
 .search__list li.hide {
     display: none;
+}
+.search__list li.show {
+    display: block;
+}
+.search__info {
+    text-align: right;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed var(--htmlColor);
+}
+.search__info .type {
+    text-align: center;
+    margin-bottom: 10px;
 }
 @media (max-width: 600pc){
     .search__wrap {

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 유형 01</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+
+        .gmark {
+            font-family: "GmarketSans";
+            font-weight: 500;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: normal;
+        }
+        a {
+            text-decoration: none;
+        }
+        img {
+            width: 100%;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+        .section {
+            padding: 120px 0;
+        }
+        .section > h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section > p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        /* cardType */
+        .image__inner {
+            display: flex;
+            justify-content: space-between;
+        }
+        .image {
+            width: 32%;
+            height: 520px;
+            box-sizing: border-box;
+        }
+        .box {
+            padding: 25px;
+            text-align: center;
+            margin-top: 420px;
+        }
+        .box.box1 {
+            background-color: #7B6ABC;
+            color: #B5B5B5;
+        }
+        .box.box2 {
+            background-color: #C9C9C9;
+            color: #3F3F3F;
+        }
+        .box.box3 {
+            background-color: #EAC867;
+            color: #564310;
+        }
+        .image.img1 {
+            background: url(img/image_bg02_01.jpg) no-repeat center;
+        }
+        .image.img2 {
+            background: url(img/image_bg02_02.jpg) no-repeat center;
+        }
+        .image.img3 {
+            background: url(img/image_bg02_03.jpg) no-repeat center;
+        }
+        .image__title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .image__btn {
+            font-size: 16px;
+            text-align: center;
+        }
+        .image__btn.btn1 {
+            color: #B5B5B5;
+            text-decoration: underline;
+        }
+        .image__btn.btn2 {
+            color: #3F3F3F;
+        }
+        .image__btn.btn3 {
+            color: #564310;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <section id="imgageType02" class="image__wrap gmark section">
+        <h2>Photographic Work</h2>
+        <p>다양한 컨셉 디자인으로 작업한 사진 포트폴리오 입니다. 모델 정보는 문의 남겨주세요.</p>
+        <div class="image__inner container">
+            <article class="image img1">
+                <div class="box box1">
+                    <h3 class="image__title">Photographer #1</h3>
+                    <a class="image__btn btn1" href="/" title="자세히 보기">자세히 보기</a>
+                </div>
+            </article>
+            <article class="image img2">
+                <div class="box box2">
+                    <h3 class="image__title">Photographer #2</h3>
+                    <a class="image__btn btn2" href="/" title="자세히 보기">자세히 보기</a>
+                </div>
+            </article>
+            <article class="image img3">
+                <div class="box box3">
+                    <h3 class="image__title">Photographer #3</h3>
+                    <a class="image__btn btn3" href="/" title="자세히 보기">자세히 보기</a>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+</html>

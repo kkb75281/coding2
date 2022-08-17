@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 유형 02</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+
+        .gmark {
+            font-family: "GmarketSans";
+            font-weight: 500;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: normal;
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        img {
+            width: 100%;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+        .section {
+            padding: 120px 0;
+        }
+        .section > h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section > p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        /* imageType02 */
+        .image__inner {
+            display: flex;
+            justify-content: space-between;
+        }
+        .image {
+            width: 32%;
+            position: relative;
+            /* 오버했을때만 보여주기 위해서 */
+            overflow: hidden;
+        }
+        .image__box {}
+        .image__box img {
+            vertical-align: top;
+            transition: all 0.6s ease-in-out;
+        }
+        .image__desc {
+            position: absolute;
+            left: 0;
+            bottom: -100px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            padding: 23px 20px;
+            box-sizing: border-box;
+            /* 움직임 속도 조절 */
+            transition: all 0.3s ease-in-out;
+        }
+        .image:hover .image__desc {
+            bottom: 0;
+        }
+        .image:hover .image__box img {
+            transform: scale(1.03);
+        }
+        .img1 .image__desc {background: rgba(123, 106, 188, 0.5);}
+        .img2 .image__desc {background: rgba(201, 201, 201, 0.5);}
+        .img3 .image__desc {background: rgba(234, 200, 103, 0.5);}
+        .img1 .image__desc h3 {color: rgba(181, 181, 181);}
+        .img2 .image__desc h3 {color: #3F3F3F;}
+        .img3 .image__desc h3 {color: #564310;}
+
+        .image__desc h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .image__desc .more {
+            font-size: 16px;
+        }
+        .image__desc .more:hover {
+            text-decoration: underline;
+        }
+        
+    </style>
+</head>
+<body>
+    <section id="imgageType02" class="image__wrap gmark section">
+        <h2>Photographic Work</h2>
+        <p>다양한 컨셉 디자인으로 작업한 사진 포트폴리오 입니다. 모델 정보는 문의 남겨주세요.</p>
+        <div class="image__inner container">
+            <article class="image img1">
+                <figure class="image__box">
+                    <img src="img/image_bg02_01.jpg" alt="">
+                </figure>
+                <div class="image__desc">
+                    <h3>Photographer #1</h3>
+                    <a href="/" class="more" title="자세히 보기">자세히 보기</a>
+                </div>
+            </article>
+            <article class="image img2">
+                <figure class="image__box">
+                    <img src="img/image_bg02_02.jpg" alt="">
+                </figure>
+                <div class="image__desc">
+                    <h3>Photographer #2</h3>
+                    <a href="/" class="more" title="자세히 보기">자세히 보기</a>
+                </div>
+            </article>
+            <article class="image img3">
+                <figure class="image__box">
+                    <img src="img/image_bg02_03.jpg" alt="">
+                </figure>
+                <div class="image__desc">
+                    <h3>Photographer #3</h3>
+                    <a href="/" class="more" title="자세히 보기">자세히 보기</a>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+</html>
