@@ -1,0 +1,161 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">문자열(String)에 대해 알아보자 !</h2>
+        <p class="t_desc2">
+            <i>문자열 결합</i>과 내장된 표현식을 허용하는 문자열 리터럴, <i>템플릿 문자열</i>에 대해 알아봅시다.
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2">01. 문자열(String) 결합 / 숫자(Numner) 결합</h3>
+        <p class="t_box">
+            여러 문자열을 합치기 위해 + 연산자와 ' '(띄어쓰기) 등을 활용하였습니다.
+        </p>
+        
+        <div class="t_code">
+<pre><code class="language-js">//01.
+const str1 = "자바스크립트";
+const str2 = "제이쿼리";
+
+document.querySelector(".sample01_N1").innerHTML = "1";
+document.querySelector(".sample01_Q1").innerHTML = "자바스크립트, 제이쿼리";
+document.querySelector(".sample01_M1").innerHTML = "문자열(string) 결합";
+document.querySelector(".sample01_P1").innerHTML = str1 + str2;
+
+//02.
+const num1 = 100;
+const num2 = 200;
+
+document.querySelector(".sample01_N2").innerHTML = "2";
+document.querySelector(".sample01_Q2").innerHTML = "100, 200";
+document.querySelector(".sample01_M2").innerHTML = "숫자(number) 결합";
+document.querySelector(".sample01_P2").innerHTML = num1 + num2;
+
+//03.
+const text1 = "모던";
+const text2 = "자바스크립트";
+const text3 = "핵심";
+
+//나는 모던(modern) 자바스크립트(javascript) 핵심을 배우고 싶다.
+document.querySelector(".sample01_N3").innerHTML = "3";
+document.querySelector(".sample01_Q3").innerHTML = "모던, 자바스크립트, 핵심";
+document.querySelector(".sample01_M3").innerHTML = "문자열(string) 결합";
+document.querySelector(".sample01_P3").innerHTML = "나는 " + text1 +"(modern) " + text2 + "(javascript) " + text3 + "을 배우고 싶다."
+</code></pre>
+        </div>
+
+        <table class="tt_table">
+            <colgroup>
+                <col style="width: 5%;">
+                <col style="width: 32%;">
+                <col style="width: 22%;">
+                <col style="width: 42%;">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>기본값</th>
+                    <th>메서드</th>
+                    <th>리턴값</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sample01_N1"></td>
+                    <td class="sample01_Q1"></td>
+                    <td class="sample01_M1"></td>
+                    <td class="sample01_P1"></td>
+                </tr>
+                <tr>
+                    <td class="sample01_N2"></td>
+                    <td class="sample01_Q2"></td>
+                    <td class="sample01_M2"></td>
+                    <td class="sample01_P2"></td>
+                </tr>
+                <tr>
+                    <td class="sample01_N3"></td>
+                    <td class="sample01_Q3"></td>
+                    <td class="sample01_M3"></td>
+                    <td class="sample01_P3"></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <h3 class="t_tit2">02. 템플릿 문자열</h3>
+        <p class="t_box">
+            ``(백틱)을 사용해 문자열을 감싸서 표현해주며, ${표현식} 을 통해 자바스크립트 문법을 사용할 수 있습니다.
+        </p>
+
+        <div class="t_code">
+<pre><code class="language-js">//04.
+document.querySelector(".sample01_N4").innerHTML = "4";
+document.querySelector(".sample01_Q4").innerHTML = "모던, 자바스크립트, 핵심";
+document.querySelector(".sample01_M4").innerHTML = "템플릿 문자열";
+document.querySelector(".sample01_P4").innerHTML = `나는 ${text1}(modern) ${text2}(javascript) ${text3}을 배우고 싶다.`
+</code></pre>
+        </div>
+
+        <table class="tt_table">
+            <colgroup>
+                <col style="width: 5%;">
+                <col style="width: 32%;">
+                <col style="width: 22%;">
+                <col style="width: 42%;">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>기본값</th>
+                    <th>메서드</th>
+                    <th>리턴값</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sample01_N4"></td>
+                    <td class="sample01_Q4"></td>
+                    <td class="sample01_M4"></td>
+                    <td class="sample01_P4"></td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+</main>
+<script>
+    // 01
+    {
+        const str1 = "자바스크립트";
+        const str2 = "제이쿼리";
+    
+        document.querySelector(".sample01_N1").innerHTML = "1";
+        document.querySelector(".sample01_Q1").innerHTML = "자바스크립트, 제이쿼리";
+        document.querySelector(".sample01_M1").innerHTML = "문자열(string) 결합";
+        document.querySelector(".sample01_P1").innerHTML = str1 + str2;
+    
+        const num1 = 100;
+        const num2 = 200;
+    
+        document.querySelector(".sample01_N2").innerHTML = "2";
+        document.querySelector(".sample01_Q2").innerHTML = "100, 200";
+        document.querySelector(".sample01_M2").innerHTML = "숫자(number) 결합";
+        document.querySelector(".sample01_P2").innerHTML = num1 + num2;
+    
+        const text1 = "모던";
+        const text2 = "자바스크립트";
+        const text3 = "핵심";
+    
+        //나는 모던(modern) 자바스크립트(javascript) 핵심을 배우고 싶다.
+        document.querySelector(".sample01_N3").innerHTML = "3";
+        document.querySelector(".sample01_Q3").innerHTML = "모던, 자바스크립트, 핵심";
+        document.querySelector(".sample01_M3").innerHTML = "문자열(string) 결합";
+        document.querySelector(".sample01_P3").innerHTML = "나는 " + text1 +"(modern) " + text2 + "(javascript) " + text3 + "을 배우고 싶다."
+    
+        document.querySelector(".sample01_N4").innerHTML = "4";
+        document.querySelector(".sample01_Q4").innerHTML = "모던, 자바스크립트, 핵심";
+        document.querySelector(".sample01_M4").innerHTML = "템플릿 문자열";
+        document.querySelector(".sample01_P4").innerHTML = `나는 ${text1}(modern) ${text2}(javascript) ${text3}을 배우고 싶다.`
+    
+    }
+</script>

@@ -51,18 +51,19 @@
         <div class="document">
             <h2 class="t_tit">문자열 메서드(검색)에 대해 알아보자 !</h2>
             <p class="t_desc2">
-                다양한 문자열 메서드 중 문자열에서 특정 문자의 위치를 찾고 숫자를 반환하는 <i>indexOf()</i>에 대해 알아봅시다.
+                다양한 문자열 메서드 중 문자열에서 특정 문자의 위치를 찾고 숫자를 반환하는 <i>indexOf() / lastIndexOf()</i>에 대해 알아봅시다.
             </p>
     
             <hr>
     
-            <h3 class="t_tit2">indexOf( );</h3>
+            <h3 class="t_tit2">01. indexOf( );</h3>
             <div class="t_box">
                 "문자열".indexOf(검색값)<br>
                 "문자열".indexOf(검색값, 위치값)
             </div>
             <div class="t_code">
 <pre><code>const str1 = "javascript reference"
+
 const currentstr1 = str1.indexOf("javascript");     //0(j가 0번째)
 const currentstr2 = str1.indexOf("reference");     //11(r이 11번째)
 const currentstr3 = str1.indexOf("j");     //0
@@ -76,6 +77,30 @@ const currentstr10 = str1.indexOf("reference", 0);     //11
 const currentstr11 = str1.indexOf("reference", 1);     //11
 const currentstr12 = str1.indexOf("reference", 11);     //11
 const currentstr13 = str1.indexOf("reference", 12);     //-1
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">02. lastIndexOf( );</h3>
+            <div class="t_box">
+                "문자열".lastIndexOf(검색값)<br>
+                "문자열".lastIndexOf(검색값, 위치값)
+            </div>
+            <div class="t_code">
+<pre><code>const str2 = "javascript reference"
+    
+const currentstr14 = str2.lastIndexOf("javascript");        //0
+const currentstr15 = str2.lastIndexOf("reference");         //11
+const currentstr16 = str2.lastIndexOf("j");                 //0
+const currentstr17 = str2.lastIndexOf("a");                 //3(중복일때는 제일 뒤에 있는 위치값)
+const currentstr18 = str2.lastIndexOf("v");                 //2
+const currentstr19 = str2.lastIndexOf("jquery");            //-1
+const currentstr20 = str2.lastIndexOf("b");                 //-1
+const currentstr21 = str2.lastIndexOf("javascript", 0);     //0
+const currentstr22 = str2.lastIndexOf("javascript", 1);     //0
+const currentstr23 = str2.lastIndexOf("reference", 0);      //-1
+const currentstr24 = str2.lastIndexOf("reference", 1);      //-1
+const currentstr25 = str2.lastIndexOf("reference", 11);     //11
+const currentstr26 = str2.lastIndexOf("reference", 12);     //11
 </code></pre>
             </div>
 

@@ -1,0 +1,55 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">concat( )에 대해 알아보자 !</h2>
+        <p class="t_desc2">
+            String.prototype.concat( ); 둘 이상의 문자열을 결합하여 새로운 문자열로 반환하는 메서드입니다.
+        </p>
+
+        <hr>
+
+        <p class="t_box2" style="display: inline-block;">
+            construction(구문)
+        </p>
+        <p class="t_box">
+            "str".concat(string2, string3[, ..., stringN]);
+        </p>
+        <p class="t_box2" style="display: inline-block;">
+            string2, ..., stringN(결합할 문자열)
+        </p>
+        <p class="t_box">
+            결합할 문자열 중에는 배열도 올 수 있습니다.
+        </p>
+        
+        <h3 class="t_tit2"># 예제를 통해 익혀봅시다.</h3>
+
+        <div class="t_code">
+<pre><code class="language-js">const str1 = "javascript";
+
+const currentStr1 = str1.concat("reference");
+const currentStr2 = str1.concat(" ", "reference");
+const currentStr3 = str1.concat(",", "reference");
+const currentStr4 = str1.concat(", ", "reference", ", ", "book");
+const currentStr5 = str1.concat(",", ["reference","book"]);
+</code></pre>
+        </div>
+        <div class="result">
+            <details>
+                <summary>결과보기</summary>
+                <div class="sample12_result">
+                    javascriptreference<br>
+                    javascript reference<br>
+                    javascript,reference<br>
+                    javascript, reference, book<br>
+                    javascript,reference,book
+                </div>
+            </details>
+        </div>
+
+        
+
+
+
+        
+        
+    </div>
+</main>

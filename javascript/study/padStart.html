@@ -1,0 +1,109 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">padStart() / padEnd()에 대해 알아보자 !</h2>
+        <p class="t_desc2">
+            String.prototype.padStart( ); <br>
+            주어진 길이에 맞게 앞의 문자열을 채우고, 새로운 문자열을 반환해주는 메서드입니다.<br>
+            String.prototype.padEnd( ); <br>
+            주어진 길이에 맞게 뒤의 문자열을 채우고, 새로운 문자열을 반환해주는 메서드입니다.
+        </p>
+
+        <hr>
+
+        <p class="t_box2" style="display: inline-block;">
+            construction(구문)
+        </p>
+        <p class="t_box">
+            "str".padStart(targetLength [,padString]);
+        </p>
+        <p class="t_box2" style="display: inline-block;">
+            targetLength(문자열 길이 지정)
+        </p>
+        <p class="t_box">
+            문자열의 길이를 지정해줍니다. 현재 길이보다 작다면 있는 그대로 반환시켜줍니다.
+        </p>
+        <p class="t_box2" style="display: inline-block;">
+            padString(채워넣을 다른 문자열)
+        </p>
+        <p class="t_box">
+            채워 넣는 문자열이 지정해준 문자열의 길이를 넘어서면 좌측부터 순서대로 넣고 뒷부분은 자릅니다.
+        </p>
+        
+        <h3 class="t_tit2"># 예제를 통해 익혀봅시다.</h3>
+
+        <div class="t_code">
+<pre><code class="language-js">const str1 = "456";
+
+const currentStr1 = str1.padStart(1, "0");
+const currentStr2 = str1.padStart(2, "0");
+const currentStr3 = str1.padStart(3, "0");
+const currentStr4 = str1.padStart(4, "0");
+const currentStr5 = str1.padStart(5, "0");
+const currentStr6 = str1.padStart(6, "0");
+const currentStr7 = str1.padStart(6, "1");
+const currentStr8 = str1.padStart(6, "12");
+const currentStr9 = str1.padStart(6, "123");
+const currentStr10 = str1.padStart(6, "1234");
+const currentStr11 = str1.padStart(6);
+</code></pre>
+        </div>
+        <div class="result">
+            <details>
+                <summary>결과보기</summary>
+                <div class="sample12_result">
+                    456<br>
+                    456<br>
+                    456<br>
+                    0456<br>
+                    00456<br>
+                    000456<br>
+                    111456<br>
+                    121456<br>
+                    123456<br>
+                    123456<br>
+                    ___456(앞부분 공백처리)
+                </div>
+            </details>
+        </div>
+
+        <div class="t_code">
+<pre><code class="language-js">const str1 = "456";
+
+const currentStr12 = str1.padEnd(1, "0");       //456
+const currentStr13 = str1.padEnd(2, "0");       //456
+const currentStr14 = str1.padEnd(3, "0");       //456
+const currentStr15 = str1.padEnd(4, "0");       //4560
+const currentStr16 = str1.padEnd(5, "0");       //45600
+const currentStr17 = str1.padEnd(6, "0");       //456000
+const currentStr18 = str1.padEnd(6, "1");       //456111
+const currentStr19 = str1.padEnd(6, "12");      //456121
+const currentStr20 = str1.padEnd(6, "123");     //456123
+const currentStr21 = str1.padEnd(6, "1234");    //456123
+const currentStr22 = str1.padEnd(6);            //456___
+</code></pre>
+        </div>
+        <div class="result">
+            <details>
+                <summary>결과보기</summary>
+                <div class="sample12_result">
+                    456<br>
+                    456<br>
+                    456<br>
+                    4560<br>
+                    45600<br>
+                    456000<br>
+                    456111<br>
+                    456121<br>
+                    456123<br>
+                    456123<br>
+                    456___(뒷부분 공백처리)
+                </div>
+            </details>
+        </div>
+
+
+
+        
+        
+    </div>
+</main>

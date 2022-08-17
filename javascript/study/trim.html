@@ -1,0 +1,142 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">trim( ) / trimStart() / trimEnd()에 대해 알아보자 !</h2>
+        <p class="t_desc2">
+            String.prototype.trim( ); 문자열 양 끝의 공백을 제거하는 메서드입니다.<br>
+            String.prototype.trimStart( ); 문자열 시작부분의 공백을 제거하는 메서드입니다.<br>
+            String.prototype.trimEnd( ); 문자열 끝부분의 공백을 제거하는 메서드입니다.<br>
+            * 공백; 모든 공백문자(space, tab, NBSP 등)와 모든 개행문자(LF, CR 등)를 의미
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2"># 예제를 통해 익혀봅시다.</h3>
+        <p class="t_box">
+            str 문자열에 공백이 없어도 예외 없이 새 문자열이 반환됩니다. (본질적으로 str의 복사본)<br>
+            trimStart( ); 웹 호환성을 위해 trimLeft( ); 라는 별칭으로도 호출이 가능합니다.<br>
+            trimEnd( ); 웹 호환성을 위해 trimRight( ); 라는 별칭으로도 호출이 가능합니다.
+        </p>
+        
+        <div class="t_code">
+<pre><code class="language-js">//01
+const str1 = "       javascript      ";
+const currentStr1 = str1.trim();
+
+document.querySelector(".sample03_N1").innerHTML = "1";
+document.querySelector(".sample03_Q1").innerHTML = "str1";
+document.querySelector(".sample03_M1").innerHTML = "trim()";
+document.querySelector(".sample03_P1").innerHTML = currentStr1;
+
+//console에서 공백 여부 확인 가능
+console.log(str1);
+console.log(currentStr1);
+
+//02
+const str2 = "       javascript      ";
+const currentStr2 = str2.trimStart();
+
+document.querySelector(".sample03_N2").innerHTML = "2";
+document.querySelector(".sample03_Q2").innerHTML = "str2";
+document.querySelector(".sample03_M2").innerHTML = "trimStart()";
+document.querySelector(".sample03_P2").innerHTML = currentStr2;
+
+console.log(str2);
+console.log(currentStr2);
+
+//03
+const str3 = "       javascript      ";
+const currentStr3 = str3.trimEnd();
+
+document.querySelector(".sample03_N3").innerHTML = "3";
+document.querySelector(".sample03_Q3").innerHTML = "str3";
+document.querySelector(".sample03_M3").innerHTML = "trimEnd()";
+document.querySelector(".sample03_P3").innerHTML = currentStr3;
+
+console.log(str3);
+console.log(currentStr3);
+//글씨 중간에 있는 여백은 없앨 수 없음 : replace()로 없앨 수 있음
+</code></pre>
+        </div>
+
+        <table class="tt_table">
+            <colgroup>
+                <col style="width: 5%;">
+                <col style="width: 32%;">
+                <col style="width: 22%;">
+                <col style="width: 42%;">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>기본값</th>
+                    <th>메서드</th>
+                    <th>리턴값</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sample03_N1"></td>
+                    <td class="sample03_Q1"></td>
+                    <td class="sample03_M1"></td>
+                    <td class="sample03_P1"></td>
+                </tr>
+                <tr>
+                    <td class="sample03_N2"></td>
+                    <td class="sample03_Q2"></td>
+                    <td class="sample03_M2"></td>
+                    <td class="sample03_P2"></td>
+                </tr>
+                <tr>
+                    <td class="sample03_N3"></td>
+                    <td class="sample03_Q3"></td>
+                    <td class="sample03_M3"></td>
+                    <td class="sample03_P3"></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        
+        
+    </div>
+</main>
+<script>
+    // 03
+    {
+            const str1 = "       javascript      ";
+            const currentStr1 = str1.trim();
+
+            document.querySelector(".sample03_N1").innerHTML = "1";
+            document.querySelector(".sample03_Q1").innerHTML = "str1";
+            document.querySelector(".sample03_M1").innerHTML = "trim()";
+            document.querySelector(".sample03_P1").innerHTML = currentStr1;
+
+            //console에서 공백 여부 확인 가능
+            console.log(str1);
+            console.log(currentStr1);
+
+            const str2 = "       javascript      ";
+            const currentStr2 = str2.trimStart();
+
+            document.querySelector(".sample03_N2").innerHTML = "2";
+            document.querySelector(".sample03_Q2").innerHTML = "str2";
+            document.querySelector(".sample03_M2").innerHTML = "trimStart()";
+            document.querySelector(".sample03_P2").innerHTML = currentStr2;
+
+            console.log(str2);
+            console.log(currentStr2);
+
+            const str3 = "       javascript      ";
+            const currentStr3 = str3.trimEnd();
+
+            document.querySelector(".sample03_N3").innerHTML = "3";
+            document.querySelector(".sample03_Q3").innerHTML = "str3";
+            document.querySelector(".sample03_M3").innerHTML = "trimEnd()";
+            document.querySelector(".sample03_P3").innerHTML = currentStr3;
+
+            console.log(str3);
+            console.log(currentStr3);
+            //글씨 중간에 있는 여백은 없앨 수 없음 : replace()로
+        }
+        
+</script>

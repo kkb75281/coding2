@@ -1,0 +1,109 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">toUpperCase( ) / toLowerCase( )에 대해 알아보자 !</h2>
+        <p class="t_desc2">
+            toUpperCase( ); 문자열을 대문자로 변환해 반환하는 메서드입니다.<br>
+            toLowerCase( ); 문자열을 소문자로 변환해 반환하는 메서드입니다.
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2"># 예제를 통해 익혀봅시다.</h3>
+        <p class="t_box">
+            여러 문자열을 합치기 위해 + 연산자와 ' '(띄어쓰기) 등을 활용하였습니다.
+        </p>
+        
+        <div class="t_code">
+<pre><code class="language-js">const str1 = "javascript";
+const currentStr1 = str1.toUpperCase();
+
+document.querySelector(".sample02_N1").innerHTML = "1";
+document.querySelector(".sample02_Q1").innerHTML = "javascript";
+document.querySelector(".sample02_M1").innerHTML = "toUpperCase";
+document.querySelector(".sample02_P1").innerHTML = currentStr1
+
+const str2 = "JAVASCRIPT";
+const currentStr2 = str1.toLowerCase();
+
+document.querySelector(".sample02_N2").innerHTML = "2";
+document.querySelector(".sample02_Q2").innerHTML = "javascript";
+document.querySelector(".sample02_M2").innerHTML = "toLowerCase";
+document.querySelector(".sample02_P2").innerHTML = currentStr2
+</code></pre>
+        </div>
+
+        <table class="tt_table">
+            <colgroup>
+                <col style="width: 5%;">
+                <col style="width: 32%;">
+                <col style="width: 22%;">
+                <col style="width: 42%;">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>기본값</th>
+                    <th>메서드</th>
+                    <th>리턴값</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sample02_N1"></td>
+                    <td class="sample02_Q1"></td>
+                    <td class="sample02_M1"></td>
+                    <td class="sample02_P1"></td>
+                </tr>
+                <tr>
+                    <td class="sample02_N2"></td>
+                    <td class="sample02_Q2"></td>
+                    <td class="sample02_M2"></td>
+                    <td class="sample02_P2"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="t_tit2">++ toUpperCase( )</h3>
+        <p class="t_box">
+            toUpperCase()의 대상이 문자열, undefuned, null이 아닌 경우, 자동적으로 문자열로 변환합니다.
+        </p>
+        
+        <div class="t_code">
+<pre><code class="language-js">const a = String.prototype.toUpperCase.call({
+    toString: function toString() {
+      return 'abcdef';
+    }
+});
+  
+const b = String.prototype.toUpperCase.call(true);
+
+console.log(a, b);      // prints out 'ABCDEF TRUE'.
+</code></pre>
+        </div>
+
+
+        
+        
+    </div>
+</main>
+<script>
+    // 02
+    {
+        const str1 = "javascript";
+        const currentStr1 = str1.toUpperCase();
+
+        document.querySelector(".sample02_N1").innerHTML = "1";
+        document.querySelector(".sample02_Q1").innerHTML = "javascript";
+        document.querySelector(".sample02_M1").innerHTML = "toUpperCase";
+        document.querySelector(".sample02_P1").innerHTML = currentStr1
+
+        const str2 = "JAVASCRIPT";
+        const currentStr2 = str1.toLowerCase();
+
+        document.querySelector(".sample02_N2").innerHTML = "2";
+        document.querySelector(".sample02_Q2").innerHTML = "javascript";
+        document.querySelector(".sample02_M2").innerHTML = "toLowerCase";
+        document.querySelector(".sample02_P2").innerHTML = currentStr2
+    }
+        
+</script>
