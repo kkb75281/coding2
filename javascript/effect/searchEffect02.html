@@ -330,7 +330,6 @@
         //검색 영역
         searchBox.addEventListener("keyup", () => {
             const searchWord = searchBox.value;     //사용자가 입력한 키워드 searchBox에 저장
-            let abc = 0;
 
             searchList.forEach(el => {
                 const cssName = el.dataset.name;    //dataset.name으로 css 속성의 모든 값을 불러옴
@@ -338,18 +337,14 @@
 
                 //console.log(cssName)
                 
-                if(cssName.includes(searchWord)){   //값 중에서 사용자가 입력한 값이 있으면
+                if(cssName.includes(searchWord) | cssType.includes(searchWord)){   //값 중에서 사용자가 입력한 값이 있으면
                     el.classList.remove("hide");
                 } else {
                     el.classList.add("hide");
                 }
-
-                if(!el.classList.value){
-                acb++;
-            }
             });
-            searchInfo.innerHTML = abc;       
-        });
+        })
+
 
     </script>
 </body>
