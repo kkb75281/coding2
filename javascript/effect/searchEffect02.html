@@ -276,14 +276,13 @@
                         <li data-name="text-decoration"><strong>text-decoration</strong> : text-decoration 속성은 글자 라인 속성을 설정합니다.</li>
                         <li data-name="text-decoration-color"><strong>text-decoration-color</strong> : text-decoration-color 속성은 글자 라인 색을 설정합니다.</li>
                         <li data-name="text-decoration-line"><strong>text-decoration-line</strong> : text-decoration-line 속성은 글자 라인 스타일을 설정합니다.</li>
-                        <li data-name="right"><strong>right</strong> : right 속성은 위치 요소의 오른쪽 속성을 설정합니다.</li>
-                        <li data-name="right"><strong>right</strong> : right 속성은 위치 요소의 오른쪽 속성을 설정합니다.</li>
-                        <li data-name="right"><strong>right</strong> : right 속성은 위치 요소의 오른쪽 속성을 설정합니다.</li>
-                        <li data-name="right"><strong>right</strong> : right 속성은 위치 요소의 오른쪽 속성을 설정합니다.</li>
-                        <li data-name="right"><strong>right</strong> : right 속성은 위치 요소의 오른쪽 속성을 설정합니다.</li>
-                        <li data-name="right"><strong>right</strong> : right 속성은 위치 요소의 오른쪽 속성을 설정합니다.</li>
-                        <li data-name="right"><strong>right</strong> : right 속성은 위치 요소의 오른쪽 속성을 설정합니다.</li>
-                        <li data-name="right"><strong>right</strong> : right 속성은 위치 요소의 오른쪽 속성을 설정합니다.</li>
+                        <li data-name="text-decoration-style"><strong>text-decoration-style</strong> : text-decoration-style 속성은 글자 스타일을 정의합니다.</li>
+                        <li data-name="text-indent"><strong>text-indent</strong> : text-indent 속성은 문단 들여쓰기 속성을 설정합니다.</li>
+                        <li data-name="text-justify"><strong>text-justify</strong> : text-justify 속성은 텍스트의 간격을 정의합니다.</li>
+                        <li data-name="text-overflow"><strong>text-overflow</strong> : text-overflow 속성은 문자열 영역 속성을 설정합니다.</li>
+                        <li data-name="text-shadow"><strong>text-shadow</strong> : text-shadow 속성은 텍스트에 그림자를 설정합니다.</li>
+                        <li data-name="text-transform"><strong>text-transform</strong> : text-transform 속성은 위치 요소의 오른쪽 속성을 설정합니다.</li>
+                        <li data-name="top"><strong>top</strong> : top 속성은 위치 요소의 위쪽 속성을 설정합니다.</li>
                         <li data-name="right"><strong>right</strong> : right 속성은 위치 요소의 오른쪽 속성을 설정합니다.</li>
                         <li data-name="right"><strong>right</strong> : right 속성은 위치 요소의 오른쪽 속성을 설정합니다.</li>
 
@@ -331,10 +330,12 @@
         //검색 영역
         searchBox.addEventListener("keyup", () => {
             const searchWord = searchBox.value;     //사용자가 입력한 키워드 searchBox에 저장
+            let abc = 0;
 
             searchList.forEach(el => {
                 const cssName = el.dataset.name;    //dataset.name으로 css 속성의 모든 값을 불러옴
-                
+                const cssType = el.dataset.type;
+
                 //console.log(cssName)
                 
                 if(cssName.includes(searchWord)){   //값 중에서 사용자가 입력한 값이 있으면
@@ -342,19 +343,12 @@
                 } else {
                     el.classList.add("hide");
                 }
-            });
 
-            searchList.forEach(el => {
-                const cssType = el.dataset.type;
-                
-                console.log(cssType)
-                
-                if(cssType.includes(searchWord)){
-                    el.classList.remove("hide");
-                } else {
-                    el.classList.add("hide");
-                }
+                if(!el.classList.value){
+                acb++;
+            }
             });
+            searchInfo.innerHTML = abc;       
         });
 
     </script>
