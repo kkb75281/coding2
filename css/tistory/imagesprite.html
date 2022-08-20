@@ -1,0 +1,130 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">이미지 스프라이트(image sprite) / ir 효과 / background 표현</h2>
+        <p class="t_desc2">
+            이미지 스프라이트(image sprite)와 ir 효과, background 표현까지 알아보도록 합시다.
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2">🖼️ 이미지 스프라이트(image sprite)</h3>
+        <p class="t_box">
+            이미지 스프라이트 기법이란 아래 사진처럼 여러 개의 이미지를 하나의 이미지로 만들어 놓는 것을 의미합니다.
+        </p>
+
+        <img src="https://kkb75281.github.io/coding2/assets/tistory/ex1.png" alt="예시사진1">
+
+        <h3 class="t_tit2">1. How ?</h3>
+        <p class="t_box">
+            이미지를 표현하는 방법에는 두가지 방법이 있습니다.<br>
+            1) html : img 태그 사용 (의미있는 사진일 경우)<br>
+            2) CSS : background 속성 사용 (장식용 사진일 경우)<br>
+            이 중 <i>이미지 스프라이트는 background 속성을 사용</i>합니다.
+        </p>
+
+        <h3 class="t_tit2">2. Example ?</h3>
+        <p class="t_box">
+            <a href="https://kkb7528.tistory.com/54">imageType #3</a>을 통해 확인해봅시다.
+        </p>
+        <div class="t_code">
+<pre><code class=""language-js>&lt;style&gt;
+...
+    /* imageType03 */
+    ...
+    .image__sns {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        opacity: -1;
+        transition: all 0.5s ease;
+    }
+    .image__sns a {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: block;
+        margin-bottom: 5px;
+        background: url(img/image_bg03_icon3.svg) no-repeat;
+    }
+    .image__sns a:nth-child(2){
+        background-position: -50px 0;
+    }
+    .image__sns a:nth-child(3){
+        background-position: -100px 0;
+    }
+    .image__sns a:nth-child(4){
+        background-position: -150px 0;
+    }
+    .image:hover .image__sns {
+        opacity: 1;
+    }
+    ...
+...
+&lt;/style&gt;
+</code></pre></div>
+        <div class="t_code">
+<pre><code class=""language-js>&lt;body&gt;
+...
+    &lt;div class="image__save"&gt;
+        &lt;a class="link" href=""&gt;&lt;span class="ir"&gt;저장하기&lt;/span&gt;&lt;/a&gt;
+        &lt;a class="link" href=""&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;a class="link" href=""&gt;&lt;span class="ir"&gt;조회수&lt;/span&gt;&lt;/a&gt;
+        &lt;a class="link" href=""&gt;&lt;span class="ir"&gt;공유횟수&lt;/span&gt;&lt;/a&gt;
+    &lt;/div&gt;
+...
+&lt;/body&gt;
+</code></pre></div>
+        <p class="t_box">
+            background 속성의 경우, 웹표준을 지키기 위해 대체 문자를 만들어 이미지를 설명해주고 ir 효과로 안보이게 설정해줍니다.
+        </p>
+        <p class="t_box2">
+            ir 효과; Phark Method
+        </p>
+        <div class="t_code">
+<pre><code class=""language-js>&lt;style&gt;
+...
+    /* reset */
+    .ir {
+        display: block;
+        overflow: hidden;
+        font-size: 0;
+        line-height: 0;
+        text-indent: -9999px;
+    }
+...
+&lt;/style&gt;
+</code></pre></div>
+        <p class="t_box">
+            imageType #3의 경우 Phark Method 방법을 사용하여 글자가 보이지 않도록 화면 밖으로(-9999px) 빼내었습니다.
+        </p>
+
+        <hr>
+
+        <h4 class="t_tit3">+ 그 밖의 다른 ir 효과</h4>
+        <p class="t_box2">
+            ir 효과; WA IR
+        </p>
+        <div class="t_code">
+<pre><code class=""language-js>&lt;style&gt;
+    .ir {
+        display: block;
+        overflow: hidden;
+        position: relative;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+    }
+&lt;/style&gt;
+</code></pre></div>
+        <p class="t_box">
+            WA IR 방법을 사용하여 글자를 span 태그로 감싸고 z-index: -1;를 주어 안보이게 처리해줍니다.
+        </p>
+
+        
+
+
+        
+        
+        
+    </div>
+</main>
