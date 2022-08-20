@@ -69,7 +69,7 @@
             margin-bottom: 70px;
         }
 
-        /* imageType03 */
+        /* imageType02 */
         .image__inner {
             display: grid;
             grid-template-areas: 
@@ -84,6 +84,7 @@
             position: relative;
             overflow: hidden;
         }
+        .image__inner .image {}
         .image__inner .image:nth-child(1) {
             grid-area: box1;
             background: url(img/image_bg03_01.jpg);
@@ -104,25 +105,26 @@
         .image__desc {
             position: absolute;
             left: 0;
-            bottom: 0;
+            bottom: -100%;
             width: 100%;
+            background-color: rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
             padding: 16px;
             box-sizing: border-box;
             transition: all 0.4s ease;
-            color: #fff;
         }
         .image:hover .image__desc {
-            bottom: 65px;
+            bottom: 0;
         }
         .image__desc h3 {
             font-size: 20px;
         }
         .image__desc p {
             font-size: 16px;
+            color: #333;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            color: rgba(255, 255, 255, 0.7);
         }
         .image__sns {
             position: absolute;
@@ -134,10 +136,11 @@
         .image__sns a {
             width: 36px;
             height: 36px;
+            background: #fff;
             border-radius: 50%;
             display: block;
             margin-bottom: 5px;
-            background: url(img/image_bg03_icon3.svg) no-repeat;
+            background: url(img/image_bg03_icon.svg) no-repeat;
         }
         .image__sns a:nth-child(2){
             background-position: -50px 0;
@@ -148,44 +151,12 @@
         .image__sns a:nth-child(4){
             background-position: -150px 0;
         }
+        .image__sns a:nth-child(5){
+            background-position: -200px 0;
+        }
         .image:hover .image__sns {
             /* right: 10px; */
             opacity: 1;
-        }
-        .image__save {
-            position: absolute;
-            left: 0;
-            bottom: -100%;
-            width: 100%;
-            background-color: rgba(0,0,0,0.25);
-            backdrop-filter: blur(10px);
-            padding: 16px;
-            box-sizing: border-box;
-            transition: all 0.4s ease;
-        }
-        .image__save a {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: block;
-            float: left;
-            background: url(img/image_bg03_icon2.svg) no-repeat;
-        }
-        .image__save a:nth-child(2){
-            background-position: -50px 0;
-            margin-left: 10px;
-        }
-        .image__save a:nth-child(3){
-            background-position: -100px 0;
-            float: right;
-            margin-left: 10px;
-        }
-        .image__save a:nth-child(4){
-            background-position: -150px 0;
-            float: right;
-        }
-        .image:hover .image__save {
-            bottom: 0;
         }
 
     </style>
@@ -206,93 +177,64 @@
                     <h3>Flow</h3>
                     <p>Design by 홍개미</p>
                 </div>
-                <div class="image__save">
-                    <a class="link" href=""><span class="ir">저장하기</span></a>
-                    <a class="link" href=""><span class="ir">더보기</span></a>
-                    <a class="link" href=""><span class="ir">조회수</span></a>
-                    <a class="link" href=""><span class="ir">공유횟수</span></a>
-                </div>
                 <div class="image__sns">
                     <a class="link" href=""><span class="ir">클라우드</span></a>
-                    <a class="link" href=""><span class="ir">공유하기</span></a>
-                    <a class="link" href=""><span class="ir">좋아요</span></a>
-                    <a class="link" href=""><span class="ir">확대하기</span></a>
+                    <a class="link" href=""><span class="ir">페이지 이동</span></a>
+                    <a class="link" href=""><span class="ir">페이지 이동</span></a>
+                    <a class="link" href=""><span class="ir">페이지 이동</span></a>
+                    <a class="link" href=""><span class="ir">페이지 이동</span></a>
                 </div>
             </article>
             <article class="image">
                 <figure class="image__box">
-                    <img src="img/image_bg03_02.jpg" alt="'아트작품'Waver'">
+                    <img src="img/image_bg03_02.jpg" alt="">
                 </figure>
                 <div class="image__desc">
                     <h3>Waver</h3>
                     <p>Design by 김배짱</p>
                 </div>
-                <div class="image__save">
-                    <a class="link" href=""><span class="ir">저장하기</span></a>
-                    <a class="link" href=""><span class="ir">더보기</span></a>
-                    <a class="link" href=""><span class="ir">조회수</span></a>
-                    <a class="link" href=""><span class="ir">공유횟수</span></a>
-                </div>
                 <div class="image__sns">
                     <a class="link" href=""><span class="ir">클라우드</span></a>
-                    <a class="link" href=""><span class="ir">공유하기</span></a>
+                    <a class="link" href=""><span class="ir">페이지 이동</span></a>
                 </div>
             </article>
             <article class="image">
                 <figure class="image__box">
-                    <img src="img/image_bg03_03.jpg" alt="'아트작품'Spread'">
+                    <img src="img/image_bg03_03.jpg" alt="">
                 </figure>
                 <div class="image__desc">
                     <h3>Spread</h3>
                     <p>Design by 홍이젠</p>
                 </div>
-                <div class="image__save">
-                    <a class="link" href=""><span class="ir">저장하기</span></a>
-                    <a class="link" href=""><span class="ir">더보기</span></a>
-                    <a class="link" href=""><span class="ir">조회수</span></a>
-                    <a class="link" href=""><span class="ir">공유횟수</span></a>
-                </div>
                 <div class="image__sns">
                     <a class="link" href=""><span class="ir">클라우드</span></a>
-                    <a class="link" href=""><span class="ir">공유하기</span></a>
+                    <a class="link" href=""><span class="ir">페이지 이동</span></a>
                 </div>
             </article>
             <article class="image">
                 <figure class="image__box">
-                    <img src="img/image_bg03_04.jpg" alt="'아트작품'Plastic'">
+                    <img src="img/image_bg03_04.jpg" alt="">
                 </figure>
                 <div class="image__desc">
                     <h3>Plastic</h3>
                     <p>Design by 구마고</p>
                 </div>
-                <div class="image__save">
-                    <a class="link" href=""><span class="ir">저장하기</span></a>
-                    <a class="link" href=""><span class="ir">더보기</span></a>
-                    <a class="link" href=""><span class="ir">조회수</span></a>
-                    <a class="link" href=""><span class="ir">공유하기</span></a>
-                </div>
                 <div class="image__sns">
                     <a class="link" href=""><span class="ir">클라우드</span></a>
-                    <a class="link" href=""><span class="ir">공유하기</span></a>
+                    <a class="link" href=""><span class="ir">페이지 이동</span></a>
                 </div>
             </article>
             <article class="image">
                 <figure class="image__box">
-                    <img src="img/image_bg03_05.jpg" alt="아트작품'brighten'">
+                    <img src="img/image_bg03_05.jpg" alt="">
                 </figure>
                 <div class="image__desc">
                     <h3>brighten</h3>
                     <p>Design by 자감</p>
                 </div>
-                <div class="image__save">
-                    <a class="link" href=""><span class="ir">저장하기</span></a>
-                    <a class="link" href=""><span class="ir">더보기</span></a>
-                    <a class="link" href=""><span class="ir">조회수</span></a>
-                    <a class="link" href=""><span class="ir">공유횟수</span></a>
-                </div>
                 <div class="image__sns">
                     <a class="link" href=""><span class="ir">클라우드</span></a>
-                    <a class="link" href=""><span class="ir">공유하기</span></a>
+                    <a class="link" href=""><span class="ir">페이지 이동</span></a>
                 </div>
             </article>
         </div>
