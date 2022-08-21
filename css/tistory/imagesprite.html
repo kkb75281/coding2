@@ -12,7 +12,7 @@
             이미지 스프라이트 기법이란 아래 사진처럼 여러 개의 이미지를 하나의 이미지로 만들어 놓는 것을 의미합니다.
         </p>
 
-        <img src="https://kkb75281.github.io/coding2/assets/tistory/ex1.png" alt="예시사진1">
+        <img class="t_img1" src="https://kkb75281.github.io/coding2/assets/tistory/ex1.png" alt="예시사진1">
 
         <h3 class="t_tit2">1. How ?</h3>
         <p class="t_box">
@@ -20,6 +20,34 @@
             1) html : img 태그 사용 (의미있는 사진일 경우)<br>
             2) CSS : background 속성 사용 (장식용 사진일 경우)<br>
             이 중 <i>이미지 스프라이트는 background 속성을 사용</i>합니다.
+        </p>
+        <p class="t_box2" style="display: inline-block;">
+            background: color/image/repeat/attachment/position/size;
+        </p>
+
+        <p class="t_box">
+            color: #fff, white, rgba(255,255,255);<br>
+            다양한 방식으로 색을 설정해줍니다.
+        </p>
+        <p class="t_box">
+            img: url(img/abc.jpg);<br>
+            배경으로 쓸 이미지의 주소를 지정하여 설정합니다.
+        </p>
+        <p class="t_box">
+            repeat: repeat/repeat-x/repeat-y/no-repeat;<br>
+            배경 이미지 패턴(반복여부)를 설정합니다.
+        </p>
+        <p class="t_box">
+            attachment: scroll/fixed/local;<br>
+            배경 이미지 고정 방식을 설정합니다.
+        </p>
+        <p class="t_box">
+            position: left right center/top center bottom/%/...;<br>
+            배경의 위치를 설정해줍니다.
+        </p>
+        <p class="t_box">
+            size: auto/px/%/cover/contain;<br>
+            배경 이미지 크기를 설정해줍니다.
         </p>
 
         <h3 class="t_tit2">2. Example ?</h3>
@@ -77,7 +105,7 @@
         <p class="t_box">
             background 속성의 경우, 웹표준을 지키기 위해 대체 문자를 만들어 이미지를 설명해주고 ir 효과로 안보이게 설정해줍니다.
         </p>
-        <p class="t_box2">
+        <p class="t_box2" style="display: inline-block;">
             ir 효과; Phark Method
         </p>
         <div class="t_code">
@@ -98,11 +126,8 @@
             imageType #3의 경우 Phark Method 방법을 사용하여 글자가 보이지 않도록 화면 밖으로(-9999px) 빼내었습니다.
         </p>
 
-        <hr>
-
-        <h4 class="t_tit3">+ 그 밖의 다른 ir 효과</h4>
-        <p class="t_box2">
-            ir 효과; WA IR
+        <p class="t_box2" style="display: inline-block;">
+            + 다른 ir 효과; WA IR
         </p>
         <div class="t_code">
 <pre><code class=""language-js>&lt;style&gt;
