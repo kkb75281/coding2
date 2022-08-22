@@ -1,0 +1,61 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">search( )에 대해 알아보자 !</h2>
+        <p class="t_desc2">
+            String.prototype.search( ); <br>
+            search( ) 메서드는 문자열(정규식)을 검색하고 위치값(숫자)를 반환합니다.
+        </p>
+
+        <hr>
+
+        <p class="t_box2" style="display: inline-block;">
+            construction(구문)
+        </p>
+        <p class="t_box">
+            str.search("searching"/regexp)
+        </p>
+        <p class="t_box2" style="display: inline-block;">
+            searchString(찾을 문자열, 검색값) / regexp(정규식 표현)
+        </p>
+        <p class="t_box">
+            정규표현식과 주어진 스트링간에 첫번째로 매치되는 것의 인덱스를 반환합니다. 찾지 못하면 -1 를 반환합니다.
+        </p>
+        
+        <h3 class="t_tit2"># 예제를 통해 익혀봅시다.</h3>
+
+        <div class="t_code">
+<pre><code class="language-js">const str1 = "javascript reference";
+
+const currentstr1 = str1.search("javascript");
+const currentstr2 = str1.search("reference");
+const currentstr3 = str1.search("j");
+const currentstr4 = str1.search("a");
+const currentstr5 = str1.search("v");
+const currentstr6 = str1.search("jquery");
+const currentstr7 = str1.search("b");
+const currentstr8 = str1.search(/[a-z]/g); 
+</code></pre>
+        </div>
+        <div class="result">
+            <details>
+                <summary>결과보기</summary>
+                <div class="sample12_result">
+                    0<br>
+                    11<br>
+                    0<br>
+                    1<br>
+                    2<br>
+                    -1<br>
+                    -1<br>
+                    0
+                </div>
+            </details>
+        </div>
+
+        
+
+
+        
+        
+    </div>
+</main>

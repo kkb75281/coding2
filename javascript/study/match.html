@@ -1,0 +1,62 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">match( )에 대해 알아보자 !</h2>
+        <p class="t_desc2">
+            String.prototype.match( ); <br>
+            match( ) 메서드는 문자열이 정규식과 매치되는 부분을 검색합니다.
+        </p>
+
+        <hr>
+
+        <p class="t_box2" style="display: inline-block;">
+            construction(구문)
+        </p>
+        <p class="t_box">
+            str.match("searching"/regexp)
+        </p>
+        <p class="t_box2" style="display: inline-block;">
+            searchString(찾을 문자열, 검색값) / regexp(정규식 표현)
+        </p>
+        <p class="t_box">
+            문자열이 정규식과 일치한다면 일치하는 전체 문자열을 첫 번째 요소로 포함하는 "배열"을 반환합니다.<br>
+            일치하는 것이 없으면 null이 반환됩니다.
+        </p>
+        
+        <h3 class="t_tit2"># 예제를 통해 익혀봅시다.</h3>
+
+        <div class="t_code">
+<pre><code class="language-js">const str1 = "javascript reference";
+
+const currentstr1 = str1.match("javascript");
+const currentstr2 = str1.match("reference");
+const currentstr3 = str1.match("r");
+const currentstr4 = str1.match(/reference/);
+const currentstr5 = str1.match(/Reference/);
+const currentstr6 = str1.match(/Reference/i);
+const currentstr7 = str1.match(/r/g);
+const currentstr8 = str1.match(/e/g);   
+</code></pre>
+        </div>
+        <div class="result">
+            <details>
+                <summary>결과보기</summary>
+                <div class="sample12_result">
+                    ['javascript']<br>
+                    ['reference']<br>
+                    ['r']<br>
+                    ['reference']<br>
+                    null<br>
+                    null<br>
+                    ['r', 'r', 'r']<br>
+                    ['e', 'e', 'e', 'e']
+                </div>
+            </details>
+        </div>
+
+        
+
+
+        
+        
+    </div>
+</main>
