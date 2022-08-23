@@ -1,0 +1,111 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">🚦 CSS 색상 표현에 대해 알아봅시다 !</h2>
+        <p class="t_box">
+            CSS에서 색상을 지정하는 세가지 방법(16진수, rgba, hsl)에 대해 알아봅시다.
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2">🚗 16진수 RGB</h3>
+        <p class="t_box">
+            16진수 RGB : #02798b : hash/pound 기호(#)와 6개의 16진수로 표현<br>
+            16진수는 0과 f(15) : 0123456789sbcdef : 사이의 값으로 구성되며, 총 256개(16*16)의 색 지정 가능
+        </p>
+        <div class="t_code">
+<pre><code>.one {
+    background-color: #02798b;
+}
+.two {
+    background-color: #c55da1;
+}
+.three {
+    background-color: #128a7d;
+}
+</code></pre>
+        </div>
+        <div class="t_code">
+<pre><code>&lt;div class="wrapper"&gt;
+    &lt;div class="box one"&gt;#02798b&lt;/div&gt;
+    &lt;div class="box two"&gt;#c55da1&lt;/div&gt;
+    &lt;div class="box three"&gt;#128a7d&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+
+        <hr>
+
+        <h3 class="t_tit2">🚕 RGB값 / RGBA 값</h3>
+        <p class="t_box">
+            RGB : rgb(빨강, 녹색, 파랑)로 지정 : 각 채널(매개변수)이 0과 255 사이의 10진수로 표현<br>
+            RGBA : rgba(빨강, 녹색, 파랑, 알파)로 지정 : 알파 채널 추가, 불투명도(opacity) 제어 가능<br>
+            + opacity : 0(완전 투명) ~ 1(완전 불투명)
+        </p>
+        <p class="t_box">
+            ❓ 색상에 알파 채널 설정 vs opacity 속성 설정<br>
+            ✔️ rgba 색상 설정 : 지정한 색상만 불투명하게 설정<br>
+            ✔️ opacity 설정 : 요소와 그 안에 있는 모든 것을 불투명하게 설정
+        </p>
+        <div class="t_code">
+<pre><code>.one {
+    background-color: rgba(2, 121, 139, .3);
+}
+  
+.two {
+    background-color: rgba(197, 93, 161, .7);
+}
+  
+.three {
+    background-color: rgba(18, 138, 125, .9);
+}
+</code></pre>
+        </div>
+        <div class="t_code">
+<pre><code>&lt;div class="wrapper"&gt;
+    &lt;div class="box one"&gt;rgba(2, 121, 139, .3)&lt;/div&gt;
+    &lt;div class="box two"&gt;rgba(197, 93, 161, .7)&lt;/div&gt;
+    &lt;div class="box three"&gt;rgba(18, 138, 125, .9)&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+
+        <h3 class="t_tit2">🚙 HSL값 / HSLA 값</h3>
+        <p class="t_box">
+            HSL : hsl(색조, 채도, 명도)로 지정<br>
+            HSLA : hsl(색조, 채도, 명도, 알파)로 지정
+        </p>
+        <p class="t_box">
+            색조(Hue) : 색상의 기본 음영, 0 ~ 360 사이의 값 사용<br>
+            채도(Saturation) : 색이 얼마나 있는지, 0 ~ 100% 사이의 값 사용, 0(색 없음, 회색) ~ 100%(전체 색상 채도)<br>
+            명도(Lightness) : 색이 얼마나 밝은지, 0 ~ 100% 사이의 값 사용, 0(검은색) ~ 100%(흰색)
+        </p>
+        <div class="t_code">
+<pre><code>.one {
+    background-color: hsla(188, 97%, 28%, .3);
+}
+  
+.two {
+    background-color: hsla(321, 47%, 57%, .7);
+}
+  
+.three {
+    background-color: hsla(174, 77%, 31%, .9);
+}
+</code></pre>
+        </div>
+        <div class="t_code">
+<pre><code>&lt;div class="wrapper"&gt;
+    &lt;div class="box one"&gt;hsla(188, 97%, 28%, .3)&lt;/div&gt;
+    &lt;div class="box two"&gt;hsla(321, 47%, 57%, .7)&lt;/div&gt;
+    &lt;div class="box three"&gt;hsla(174, 77%, 31%, .9)&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+
+
+
+        
+        
+        
+    </div>
+</main>

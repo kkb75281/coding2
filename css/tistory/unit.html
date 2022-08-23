@@ -1,0 +1,229 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">CSS 단위에 대해 알아봅시다 !</h2>
+        <p class="t_desc2">
+            CSS에서 자주 사용되는 숫자 데이터 형식에 대해 알아보고, 길이 단위에 대해 알아봅시다.
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2">숫자 데이터 형식</h3>
+        <table  class="t_table">
+            <thead>
+                <tr>
+                    <th>데이터 형식</th>
+                    <th>설명</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="ce">&lt;integer&gt;</td>
+                    <td>1024 또는 -55 와 같은 정수</td>
+                </tr>
+                <tr>
+                    <td class="ce">&lt;number&gt;</td>
+                    <td>10진수, 소수 자릿수도 가능</td>
+                </tr>
+                <tr>
+                    <td class="ce">&lt;dimension&gt;</td>
+                    <td>
+                        45deg, 10px과 같이 단위가 붙어 있는 숫자<br>
+                        &lt;length&gt;,&lt;angle&gt;,&lt;time&gt; 및 &lt;resolution&gt; 종류 포함
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ce">&lt;percentage&gt;</td>
+                    <td>
+                        50%와 같이 퍼센트를 나타냄<br>
+                        요소의 길이는 부모 요소의 길이를 기준으로 함
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="t_box2" style="color: #fff; display: block; text-align: center;">
+            이 중 &lt;length&gt; 형식이 가장 많이 쓰이기 때문에 길이 단위에 대해 알아봅시다.<br>
+            길이 단위에는 항상 동일한 크기인 절대 길이와 다른 것에 비례하여 조정되는 상대 길이로 나뉩니다.
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2">절대 길이 단위</h3>
+        <p class="t_desc">
+            화면 출력보다 인쇄 시 더 유용합니다.
+        </p>
+        <table class="t_table">
+            <thead>
+                <tr>
+                    <th>단위</th>
+                    <th>이름</th>
+                    <th>길이값</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="ce">cm</td>
+                    <td class="ce">센티미터</td>
+                    <td>1cm = 96px/2.54</td>
+                </tr>
+                <tr>
+                    <td class="ce">mm</td>
+                    <td class="ce">밀리미터</td>
+                    <td>1mm = 1/10th of 1cm</td>
+                </tr>
+                <tr>
+                    <td class="ce">Q</td>
+                    <td class="ce">1/4 밀리미터</td>
+                    <td>1Q = 1/40th of 1cm</td>
+                </tr>
+                <tr>
+                    <td class="ce">in</td>
+                    <td class="ce">인치</td>
+                    <td>1in = 2.54cm = 96px</td>
+                </tr>
+                <tr>
+                    <td class="ce">pc</td>
+                    <td class="ce">picas</td>
+                    <td>1pc = 1/6th 1in</td>
+                </tr>
+                <tr>
+                    <td class="ce">pt</td>
+                    <td class="ce">포인트</td>
+                    <td>1pt = 1/72th of 1in</td>
+                </tr>
+                <tr>
+                    <td class="ce">px</td>
+                    <td class="ce">픽셀</td>
+                    <td>1px = 1/96th of 1in</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="t_tit2">상대 길이 단위</h3>
+        <p class="t_desc">
+            페이지 내 모든 요소에 비례하여 조정됩니다.
+        </p>
+        <table class="t_table">
+            <thead>
+                <tr>
+                    <th>단위</th>
+                    <th>설명</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="ce">em</td>
+                    <td>요소의 글꼴 크기</td>
+                </tr>
+                <tr>
+                    <td class="ce">ex</td>
+                    <td>요소 글꼴의 x-height 값</td>
+                </tr>
+                <tr>
+                    <td class="ce">ch</td>
+                    <td>요소 글꼴의 glyph "0"의 사전 길이(너비)</td>
+                </tr>
+                <tr>
+                    <td class="ce">rem</td>
+                    <td>루트 요소의 글꼴 크기</td>
+                </tr>
+                <tr>
+                    <td class="ce">1h</td>
+                    <td>요소의 라인 높이</td>
+                </tr>
+                <tr>
+                    <td class="ce">vw</td>
+                    <td>viewport 너비의 1%</td>
+                </tr>
+                <tr>
+                    <td class="ce">vh</td>
+                    <td>viewport 높이의 1%</td>
+                </tr>
+                <tr>
+                    <td class="ce">vmin</td>
+                    <td>viewport의 작은 치수의 1%</td>
+                </tr>
+                <tr>
+                    <td class="ce">vmax</td>
+                    <td>viewport의 큰 치수의 1%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h3 class="t_tit2">예제로 살펴보자 !</h3>
+        <div class="t_code">
+<pre><code>html {
+    font-size: 16px;
+}
+  
+.ems li {
+    font-size: 1.3em;
+}
+  
+.rems li {
+    font-size: 1.3rem;
+}
+</code></pre>
+        </div>
+        <div class="t_code">
+<pre><code>&lt;ul class="ems"&gt;
+    &lt;li&gt;One&lt;/li&gt;
+    &lt;li&gt;Two&lt;/li&gt;
+    &lt;li&gt;Three
+        &lt;ul&gt;
+            &lt;li&gt;Three A&lt;/li&gt;
+            &lt;li&gt;Three B
+                &lt;ul&gt;
+                    &lt;li&gt;Three B 2&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+  
+&lt;ul class="rems">
+    &lt;li&gt;One&lt;/li&gt;
+    &lt;li&gt;Two&lt;/li&gt;
+    &lt;li&gt;Three
+        &lt;ul&gt;
+            &lt;li&gt;Three A&lt;/li&gt;
+            &lt;li&gt;Three B
+                &lt;ul&gt;
+                    &lt;li&gt;Three B 2&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+        </div>
+        <p class="t_box">
+            ✔️ em 단위는 '부모 요소의 글꼴 크기'를 의미하기 때문에 
+            &lt;ul&gt; 내부에 &lt;li&gt; 요소는 부모 글꼴 크기의 1.3em(1.3배)로 설정되어 점점 커집니다.
+        </p>
+        <p class="t_box">
+            ✔️ rem 단위는 '루트 요소의 글꼴 크기'를 의미하며 
+            &lt;ul&gt; 내부에 &lt;li&gt; 요소는 &lt;html&gt; 에서 글꼴 크기를 가져옵니다.
+        </p>
+
+        <div class="t_code">
+<pre><code>.box {
+    opacity: 0.6;    
+}
+</code></pre>
+        </div>
+        <p class="t_box">
+            ✔️ CSS에서 숫자를 값으로 사용하는 경우 따옴표 없이 사용해야 합니다.
+        </p>
+        <p class="t_box">
+            ✔️ opacity는 단위 없이 사용하는 속성이며, 0(투명)~1(불투명) 사이의 값을 사용합니다.
+        </p>
+
+
+
+        
+        
+        
+    </div>
+</main>
