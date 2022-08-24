@@ -1,0 +1,150 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">QUIZ를 만들어보자 !</h2>
+        <p class="t_desc">
+            QUIZ의 여러 형태 중 <i>객관식(여러문항)</i> 형식으로 만들어봅시다.
+        </p>
+        <div class="t_iframe" style="min-height : 1200px; padding-top: 0;">
+            <iframe src="https://kkb75281.github.io/coding2/javascript/effect/quizEffect05.html" frameborder="0"></iframe>
+        </div>
+
+        <div class="t_link">
+            <a href="https://github.com/kkb75281/coding2/blob/main/javascript/effect/quizEffect05.html" target="_blank">원본 소스 보기</a>
+        </div>
+
+        <h3 class="t_tit2">script를 살펴봅시다 !</h3>
+        <div class="t_code">
+<pre><code class=""language-js>&lt;script&gt;
+//문제정보
+const quizInfo = [
+    {
+        answerType : "웹디자인기능사 2011년 02회",
+        answerNum : "1",
+        answerAsk : "검은 종이 위에 노랑과 파랑을 나열하고 일정한 거리에서 보면 노랑이 파랑보다 가깝게 보인다. 이때의 노랑색을 무엇이라 하는가?",
+        answerChoice : {
+            1: "후퇴색",
+            2: "팽창색",
+            3: "진출색",
+            4: "수축색"
+        },
+        answerResult : "3",
+        answerEx : "후퇴색(멀어져 보이는 색), 팽창색(확대되어 보이는 색), 진출색(가깝게 보이는 색), 수축색(줄어들게 보이는 색)"
+    },
+    {
+        answerType : "웹디자인기능사 2011년 02회",
+        answerNum : "2",
+        answerAsk : "다음 중 시각 디자인에 속하지 않는 것은?",
+        answerChoice : {
+            1: "텍스트타일 디자인",
+            2: "패키지 디자인",
+            3: "POP 디자인",
+            4: "타이포그래피"
+        },
+        answerResult : "1",
+        answerEx : "텍스트타일 디자인은 제품디자인에 속합니다."
+    }, ...
+//선택자
+const quizWrap = document.querySelector(".quiz__wrap");
+
+function updateQuiz(){
+    const exam = [];
+
+    quizInfo.forEach((question, number) => {
+        exam.push(`
+            &lt;div class="quiz"&gt;
+                &lt;span class="quiz__type"&gt;${question.answerType}&lt;/span&gt;
+                &lt;h2 class="quiz__question"&gt;
+                    &lt;span class="number"&gt;${question.answerNum}&lt;/span&gt;
+                    &lt;div class="ask"&gt;${question.answerAsk}&lt;/div&gt;
+                &lt;/h2&gt;
+                &lt;div class="quiz__view"&gt;
+                    &lt;div class="true"&gt;정답입니다 !&lt;/div&gt;
+                    &lt;div class="false"&gt;틀렸습니다 !&lt;/div&gt;
+                    &lt;div class="dog"&gt;
+                        &lt;div class="head"&gt;
+                            &lt;div class="ears"&gt;&lt;/div&gt;
+                            &lt;div class="face"&gt;&lt;/div&gt;
+                            &lt;div class="eyes"&gt;
+                                &lt;div class="teardrop"&gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="nose"&gt;&lt;/div&gt;
+                            &lt;div class="mouth"&gt;
+                                &lt;div class="tongue"&gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="chin"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="body"&gt;
+                            &lt;div class="tail"&gt;&lt;/div&gt;
+                            &lt;div class="legs"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="quiz__answer"&gt;
+                    &lt;div class="quiz__selects"&gt;
+                        &lt;label for="select1${number}"&gt;
+                            &lt;input type="radio" id="select1${number}" class="select" name="select${number}" value="1"&gt;
+                            &lt;span class="choice">${question.answerChoice[1]}&lt;/span&gt;
+                        &lt;/label&gt;
+                        &lt;label for="select2${number}"&gt;
+                            &lt;input type="radio" id="select2${number}" class="select" name="select${number}" value="2"&gt;
+                            &lt;span class="choice">${question.answerChoice[2]}&lt;/span&gt;
+                        &lt;/label&gt;
+                        &lt;label for="select3${number}"&gt;
+                            &lt;input type="radio" id="select3${number}" class="select" name="select${number}" value="3"&gt;
+                            &lt;span class="choice">${question.answerChoice[3]}&lt;/span&gt;
+                        &lt;/label&gt;
+                        &lt;label for="select4${number}"&gt;
+                            &lt;input type="radio" id="select4${number}" class="select" name="select${number}" value="4"&gt;
+                            &lt;span class="choice"&gt;${question.answerChoice[4]}&lt;/span&gt;
+                        &lt;/label&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        `);
+    });
+
+    exam.push(`
+        &lt;div class="quiz__confirm"&gt;
+            &lt;button class="check"&gt;정답 확인하기&lt;/button&gt;
+            &lt;div class="ex"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    `);
+
+    quizWrap.innerHTML = exam.join('');
+}
+updateQuiz();
+
+//정답 확인
+function answerQuiz(){
+    const quizSelects = document.querySelectorAll(".quiz__selects");    //보기
+    const quizView = document.querySelectorAll(".quiz__view");          //강아지
+    //사용자가 체크한 라디오 박스  == 문제 정답
+    quizInfo.forEach((question, number) => {
+        const quizSelectsWrap = quizSelects[number];                    //전체 보기 박스
+        const userSelector = `input[name=select${number}]:checked`;         //사용자가 클린한 라디오 박스
+        const userAnswer = (quizSelectsWrap.querySelector(userSelector) || {}).value
+        const quizView = document.querySelectorAll(".quiz__view");
+        console.log(quizSelects)
+        if(userAnswer == question.answerResult){
+            console.log("정답")
+            quizView[number].classList.add("like");
+        } else {
+            console.log("오답")
+            quizView[number].classList.add("dislike");
+            const div = document.createElement("div");
+            quizSelectsWrap.appendChild(div).innerHTML = `&lt;p class="result"&gt;${question.answerEx}&lt;/p&gt;`;
+        }
+    });
+}
+document.querySelector(".quiz__confirm .check").addEventListener("click", answerQuiz);
+&lt;/script&gt;
+</code></pre></div>
+        <p class="t_box">
+            <i>정답 확인</i> |<br>
+            사용자가 체크한 번호와 문제 정답이 일치하는지 확인 > 
+        </p>
+
+        
+        
+    </div>
+</main>

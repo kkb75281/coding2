@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈 이펙트</title>
+    <link rel="stylesheet" href="../assets/css/quiz.css">
+    <link href="https://webfontworld.github.io/DungGeunMo/DungGeunMo.css" rel="stylesheet">
+    <link href="https://webfontworld.github.io/NanumBarunpen/NanumBarunpen.css" rel="stylesheet">
+</head>
+<body>
+    <!--
+        01. 퀴즈 이펙트 - 정답 확인하기
+        01. 퀴즈 이펙트 - 주관식 확인하기
+        01. 퀴즈 이펙트 - 주관식(여러문제) 확인하기
+        01. 퀴즈 이펙트 - 객관식 확인하기
+        01. 퀴즈 이펙트 - 객관식(여러문제) 확인하기 : 점수
+        01. 퀴즈 이펙트 - 객관식(여러문제) 확인하기 : 슬라이드 형식
+        01. 퀴즈 이펙트 - 객관식(여러문제) 확인하기 : 시험 형식
+        01. 퀴즈 이펙트 - 객관식(여러문제) 확인하기 : 게임 형식
+     -->
+    <header id="header">
+        <h1><a href="../javascript01.html">Quiz</a> <em>객관식(여러문제) 확인하기 : 슬라이드 형식</em></h1>
+        <nav>
+            <ul>
+                <li><a href="quizEffect01.html">1</a></li>
+                <li><a href="quizEffect02.html">2</a></li>
+                <li><a href="quizEffect03.html">3</a></li>
+                <li><a href="quizEffect04.html">4</a></li>
+                <li><a href="quizEffect05.html">5</a></li>
+                <li class="active"><a href="quizEffect06.html">6</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <div class="quiz__wrap">
+            <div class="quiz">
+                <span class="quiz__type"></span>
+                <h2 class="quiz__question">
+                    <!-- <span class="number"></span>
+                    <div class="ask"></div> -->
+                </h2>
+                <div class="quiz__view">
+                    <div class="true">정답입니다 !</div>
+                    <div class="false">틀렸습니다 !</div>
+                    <div class="dog">
+                        <div class="head">
+                            <div class="ears"></div>
+                            <div class="face"></div>
+                            <div class="eyes">
+                                <div class="teardrop"></div>
+                            </div>
+                            <div class="nose"></div>
+                            <div class="mouth">
+                                <div class="tongue"></div>
+                            </div>
+                            <div class="chin"></div>
+                        </div>
+                        <div class="body">
+                            <div class="tail"></div>
+                            <div class="legs"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz__answer">
+                    <div class="quiz__selects">
+                        <!-- <label for="select1">
+                            <input type="radio" id="select1" class="select" name="select" value="1">
+                            <span class="choice"></span>
+                        </label>
+                        <label for="select2">
+                            <input type="radio" id="select2" class="select" name="select" value="2">
+                            <span class="choice"></span>
+                        </label>
+                        <label for="select3">
+                            <input type="radio" id="select3" class="select" name="select" value="3">
+                            <span class="choice"></span>
+                        </label>
+                        <label for="select4">
+                            <input type="radio" id="select4" class="select" name="select" value="4">
+                            <span class="choice"></span>
+                        </label> -->
+                    </div>
+
+                    <div class="result"></div>
+                    <button class="confirm">다음 문제 보기</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+    <footer id="footer">
+        <a href="mailto:kkb7528@naver.com">kkb7528@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script>
+        //문제정보
+        const quizInfo = [
+            {
+                answerType : "웹디자인기능사 2011년 02회",
+                answerNum : "1",
+                answerAsk : "검은 종이 위에 노랑과 파랑을 나열하고 일정한 거리에서 보면 노랑이 파랑보다 가깝게 보인다. 이때의 노랑색을 무엇이라 하는가?",
+                answerChoice : [
+                    "후퇴색",
+                    "팽창색",
+                    "진출색",
+                    "수축색"
+            ],
+                answerResult : "진출색",
+                answerEx : "후퇴색(멀어져 보이는 색), 팽창색(확대되어 보이는 색), 진출색(가깝게 보이는 색), 수축색(줄어들게 보이는 색)"
+            },
+            {
+                answerType : "웹디자인기능사 2011년 02회",
+                answerNum : "2",
+                answerAsk : "다음 중 시각 디자인에 속하지 않는 것은?",
+                answerChoice : [
+                    "텍스트타일 디자인",
+                    "패키지 디자인",
+                    "POP 디자인",
+                    "타이포그래피"
+            ],
+                answerResult : "텍스트타일 디자인",
+                answerEx : "텍스트타일 디자인은 제품디자인에 속합니다."
+            },
+            {
+                answerType : "웹디자인기능사 2011년 02회",
+                answerNum : "3",
+                answerAsk : "디자인 형태의 분류 중 이념적 형태에 속하는 것은?",
+                answerChoice : [
+                    "인위 형태",
+                    "추상 형태",
+                    "자연 형태",
+                    "실제 형태"
+                ],
+                answerResult : "추상 형태",
+                answerEx : "이념적 형태는 점, 선, 면, 입체와 같은 기하학적인 요소를 가지고 있는 것을 말합니다."
+            },
+            {
+                answerType : "웹디자인기능사 2011년 02회",
+                answerNum : "4",
+                answerAsk : "색팽이의 혼합관계와 관련이 있는 것은?",
+                answerChoice : [
+                    "색료혼합",
+                    "표준혼합",
+                    "회전혼합",
+                    "보색혼합"
+                ],
+                answerResult : "회전혼합",
+                answerEx : "팽이가 도는 모습을 연상해 보시면 쉽게 답을 구할 수 있습니다."
+            },
+            {
+                answerType : "웹디자인기능사 2011년 02회",
+                answerNum : "5",
+                answerAsk : "해안에 있는 조약돌은 자연의 힘에 의해 필연적으로 만들어진 형태라는 자연의 법칙이 만든 자연의 형태를 주장한 사람은?",
+                answerChoice : [
+                    "르코르뷔지에",
+                    "파파넥",
+                    "아른하임",
+                    "모홀로나기"
+                ],
+                answerResult : "모홀로나기",
+                answerEx : "'해안에 있는'이라는 말로 무인도를 생각한 뒤 무인도에서 홀로나기를 연상해서 외우시면 쉽습니다."
+            }
+        ];
+
+        const quizQuestion = document.querySelector(".quiz__question")  //출제년도
+        const quizSelects = document.querySelector(".quiz__selects")    //
+        const quizType = document.querySelector(".quiz__type")  //
+        const quizResult = document.querySelector(".quiz__answer .result")  //
+        const quizConfirm = document.querySelector(".quiz__answer .confirm")    //
+        const quizView = document.querySelector(".quiz__view")  //강아지
+
+        let quizCount = 0;
+        let quizScore = 0; 
+        //  문제 출력
+        const updateQuiz = (index) => {
+            const questionTag = `
+            <span class="number">${quizInfo[index].answerNum}</span>
+            <div class="ask">${quizInfo[index].answerAsk}</div>
+            `
+            const choiceTag = `
+                <label for="select1">
+                    <input type="radio" id="select1" class="select" name="select" value="1">
+                    <span class="choice">${quizInfo[index].answerChoice[0]}</span>
+                </label>
+                <label for="select2">
+                    <input type="radio" id="select2" class="select" name="select" value="2">
+                    <span class="choice">${quizInfo[index].answerChoice[1]}</span>
+                </label>
+                <label for="select3">
+                    <input type="radio" id="select3" class="select" name="select" value="3">
+                    <span class="choice">${quizInfo[index].answerChoice[2]}</span>
+                </label>
+                <label for="select4">
+                    <input type="radio" id="select4" class="select" name="select" value="4">
+                    <span class="choice">${quizInfo[index].answerChoice[3]}</span>
+                </label>
+            `;
+            //문제 출력
+            quizType.innerHTML = quizInfo[index].answerType;    //문제 유형
+            quizQuestion.innerHTML = questionTag;   //번호, 질문
+            quizSelects.innerHTML = choiceTag;      //객관식
+            quizResult.innerHTML = quizInfo[index].answerEx //해설
+            const quizChoice = quizSelects.querySelectorAll(".choice");
+
+            for(let i=0; i<quizChoice.length; i++){
+                quizChoice[i].setAttribute("onclick", "choiceSelected(this)")
+            }
+
+            //문제, 해설 숨기기
+            quizResult.style.display = "none";
+            quizConfirm.style.display = "none";
+        }
+        updateQuiz(quizCount);
+
+        const choiceSelected = (answer) => {
+            let userAnswer = answer.textContent;     //사용자 체크한 보기
+            let currentAnswer = quizInfo[quizCount].answerResult;   //문제 정답
+
+            if(userAnswer == currentAnswer){
+                // console.log("정답")
+                quizView.classList.add("like")
+                quizScore++;
+            } else {
+                // console.log("오답")
+                quizView.classList.add("dislike");
+                quizResult.style.display = "block";
+            }
+
+            quizConfirm.style.display = "block";
+        }
+
+        //정답 확인 버튼
+        const answerQuiz = () => {
+            quizCount++;
+            updateQuiz(quizCount);
+            quizView.classList.remove("like", "dislike");
+
+            //마지막 문제
+            if(quizInfo.length -1 == quizCount){
+                quizConfirm.textContent = `총 ${quizInfo.length} 문제 중에 ${quizScore} 문제를 맞추었습니다.`;
+            }
+        }
+
+       quizConfirm.addEventListener("click", answerQuiz);
+    </script>
+</body>
+</html>
