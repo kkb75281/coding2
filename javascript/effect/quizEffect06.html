@@ -165,16 +165,17 @@
             }
         ];
 
-        const quizQuestion = document.querySelector(".quiz__question")  //출제년도
-        const quizSelects = document.querySelector(".quiz__selects")    //
-        const quizType = document.querySelector(".quiz__type")  //
-        const quizResult = document.querySelector(".quiz__answer .result")  //
-        const quizConfirm = document.querySelector(".quiz__answer .confirm")    //
+        const quizQuestion = document.querySelector(".quiz__question")  //문제, 번호
+        const quizSelects = document.querySelector(".quiz__selects")    //보기
+        const quizType = document.querySelector(".quiz__type")  //출제년도
+        const quizResult = document.querySelector(".quiz__answer .result")  
+        const quizConfirm = document.querySelector(".quiz__answer .confirm")    //다음 문제
         const quizView = document.querySelector(".quiz__view")  //강아지
 
         let quizCount = 0;
         let quizScore = 0; 
-        //  문제 출력
+
+        //문제 출력
         const updateQuiz = (index) => {
             const questionTag = `
             <span class="number">${quizInfo[index].answerNum}</span>
@@ -215,6 +216,7 @@
         }
         updateQuiz(quizCount);
 
+        //사용자 체크 보기 == 문제 정답
         const choiceSelected = (answer) => {
             let userAnswer = answer.textContent;     //사용자 체크한 보기
             let currentAnswer = quizInfo[quizCount].answerResult;   //문제 정답
@@ -234,14 +236,15 @@
 
         //정답 확인 버튼
         const answerQuiz = () => {
-            quizCount++;
-            updateQuiz(quizCount);
-            quizView.classList.remove("like", "dislike");
 
             //마지막 문제
             if(quizInfo.length -1 == quizCount){
                 quizConfirm.textContent = `총 ${quizInfo.length} 문제 중에 ${quizScore} 문제를 맞추었습니다.`;
             }
+
+            quizCount++;
+            updateQuiz(quizCount);
+            quizView.classList.remove("like", "dislike");
         }
 
        quizConfirm.addEventListener("click", answerQuiz);
