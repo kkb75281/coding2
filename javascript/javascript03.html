@@ -29,527 +29,529 @@
                 <li><a href="javascript11.html">이벤트 객체</a></li>
             </ul>
             <ul class="effect">
-                <li><a href="effect/searchEffect01.html">검색 효과</a></li>
-                <li><a href="effect/quizEffect01.html">퀴즈 효과</a></li>
-                <li><a href="effect/textEffect01.html">텍스트 효과</a></li>
-                <li><a href="effect/mouseEffect01.html">마우스 효과</a></li>
-                <li><a href="effect/sliderEffect01.html">슬라이드 효과</a></li>
-                <li><a href="effect/parallaxEffect01.html">패랠랙스 효과</a></li>
-                <li><a href="effect/gameEffect01.html">게임 효과</a></li>
+                <li><a href="effect/searchEffect.html">검색 효과</a></li>
+                <li><a href="effect/quizEffect.html">퀴즈 효과</a></li>
+                <li><a href="effect/dataEffect.html">데이터 효과</a></li>
+                <li><a href="effect/mouseEffect.html">마우스 효과</a></li>
+                <li><a href="effect/sliderEffect.html">슬라이드 효과</a></li>
+                <li><a href="effect/parallaxEffect.html">패랠랙스 효과</a></li>
+                <li><a href="effect/gameEffect.html">게임 효과</a></li>
             </ul>
         </nav>
     </header>
     <!-- //header -->
 
     <main id="main"> 
-        <div class="main_menu">
-            <ul>
-                <li><a href="#sample01">01. 선언적 함수</a></li>
-                <li><a href="#sample02">02. 익명 함수</a></li>
-                <li><a href="#sample03">03. 매개변수 함수</a></li>
-                <li><a href="#sample04">04. 리턴값 함수</a></li>
-                <li><a href="#sample05">05. 화살표 함수 : 선언적 함수</a></li>
-                <li><a href="#sample06">06. 화살표 함수 : 익명 함수</a></li>
-                <li><a href="#sample07">07. 화살표 함수 : 매개변수 함수</a></li>
-                <li><a href="#sample08">08. 화살표 함수 : 리턴값 함수</a></li>
-                <li><a href="#sample09">09. 화살표 함수 : 익명 함수 + 매개변수 + 리턴값</a></li>
-                <li><a href="#sample10">10. 화살표 함수 : 익명 함수 + 매개변수 + 리턴값 + 괄호생략</a></li>
-                <li><a href="#sample11">11. 화살표 함수 : 익명 함수 + 매개변수 + 리턴값 + 괄호생략 + 리턴생략</a></li>
-                <li><a href="#sample12">12. 화살표 함수 : 선언적 함수 + 매개변수 + 리턴값 + 괄호생략 + 리턴생략</a></li>
-                <li><a href="#sample13">13. 내부 함수</a></li>
-                <li><a href="#sample14">14. 즉시 실행 함수</a></li>
-                <li><a href="#sample15">15. 파라미터 함수</a></li>
-                <li><a href="#sample16">16. 아규먼트 함수</a></li>
-                <li><a href="#sample17">17. 재귀함수</a></li>
-                <li><a href="#sample18">18. 콜백함수</a></li>
-                <li><a href="#sample19">19. 콜백함수 : 반복문</a></li>
-                <li><a href="#sample20">20. 콜백함수 : 동기/비동기</a></li>
-                <li><a href="#sample21">21. 함수 유형 : 함수와 매개변수를 이용한 형태</a></li>
-                <li><a href="#sample22">22. 함수 유형 : 함수와 변수를 이용한 형태</a></li>
-                <li><a href="#sample23">23. 함수 유형 : 함수와 배열, 객체를 이용한 형태</a></li>
-                <li><a href="#sample24">24. 함수 유형 : 객체 안의 변수와 함수를 이용한 형태</a></li>
-                <li><a href="#sample25">25. 함수 유형 : 객체 생성자 함수</a></li>
-                <li><a href="#sample26">26. 함수 유형 : 프로토타입 함수</a></li>
-                <li><a href="#sample27">27. 함수 유형 : 객체 리터럴 함수</a></li>
-                <li><a href="#sample28">28. 클래스</a></li>
-                <li><a href="#sample29">29. 클래스 상속</a></li>
-            </ul>
-        </div>   
-        <div class="main_sample">
-            <!-- sample01 -->
-            <div id="sample01" class="sample">
-                <h3>01. 선언적 함수</h3>
-                <p>
-                    함수를 정의하고 호출하는 일반적인 함수를 말합니다.
-                </p>
-                <div class="script">
-<pre><code class="language-js">function func(){
-    document.write("함수가 실행되었습니다.1")
-}
-func();
-</code></pre>
-                </div>
-                <div class="result">
-                    <details>
-                        <summary>결과보기</summary>
-                        <div class="sample01_result">
-                            함수가 실행되었습니다.1
-                        </div>
-                    </details>
-                </div>
-            </div>
-
-            <!-- sample02 -->
-            <div id="sample02" class="sample">
-                <h3>02. 익명 함수</h3>
-                <p>
-                    함수의 형태를 가지고 있지만 이름은 갖고 있지 않은 함수힙니다.
-                </p>
-                <div class="script">
-<pre><code class="language-js">const func = function(){
-    document.write("함수가 실행되었습니다.2");
-}
-func();
-</code></pre>
-                </div>
-                <div class="result">
-                    <details>
-                        <summary>결과보기</summary>
-                        <div class="sample02_result">
-                            함수가 실행되었습니다.2
-                        </div>
-                    </details>
-                </div>
-            </div>
-
-            <!-- sample03 -->
-            <div id="sample03" class="sample">
-                <h3>03. 매개변수 함수</h3>
-                <p>
-                    함수를 호출할 때 인수로 전달된 값을 함수 내부에서 사용할 수 있게 해주는 변수 입니다.
-                </p>
-                <div class="script">
-<pre><code class="language-js">function func(str){             //str: parameter, 변수, 인자, 매개변수(-> 4. 변수 : 지역변수 + 전역변수 + 매개변수)
-    document.write(str);
-}
-func("함수가 실행되었습니다.3");
-</code></pre>
-                </div>
-                <div class="result">
-                    <details>
-                        <summary>결과보기</summary>
-                        <div class="sample03_result">
-                            함수가 실행되었습니다.3
-                        </div>
-                    </details>
-                </div>
-            </div>
-
-            <!-- sample04 -->
-            <div id="sample04" class="sample">
-                <h3>04. 리턴값 함수</h3>
-                <p>
-                    함수를 통해 처리된 결과를 반환시켜주는 명령어입니다. 
-                </p>
-                <div class="script">
-<pre><code class="language-js">function func(){
-    const str = "함수가 실행되었습니다.4";
-    return str;
-}
-document.write(func()); // 리턴값이 있기 때문에 실행문 안에 함수의 실행문이 들어가 있어도 값이 나온다
-</code></pre>
-                </div>
-                <div class="result">
-                    <details>
-                        <summary>결과보기</summary>
-                        <div class="sample04_result">
-                            함수가 실행되었습니다.4
-                        </div>
-                    </details>
-                </div>
-            </div>
-
-            <!-- sample05 -->
-            <div id="sample05" class="sample">
-                <h3>05. 화살표 함수 : 선언적 함수</h3>
-                <p>
-                    function을 생략하고 = 과 {} 를 통해 간단하게 표현을 해줄 수 있습니다. 
-                    {} 도 생략이 가능합니다.
-                </p>
-                <div class="script">
-<pre><code class="language-js">// 선언적 함수
-// function func(){
-//     document.write("함수가 실행되었습니다.5")
-// }
-// func();
-
-// 화살표 함수(선언적 함수)
-// func = () => {       //=> function
-//     document.write("함수가 실행되었습니다.5")
-// }
-// func();
-
-// 화살표 함수(중괄호 삭제)
-func = () => document.write("함수가 실행되었습니다.5");
-
-func();
-</code></pre>
-                </div>
-                <div class="result">
-                    <details>
-                        <summary>결과보기</summary>
-                        <div class="sample05_result">
-                            함수가 실행되었습니다.5
-                        </div>
-                    </details>
-                </div>
-            </div>
-
-            <!-- sample06 -->
-            <div id="sample06" class="sample">
-                <h3>06. 화살표 함수 : 익명 함수</h3>
-                <p>
-                    function을 생략하고 = 과 {} 를 통해 간단하게 표현을 해줄 수 있습니다. 
-                    {} 도 생략이 가능합니다.
-                </p>
-                <div class="script">
-<pre><code class="language-js">// 익명 함수
-// const func = function(){
-//     document.write("함수가 실행되었습니다.6");
-// }
-// func();
-
-// 화살표 함수(익명 함수)
-// const func = () => {
-//     document.write("함수가 실행되었습니다.6");
-// }
-// func();
-
-// 화살표 함수(중괄호 삭제)
-const func = () => document.write("함수가 실행되었습니다.6");
-
-func();
-</code></pre>
-                </div>
-                <div class="result">
-                    <details>
-                        <summary>결과보기</summary>
-                        <div class="sample06_result">
-                            함수가 실행되었습니다.6
-                        </div>
-                    </details>
-                </div>
-            </div>
-
-            <!-- sample07 -->
-            <div id="sample07" class="sample">
-                <h3>07. 화살표 함수 : 매개변수 함수</h3>
-                <p>
-                    function을 생략하고 = 과 {} 를 통해 간단하게 표현을 해줄 수 있습니다. 
-                    {} 도 생략이 가능합니다.
-                </p>
-                <div class="script">
-<pre><code class="language-js">// 변수 선언을 해줘야 하지만 매개변수 함수에서는 생략 가능
-// function func(str){
-//     document.write(str);
-// }
-// func("함수가 실행되었습니다.7");
-
-// 화살표 함수(매개변수 함수)
-// func = (str) => {
-//     document.write(str);
-// }
-// func("함수가 실행되었습니다.7");
-
-// 화살표 함수(중괄호 삭제)
-// func = (str) => document.write(str);
-// func("함수가 실행되었습니다.7");
-
-//(앞에 const 있어도 상관 없음)func = str => document.write(str);
-
-func = str => document.write(str);
-
-func("함수가 실행되었습니다.7");
-</code></pre>
-                </div>
-                <div class="result">
-                    <details>
-                        <summary>결과보기</summary>
-                        <div class="sample07_result">
-                            함수가 실행되었습니다.7
-                        </div>
-                    </details>
-                </div>
-            </div>
-
-            <!-- sample08 -->
-            <div id="sample08" class="sample">
-                <h3>08. 화살표 함수 : 리턴값 함수</h3>
-                <p>
-                    function을 생략하고 = 과 {} 를 통해 간단하게 표현을 해줄 수 있습니다. 
-                    {} 도 생략이 가능합니다.
-                </p>
-                <div class="script">
-<pre><code class="language-js">//리턴값 함수
-// function func(){
-//     const str = "함수가 실행되었습니다.8"
-//     return str; //리턴이랑 실행함수 다름
-// }
-// document.write(func());
-
-
-//화살표 함수(리턴값 함수)
-func = () => {
-    const str = "함수가 실행되었습니다.8"
-    return str;
-}
-document.write(func());
-</code></pre>
-                </div>
-                <div class="result">
-                    <details>
-                        <summary>결과보기</summary>
-                        <div class="sample08_result">
-                            함수가 실행되었습니다.8
-                        </div>
-                    </details>
-                </div>
-            </div>
-
-            <!-- sample09 -->
-            <div id="sample09" class="sample">
-                <h3>09. 화살표 함수 : 익명 + 매개변수 + 리턴값</h3>
-                <p>
-                    익명 함수, 매개변수 함수, 리턴값 함수를 합쳐 화살표 함수로 표현할 수 있습니다.
-                </p>
-                <div class="script">
-<pre><code class="language-js">const func = (str) => {
-    return str;
-}
-document.write(func("함수가 실행되었습니다.9"));
-</code></pre>
-                </div>
-                <div class="result">
-                    <details>
-                        <summary>결과보기</summary>
-                        <div class="sample09_result">
-                            함수가 실행되었습니다.9
-                        </div>
-                    </details>
-                </div>
-            </div>
-
-            <!-- sample10 -->
-            <div id="sample10" class="sample">
-                <h3>10. 화살표 함수 : 익명 + 매개변수 + 리턴값 + 괄호 생략</h3>
-                <p>
-                    익명 함수, 매개변수 함수, 리턴값 함수를 합쳐 화살표 함수로 표현할 수 있습니다.<br>
-                    여기서도 괄호를 생략하여 표현할 수 있습니다.
-                </p>
-                <div class="script">
-<pre><code class="language-js">const func = str => {
-    return str; //return 결과를 의미
-}
-document.write(func("함수가 실행되었습니다.10"));
-</code></pre>
-                </div>
-                <div class="result">
-                    <details>
-                        <summary>결과보기</summary>
-                        <div class="sample10_result">
-                            함수가 실행되었습니다.10
-                        </div>
-                    </details>
-                </div>
-            </div>
-
-            <!-- sample11 -->
-            <div id="sample11" class="sample">
-                <h3>11. 화살표 함수 : 익명 + 매개변수 + 리턴값 + 괄호 생략 + 리턴 생략</h3>
-                <p>
-                    익명 함수, 매개변수 함수, 리턴값 함수를 합쳐 화살표 함수로 표현할 수 있습니다.<br>
-                    리턴도 생략하여 표현 가능합니다.
-                </p>
-                <div class="script">
-<pre><code class="language-js">const func = str => str;
-
-document.write(func("함수가 실행되었습니다.11"));
-</code></pre>
-                </div>
-                <div class="result">
-                    <details>
-                        <summary>결과보기</summary>
-                        <div class="sample11_result">
-                            함수가 실행되었습니다.11
-                        </div>
-                    </details>
-                </div>
-            </div>
-
-            <!-- sample12 -->
-            <div id="sample12" class="sample">
-                <h3>12. 화살표 함수 : 선언적 + 매개변수 + 리턴값 + 괄호 생략 + 리턴 생략</h3>
-                <p>
-                    선언적 함수일 때도 똑같이 표현이 가능합니다.
-                </p>
-                <div class="script">
-<pre><code class="language-js">func = str => str;
-
-document.write(func("함수가 실행되었습니다.12"));
-</code></pre>
-                </div>
-                <div class="result">
-                    <details>
-                        <summary>결과보기</summary>
-                        <div class="sample12_result">
-                            함수가 실행되었습니다.12
-                        </div>
-                    </details>
-                </div>
-            </div>
-
-
-            <!-- sample13 -->
-            <div id="sample13" class="sample">
-                <h3>13. 함수 유형 : 함수와 매개변수를 이용한 형태</h3>
-                <p>
-                    ...
-                </p>
-                <div class="script">
-<pre><code class="language-js">function func(num, str1, str2){
-    document.write(num + ". " + str1 + "가 " + str2 + "되었습니다.");
-}
-func("1", "함수", "실행");
-// 위의 함수 재활용해서 또 쓰지 않고도 추가 시켜줄 수 있음
-func("2", "자바스크립트", "실행");
-func("3", "제이쿼리", "실행");
-</code></pre>
-                </div>
-                <div class="result">
-                    <details>
-                        <summary>결과보기</summary>
-                        <div class="sample13_result">
-                            1. 함수가 실행되었습니다.<br>
-                            2. 자바스크립트가 실행되었습니다.<br>
-                            3. 제이쿼리가 실행되었습니다.
-                        </div>
-                    </details>
-                </div>
-            </div>
-
-            <!-- sample14 -->
-            <div id="sample14" class="sample">
-                <h3>14. 즉시 실행 함수</h3>
-                <p>
-                    ...
-                </p>
-                <div class="script">
-<pre><code class="language-js">function func(num, str1, str2){
-    document.write(num + ". " + str1 + "가 " + str2 + "되었습니다.");
-}
-const youNum1 = 1;
-const youNum2 = 2;
-const youNum3 = 3;
-const youStr1 = "함수";
-const youStr2 = "자바스크립트";
-const youStr3 = "제이쿼리";
-const youCom1 = "실행";
-
-// 1. 함수가 실행되었습니다.
-func(youNum1, youStr1, youCom1);
-
-// 2. 자바스크립트가 실행되었습니다.
-func(youNum2, youStr2, youCom1);
-
-// 3. 제이쿼리가 실행되었습니다.
-func(youNum3, youStr3, youCom1);
-</code></pre>
-                </div>
-                <div class="result">
-                    <details>
-                        <summary>결과보기</summary>
-                        <div class="sample14_result">
-                            1. 함수가 실행되었습니다.<br>
-                            2. 자바스크립트가 실행되었습니다.<br>
-                            3. 제이쿼리가 실행되었습니다.
-                        </div>
-                    </details>
-                </div>
-            </div>
-
-            <!-- sample15 -->
-            <div id="sample15" class="sample">
-                <h3>15. 파라미터 함수 : 함수와 배열, 객체를 이용한 형태</h3>
-                <p>
-                    ...
-                </p>
-                <div class="script">
-<pre><code class="language-js">function func(num, str1, str2){
-    document.write(num + ". " + str1 + "가 " + str2 + "되었습니다.");
-}
-const info = [
-    {
-        num : "1",
-        name : "함수",
-        com : "실행"
-    },
-    {
-        num : "2",
-        name : "자바스크립트",
-        com : "실행"
-    },
-    {
-        num : "3",
-        name : "제이쿼리",
-        com : "실행"
+        <div class="container">
+            <div class="main_menu">
+                <ul>
+                    <li><a href="#sample01">01. 선언적 함수</a></li>
+                    <li><a href="#sample02">02. 익명 함수</a></li>
+                    <li><a href="#sample03">03. 매개변수 함수</a></li>
+                    <li><a href="#sample04">04. 리턴값 함수</a></li>
+                    <li><a href="#sample05">05. 화살표 함수 : 선언적 함수</a></li>
+                    <li><a href="#sample06">06. 화살표 함수 : 익명 함수</a></li>
+                    <li><a href="#sample07">07. 화살표 함수 : 매개변수 함수</a></li>
+                    <li><a href="#sample08">08. 화살표 함수 : 리턴값 함수</a></li>
+                    <li><a href="#sample09">09. 화살표 함수 : 익명 함수 + 매개변수 + 리턴값</a></li>
+                    <li><a href="#sample10">10. 화살표 함수 : 익명 함수 + 매개변수 + 리턴값 + 괄호생략</a></li>
+                    <li><a href="#sample11">11. 화살표 함수 : 익명 함수 + 매개변수 + 리턴값 + 괄호생략 + 리턴생략</a></li>
+                    <li><a href="#sample12">12. 화살표 함수 : 선언적 함수 + 매개변수 + 리턴값 + 괄호생략 + 리턴생략</a></li>
+                    <li><a href="#sample13">13. 내부 함수</a></li>
+                    <li><a href="#sample14">14. 즉시 실행 함수</a></li>
+                    <li><a href="#sample15">15. 파라미터 함수</a></li>
+                    <li><a href="#sample16">16. 아규먼트 함수</a></li>
+                    <li><a href="#sample17">17. 재귀함수</a></li>
+                    <li><a href="#sample18">18. 콜백함수</a></li>
+                    <li><a href="#sample19">19. 콜백함수 : 반복문</a></li>
+                    <li><a href="#sample20">20. 콜백함수 : 동기/비동기</a></li>
+                    <li><a href="#sample21">21. 함수 유형 : 함수와 매개변수를 이용한 형태</a></li>
+                    <li><a href="#sample22">22. 함수 유형 : 함수와 변수를 이용한 형태</a></li>
+                    <li><a href="#sample23">23. 함수 유형 : 함수와 배열, 객체를 이용한 형태</a></li>
+                    <li><a href="#sample24">24. 함수 유형 : 객체 안의 변수와 함수를 이용한 형태</a></li>
+                    <li><a href="#sample25">25. 함수 유형 : 객체 생성자 함수</a></li>
+                    <li><a href="#sample26">26. 함수 유형 : 프로토타입 함수</a></li>
+                    <li><a href="#sample27">27. 함수 유형 : 객체 리터럴 함수</a></li>
+                    <li><a href="#sample28">28. 클래스</a></li>
+                    <li><a href="#sample29">29. 클래스 상속</a></li>
+                </ul>
+            </div>   
+            <div class="main_sample">
+                <!-- sample01 -->
+                <div id="sample01" class="sample">
+                    <h3>01. 선언적 함수</h3>
+                    <p>
+                        함수를 정의하고 호출하는 일반적인 함수를 말합니다.
+                    </p>
+                    <div class="script">
+    <pre><code class="language-js">function func(){
+        document.write("함수가 실행되었습니다.1")
     }
-];
-
-func(info[0].num, info[0].name, info[0].com);
-func(info[1].num, info[1].name, info[1].com);
-func(info[2].num, info[2].name, info[2].com);
-</code></pre>
+    func();
+    </code></pre>
+                    </div>
+                    <div class="result">
+                        <details>
+                            <summary>결과보기</summary>
+                            <div class="sample01_result">
+                                함수가 실행되었습니다.1
+                            </div>
+                        </details>
+                    </div>
                 </div>
-                <div class="result">
-                    <details>
-                        <summary>결과보기</summary>
-                        <div class="sample15_result">
-                            <script>
-                                function func(num, str1, str2){
-                                    document.write(num + ". " + str1 + "가 " + str2 + "되었습니다." + "<br>");
-                                }
-                                const info = [
-                                    {
-                                        num : "1",
-                                        name : "함수",
-                                        com : "실행"
-                                    },
-                                    {
-                                        num : "2",
-                                        name : "자바스크립트",
-                                        com : "실행"
-                                    },
-                                    {
-                                        num : "3",
-                                        name : "제이쿼리",
-                                        com : "실행"
+    
+                <!-- sample02 -->
+                <div id="sample02" class="sample">
+                    <h3>02. 익명 함수</h3>
+                    <p>
+                        함수의 형태를 가지고 있지만 이름은 갖고 있지 않은 함수힙니다.
+                    </p>
+                    <div class="script">
+    <pre><code class="language-js">const func = function(){
+        document.write("함수가 실행되었습니다.2");
+    }
+    func();
+    </code></pre>
+                    </div>
+                    <div class="result">
+                        <details>
+                            <summary>결과보기</summary>
+                            <div class="sample02_result">
+                                함수가 실행되었습니다.2
+                            </div>
+                        </details>
+                    </div>
+                </div>
+    
+                <!-- sample03 -->
+                <div id="sample03" class="sample">
+                    <h3>03. 매개변수 함수</h3>
+                    <p>
+                        함수를 호출할 때 인수로 전달된 값을 함수 내부에서 사용할 수 있게 해주는 변수 입니다.
+                    </p>
+                    <div class="script">
+    <pre><code class="language-js">function func(str){             //str: parameter, 변수, 인자, 매개변수(-> 4. 변수 : 지역변수 + 전역변수 + 매개변수)
+        document.write(str);
+    }
+    func("함수가 실행되었습니다.3");
+    </code></pre>
+                    </div>
+                    <div class="result">
+                        <details>
+                            <summary>결과보기</summary>
+                            <div class="sample03_result">
+                                함수가 실행되었습니다.3
+                            </div>
+                        </details>
+                    </div>
+                </div>
+    
+                <!-- sample04 -->
+                <div id="sample04" class="sample">
+                    <h3>04. 리턴값 함수</h3>
+                    <p>
+                        함수를 통해 처리된 결과를 반환시켜주는 명령어입니다. 
+                    </p>
+                    <div class="script">
+    <pre><code class="language-js">function func(){
+        const str = "함수가 실행되었습니다.4";
+        return str;
+    }
+    document.write(func()); // 리턴값이 있기 때문에 실행문 안에 함수의 실행문이 들어가 있어도 값이 나온다
+    </code></pre>
+                    </div>
+                    <div class="result">
+                        <details>
+                            <summary>결과보기</summary>
+                            <div class="sample04_result">
+                                함수가 실행되었습니다.4
+                            </div>
+                        </details>
+                    </div>
+                </div>
+    
+                <!-- sample05 -->
+                <div id="sample05" class="sample">
+                    <h3>05. 화살표 함수 : 선언적 함수</h3>
+                    <p>
+                        function을 생략하고 = 과 {} 를 통해 간단하게 표현을 해줄 수 있습니다. 
+                        {} 도 생략이 가능합니다.
+                    </p>
+                    <div class="script">
+    <pre><code class="language-js">// 선언적 함수
+    // function func(){
+    //     document.write("함수가 실행되었습니다.5")
+    // }
+    // func();
+    
+    // 화살표 함수(선언적 함수)
+    // func = () => {       //=> function
+    //     document.write("함수가 실행되었습니다.5")
+    // }
+    // func();
+    
+    // 화살표 함수(중괄호 삭제)
+    func = () => document.write("함수가 실행되었습니다.5");
+    
+    func();
+    </code></pre>
+                    </div>
+                    <div class="result">
+                        <details>
+                            <summary>결과보기</summary>
+                            <div class="sample05_result">
+                                함수가 실행되었습니다.5
+                            </div>
+                        </details>
+                    </div>
+                </div>
+    
+                <!-- sample06 -->
+                <div id="sample06" class="sample">
+                    <h3>06. 화살표 함수 : 익명 함수</h3>
+                    <p>
+                        function을 생략하고 = 과 {} 를 통해 간단하게 표현을 해줄 수 있습니다. 
+                        {} 도 생략이 가능합니다.
+                    </p>
+                    <div class="script">
+    <pre><code class="language-js">// 익명 함수
+    // const func = function(){
+    //     document.write("함수가 실행되었습니다.6");
+    // }
+    // func();
+    
+    // 화살표 함수(익명 함수)
+    // const func = () => {
+    //     document.write("함수가 실행되었습니다.6");
+    // }
+    // func();
+    
+    // 화살표 함수(중괄호 삭제)
+    const func = () => document.write("함수가 실행되었습니다.6");
+    
+    func();
+    </code></pre>
+                    </div>
+                    <div class="result">
+                        <details>
+                            <summary>결과보기</summary>
+                            <div class="sample06_result">
+                                함수가 실행되었습니다.6
+                            </div>
+                        </details>
+                    </div>
+                </div>
+    
+                <!-- sample07 -->
+                <div id="sample07" class="sample">
+                    <h3>07. 화살표 함수 : 매개변수 함수</h3>
+                    <p>
+                        function을 생략하고 = 과 {} 를 통해 간단하게 표현을 해줄 수 있습니다. 
+                        {} 도 생략이 가능합니다.
+                    </p>
+                    <div class="script">
+    <pre><code class="language-js">// 변수 선언을 해줘야 하지만 매개변수 함수에서는 생략 가능
+    // function func(str){
+    //     document.write(str);
+    // }
+    // func("함수가 실행되었습니다.7");
+    
+    // 화살표 함수(매개변수 함수)
+    // func = (str) => {
+    //     document.write(str);
+    // }
+    // func("함수가 실행되었습니다.7");
+    
+    // 화살표 함수(중괄호 삭제)
+    // func = (str) => document.write(str);
+    // func("함수가 실행되었습니다.7");
+    
+    //(앞에 const 있어도 상관 없음)func = str => document.write(str);
+    
+    func = str => document.write(str);
+    
+    func("함수가 실행되었습니다.7");
+    </code></pre>
+                    </div>
+                    <div class="result">
+                        <details>
+                            <summary>결과보기</summary>
+                            <div class="sample07_result">
+                                함수가 실행되었습니다.7
+                            </div>
+                        </details>
+                    </div>
+                </div>
+    
+                <!-- sample08 -->
+                <div id="sample08" class="sample">
+                    <h3>08. 화살표 함수 : 리턴값 함수</h3>
+                    <p>
+                        function을 생략하고 = 과 {} 를 통해 간단하게 표현을 해줄 수 있습니다. 
+                        {} 도 생략이 가능합니다.
+                    </p>
+                    <div class="script">
+    <pre><code class="language-js">//리턴값 함수
+    // function func(){
+    //     const str = "함수가 실행되었습니다.8"
+    //     return str; //리턴이랑 실행함수 다름
+    // }
+    // document.write(func());
+    
+    
+    //화살표 함수(리턴값 함수)
+    func = () => {
+        const str = "함수가 실행되었습니다.8"
+        return str;
+    }
+    document.write(func());
+    </code></pre>
+                    </div>
+                    <div class="result">
+                        <details>
+                            <summary>결과보기</summary>
+                            <div class="sample08_result">
+                                함수가 실행되었습니다.8
+                            </div>
+                        </details>
+                    </div>
+                </div>
+    
+                <!-- sample09 -->
+                <div id="sample09" class="sample">
+                    <h3>09. 화살표 함수 : 익명 + 매개변수 + 리턴값</h3>
+                    <p>
+                        익명 함수, 매개변수 함수, 리턴값 함수를 합쳐 화살표 함수로 표현할 수 있습니다.
+                    </p>
+                    <div class="script">
+    <pre><code class="language-js">const func = (str) => {
+        return str;
+    }
+    document.write(func("함수가 실행되었습니다.9"));
+    </code></pre>
+                    </div>
+                    <div class="result">
+                        <details>
+                            <summary>결과보기</summary>
+                            <div class="sample09_result">
+                                함수가 실행되었습니다.9
+                            </div>
+                        </details>
+                    </div>
+                </div>
+    
+                <!-- sample10 -->
+                <div id="sample10" class="sample">
+                    <h3>10. 화살표 함수 : 익명 + 매개변수 + 리턴값 + 괄호 생략</h3>
+                    <p>
+                        익명 함수, 매개변수 함수, 리턴값 함수를 합쳐 화살표 함수로 표현할 수 있습니다.<br>
+                        여기서도 괄호를 생략하여 표현할 수 있습니다.
+                    </p>
+                    <div class="script">
+    <pre><code class="language-js">const func = str => {
+        return str; //return 결과를 의미
+    }
+    document.write(func("함수가 실행되었습니다.10"));
+    </code></pre>
+                    </div>
+                    <div class="result">
+                        <details>
+                            <summary>결과보기</summary>
+                            <div class="sample10_result">
+                                함수가 실행되었습니다.10
+                            </div>
+                        </details>
+                    </div>
+                </div>
+    
+                <!-- sample11 -->
+                <div id="sample11" class="sample">
+                    <h3>11. 화살표 함수 : 익명 + 매개변수 + 리턴값 + 괄호 생략 + 리턴 생략</h3>
+                    <p>
+                        익명 함수, 매개변수 함수, 리턴값 함수를 합쳐 화살표 함수로 표현할 수 있습니다.<br>
+                        리턴도 생략하여 표현 가능합니다.
+                    </p>
+                    <div class="script">
+    <pre><code class="language-js">const func = str => str;
+    
+    document.write(func("함수가 실행되었습니다.11"));
+    </code></pre>
+                    </div>
+                    <div class="result">
+                        <details>
+                            <summary>결과보기</summary>
+                            <div class="sample11_result">
+                                함수가 실행되었습니다.11
+                            </div>
+                        </details>
+                    </div>
+                </div>
+    
+                <!-- sample12 -->
+                <div id="sample12" class="sample">
+                    <h3>12. 화살표 함수 : 선언적 + 매개변수 + 리턴값 + 괄호 생략 + 리턴 생략</h3>
+                    <p>
+                        선언적 함수일 때도 똑같이 표현이 가능합니다.
+                    </p>
+                    <div class="script">
+    <pre><code class="language-js">func = str => str;
+    
+    document.write(func("함수가 실행되었습니다.12"));
+    </code></pre>
+                    </div>
+                    <div class="result">
+                        <details>
+                            <summary>결과보기</summary>
+                            <div class="sample12_result">
+                                함수가 실행되었습니다.12
+                            </div>
+                        </details>
+                    </div>
+                </div>
+    
+    
+                <!-- sample13 -->
+                <div id="sample13" class="sample">
+                    <h3>13. 함수 유형 : 함수와 매개변수를 이용한 형태</h3>
+                    <p>
+                        ...
+                    </p>
+                    <div class="script">
+    <pre><code class="language-js">function func(num, str1, str2){
+        document.write(num + ". " + str1 + "가 " + str2 + "되었습니다.");
+    }
+    func("1", "함수", "실행");
+    // 위의 함수 재활용해서 또 쓰지 않고도 추가 시켜줄 수 있음
+    func("2", "자바스크립트", "실행");
+    func("3", "제이쿼리", "실행");
+    </code></pre>
+                    </div>
+                    <div class="result">
+                        <details>
+                            <summary>결과보기</summary>
+                            <div class="sample13_result">
+                                1. 함수가 실행되었습니다.<br>
+                                2. 자바스크립트가 실행되었습니다.<br>
+                                3. 제이쿼리가 실행되었습니다.
+                            </div>
+                        </details>
+                    </div>
+                </div>
+    
+                <!-- sample14 -->
+                <div id="sample14" class="sample">
+                    <h3>14. 즉시 실행 함수</h3>
+                    <p>
+                        ...
+                    </p>
+                    <div class="script">
+    <pre><code class="language-js">function func(num, str1, str2){
+        document.write(num + ". " + str1 + "가 " + str2 + "되었습니다.");
+    }
+    const youNum1 = 1;
+    const youNum2 = 2;
+    const youNum3 = 3;
+    const youStr1 = "함수";
+    const youStr2 = "자바스크립트";
+    const youStr3 = "제이쿼리";
+    const youCom1 = "실행";
+    
+    // 1. 함수가 실행되었습니다.
+    func(youNum1, youStr1, youCom1);
+    
+    // 2. 자바스크립트가 실행되었습니다.
+    func(youNum2, youStr2, youCom1);
+    
+    // 3. 제이쿼리가 실행되었습니다.
+    func(youNum3, youStr3, youCom1);
+    </code></pre>
+                    </div>
+                    <div class="result">
+                        <details>
+                            <summary>결과보기</summary>
+                            <div class="sample14_result">
+                                1. 함수가 실행되었습니다.<br>
+                                2. 자바스크립트가 실행되었습니다.<br>
+                                3. 제이쿼리가 실행되었습니다.
+                            </div>
+                        </details>
+                    </div>
+                </div>
+    
+                <!-- sample15 -->
+                <div id="sample15" class="sample">
+                    <h3>15. 파라미터 함수 : 함수와 배열, 객체를 이용한 형태</h3>
+                    <p>
+                        ...
+                    </p>
+                    <div class="script">
+    <pre><code class="language-js">function func(num, str1, str2){
+        document.write(num + ". " + str1 + "가 " + str2 + "되었습니다.");
+    }
+    const info = [
+        {
+            num : "1",
+            name : "함수",
+            com : "실행"
+        },
+        {
+            num : "2",
+            name : "자바스크립트",
+            com : "실행"
+        },
+        {
+            num : "3",
+            name : "제이쿼리",
+            com : "실행"
+        }
+    ];
+    
+    func(info[0].num, info[0].name, info[0].com);
+    func(info[1].num, info[1].name, info[1].com);
+    func(info[2].num, info[2].name, info[2].com);
+    </code></pre>
+                    </div>
+                    <div class="result">
+                        <details>
+                            <summary>결과보기</summary>
+                            <div class="sample15_result">
+                                <script>
+                                    function func(num, str1, str2){
+                                        document.write(num + ". " + str1 + "가 " + str2 + "되었습니다." + "<br>");
                                     }
-                                ];
-                                
-                                func(info[0].num, info[0].name, info[0].com);
-                                func(info[1].num, info[1].name, info[1].com);
-                                func(info[2].num, info[2].name, info[2].com);
-                            </script>
-                        </div>
-                    </details>
+                                    const info = [
+                                        {
+                                            num : "1",
+                                            name : "함수",
+                                            com : "실행"
+                                        },
+                                        {
+                                            num : "2",
+                                            name : "자바스크립트",
+                                            com : "실행"
+                                        },
+                                        {
+                                            num : "3",
+                                            name : "제이쿼리",
+                                            com : "실행"
+                                        }
+                                    ];
+                                    
+                                    func(info[0].num, info[0].name, info[0].com);
+                                    func(info[1].num, info[1].name, info[1].com);
+                                    func(info[2].num, info[2].name, info[2].com);
+                                </script>
+                            </div>
+                        </details>
+                    </div>
                 </div>
+    
+    
+    
+    
             </div>
-
-
-
-
+            <div class="main_desc"></div>
         </div>
-        <div class="main_desc"></div>
     </main>
     <!-- //main -->
 
