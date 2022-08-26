@@ -127,6 +127,40 @@ body {
     margin-left: 15px;
 }
 
+/* intro_menu */
+.intro_menu {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.1);
+    padding: 3vw;
+    border-radius: 1vw;
+    font-size: 1vw;
+    text-align: center;
+}
+.intro_menu li {
+    font-size: 20px;
+}
+.intro_menu li a {
+    color: #9e1fe39d;
+}
+.intro_menu li a:hover {
+    text-decoration: underline;
+}
+@media (max-width: 600px){
+    .intro_menu {
+        width: 90%;
+        padding: 14px;
+    }
+    .intro_menu li {
+        font-size: 16px;
+    }
+    .intro_menu li a {
+        font-size: 16px;
+    }
+}
+
 /* sample */
 .sample {
     margin-bottom: 80px;
