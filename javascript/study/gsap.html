@@ -1,251 +1,42 @@
 <main id="main">
     <div class="document">
-        <h2 class="t_tit">🤔 SCSS, 그게 뭔데?</h2>
+        <h2 class="t_tit">🤔 GSAP, 그게 뭔데?</h2>
         <p class="t_box">
-            CSS의 단점 |<br>
-            CSS 는 HTML 태그에 디자인을 넣어줄 때 사용합니다.
-            하지만 프로젝트 규모가 커지면 커질수록 가독성이 떨어진다거나 유지보수가 어려워지는 일이 발생하게 됩니다.
-        </p>
-        <p class="t_desc2">
-            이러한 CSS의 단점을 보완하여 코드의 재활용성과 효율성을 높이기 위해 나온 개념이 SCSS라고 합니다.
+            GSAP_The GreenSock Animation Platform;<br>
+            CSS나 jQuery등을 사용해 애니메이션 효과를 구현하는데 있어 번거로움과 복잡함을 GSAP를 통해 훨씬 간편하게 설정이 가능합니다.
+            세세한 부분까지 설정이 가능하며 라이브러리 참고가 가능하여 여러 웹사이트에서 사용하고 있습니다.
         </p>
 
         <hr>
 
-        <!-- 01 -->
-        <p class="t_box2" style="display: inline-block;">
-            Variables(변수)
-        </p>
+        <h2 class="t_tit">🤓 GSAP, 사용해볼까?</h2>
+        <img src="../../assets/tistory/gsap.png" alt="gsap 홈페이지">
         <p class="t_box">
-            변수를 지정해놓고 사용하기 때문에 오차 범위를 줄여주며, 디자인 컨셉이 변경되거나 변경사항이 생겼을때도 유지보수가 간편합니다.
+            위의 사진처럼 <a href="https://greensock.com/">공식 사이트</a>에서 설치하거나 CDN을 통해 사용할 수 있습니다.
         </p>
+
+        <h3 class="t_tit2">📄<a href="https://kkb7528.tistory.com/68">SLIDER 효과_좌로 움직이는 이미지</a>를 통해 확인해보자 !</h3>
+
+        <div class="t_iframe" style="min-height : 900px; padding-top: 0;">
+            <iframe src="https://kkb75281.github.io/coding2/javascript/effect/sliderEffect02.html" frameborder="0"></iframe>
+        </div>
+
         <div class="t_code">
-<pre><code class="language-js">$font-stack: Helvetica, sans-serif;
-$primary-color: #333;
+<pre><code class=""language-js>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    const slider = document.querySelectorAll(".slider");
+    let currentIndex = 0;
 
-body {
-    font: 100% $font-stack;
-    color: $primary-color;
-}
-</code></pre>
-        </div>
-        <div class="result">
-            <details>
-                <summary>CSS 확인하기</summary>
-                <div class="t_code">
-<pre><code class="language-js">body {
-    font: 100% Helvetica, sans-serif;
-    color: #333;
-}
-</code></pre>
-        </div>
-            </details>
-        </div>
-        
+    setInterval(() => {
+        currentIndex = (currentIndex +1) % slider.length; 
 
-        <!-- 02 -->
-        <p class="t_box2" style="display: inline-block;">
-            Nesting(중첩)
-        </p>
-        <p class="t_box">
-            CSS에서는 nav ul / mav li / nav a 이렇게 태그별로 나눠서 작업을 해줬다면, SCSS는 중첩기능이 가능하여 코드의 가독성이 좋아집니다.
-        </p>
-        <div class="t_code">
-<pre><code class="language-js">nav {
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-  
-    li { display: inline-block; }
-  
-    a {
-      display: block;
-      padding: 6px 12px;
-      text-decoration: none;
-    }
-}
-</code></pre>
-        </div>
-        <div class="result">
-            <details>
-                <summary>CSS 확인하기</summary>
-                <div class="t_code">
-<pre><code class="language-js">nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-nav li {
-    display: inline-block;
-}
-nav a {
-    display: block;
-    padding: 6px 12px;
-    text-decoration: none;
-}
-</code></pre>
-                </div>
-            </details>
-        </div>
-        
-
-        <!-- 03 -->
-        <p class="t_box2" style="display: inline-block;">
-            Modules(모듈)
-        </p>
-        <p class="t_box">
-            한 파일에 모든 SCSS를 작성하지 않고 다른 SCSS 파일을 모듈로 로드할 수 있습니다.
-        </p>
-        <div class="t_code">
-<pre><code class="language-js">// _base.scss
-$font-stack: Helvetica, sans-serif;
-$primary-color: #333;
-
-body {
-    font: 100% $font-stack;
-    color: $primary-color;
-}
-</code></pre>
-        </div>
-        <div class="t_code">
-<pre><code class="language-js">// styles.scss
-@use 'base';
-
-.inverse {
-    background-color: base.$primary-color;
-    color: white;
-}
-</code></pre>
-        </div>
-        <div class="result">
-            <details>
-                <summary>CSS 확인하기</summary>
-                <div class="t_code">
-<pre><code class="language-js">body {
-    font: 100% Helvetica, sans-serif;
-    color: #333;
-}
-
-.inverse {
-    background-color: #333;
-    color: white;
-}
-</code></pre>
-                </div>
-            </details>
-        </div>
-        
-
-        <!-- 04 -->
-        <p class="t_box2" style="display: inline-block;">
-            Mixins(재활용)
-        </p>
-        <p class="t_box">
-            @mixin 지시문을 만들어 재사용하려는 CSS끼리 묶어 그룹을 만들어줍니다.<br>
-            @mixin theme($theme: 믹스인 이름) {}<br>
-            "@include 믹스인이름" 으로 사용할 수 있습니다.
-        </p>
-        <div class="t_code">
-<pre><code class="language-js">@mixin theme($theme: DarkGray) {
-    background: $theme;
-    box-shadow: 0 0 1px rgba($theme, .25);
-    color: #fff;
-}
-
-.info {
-        @include theme;
-}
-.alert {
-    @include theme($theme: DarkRed);
-}
-.success {
-    @include theme($theme: DarkGreen);
-}
-</code></pre>
-        </div>
-        <div class="t_code">
-<pre><code class="language-js">// styles.scss
-@use 'base';
-
-.inverse {
-    background-color: base.$primary-color;
-    color: white;
-}
-</code></pre>
-        </div>
-        <div class="result">
-            <details>
-                <summary>CSS 확인하기</summary>
-                <div class="t_code">
-<pre><code class="language-js">.info {
-    background: DarkGray;
-    box-shadow: 0 0 1px rgba(169, 169, 169, 0.25);
-    color: #fff;
-}
-
-.alert {
-    background: DarkRed;
-    box-shadow: 0 0 1px rgba(139, 0, 0, 0.25);
-    color: #fff;
-}
-
-.success {
-    background: DarkGreen;
-    box-shadow: 0 0 1px rgba(0, 100, 0, 0.25);
-    color: #fff;
-}
-</code></pre>
-                </div>
-            </details>
-        </div>
-        
-
-        <!-- 05 -->
-        <p class="t_box2" style="display: inline-block;">
-            Operators(연산자)
-        </p>
-        <p class="t_box">
-            SCSS의 연산은 픽셀 값을 직접 입력하지 않고 백분률로 변환하는 등 작업해 줄 수 있습니다.
-        </p>
-        <div class="t_code">
-<pre><code class="language-js">@use "sass:math";
-
-.container {
-    display: flex;
-}
-
-article[role="main"] {
-    width: math.div(600px, 960px) * 100%;
-}
-
-aside[role="complementary"] {
-    width: math.div(300px, 960px) * 100%;
-    margin-left: auto;
-}
-</code></pre>
-        </div>
-        <div class="result">
-            <details>
-                <summary>CSS 확인하기</summary>
-                <div class="t_code">
-<pre><code class="language-js">.container {
-    display: flex;
-}
-
-    article[role="main"] {
-    width: 62.5%;
-}
-
-    aside[role="complementary"] {
-    width: 31.25%;
-    margin-left: auto;
-}
-</code></pre>
-                </div>
-            </details>
-        </div>
+        gsap.to(".slider__inner", {
+            duration : 0.6,
+            x : -600 * currentIndex
+        });
+    }, 2000);
+&lt;/script&gt;
+</code></pre></div>
         
         
         
