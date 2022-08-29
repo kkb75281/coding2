@@ -1,0 +1,66 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">SLIDER 효과를 만들어보자 !</h2>
+        <p class="t_box">
+            SLIDER 효과를 통해 이미지가 넘어가는 페이지를 만들어봅시다.<br>
+            원본 페이지 내에서도 소스보기를 통해 코드를 바로 확인해보실 수 있습니다^0^
+        </p>
+
+        <div class="t_iframe" style="min-height : 900px; padding-top: 0;">
+            <iframe src="https://kkb75281.github.io/coding2/javascript/effect/sliderEffect01.html" frameborder="0"></iframe>
+        </div>
+
+        <div class="t_link">
+            <a href="https://github.com/kkb75281/coding2/blob/main/javascript/effect/sliderEffect01.html" target="_blank">원본 소스 보기</a>
+        </div>
+
+        <h3 class="t_tit2">script를 살펴봅시다 !</h3>
+        <div class="t_code">
+<pre><code class=""language-js>&lt;script&gt;
+const sliderWrap = document.querySelector(".slider__wrap");
+const sliderImg = sliderWrap.querySelector(".slider__img");
+const slider = sliderWrap.querySelectorAll(".slider");
+
+let currentIndex = 0;   //현재 보이는 이미지 변수
+let sliderCount = slider.length;    //이미지 갯수
+setInterval(() => { //설정한 시간마다 반복해서 실행
+    
+    let nextIndex = (currentIndex + 1) % sliderCount; //다음 이미지
+    // 1, 2, 3, 4, 5, 6, 7, 8, 9, ...
+    // 1, 2, 3, 4, 0, 1, 2, 3, 4, ...
+
+    slider[currentIndex].style.opacity = "0";  //첫번째 이미지를 안보이게
+    slider[nextIndex].style.opacity = "1";  //두번째 이미지를 보이게
+
+    currentIndex = nextIndex;
+    //0 1 2 3 4 5 6 7 8 9...
+    //0 1 2 3 4 0 1 2 3 4...
+
+}, 2000);
+
+    // slider[currentIndex].style.opacity = "0";  //두번째 이미지 안보이게
+    // slider[2].style.opacity = "1";  //세번째 이미지 보이게
+
+    // slider[2].style.opacity = "0";  //세번째 이미지 안보이게
+    // slider[3].style.opacity = "1";  //두번째 이미지 보이게
+
+    // slider[3].style.opacity = "0";  //네번째 이미지 안보이게
+    // slider[4].style.opacity = "1";  //다섯번째 이미지 보이게
+
+    // slider[4].style.opacity = "0";  //다섯번째 이미지 안보이게
+    // slider[0].style.opacity = "1";  //첫번째 이미지 보이게
+&lt;/script&gt;
+</code></pre></div>
+        <p class="t_box">
+            setInterval(() =>{},2000) |<br>
+            일정한 시간 간격을 두고 반복해서 실행하고 싶을 때 사용하는 함수입니다.(2000 = 2초)
+        </p>
+        <p class="t_box">
+            let nextIndex = (currentIndex + 1) % sliderCount; |<br>
+            나머지 값을 활용해서 이미지가 순서대로 나올 수 있도록 해줍니다.
+        </p>
+
+        
+        
+    </div>
+</main>

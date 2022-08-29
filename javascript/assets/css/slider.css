@@ -70,6 +70,21 @@ a {
     background: #555;
 }
 
+/* layout */
+#header {
+    /* z-index는 서로 형제여야 함 */
+    z-index: 2000;
+
+}
+#main {
+    position: relative;
+    z-index: 1000;
+}
+#footer {
+    position: relative;
+    z-index: 3000;
+}
+
 /* header */
 #header {
     position: absolute;
@@ -332,7 +347,7 @@ a {
     }
 }
 
-@media (max-width:600px) {
+@media (max-width:800px) {
     #header {
         width: 100%;
         text-align: center;
@@ -344,6 +359,8 @@ a {
         width: 96%;
     }
 }
+
+
 /* 
     요소를 안보이게 하는 방법
     1. display: none; (애니메이션 X, 영역 X)
