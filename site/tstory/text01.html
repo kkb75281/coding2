@@ -1,0 +1,132 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">SITE를 만들어봅시다 !</h2>
+        <p class="t_desc2">
+            카드, 이미지 유형에 이어 텍스트 유형 첫번째 방법 입니다. <br>
+            그동안 배웠던 방법을 적용해 다같이 만들어봅시다 ~
+        </p>
+        <div class="t_iframe">
+            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F9dsng1iVsw6HOFcutiPR1c%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D670%253A1586" allowfullscreen></iframe>
+        </div>
+
+        <hr>
+
+        <h3 class="t_tit2">1. CSS 살펴보기</h3>
+        <div class="t_code">
+<pre><code class=""language-js>...
+    /* textType */
+    .text__wrap h6 {
+        text-align: center;
+        font-size: 16px;
+        margin-bottom: 10px;
+        text-decoration: underline;
+    }
+    .text__wrap h2 {
+        text-align: center;
+        font-size: 50px;
+        margin-bottom: 50px;
+    }
+    .text__inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .text__box {
+        width: 32.3%;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+    }
+    .text__box:hover {
+        background: #f5f5f5;
+        border-radius: 10px;
+    }
+    .text__box img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+    .text__box h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    .text__box p {
+        font-size: 18px;
+        margin-bottom: 20px;
+        line-height: 1.4;
+        color: #666;
+    }
+    .text__box span {
+        font-size: 16px;
+        text-decoration: underline;
+    }
+...
+</code></pre></div>
+        <p class="t_box">
+            + hover 효과를 주어 옅은 회색 배경이 깔릴 수 있도록 설정
+        </p>
+
+        <h3 class="t_tit2">2. HTML 살펴보기</h3>
+        <div class="t_code">
+<pre><code class=""language-js>&lt;section id="textType01" class="text__wrap section nexon"&gt;
+    &lt;h6&gt;텍스트 유형01&lt;/h6&gt;
+    &lt;h2&gt;📷 필름 카메라 추천&lt;/h2&gt;
+    &lt;div class="text__inner container"&gt;
+        &lt;article class="text__box"&gt;
+            &lt;img src="img/icon1.jpg" alt="아이콘1"&gt;
+            &lt;h3&gt;코닥 M35 : 아날로그 감성&lt;/h3&gt;
+            &lt;p&gt;최근 아날로그 방식으로 일상을 기록하는 사람들이 많아졌습니다. 그에 맞는 입문 필름 카메라로 코닥 M35를 가지고 왔습니 ...&lt;/p&gt;
+            &lt;a href="#"&gt;&lt;span&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="text__box"&gt;
+            &lt;img src="img/icon2.jpg" alt="아이콘2"&gt;
+            &lt;h3&gt;롤라이 35 : 수동 카메라&lt;/h3&gt;
+            &lt;p&gt;상당히 작은 크기로 가지고 다니기 편리하며 무게 또한 가벼운 제품입니다. 수동 카메라이지만 입문자에게 어렵지 않은 카메라...&lt;/p&gt;
+            &lt;a href="#"&gt;&lt;span&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="text__box"&gt;
+            &lt;img src="img/icon3.jpg" alt="아이콘3"&gt;
+            &lt;h3&gt;리코 grl : 자동 카메라&lt;/h3&gt;
+            &lt;p&gt;리코 grl 같은 경우는 완전 자동과 일부 수동 작업도 가능하게 나온 카메라입니다. 사이즈와 무게도 작고 가벼우며 설정부터 모...&lt;/p&gt;
+            &lt;a href="#"&gt;&lt;span&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="text__box"&gt;
+            &lt;img src="img/icon4.jpg" alt="아이콘4"&gt;
+            &lt;h3&gt;니콘 F3 : 저렴이 튼튼이&lt;/h3&gt;
+            &lt;p&gt;니콘 제품 중에서도 가장 튼튼하다고 평이 좋은 니콘 F3 입니다. 사용 방법도 간단하며 모드 설정도 사용자에 맞게 바꿀 수 있습 ....&lt;/p&gt;
+            &lt;a href="#"&gt;&lt;span&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="text__box"&gt;
+            &lt;img src="img/icon5.jpg" alt="아이콘5"&gt;
+            &lt;h3&gt;킷캣 토이카메라 : 스페셜에디션&lt;/h3&gt;
+            &lt;p&gt;kitkat 스페셜 에디션으로 나온 킷켓 토이 카메라에 대해 알아봅시다. 외관도 브랜드 색상에 맞춰 레드로 귀엽고 키치하게 나 ...&lt;/p&gt;
+            &lt;a href="#"&gt;&lt;span&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="text__box"&gt;
+            &lt;img src="img/icon6.jpg" alt="아이콘6"&gt;
+            &lt;h3&gt;캐논 AE-1&lt;/h3&gt;
+            &lt;p&gt;다양한 렌즈를 적용할 수 있는 캐논 AE-1 입니다. 카메라 헤드에는 삼각형 모양으로 캐논 로고를 보실 수 있으며, 조리개부터 ...&lt;/p&gt;
+            &lt;a href="#"&gt;&lt;span&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+&lt;/body&gt;
+</code></pre></div>
+
+        <h3 class="t_tit2">3. 결과 확인하기</h3>
+        <div class="t_iframe">
+            <iframe src="https://kkb75281.github.io/coding2/site/textType/textType01" frameborder="0" width="100%" height="auto"></iframe>
+        </div>
+        <div class="t_link">
+            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/site/textType/textType01.html" target="_blank">원본 소스 보기</a>
+        </div>
+        <div class="t_link">
+            <a class="center" href="https://kkb75281.github.io/coding2/site/textType/textType01" target="_blank">실제 사이트 보기</a>
+        </div>
+        
+
+        
+        
+    </div>
+</main>
