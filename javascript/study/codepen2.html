@@ -1,0 +1,105 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">굴러가는 네모를 만들어 보자 !</h2>
+        <p class="t_desc2">
+            codepen을 사용해서 굴러가는 네모를 만들어 봅시다.
+            아래 코드를 참고하셔서 직접 만들어 보세요 :D
+        </p>
+
+        <hr>
+
+        <div class="t_iframe">
+            <iframe height="500" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/kkb75281/embed/BargGba?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href="https://codepen.io/kkb75281/pen/BargGba">
+                Untitled</a> by kkb75281 (<a href="https://codepen.io/kkb75281">@kkb75281</a>)
+                on <a href="https://codepen.io">CodePen</a>.
+              </iframe>
+        </div>
+
+        <h3 class="t_tit2">#1. HTML 코드를 확인해보자</h3>
+        <div class="t_code">
+<pre><code class="language-js">&lt;div class="box"&gt;&lt;/div&gt;
+</code></pre>
+        </div>
+
+        <h3 class="t_tit2">#2. CSS 코드를 확인해보자</h3>
+        <div class="t_code">
+<pre><code class="language-js">body {
+    height: 100vh;
+    background-image: linear-gradient(to top, white, pink)
+}
+.box {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.box::before {
+    content: '';
+    width: 50px;
+    height: 5px;
+    background: #000;
+    position: absolute;
+    top: 58px;
+    left: 0;
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: shadow 0.6s linear infinite;
+}
+
+@keyframes shadow {
+    0% {
+        transform: scale(1, 1)
+    }
+    50% {
+        transform: scale(1.2, 1)
+    }
+    100% {
+        transform: scale(1, 1)
+    }
+}
+
+.box::after {
+    content: '';
+    background: gray;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 3px;
+    animation: load 0.6s linear infinite;
+}
+
+@keyframes load {
+    17% {
+        border-bottom-right-radius: 3px;
+    }
+    25% {
+        transform: translatey(9px) rotate(22.5deg)
+    }
+    50% {
+        transform: translatey(18px) scale(1, 0.9) rotate(45deg);
+        border-bottom-right-radius: 40px;
+    }
+    75% {
+        transform: translatey(9px) rotate(67.5deg);
+    }
+    100% {
+        transform: translatey(0px) rotate(90deg);
+    }
+}
+</code></pre>
+        </div>
+        
+        
+
+        
+        
+    </div>
+</main>

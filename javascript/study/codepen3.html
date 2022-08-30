@@ -1,0 +1,77 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">돌아가는 로딩 표시를 만들어 보자 !</h2>
+        <p class="t_desc2">
+            codepen을 사용해서 돌아가는 로딩 표시를 만들어 봅시다.
+            아래 코드를 참고하셔서 직접 만들어 보세요 :D
+        </p>
+
+        <hr>
+
+        <div class="t_iframe">
+            <iframe height="500" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/kkb75281/embed/RwMzENz?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href="https://codepen.io/kkb75281/pen/RwMzENz">
+                Untitled</a> by kkb75281 (<a href="https://codepen.io/kkb75281">@kkb75281</a>)
+                on <a href="https://codepen.io">CodePen</a>.
+              </iframe>
+        </div>
+
+        <h3 class="t_tit2">#1. HTML 코드를 확인해보자</h3>
+        <div class="t_code">
+<pre><code class="language-js">&lt;div class="loading"&gt;
+    &lt;span class="circle1"&gt;&lt;/span&gt;
+    &lt;span class="circle2"&gt;&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+
+        <h3 class="t_tit2">#2. CSS 코드를 확인해보자</h3>
+        <div class="t_code">
+<pre><code class="language-js">body {
+    height: 100vh;
+    background-image: linear-gradient(-60deg, #ff5858 0%, blue 100%)
+}
+  
+.loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 20px;
+    height: 150px;
+    animation: loading 1s ease 100;
+}
+  
+.loading .circle1 {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+}
+  
+.loading .circle2 {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    margin-top: 110px;
+}
+  
+@keyframes loading {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+</code></pre>
+        </div>
+        
+        
+
+        
+        
+    </div>
+</main>
