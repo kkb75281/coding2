@@ -1,0 +1,89 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">jQuery 속성 선택자에 대해 알아봅시다 !</h2>
+        <table class="t_table">
+            <thead>
+                <tr>
+                    <th>선택자 종류</th>
+                    <th colspan="2">설명</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="ce">요소[속성]</td>
+                    <td class="ce">$("span[class]")</td>
+                    <td>span 요소 중 class 속성을 가지고 있는 요소 선택</td>
+                </tr>
+                <tr>
+                    <td class="ce">요소[속성='값']</td>
+                    <td class="ce">$("span[class='abc']")</td>
+                    <td>span 요소 중 class가 'abc'인 요소 선택</td>
+                </tr>
+                <tr>
+                    <td class="ce">요소[속성!='값']</td>
+                    <td class="ce">$("span[class!='abc']")</td>
+                    <td>span 요소 중 class가 'abc'가 아닌 요소 선택</td>
+                </tr>
+                <tr>
+                    <td class="ce">요소[속성~='값']</td>
+                    <td class="ce">$("span[class~='abc']")</td>
+                    <td>
+                        span 요소 중 class가 'abc'를 포함하는 요소 선택<br>
+                        'abc'앞뒤로 연결된 문자가 없어야 선택 가능하기 때문에<br>
+                        'bg abc'는 선택되나 'bg_abc'는 선택되지 않음
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ce">요소[속성*='값']</td>
+                    <td class="ce">$("span[class*='abc']")</td>
+                    <td>
+                        span 요소 중 class가 'abc'를 포함하는 요소를 모두 선택<br>
+                        'bg abc', 'bg_abc' 모두 선택
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ce">요소[속성|='값']</td>
+                    <td class="ce">$("span[class|='abc']")</td>
+                    <td>span 요소 중 class가 'abc'나 'abc~'로 시작하는 요소 선택</td>
+                </tr>
+                <tr>
+                    <td class="ce">요소[속성^='값']</td>
+                    <td class="ce">$("span[class^='abc']")</td>
+                    <td>span 요소 중 class가 'abc'로 시작하는 요소 선택</td>
+                </tr>
+                <tr>
+                    <td class="ce">요소[속성$='값']</td>
+                    <td class="ce">$("span[class$='abc']")</td>
+                    <td>span 요소 중 class가 'abc'로 끝나는 요소 선택</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2 class="t_tit">📢 직접 적용하면서 이해하자 !</h2>
+        <div class="t_iframe">
+            <iframe height="300" style="width: 100%;" scrolling="no" title="jQuery 속성 선택자" src="https://codepen.io/kkb75281/embed/JjLgyvx?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href="https://codepen.io/kkb75281/pen/JjLgyvx">
+                jQuery 속성 선택자</a> by kkb75281 (<a href="https://codepen.io/kkb75281">@kkb75281</a>)
+                on <a href="https://codepen.io">CodePen</a>.
+              </iframe>
+        </div>
+
+        <div class="t_code">
+<pre><code class=""language-js>$(document).ready(function() {
+    $(".list1 > li[class='list_1']").css("border", "2px solid red");
+    $(".list1 > li[class!='list_1']").css("border", "2px solid orange");
+    $(".list2 > li[class~='list']").css("background", "yellow");
+    $(".list2 > li[class*='list']").css("border", "2px solid green");
+    $(".list3 > li[class|='list']").css("border", "2px solid blue");
+    $(".list4 > li[class^='list']").css("border", "2px solid navy");
+    $(".list4 > li[class$='bg']").css("background", "purple");
+});
+</code></pre></div>
+        
+        
+        
+        
+    </div>
+</main>
