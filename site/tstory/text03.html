@@ -1,0 +1,199 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">SITE를 만들어봅시다 !</h2>
+
+        <div class="t_iframe">
+            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F9dsng1iVsw6HOFcutiPR1c%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D722%253A1677" allowfullscreen></iframe>
+        </div>
+
+        <hr>
+
+        <h3 class="t_tit2">1. CSS 살펴보기</h3>
+        <div class="t_code">
+<pre><code class=""language-js>...
+    /* textType03 */
+    .text__inner {
+        display: flex;
+        justify-content: space-between;
+    }
+    .text__box {
+        width: 373px;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 30px;
+        margin-left: 20px;
+        position: relative;
+        transition: all 0.3s;
+    }
+    .text__box:nth-child(1) {
+        margin-left: 0;
+    }
+    .text__box:hover {
+        scale: 1.03;
+        box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.15);
+    }
+...
+</code></pre></div>
+        <p class="t_box">
+            + .text__box:hover 로 마우스를 올려두었을 때 효과 설정
+        </p>
+
+        <div class="t_code">
+<pre><code class=""language-js>...
+    .text__box p {
+        font-size: 18px;
+        line-height: 1.4;
+        margin-bottom: 30px;
+    }
+    .text__box p::before {
+        content: '';
+        width: 313px;
+        height: 1px;
+        background: #dcdcdc;
+        position: absolute;
+        left: 30px;
+        top: 240px;
+    }
+    .text__box .more {
+        width: 110px;
+        height: 30px;
+        border-radius: 50px;
+        background-color: #781A15;
+        color: #fff;
+        text-align: center;
+        font-size: 15px;
+        margin-left: 100px;
+        padding: 6px 20px;
+    }
+    .text__info {
+        display: flex;
+        padding: 30px 0;
+        position: relative;
+        margin-bottom: 30px;
+    }
+    .text__info::before {
+        content: '';
+        width: 313px;
+        height: 1px;
+        background: #dcdcdc;
+        position: absolute;
+        left: 0;
+        top: 110px;
+    }
+    .text__info .prof {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+    .text__info h3 {
+        font-size: 24px;
+        margin-right: 10px;
+    }
+    .text__info h4 {
+        font-size: 16px;
+        font-weight: 300;
+        margin-top: 9px;
+    }
+    .text__info .star {
+        position: absolute;
+        left: 65px;
+        bottom: 28px;
+    }
+    .star img {
+        width: 15px;
+        height: 15px;
+    }
+</code></pre></div>
+        <p class="t_box">
+            + 가상요소로 구분선 추가
+        </p>
+
+        <h3 class="t_tit2">2. HTML 살펴보기</h3>
+        <div class="t_code">
+<pre><code class=""language-js>&lt;body&gt;
+    &lt;section id="textType03" class="text__wrap section Nexon"&gt;
+        &lt;h2&gt;시현하다 후기 👀&lt;/h2&gt;
+        &lt;p&gt;“누구나 고유의 색이 있다” 라는 슬로건으로 각자의 개성과 이야기를 풀어나가는 곳; 시현하다&lt;/p&gt;
+        &lt;div class="text__inner container"&gt;
+            &lt;article class="text__box"&gt;
+                &lt;p&gt;
+                    이렇게 각 잡고 찍어보지 않았어서 표정이나 자세를 잡기 어려웠는데 하나하나 다 잡아주셔서 편하게 찍을 수 있었던 것 같아요 !&lt;br&gt;
+                    주변에서도 다들 너무 잘 나왔다고 해줘서 작가님께 감사할 따름입니다 :)&lt;br&gt;
+                    다음번에는 새로운 컨셉으로 찍어보고 싶어졌어요 ! 다음에 뵙겠습니다 ~~!
+                &lt;/p&gt;
+                &lt;div class="text__info"&gt;
+                    &lt;img class="prof" src="img/icon3_1.svg" alt="사람1"&gt;
+                    &lt;h3&gt;이현지&lt;/h3&gt;
+                    &lt;h4&gt;현아 기록가&lt;/h4&gt;
+                    &lt;div class="star"&gt;
+                        &lt;img src="img/Star.svg" alt="채워진 별"&gt;
+                        &lt;img src="img/Star.svg" alt="채워진 별"&gt;
+                        &lt;img src="img/Star.svg" alt="채워진 별"&gt;
+                        &lt;img src="img/Star.svg" alt="채워진 별"&gt;
+                        &lt;img src="img/Star.svg" alt="채워진 별"&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;a class="more" href=""&gt;자세히 보기&lt;/a&gt;
+            &lt;/article&gt;
+            &lt;article class="text__box"&gt;
+                &lt;p&gt;
+                    인테리어부터 정말 제 스타일이였어요 !&lt;br&gt;
+                    가보니 정말 많은 분들의 증명사진이 붙어져 있는 것 같더라구요~! 사진마다 각자의 개성이 담겨져 있는 것 같아 저도 편하게 상담받고 진행했습니다 ‘0’&lt;br&gt;
+                    배경색 고르는게 가장 힘들었는데 추천해주신 색이 정말 잘 어울리는 것 같았어요 !!
+                &lt;/p&gt;
+                &lt;div class="text__info"&gt;
+                    &lt;img class="prof" src="img/icon3_2.svg" alt="사람1"&gt;
+                    &lt;h3&gt;최규리&lt;/h3&gt;
+                    &lt;h4&gt;진솔 기록가&lt;/h4&gt;
+                    &lt;div class="star"&gt;
+                        &lt;img src="img/Star.svg" alt="채워진 별"&gt;
+                        &lt;img src="img/Star.svg" alt="채워진 별"&gt;
+                        &lt;img src="img/Star.svg" alt="채워진 별"&gt;
+                        &lt;img src="img/Star.svg" alt="채워진 별"&gt;
+                        &lt;img src="img/Star_empty.svg" alt="채워지지 않은 별"&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;a class="more" href=""&gt;자세히 보기&lt;/a&gt;
+            &lt;/article&gt;
+            &lt;article class="text__box"&gt;
+                &lt;p&gt;
+                    도착해서 상담받고 사진찍고 보정하는 시간까지 너무 알찬 시간이였습니다 :D&lt;br&gt;
+                    직원분들도 너무 친절하시고 시설도 정말 깔끔했어요 !
+                    증명사진용으로 찍으러 간거라 아무래도 다양한 시도는 못해봤지만 다음번에 갈때는 프로필용으로도 찍어보려고 합니다 ! 감사합니다 ~~
+                &lt;/p&gt;
+                &lt;div class="text__info"&gt;
+                    &lt;img class="prof" src="img/icon3_3.svg" alt="사람1"&gt;
+                    &lt;h3&gt;권혜연&lt;/h3&gt;
+                    &lt;h4&gt;시현 기록가&lt;/h4&gt;
+                    &lt;div class="star"&gt;
+                        &lt;img src="img/Star.svg" alt="채워진 별"&gt;
+                        &lt;img src="img/Star.svg" alt="채워진 별"&gt;
+                        &lt;img src="img/Star.svg" alt="채워진 별"&gt;
+                        &lt;img src="img/Star.svg" alt="채워진 별"&gt;
+                        &lt;img src="img/Star.svg" alt="채워진 별"&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;a class="more" href=""&gt;자세히 보기&lt;/a&gt;
+            &lt;/article&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/body&gt;
+</code></pre></div>
+
+        <h3 class="t_tit2">3. 결과 확인하기</h3>
+        <div class="t_iframe">
+            <iframe src="https://kkb75281.github.io/coding2/site/textType/textType03" frameborder="0" width="100%" height="auto"></iframe>
+        </div>
+        <div class="t_link">
+            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/site/textType/textType03.html" target="_blank">원본 소스 보기</a>
+        </div>
+        <div class="t_link">
+            <a class="center" href="https://kkb75281.github.io/coding2/site/textType/textType03" target="_blank">실제 사이트 보기</a>
+        </div>
+        
+
+        
+        
+    </div>
+</main>
