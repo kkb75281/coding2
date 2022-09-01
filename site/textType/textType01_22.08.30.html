@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 유형01</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+
+        .nexon {
+            font-family: "NexonLv1Gothic";
+            font-weight: 400;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: normal;
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        img {
+            width: 100%;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+        .section {
+            padding: 120px 0;
+        }
+        .section > h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section > p {
+            font-size: 22px;
+            font-weight: 3oo;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        /* textType */
+        .text__wrap h6 {
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+        .text__wrap h2 {
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 50px;
+        }
+        .text__inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .text__box {
+            width: 32.3%;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        .text__box:hover {
+            background: #f5f5f5;
+            border-radius: 10px;
+        }
+        .text__box img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .text__box h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .text__box p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            color: #666;
+        }
+        .text__box span {
+            font-size: 16px;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <section id="textType01" class="text__wrap section nexon">
+        <h6>텍스트 유형01</h6>
+        <h2>📷 필름 카메라 추천</h2>
+        <div class="text__inner container">
+            <article class="text__box">
+                <img src="img/icon1.jpg" alt="아이콘1">
+                <h3>코닥 M35 : 아날로그 감성</h3>
+                <p>최근 아날로그 방식으로 일상을 기록하는 사람들이 많아졌습니다. 그에 맞는 입문 필름 카메라로 코닥 M35를 가지고 왔습니 ...</p>
+                <a href="#"><span>더보기</span></a>
+            </article>
+            <article class="text__box">
+                <img src="img/icon2.jpg" alt="아이콘2">
+                <h3>롤라이 35 : 수동 카메라</h3>
+                <p>상당히 작은 크기로 가지고 다니기 편리하며 무게 또한 가벼운 제품입니다. 수동 카메라이지만 입문자에게 어렵지 않은 카메라...</p>
+                <a href="#"><span>더보기</span></a>
+            </article>
+            <article class="text__box">
+                <img src="img/icon3.jpg" alt="아이콘3">
+                <h3>리코 grl : 자동 카메라</h3>
+                <p>리코 grl 같은 경우는 완전 자동과 일부 수동 작업도 가능하게 나온 카메라입니다. 사이즈와 무게도 작고 가벼우며 설정부터 모...</p>
+                <a href="#"><span>더보기</span></a>
+            </article>
+            <article class="text__box">
+                <img src="img/icon4.jpg" alt="아이콘4">
+                <h3>니콘 F3 : 저렴이 튼튼이</h3>
+                <p>니콘 제품 중에서도 가장 튼튼하다고 평이 좋은 니콘 F3 입니다. 사용 방법도 간단하며 모드 설정도 사용자에 맞게 바꿀 수 있습 ...</p>
+                <a href="#"><span>더보기</span></a>
+            </article>
+            <article class="text__box">
+                <img src="img/icon5.jpg" alt="아이콘5">
+                <h3>킷캣 토이카메라 : 스페셜에디션</h3>
+                <p>kitkat 스페셜 에디션으로 나온 킷켓 토이 카메라에 대해 알아봅시다. 외관도 브랜드 색상에 맞춰 레드로 귀엽고 키치하게 나 ...</p>
+                <a href="#"><span>더보기</span></a>
+            </article>
+            <article class="text__box">
+                <img src="img/icon6.jpg" alt="아이콘6">
+                <h3>캐논 AE-1</h3>
+                <p>다양한 렌즈를 적용할 수 있는 캐논 AE-1 입니다. 카메라 헤드에는 삼각형 모양으로 캐논 로고를 보실 수 있으며, 조리개부터 ...</p>
+                <a href="#"><span>더보기</span></a>
+            </article>
+        </div>
+    </section>
+</body>
+</html>

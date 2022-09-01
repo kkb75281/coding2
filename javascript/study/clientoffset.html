@@ -1,0 +1,62 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">요소 크기 메서드에 대해 알아보자 !</h2>
+        <p class="t_box">
+            01. 요소 속성 : 크기 및 위치 : element.clientWidth : 요소의 가로값(마진/보더 미포함)
+            02. 요소 속성 : 크기 및 위치 : element.clientHeight : 요소의 높이값(마진/보더 미포함)
+            03. 요소 속성 : 크기 및 위치 : element.clientTop : 요소의 Y축값(부모 기준)
+            04. 요소 속성 : 크기 및 위치 : element.clientLeft : 요소의 X축값(부모 기준)
+            05. 요소 속성 : 크기 및 위치 : element.offsetWidth : 요소의 가로값(보더/패딩 포함)
+            06. 요소 속성 : 크기 및 위치 : element.offsetHeight : 요소의 높이값(보더/패딩 포함)
+            07. 요소 속성 : 크기 및 위치 : element.offsetTop : 요소의 Y축값(문서 기준)
+            08. 요소 속성 : 크기 및 위치 : element.offsetLeft : 요소의 X축값(문서 기준)
+            09. 요소 메서드 : 크기 및 위치 : element.getBoundungClientRect() : top, left, right, bottom, x, y, width, height(크기 및 위치)
+        </p>
+
+        <hr>
+
+        <p class="t_box2" style="display: inline-block;">
+            construction(구문)
+        </p>
+        <p class="t_box">
+            str.charAt("index")
+        </p>
+        <p class="t_box2" style="display: inline-block;">
+            index(순서)
+        </p>
+        <p class="t_box">
+            0과 문자열의 길이 - 1 사이의 정수값이 올 수 있습니다.<br>
+            인덱스 값을 쓰지 않는다면 기본값으로 0이 설정되고 첫 문자를 반환합니다.<br>
+            만약 인덱스가 문자열 길이보다 큰 경우 빈 문자열 " " 을 반홥합니다.
+        </p>
+        
+        <h3 class="t_tit2"># 예제를 통해 익혀봅시다.</h3>
+
+        <div class="t_code">
+<pre><code class="language-js">const str1 = "javascript reference";
+
+const currentstr1 = str1.charAt();
+const currentstr2 = str1.charAt("0");
+const currentstr3 = str1.charAt("1");
+const currentstr4 = str1.charAt("2");
+</code></pre>
+        </div>
+        <div class="result">
+            <details>
+                <summary>결과보기</summary>
+                <div class="sample12_result">
+                    j<br>
+                    j<br>
+                    a<br>
+                    v
+                </div>
+            </details>
+        </div>
+
+        
+
+
+        
+        
+    </div>
+</main>
