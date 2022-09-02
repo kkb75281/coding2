@@ -469,10 +469,48 @@
                 display: none;
             }
         }
+        .link {
+            position: absolute;
+            right: 30px;
+            top: 30px;
+            z-index: 10000;
+        }
+        .link li {
+            list-style: none;
+            display: inline;
+        }
+        .link li a {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            display: inline-block;
+            text-decoration: none;
+            border: 1px solid #0066ff;
+            background: #0066ff;
+            color: #fff;
+            text-transform: uppercase;
+            font-family: "GmarketSans";
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        .link li a:hover {
+            background: #fff;
+            color: #0066ff;
+        }
     </style>
 </head>
 
 <body>
+    <div class="link">
+        <ul>
+            <li><a href="https://kkb7528.tistory.com/" target="_blank">t</a></li>
+            <li><a href="https://github.com/kkb75281/coding2" target="_blank">g</a></li>
+            <li><a href="https://github1s.com/kkb75281/coding2" target="_blank">v</a></li>
+        </ul>
+    </div>
+
     <main>
         <div class="dog">
             <div class="wrap">
