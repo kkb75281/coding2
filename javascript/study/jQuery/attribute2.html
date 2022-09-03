@@ -1,0 +1,129 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">📁 jQuery 속성 메서드에 대해 알아봅시다 !</h2>
+
+        <h3 class="t_tit2">📂 attr() 메서드</h3>
+        <p class="t_box">
+            선택한 요소의 attribute(속성)를 선택, 생성, 변경할 수 있습니다.
+        </p>
+        <table class="t_table">
+            <thead>
+                <tr>
+                    <th>실행 분류</th>
+                    <th>형식</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="ce">취득</td>
+                    <td>$("a").attr("href");</td>
+                </tr>
+                <tr>
+                    <td class="ce" rowspan="2">생성, 변경</td>
+                    <td>$("a").attr("href", "http://www.google.com/").attr("target", "_blank");</td>
+                </tr>
+                <tr>
+                    <td>$("a").attr({href: "http://www.google.com/", target: "_blank"});</td>
+                </tr>
+                <tr>
+                    <td class="ce">콜백 함수</td>
+                    <td>$("a").attr("href", function(<b>index</b>, <b>h</b>) { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;// index는 각 a 요소의 index 0,1,2 <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;// h는 각 a 요소 href 속성 <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return attribute (속성) // 각 a 요소의 속성을 생성 및 변경함. <br>
+                        });<br>
+                        ...<br>
+                        &lt;a href="http://www.daum.net" target="_blank" title="새창"&gt;다음&lt;/a&gt; <br>
+                        &lt;a href="http://www.naver.com" target="_blank" title="새창"&gt;네이버&lt;/a&gt; <br>
+                        &lt;a href="http://www.nate.com" target="_blank" title="새창"&gt;네이트&lt;/a&gt;
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="t_tit2">📢 직접 적용하면서 이해하자 !</h3>
+        <div class="t_code">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title>attr() 메서드&lt;title&gt;
+    &lt;script src="jquery-3.3.1.min.js">&lt;/script&gt;
+    &lt;script&gt;
+        $(document).ready(function() {
+            console.log($("#site > a:eq(0)").attr("href"));
+            $("#site > a:eq(1)").attr("href", "http://m.naver.com").text("네이버 모바일");
+            $("#site a").attr("title", function() {
+                return "새창";
+            });
+        });
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="site&gt;
+        &lt;a href="http://www.daum.net" target="_blank">다음&lt;/a&gt;<br>
+        &lt;a href="http://www.naver.com" target="_blank">네이버&lt;/a&gt;<br>
+        &lt;a href="http://www.nate.com" target="_blank">네이트&lt;/&gt;
+    &lt;/di&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </div>
+
+        <div class="t_iframe">
+            <iframe height="300" style="width: 100%;" scrolling="no" title="jQuery attr()" src="https://codepen.io/kkb75281/embed/RwywzQZ?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href="https://codepen.io/kkb75281/pen/RwywzQZ">
+                jQuery attr()</a> by kkb75281 (<a href="https://codepen.io/kkb75281">@kkb75281</a>)
+                on <a href="https://codepen.io">CodePen</a>.
+            </iframe>
+        </div>
+
+        <hr>
+
+        <h3 class="t_tit2">📂 prop() 메서드</h3>
+        <p class="t_box">
+            prop() 메서드는 요소의 속성을 true/false로 제어할 수 있습니다.
+        </p>
+        <p class="t_box" style="display: inline-block; background-color: #999; color: #fff;">
+            attr(); html attribute(속성) 관련 메서드
+        </p>
+        <p class="t_box" style="display: inline-block; background-color: #999; color: #fff;">
+            prop(); 자바스크립트 property(프로퍼티) 관련 메서드
+        </p>
+
+        <h3 class="t_tit2">📢 직접 적용하면서 이해하자 !</h3>
+        <div class="t_code">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title>prop() 메서드&lt;title&gt;
+    &lt;script src="jquery-3.3.1.min.js">&lt;/script&gt;
+    &lt;script&gt;
+        $(document).ready(function() {
+            console.log($("input:checkbox").eq(0).attr("checked"));
+            console.log($("input:checkbox").eq(1).prop("checked"));
+            $("input:checkbox").eq(0).attr("checked", "checked");
+            $("input:checkbox").eq(1).prop("checked", true);
+            console.log($("input:checkbox").eq(0).attr("checked"));
+            console.log($("input:checkbox").eq(1).prop("checked"));
+        });
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;input type="checkbox" id="html">&lt;label for="html">html&lt;/label&gt;
+    &lt;input type="checkbox" id="css">&lt;label for="css">css&lt;/label&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </div>
+
+        <div class="t_iframe">
+            <iframe height="300" style="width: 100%;" scrolling="no" title="jQuery prop()" src="https://codepen.io/kkb75281/embed/LYmYKrb?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href="https://codepen.io/kkb75281/pen/LYmYKrb">
+                jQuery prop()</a> by kkb75281 (<a href="https://codepen.io/kkb75281">@kkb75281</a>)
+                on <a href="https://codepen.io">CodePen</a>.
+            </iframe>
+        </div>
+    </div>
+</main>
