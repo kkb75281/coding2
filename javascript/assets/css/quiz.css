@@ -176,7 +176,7 @@ body {
   justify-content: flex-end;
   align-items: center;
 }
-.window__box .title-bar > .minimize, .window__cont .title-bar > .maximize, .title-bar > .close {
+.window__box .title-bar > .minimize, .window__box .title-bar > .maximize, .title-bar > .close {
   width: 26px;
   height: 22px;
   background-color: #c7c7c7;
@@ -188,7 +188,7 @@ body {
   justify-content: center;
   cursor: pointer;
 }
-.window__box .title-bar > .minimize:hover, .window__cont .title-bar > .maximize:hover, .title-bar > .close:hover {
+.window__box .title-bar > .minimize:hover, .window__box .title-bar > .maximize:hover, .title-bar > .close:hover {
   background-color: #bababa;
   border-left: 2px solid #2A2A2A;
   border-top: 2px solid #2A2A2A;
