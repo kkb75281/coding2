@@ -1,0 +1,140 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">통토도동 돌아다니는 공 🏐</h2>
+        <p class="t_desc2">
+            codepen을 사용해서 통통 튕기며 돌아다니는 공을 만들어 봅시다.
+            첫번째 공이 먼저 가고 뒤따라 연속적으로 가는 것처럼 만들어보았습니다만.. 속도를 빠르게 하니 그냥 공이네요^^!
+        </p>
+
+        <hr>
+
+        <div class="t_iframe">
+            <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/kkb75281/embed/PoeoNrK?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href="https://codepen.io/kkb75281/pen/PoeoNrK">
+                Untitled</a> by kkb75281 (<a href="https://codepen.io/kkb75281">@kkb75281</a>)
+                on <a href="https://codepen.io">CodePen</a>.
+            </iframe>
+        </div>
+
+        <h3 class="t_tit2"> HTML 코드를 확인해보자</h3>
+        <div class="t_code">
+<pre><code class="language-js">&lt;div class="wrapper"&gt;
+    &lt;div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="wrapper"&gt;
+    &lt;div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="wrapper"&gt;
+    &lt;div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="wrapper"&gt;
+    &lt;div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="wrapper"&gt;
+    &lt;div&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+
+        <h3 class="t_tit2">#2. CSS 코드를 확인해보자</h3>
+        <div class="t_code">
+<pre><code class="language-js">* {
+    box-sizing: border-box;
+}
+body {
+    background: linear-gradient(to top, blueviolet 0%, pink 100%);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+.wrapper {
+    position: absolute;
+    animation: x 0.3s ease-in-out alternate infinite 0s both;
+}
+.wrapper:nth-of-type(2) {
+    animation-delay: 0.1s;
+}
+.wrapper:nth-of-type(3) {
+    animation-delay: 0.2s;
+}
+.wrapper:nth-of-type(4) {
+    animation-delay: 0.3s;
+}
+.wrapper:nth-of-type(5) {
+    animation-delay: 0.4s;
+}
+@keyframes x {
+    0% {
+      transform: translatex(-100px);
+    }
+    100% {
+      transform: translatex(100px);
+    }
+}
+</code></pre>
+        </div>
+        <p class="t_box">
+            ease-in-out; 전환(trasform)효과가 천천히-보통-천천히 순으로 진행
+        </p>
+        <p class="t_box">
+            + x축으로 애니메이션을 주고 하나씩 딜레이 시간 추가
+        </p>
+  
+        <div class="t_code">
+<pre><code class="language-js">.wrapper>div {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 100%;
+    margin: 40px;
+    animation: y 1s linear infinite 0s both;
+}
+.wrapper:nth-of-type(2)>div {
+    animation-delay: 0.1s;
+    height: 40px;
+    width: 40px;
+    opacity:0.8;
+}
+.wrapper:nth-of-type(3)>div {
+    animation-delay: 0.2s;
+    height: 30px;
+    width: 30px;
+    opacity:0.6;
+}
+.wrapper:nth-of-type(4)>div {
+    animation-delay: 0.3s;
+    height: 20px;
+    width: 20px;
+    opacity:0.4;
+}
+.wrapper:nth-of-type(5)>div {
+    animation-delay: 0.4s;
+    height: 10px;
+    width: 10px;
+    opacity:0.2;
+}
+  
+@keyframes y {
+    25% {
+      transform: translatey(-50px);
+    }
+    0%, 50%, 100% {
+      transform: translatey(0);
+    }
+    75% {
+      transform: translatey(50px);
+    }
+}  
+</code></pre>
+        </div>
+        
+        
+
+        
+        
+    </div>
+</main>
