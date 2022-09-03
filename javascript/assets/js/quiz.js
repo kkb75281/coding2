@@ -1,13 +1,13 @@
 // 모달
-const modalBtn = document.querySelector(".window__btn");
-const modalClose = document.querySelector(".close");
-const modalCont = document.querySelector(".window__box");
-modalBtn.addEventListener("click", () => {
-    modalCont.classList.add("show");
-    modalCont.classList.remove("hide");
+const windowBtn = document.querySelector(".window__btn");
+const windowClose = document.querySelector(".title-bar .close");
+const windowBox = document.querySelector(".window__box");
+windowBtn.addEventListener("click", () => {
+    windowBox.classList.add("show");
+    windowBox.classList.remove("hide");
 });
-modalClose.addEventListener("click", () => {
-    modalCont.classList.add("hide");
+windowClose.addEventListener("click", () => {
+    windowBox.classList.add("hide");
 });
 
 
