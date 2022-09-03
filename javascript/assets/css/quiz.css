@@ -162,10 +162,20 @@ body {
     transform: scale(0);
 }
 .window__box.show {
-    transform: scale(1);
+    animation: foldOut 1s ease forwards;
 }
 .window__box.show.hide {
-    transform: scale(0);
+    animation: foldIn 0.5s 1s ease backwards;
+}
+@keyframes foldOut {
+    0% {transform: scale(0) scaleX(0.002);}
+    50% {transform: scale(1) scaleX(0.002);}
+    100% {transform: scale(1) scaleX(1);}
+}
+@keyframes foldIn {
+    0% {transform: scale(1) scaleX(1);}
+    50% {transform: scale(1) scaleX(0.002);}
+    100% {transform: scale(0) scaleX(0.002);}
 }
 .window__box .title-bar {
   background-color: #000080;
@@ -267,7 +277,7 @@ body {
 }
 .content-container > .content {
     display: flex;
-    height: 420px;
+    height: 410px;
     overflow: hidden;
 }
 .content-container .content .main> div {
