@@ -268,7 +268,7 @@ body {
 }
 .content-container > .content {
     display: flex;
-    min-width: 500px;
+    max-width: 990px;
     height: 440px;
     overflow: scroll;
     text-align-last: left;
