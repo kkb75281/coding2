@@ -96,126 +96,301 @@
                 </div>
                 <div class="content-container">
                     <div class="content">
-                        <div class="main">
-                            <div class="active">
-<pre><code class="language-js">const sliderWrap = document.querySelector(".slider__wrap");
-const sliderImg = sliderWrap.querySelector(".slider__img");
-const slider = sliderWrap.querySelectorAll(".slider")
+                        <div class="active">
+<pre><code class="language-js">//선택자
+const quizType = document.querySelector(".quiz__type");      //퀴즈 종류
+const quizNumber = document.querySelector(".quiz__question .number");      //퀴즈 번호
+const quizAsk = document.querySelector(".quiz__question .ask");      //퀴즈 질문
+const quizConfirm = document.querySelector(".quiz__answer .confirm");       //정답 확인 버튼
+const quizResult = document.querySelector(".quiz__answer .result");      //퀴즈 정답
+const quizDog = document.querySelector(".quiz__view .dog");     //강아지
 
-let currentIndex = 0;       //현재 보이는 이미지
-let sliderCount = slider.length;    //이미지 갯수
+//문제 정보 (데이터 저장)
+const answerType = "웹디자인기능사";
+const answerNum = 1;
+const answerAsk = "인접하는 두 색의 경계 부분에 색상, 명도, 채도의 대비가 더욱 강하게 일어나는 현상을 무엇이라고 하는가?";
+const answerResult = "연변대비";
 
-//만들어 놓은 함수 쓰는 것 //1000=1초  //1초마다 형성
-setInterval(() => {
-let nextIndex = (currentIndex + 1) % 5; //다음 이미지 
-//console.log("실행")
+//문제 출력 (데이터 출력)
+quizType.innerText = answerType;        //innerText 자바스크립트에서 만들어 놓은 객체
+quizNumber.innerText = answerNum;
+quizAsk.innerText = answerAsk;
+quizResult.innerText = answerResult;
 
-//첫번째 이미지 안보이게
-//두번째 이미지 보이게
+//정답 숨기기
+quizResult.style.display = "none";
 
-slider[currentIndex].style.opacity = "0"    //첫번째 이미지 안 보이게 처리
-slider[nextIndex].style.opacity = "1"    //두번째 이미지 보이게 처리
-
-currentIndex = nextIndex;
-//0 1 2 3 4 5 6 7 
-//0 1 2 3 4 5 6 7 
-},3000)
-
-//대입 및 설명
-let currentIndex = 0;       //현재 보이는 이미지
-let sliderCount = slider.length;    //이미지 갯수
-
-//만들어 놓은 함수 쓰는 것 //1000=1초  //1초마다 형성
-setInterval(() => {
-let nextIndex = (currentIndex + 1) % sliderCount; //다음 이미지 
-//1, 2, 3, 4, 5, 6, 7, 8, 9,...
-//나머지 : 1, 2, 3, 4, 0, 1, 2, 3, 4, 0...
-//console.log("실행")
-
-//첫번째 이미지 안보이게
-//두번째 이미지 보이게
-
-slider[currentIndex].style.opacity = "0"    //첫번째 이미지 안 보이게 처리
-slider[nextIndex].style.opacity = "1"    //두번째 이미지 보이게 처리
-
-currentIndex = nextIndex; //=: 오른쪽 값을 왼쪽으로 대입
-//0 1 2 3 4 5 6 7 
-//0 1 2 3 4 5 6 7 
-},3000)
+//정답 확인
+//정답 버튼을 클릭하면 확인 버튼은 안보이고 숨겨진 버튼이 보이도록
+//정답을 확인하면 강아지가 웃고 있어야 함, class like 추가
+quizConfirm.addEventListener("click", function(){        //버튼을 클릭하면 함수를실행해라
+quizConfirm.style.display = "none";
+quizResult.style.display = "block";
+});
 </code></pre>
-                            </div>
-                            <div>
-            <pre><code class="language-html">&lt;div class="slider__wrap"&gt;
-                &lt;div class="slider__img"&gt;
-                    &lt;div class="slider"&gt;&lt;img src="../assets/img/effect_bg06.jpg" alt="이미지1"&gt;&lt;/div&gt;
-                    &lt;div class="slider"&gt;&lt;img src="../assets/img/effect_bg012.jpg" alt="이미지2"&gt;&lt;/div&gt;
-                    &lt;div class="slider"&gt;&lt;img src="../assets/img/effect_bg020.jpg" alt="이미지3"&gt;&lt;/div&gt;
-                    &lt;div class="slider"&gt;&lt;img src="../assets/img/effect_bg018.jpg" alt="이미지4"&gt;&lt;/div&gt;
-                    &lt;div class="slider"&gt;&lt;img src="../assets/img/effect_bg05.jpg" alt="이미지5"&gt;&lt;/div&gt;
+                        </div>
+                        <div>
+<pre><code class="language-html">&lt;div class="quiz__wrap"&gt;
+&lt;div class="quiz"&gt;
+    &lt;span class="quiz__type"&gt;&lt;/span&gt;
+    &lt;h2 class="quiz__question"&gt;
+        &lt;span class="number"&gt;&lt;/span&gt;
+        &lt;div class="ask"&gt;&lt;/div&gt;
+    &lt;/h2&gt;
+    &lt;div class="quiz__view"&gt;
+        &lt;div class="dog"&gt;
+            &lt;div class="head"&gt;
+                &lt;div class="ears"&gt;&lt;/div&gt;
+                &lt;div class="face"&gt;&lt;/div&gt;
+                &lt;div class="eyes"&gt;
+                    &lt;div class="teardrop"&gt;&lt;/div&gt;
                 &lt;/div&gt;
+                &lt;div class="nose"&gt;&lt;/div&gt;
+                &lt;div class="mouth"&gt;
+                    &lt;div class="tongue"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="chin"&gt;&lt;/div&gt;
             &lt;/div&gt;
-            </code></pre>
-                            </div>
-                            <div>
-<pre><code class="language-css">/* slider */
-.slider__wrap {
+            &lt;div class="body"&gt;
+                &lt;div class="tail"&gt;&lt;/div&gt;
+                &lt;div class="legs"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="quiz__answer"&gt;
+        &lt;button class="confirm"&gt;정답 확인하기&lt;/button&gt;
+        &lt;div class="result"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                        </div>
+                        <div>
+<pre><code class="language-css">/* quiz__wrap */
+.quiz__wrap {
+display: flex;
+align-items: flex-start;
+justify-content: center;
+margin-top: 50px;
+margin-bottom: 150px;
+flex-wrap: wrap;
+}
+
+.quiz {
+max-width: 500px;
 width: 100%;
-height: 100vh;
+background-color: #fff;
+border: 8px ridge #cacaca;
+margin: 10px;
+}
+
+.quiz__type {
+background-color: #cacaca;
+text-align: center;
+display: block;
+font-size: 16px;
+border: 3px ridge #cacaca;
+color: #3b3b3b;
+font-family: "DungGeunMo";
+padding: 4px;
+}
+
+.quiz__question {
+border-top: 6px ridge #cacaca;
+border-bottom: 6px ridge #cacaca;
+padding: 20px;
+font-family: "NanumBarunpen";
+line-height: 1.3;
+}
+
+.quiz__question .number {
+padding: 0 10px;
+border-radius: 10px;
+background-color: #f69a06a0;
+color: #fff;
+font-size: 20px;
+}
+
+.quiz__question .ask {
+display: inline;
+}
+
+.quiz__answer {
+border-top: 6px ridge #cacaca;
+padding: 10px;
+background-color: #f5f5f5;
+}
+
+.quiz__answer .input {
+width: 100%;
+border: 6px ridge #cacaca;
+font-size: 22px;
+padding: 13px 20px;
+background-color: #fff;
+font-family: "NanumBarunpen";
+margin-bottom: 10px;
+}
+
+.quiz__answer .confirm {
+border: 6px ridge #cacaca;
+width: 100%;
+font-size: 22px;
+padding: 13px 20px;
+background-color: #d6d6d6;
+font-family: "NanumBarunpen";
+cursor: pointer;
+}
+
+.quiz__answer .result {
+border: 6px ridge #cacaca;
+width: 100%;
+font-size: 22px;
+line-height: 1.3;
+padding: 13px 20px;
+box-sizing: border-box;
+text-align: center;
+font-family: "NanumBarunpen";
+}
+
+.quiz__view {
+background-color: #f5f5f5;
+font-family: "NanumBarunpen";
+position: relative;
+overflow: hidden;
+}
+
+.quiz__view .true {
+width: 120px;
+height: 120px;
+line-height: 120px;
+background-color: #f69a06a0;
+border-radius: 50%;
+text-align: center;
+position: absolute;
+left: 70%;
+top: 100px;
+opacity: 0;
+}
+
+.quiz__view .false {
+width: 120px;
+height: 120px;
+line-height: 120px;
+background-color: rgba(105, 105, 105, 0.152);
+border-radius: 50%;
+text-align: center;
+position: absolute;
+right: 70%;
+top: 100px;
+opacity: 0;
+}
+
+.quiz__view.like .true {
+opacity: 1;
+animation: wobble 0.6s;
+}
+
+.quiz__view.dislike .false {
+opacity: 1;
+animation: wobble 0.6s;
+}
+
+.quiz__selects {
+margin: 5px 0;
+}
+.quiz__selects label {
+display: flex;
+}
+.quiz__selects label input {
+position: absolute;
+left: -9999px;
+}
+.quiz__selects label span {
+font-size: 20px;
+line-height: 1.3;
+font-family: "NanumBarunpen";
+padding: 10px 10px 10px 10px;
 display: flex;
 align-items: center;
-justify-content: center;
+width: 100%;
+border-radius: 10px;
+cursor: pointer;
 }
-.slider__img {
-position: relative;
-width: 800px;
-height: 450px;
+.quiz__selects label span::before {
+content: '';
+width: 30px;
+height: 30px;
+border-radius: 50%;
+background: #fff;
+margin-right: 15px;
+display: flex;
+flex-shrink: 0;
+box-shadow: inset 0px 0px 0px 4px #f69a06a0;
+transition: all 0.25s;
 }
-.slider {
-position: absolute;
-left: 0;
-top: 0;
+/* 친구일때는 + */
+.quiz__selects label input:checked + span {
+background-color: #f69a0621;
 }
-.slider::before {
-position:absolute;
-left: 5px;
-top: 5px;
-background: rgba(0, 0, 0, 0.4);
-color:#fff;
-padding: 5px 10px;
+.quiz__selects label input:checked + span::before {
+box-shadow: inset 0px 0px 0px 8px #f69a06a0;
 }
-.slider:nth-child(1)::before {content: '이미지1';}
-.slider:nth-child(2)::before {content: '이미지2';}
-.slider:nth-child(3)::before {content: '이미지3';}
-.slider:nth-child(4)::before {content: '이미지4';}
-.slider:nth-child(5)::before {content: '이미지5';}
-.slider:nth-child(1) {z-index: 5;}
-.slider:nth-child(2) {z-index: 4;}
-.slider:nth-child(3) {z-index: 3;}
-.slider:nth-child(4) {z-index: 2;}
-.slider:nth-child(5) {z-index: 1;}
-@media (max-width: 800px){
-.slider__img {
-width: 400px;
-height: 225px;
+.quiz__confirm {
+width: 100%;
+text-align: center;
+}
+.quiz__confirm .check {
+border: 6px ridge #cacaca;
+font-size: 22px;
+line-height: 1.3;
+padding: 13px 60px;
+box-sizing: border-box;
+text-align: center;
+font-family: "NanumBarunpen";
+cursor: pointer;
+margin: 40px 0;
+transition: background 0.3s;
+}
+.quiz__confirm .check:hover {
+background: #f69a0668;
+}
+
+@keyframes wobble {
+
+/* 0% 시작 ~ 100% 끝 */
+0% {
+    transform: translateX(0) rotate(0deg);
+}
+
+15% {
+    transform: translateX(-25%) rotate(-5deg);
+}
+
+30% {
+    transform: translateX(20%) rotate(3deg);
+}
+
+45% {
+    transform: translateX(-15%) rotate(-3deg);
+}
+
+60% {
+    transform: translateX(10%) rotate(2deg);
+}
+
+75% {
+    transform: translateX(-5%) rotate(-1deg);
+}
+
+100% {
+    transform: translateX(0) rotate(0deg);
 }
 }
 </code></pre>
-                            </div>
                         </div>
-                        <div class="scroll">
-                            <div class="start"></div>
-                            <div class="progress"></div>
-                            <div class="end"></div>
-                        </div>
-                    </div>
-                    <div class="scroll -row">
-                            <div class="start"></div>
-                            <div class="progress"></div>
-                            <div class="end"></div>
                     </div>
                 </div>
             </div>
-            
         </div>
     </footer>
     <!-- //footer -->

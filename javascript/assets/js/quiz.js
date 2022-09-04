@@ -13,7 +13,7 @@ windowClose.addEventListener("click", () => {
 
 //탭 메뉴
 const tabBtn = document.querySelectorAll(".window__box .menu-bar > div")
-const tabCont = document.querySelectorAll(".window__box .main > div")
+const tabCont = document.querySelectorAll(".window__box .content > div")
 
 //클릭하면 active붙여주기
 tabBtn.forEach((element, index) => {

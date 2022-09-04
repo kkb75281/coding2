@@ -93,8 +93,456 @@
     <!-- //main -->
     <footer id="footer">
         <a href="mailto:kkb7528@naver.com">kkb7528@naver.com</a>
+
+        <div class="window__wrap">
+            <div class="window__btn">소스 보기</div>
+            <div class="window__box">
+                <div class="title-bar">
+                    <div class="minimize">
+                        <div class="symbol"></div>
+                    </div>
+                    <div class="maximize">
+                        <div class="symbol"></div>
+                    </div>
+                    <div class="close">
+                        <div class="symbol"></div>
+                    </div>
+                </div>
+                <div class="menu-bar">
+                    <div class="active">
+                        <em>Javascript</em>
+                    </div>
+                    <div>
+                        <em>Html</em>
+                    </div>
+                    <div>
+                        <em>Css</em>
+                    </div>
+                </div>
+                <div class="content-container">
+                    <div class="content">
+                        <div class="active">
+<pre><code class="language-js">//문제정보
+const quizInfo = [
+{
+    answerType : "웹디자인기능사 2011년 02회",
+    answerNum : "1",
+    answerAsk : "검은 종이 위에 노랑과 파랑을 나열하고 일정한 거리에서 보면 노랑이 파랑보다 가깝게 보인다. 이때의 노랑색을 무엇이라 하는가?",
+    answerChoice : [
+        "후퇴색",
+        "팽창색",
+        "진출색",
+        "수축색"
+],
+    answerResult : "진출색",
+    answerEx : "후퇴색(멀어져 보이는 색), 팽창색(확대되어 보이는 색), 진출색(가깝게 보이는 색), 수축색(줄어들게 보이는 색)"
+},
+{
+    answerType : "웹디자인기능사 2011년 02회",
+    answerNum : "2",
+    answerAsk : "다음 중 시각 디자인에 속하지 않는 것은?",
+    answerChoice : [
+        "텍스트타일 디자인",
+        "패키지 디자인",
+        "POP 디자인",
+        "타이포그래피"
+],
+    answerResult : "텍스트타일 디자인",
+    answerEx : "텍스트타일 디자인은 제품디자인에 속합니다."
+},
+{
+    answerType : "웹디자인기능사 2011년 02회",
+    answerNum : "3",
+    answerAsk : "디자인 형태의 분류 중 이념적 형태에 속하는 것은?",
+    answerChoice : [
+        "인위 형태",
+        "추상 형태",
+        "자연 형태",
+        "실제 형태"
+    ],
+    answerResult : "추상 형태",
+    answerEx : "이념적 형태는 점, 선, 면, 입체와 같은 기하학적인 요소를 가지고 있는 것을 말합니다."
+},
+{
+    answerType : "웹디자인기능사 2011년 02회",
+    answerNum : "4",
+    answerAsk : "색팽이의 혼합관계와 관련이 있는 것은?",
+    answerChoice : [
+        "색료혼합",
+        "표준혼합",
+        "회전혼합",
+        "보색혼합"
+    ],
+    answerResult : "회전혼합",
+    answerEx : "팽이가 도는 모습을 연상해 보시면 쉽게 답을 구할 수 있습니다."
+},
+{
+    answerType : "웹디자인기능사 2011년 02회",
+    answerNum : "5",
+    answerAsk : "해안에 있는 조약돌은 자연의 힘에 의해 필연적으로 만들어진 형태라는 자연의 법칙이 만든 자연의 형태를 주장한 사람은?",
+    answerChoice : [
+        "르코르뷔지에",
+        "파파넥",
+        "아른하임",
+        "모홀로나기"
+    ],
+    answerResult : "모홀로나기",
+    answerEx : "'해안에 있는'이라는 말로 무인도를 생각한 뒤 무인도에서 홀로나기를 연상해서 외우시면 쉽습니다."
+}
+];
+
+const quizQuestion = document.querySelector(".quiz__question")  //문제, 번호
+const quizSelects = document.querySelector(".quiz__selects")    //보기
+const quizType = document.querySelector(".quiz__type")  //출제년도
+const quizResult = document.querySelector(".quiz__answer .result")  
+const quizConfirm = document.querySelector(".quiz__answer .confirm")    //다음 문제
+const quizView = document.querySelector(".quiz__view")  //강아지
+
+let quizCount = 0;
+let quizScore = 0; 
+
+//문제 출력
+const updateQuiz = (index) =&gt; {
+const questionTag = `
+&lt;span class="number"&gt;${quizInfo[index].answerNum}&lt;/span&gt;
+&lt;div class="ask"&gt;${quizInfo[index].answerAsk}&lt;/div&gt;
+`
+const choiceTag = `
+    &lt;label for="select1"&gt;
+        &lt;input type="radio" id="select1" class="select" name="select" value="1"&gt;
+        &lt;span class="choice"&gt;${quizInfo[index].answerChoice[0]}&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;label for="select2"&gt;
+        &lt;input type="radio" id="select2" class="select" name="select" value="2"&gt;
+        &lt;span class="choice"&gt;${quizInfo[index].answerChoice[1]}&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;label for="select3"&gt;
+        &lt;input type="radio" id="select3" class="select" name="select" value="3"&gt;
+        &lt;span class="choice"&gt;${quizInfo[index].answerChoice[2]}&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;label for="select4"&gt;
+        &lt;input type="radio" id="select4" class="select" name="select" value="4"&gt;
+        &lt;span class="choice"&gt;${quizInfo[index].answerChoice[3]}&lt;/span&gt;
+    &lt;/label&gt;
+`;
+//문제 출력
+quizType.innerHTML = quizInfo[index].answerType;    //문제 유형
+quizQuestion.innerHTML = questionTag;   //번호, 질문
+quizSelects.innerHTML = choiceTag;      //객관식
+quizResult.innerHTML = quizInfo[index].answerEx //해설
+const quizChoice = quizSelects.querySelectorAll(".choice");
+
+for(let i=0; i&lt;quizChoice.length; i++){
+    quizChoice[i].setAttribute("onclick", "choiceSelected(this)")
+}
+
+//문제, 해설 숨기기
+quizResult.style.display = "none";
+quizConfirm.style.display = "none";
+}
+updateQuiz(quizCount);
+
+//사용자 체크 보기 == 문제 정답
+const choiceSelected = (answer) =&gt; {
+let userAnswer = answer.textContent;     //사용자 체크한 보기
+let currentAnswer = quizInfo[quizCount].answerResult;   //문제 정답
+
+if(userAnswer == currentAnswer){
+    // console.log("정답")
+    quizView.classList.add("like")
+    quizScore++;
+} else {
+    // console.log("오답")
+    quizView.classList.add("dislike");
+    quizResult.style.display = "block";
+}
+
+quizConfirm.style.display = "block";
+}
+
+//정답 확인 버튼
+const answerQuiz = () =&gt; {
+
+//마지막 문제
+if(quizInfo.length -1 == quizCount){
+    quizConfirm.textContent = `총 ${quizInfo.length} 문제 중에 ${quizScore} 문제를 맞추었습니다.`;
+}
+
+quizCount++;
+updateQuiz(quizCount);
+quizView.classList.remove("like", "dislike");
+}
+
+quizConfirm.addEventListener("click", answerQuiz);
+</code></pre>
+                        </div>
+                        <div>
+<pre><code class="language-html">&lt;div class="quiz__wrap"&gt;
+&lt;div class="quiz"&gt;
+    &lt;span class="quiz__type"&gt;&lt;/span&gt;
+    &lt;h2 class="quiz__question"&gt;&lt;/h2&gt;
+    &lt;div class="quiz__view"&gt;
+        &lt;div class="true"&gt;정답입니다 !&lt;/div&gt;
+        &lt;div class="false"&gt;틀렸습니다 !&lt;/div&gt;
+        &lt;div class="dog"&gt;
+            &lt;div class="head"&gt;
+                &lt;div class="ears"&gt;&lt;/div&gt;
+                &lt;div class="face"&gt;&lt;/div&gt;
+                &lt;div class="eyes"&gt;
+                    &lt;div class="teardrop"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="nose"&gt;&lt;/div&gt;
+                &lt;div class="mouth"&gt;
+                    &lt;div class="tongue"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="chin"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="body"&gt;
+                &lt;div class="tail"&gt;&lt;/div&gt;
+                &lt;div class="legs"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="quiz__answer"&gt;
+        &lt;div class="quiz__selects"&gt;&lt;/div&gt;
+        &lt;div class="result"&gt;&lt;/div&gt;
+        &lt;button class="confirm"&gt;다음 문제 보기&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                        </div>
+                        <div>
+<pre><code class="language-css">/* quiz__wrap */
+.quiz__wrap {
+display: flex;
+align-items: flex-start;
+justify-content: center;
+margin-top: 50px;
+margin-bottom: 150px;
+flex-wrap: wrap;
+}
+
+.quiz {
+max-width: 500px;
+width: 100%;
+background-color: #fff;
+border: 8px ridge #cacaca;
+margin: 10px;
+}
+
+.quiz__type {
+background-color: #cacaca;
+text-align: center;
+display: block;
+font-size: 16px;
+border: 3px ridge #cacaca;
+color: #3b3b3b;
+font-family: "DungGeunMo";
+padding: 4px;
+}
+
+.quiz__question {
+border-top: 6px ridge #cacaca;
+border-bottom: 6px ridge #cacaca;
+padding: 20px;
+font-family: "NanumBarunpen";
+line-height: 1.3;
+}
+
+.quiz__question .number {
+padding: 0 10px;
+border-radius: 10px;
+background-color: #f69a06a0;
+color: #fff;
+font-size: 20px;
+}
+
+.quiz__question .ask {
+display: inline;
+}
+
+.quiz__answer {
+border-top: 6px ridge #cacaca;
+padding: 10px;
+background-color: #f5f5f5;
+}
+
+.quiz__answer .input {
+width: 100%;
+border: 6px ridge #cacaca;
+font-size: 22px;
+padding: 13px 20px;
+background-color: #fff;
+font-family: "NanumBarunpen";
+margin-bottom: 10px;
+}
+
+.quiz__answer .confirm {
+border: 6px ridge #cacaca;
+width: 100%;
+font-size: 22px;
+padding: 13px 20px;
+background-color: #d6d6d6;
+font-family: "NanumBarunpen";
+cursor: pointer;
+}
+
+.quiz__answer .result {
+border: 6px ridge #cacaca;
+width: 100%;
+font-size: 22px;
+line-height: 1.3;
+padding: 13px 20px;
+box-sizing: border-box;
+text-align: center;
+font-family: "NanumBarunpen";
+}
+
+.quiz__view {
+background-color: #f5f5f5;
+font-family: "NanumBarunpen";
+position: relative;
+overflow: hidden;
+}
+
+.quiz__view .true {
+width: 120px;
+height: 120px;
+line-height: 120px;
+background-color: #f69a06a0;
+border-radius: 50%;
+text-align: center;
+position: absolute;
+left: 70%;
+top: 100px;
+opacity: 0;
+}
+
+.quiz__view .false {
+width: 120px;
+height: 120px;
+line-height: 120px;
+background-color: rgba(105, 105, 105, 0.152);
+border-radius: 50%;
+text-align: center;
+position: absolute;
+right: 70%;
+top: 100px;
+opacity: 0;
+}
+
+.quiz__view.like .true {
+opacity: 1;
+animation: wobble 0.6s;
+}
+
+.quiz__view.dislike .false {
+opacity: 1;
+animation: wobble 0.6s;
+}
+
+.quiz__selects {
+margin: 5px 0;
+}
+.quiz__selects label {
+display: flex;
+}
+.quiz__selects label input {
+position: absolute;
+left: -9999px;
+}
+.quiz__selects label span {
+font-size: 20px;
+line-height: 1.3;
+font-family: "NanumBarunpen";
+padding: 10px 10px 10px 10px;
+display: flex;
+align-items: center;
+width: 100%;
+border-radius: 10px;
+cursor: pointer;
+}
+.quiz__selects label span::before {
+content: '';
+width: 30px;
+height: 30px;
+border-radius: 50%;
+background: #fff;
+margin-right: 15px;
+display: flex;
+flex-shrink: 0;
+box-shadow: inset 0px 0px 0px 4px #f69a06a0;
+transition: all 0.25s;
+}
+/* 친구일때는 + */
+.quiz__selects label input:checked + span {
+background-color: #f69a0621;
+}
+.quiz__selects label input:checked + span::before {
+box-shadow: inset 0px 0px 0px 8px #f69a06a0;
+}
+.quiz__confirm {
+width: 100%;
+text-align: center;
+}
+.quiz__confirm .check {
+border: 6px ridge #cacaca;
+font-size: 22px;
+line-height: 1.3;
+padding: 13px 60px;
+box-sizing: border-box;
+text-align: center;
+font-family: "NanumBarunpen";
+cursor: pointer;
+margin: 40px 0;
+transition: background 0.3s;
+}
+.quiz__confirm .check:hover {
+background: #f69a0668;
+}
+
+@keyframes wobble {
+
+/* 0% 시작 ~ 100% 끝 */
+0% {
+    transform: translateX(0) rotate(0deg);
+}
+
+15% {
+    transform: translateX(-25%) rotate(-5deg);
+}
+
+30% {
+    transform: translateX(20%) rotate(3deg);
+}
+
+45% {
+    transform: translateX(-15%) rotate(-3deg);
+}
+
+60% {
+    transform: translateX(10%) rotate(2deg);
+}
+
+75% {
+    transform: translateX(-5%) rotate(-1deg);
+}
+
+100% {
+    transform: translateX(0) rotate(0deg);
+}
+}
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
     <!-- //footer -->
+
+    <script src="../assets/js/quiz.js"></script>
     <script>
         //문제정보
         const quizInfo = [

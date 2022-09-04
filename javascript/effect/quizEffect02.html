@@ -72,9 +72,355 @@
 
     <footer id="footer">
         <a href="mailto:kkb7528@naver.com">kkb7528@naver.com</a>
+
+        <div class="window__wrap">
+            <div class="window__btn">소스 보기</div>
+            <div class="window__box">
+                <div class="title-bar">
+                    <div class="minimize">
+                        <div class="symbol"></div>
+                    </div>
+                    <div class="maximize">
+                        <div class="symbol"></div>
+                    </div>
+                    <div class="close">
+                        <div class="symbol"></div>
+                    </div>
+                </div>
+                <div class="menu-bar">
+                    <div class="active">
+                        <em>Javascript</em>
+                    </div>
+                    <div>
+                        <em>Html</em>
+                    </div>
+                    <div>
+                        <em>Css</em>
+                    </div>
+                </div>
+                <div class="content-container">
+                    <div class="content">
+                        <div class="active">
+<pre><code class="language-js">//선택자
+const quizType = document.querySelector(".quiz__type");      //퀴즈 종류
+const quizNumber = document.querySelector(".quiz__question .number");      //퀴즈 번호
+const quizAsk = document.querySelector(".quiz__question .ask");      //퀴즈 질문
+const quizConfirm = document.querySelector(".quiz__answer .confirm");       //정답 확인 버튼
+const quizResult = document.querySelector(".quiz__answer .result");      //퀴즈 정답
+const quizInput = document.querySelector(".quiz__answer .input");      //사용자 정답
+const quizView = document.querySelector(".quiz__view");     //강아지
+
+//문제 정보 (데이터 저장)
+const answerType = "웹디자인기능사";
+const answerNum = "2";
+const answerAsk = "기업의 새로운 이념 구축에 필요한 이미지와 커뮤니케이션 시스템을 의도적, 계획적으로 만들어 내는 기업 이미지 통합 전략은 무엇인가요?";
+let answerResult = "CIP";
+
+//문제 출력
+quizType.textContent = answerType;      //innerText, textContent 같은 기능
+quizNumber.textContent = answerNum;
+quizAsk.textContent = answerAsk;
+quizResult.textContent = "정답 : " + answerResult;
+
+//정답 숨기기
+quizResult.style.display = "none";
+
+//정답 확인
+quizConfirm.addEventListener("click", () => {        //정답버튼을 클릭했을 때
+quizInput.style.display = "none";
+quizConfirm.style.display = "none";
+quizResult.style.display = "block";
+
+//사용자 정답
+const userWord = quizInput.value.toLowerCase().trim();     //= 우변을 좌변으로 치환, value 값을 불러옴, toLowerCase 소문자로 치환, trim 여백 없애기
+answerResult = answerResult.toLowerCase().trim();       //answerResult const로 하면 상수라 변경 불가능, let으로 바꾸고 진행
+
+console.log(userWord)
+console.log(answerResult)
+
+//사용자 정답 == 문제 정답 비교
+if(userWord == answerResult) {
+    //정답일 경우
+    //alert("정답입니다.")
+    quizView.classList.add("like");
+} else {
+    //오답일 경우
+    //alert("오답입니다.")
+    quizView.classList.add("dislike");
+}
+});
+</code></pre>
+                        </div>
+                        <div>
+<pre><code class="language-html">&lt;div class="quiz__wrap"&gt;
+&lt;div class="quiz"&gt;
+    &lt;span class="quiz__type"&gt;&lt;/span&gt;
+    &lt;h2 class="quiz__question"&gt;
+        &lt;span class="number"&gt;&lt;/span&gt;
+        &lt;div class="ask"&gt;&lt;/div&gt;
+    &lt;/h2&gt;
+    &lt;div class="quiz__view"&gt;
+        &lt;div class="true"&gt;정답입니다 !&lt;/div&gt;
+        &lt;div class="false"&gt;틀렸습니다 !&lt;/div&gt;
+        &lt;div class="dog"&gt;
+            &lt;div class="head"&gt;
+                &lt;div class="ears"&gt;&lt;/div&gt;
+                &lt;div class="face"&gt;&lt;/div&gt;
+                &lt;div class="eyes"&gt;
+                    &lt;div class="teardrop"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="nose"&gt;&lt;/div&gt;
+                &lt;div class="mouth"&gt;
+                    &lt;div class="tongue"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="chin"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="body"&gt;
+                &lt;div class="tail"&gt;&lt;/div&gt;
+                &lt;div class="legs"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="quiz__answer"&gt;
+        &lt;input type="text" class="input" placeholder="정답을 적어주세요 !"&gt;
+        &lt;button class="confirm"&gt;정답 확인하기&lt;/button&gt;
+        &lt;div class="result"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                        </div>
+                        <div>
+<pre><code class="language-css">/* quiz__wrap */
+.quiz__wrap {
+display: flex;
+align-items: flex-start;
+justify-content: center;
+margin-top: 50px;
+margin-bottom: 150px;
+flex-wrap: wrap;
+}
+
+.quiz {
+max-width: 500px;
+width: 100%;
+background-color: #fff;
+border: 8px ridge #cacaca;
+margin: 10px;
+}
+
+.quiz__type {
+background-color: #cacaca;
+text-align: center;
+display: block;
+font-size: 16px;
+border: 3px ridge #cacaca;
+color: #3b3b3b;
+font-family: "DungGeunMo";
+padding: 4px;
+}
+
+.quiz__question {
+border-top: 6px ridge #cacaca;
+border-bottom: 6px ridge #cacaca;
+padding: 20px;
+font-family: "NanumBarunpen";
+line-height: 1.3;
+}
+
+.quiz__question .number {
+padding: 0 10px;
+border-radius: 10px;
+background-color: #f69a06a0;
+color: #fff;
+font-size: 20px;
+}
+
+.quiz__question .ask {
+display: inline;
+}
+
+.quiz__answer {
+border-top: 6px ridge #cacaca;
+padding: 10px;
+background-color: #f5f5f5;
+}
+
+.quiz__answer .input {
+width: 100%;
+border: 6px ridge #cacaca;
+font-size: 22px;
+padding: 13px 20px;
+background-color: #fff;
+font-family: "NanumBarunpen";
+margin-bottom: 10px;
+}
+
+.quiz__answer .confirm {
+border: 6px ridge #cacaca;
+width: 100%;
+font-size: 22px;
+padding: 13px 20px;
+background-color: #d6d6d6;
+font-family: "NanumBarunpen";
+cursor: pointer;
+}
+
+.quiz__answer .result {
+border: 6px ridge #cacaca;
+width: 100%;
+font-size: 22px;
+line-height: 1.3;
+padding: 13px 20px;
+box-sizing: border-box;
+text-align: center;
+font-family: "NanumBarunpen";
+}
+
+.quiz__view {
+background-color: #f5f5f5;
+font-family: "NanumBarunpen";
+position: relative;
+overflow: hidden;
+}
+
+.quiz__view .true {
+width: 120px;
+height: 120px;
+line-height: 120px;
+background-color: #f69a06a0;
+border-radius: 50%;
+text-align: center;
+position: absolute;
+left: 70%;
+top: 100px;
+opacity: 0;
+}
+
+.quiz__view .false {
+width: 120px;
+height: 120px;
+line-height: 120px;
+background-color: rgba(105, 105, 105, 0.152);
+border-radius: 50%;
+text-align: center;
+position: absolute;
+right: 70%;
+top: 100px;
+opacity: 0;
+}
+
+.quiz__view.like .true {
+opacity: 1;
+animation: wobble 0.6s;
+}
+
+.quiz__view.dislike .false {
+opacity: 1;
+animation: wobble 0.6s;
+}
+
+.quiz__selects {
+margin: 5px 0;
+}
+.quiz__selects label {
+display: flex;
+}
+.quiz__selects label input {
+position: absolute;
+left: -9999px;
+}
+.quiz__selects label span {
+font-size: 20px;
+line-height: 1.3;
+font-family: "NanumBarunpen";
+padding: 10px 10px 10px 10px;
+display: flex;
+align-items: center;
+width: 100%;
+border-radius: 10px;
+cursor: pointer;
+}
+.quiz__selects label span::before {
+content: '';
+width: 30px;
+height: 30px;
+border-radius: 50%;
+background: #fff;
+margin-right: 15px;
+display: flex;
+flex-shrink: 0;
+box-shadow: inset 0px 0px 0px 4px #f69a06a0;
+transition: all 0.25s;
+}
+/* 친구일때는 + */
+.quiz__selects label input:checked + span {
+background-color: #f69a0621;
+}
+.quiz__selects label input:checked + span::before {
+box-shadow: inset 0px 0px 0px 8px #f69a06a0;
+}
+.quiz__confirm {
+width: 100%;
+text-align: center;
+}
+.quiz__confirm .check {
+border: 6px ridge #cacaca;
+font-size: 22px;
+line-height: 1.3;
+padding: 13px 60px;
+box-sizing: border-box;
+text-align: center;
+font-family: "NanumBarunpen";
+cursor: pointer;
+margin: 40px 0;
+transition: background 0.3s;
+}
+.quiz__confirm .check:hover {
+background: #f69a0668;
+}
+
+@keyframes wobble {
+
+/* 0% 시작 ~ 100% 끝 */
+0% {
+    transform: translateX(0) rotate(0deg);
+}
+
+15% {
+    transform: translateX(-25%) rotate(-5deg);
+}
+
+30% {
+    transform: translateX(20%) rotate(3deg);
+}
+
+45% {
+    transform: translateX(-15%) rotate(-3deg);
+}
+
+60% {
+    transform: translateX(10%) rotate(2deg);
+}
+
+75% {
+    transform: translateX(-5%) rotate(-1deg);
+}
+
+100% {
+    transform: translateX(0) rotate(0deg);
+}
+}
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
     <!-- //footer -->
 
+    <script src="../assets/js/quiz.js"></script>
     <script>
         //선택자
         const quizType = document.querySelector(".quiz__type");      //퀴즈 종류

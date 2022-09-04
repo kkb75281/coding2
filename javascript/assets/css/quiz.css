@@ -115,17 +115,14 @@ body {
     text-decoration: underline;
 }
 
-/* 퀴즈 모달 소스 보기 */
+/* 퀴즈 소스 보기 디자인 */
 .window__btn {
     cursor: pointer;
-    /* color: #fff; */
     border-left: 2px solid #FCFCFC;
     border-top: 2px solid #FCFCFC;
     border-right: 2px solid #2A2A2A;
     border-bottom: 2px solid #2A2A2A;
     background-color: #c7c7c7;
-    /* border: 1px solid #fff; */
-    /* border-radius: 50px; */
     display: inline-block;
     padding: 10px 20px;
     position: absolute;
@@ -134,7 +131,6 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 .window__btn:hover {
-    /* background-color: #fff; */
     color: #3d3d63;
     background-color: #bababa;
     border-left: 2px solid #2A2A2A;
@@ -154,10 +150,6 @@ body {
     left: 220px;
     bottom:90px;
     position: absolute;
-    /* overflow-x: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center; */
     box-shadow: 0 10px 20px -5px hsl(180deg 2% 10%);
     transform: scale(0);
 }
@@ -266,48 +258,32 @@ body {
     text-decoration: underline;
 }
 .menu-bar em:hover {
-    /* background-color: #bababa; */
     color: #000080a5;
 }
 .content-container {
     border-left: 2px solid #2A2A2A;
-    border-top: 2px solid #2A2A2A;
+    border-top: 2px solid #2A2A2A; 
     border-right: 2px solid #FCFCFC;
     border-bottom: 2px solid #FCFCFC;
 }
 .content-container > .content {
     display: flex;
-    height: 410px;
-    overflow: hidden;
+    min-width: 500px;
+    height: 440px;
+    overflow: scroll;
+    text-align-last: left;
 }
-.content-container .content .main> div {
+.content-container .content > div {
     display: none;
 }
-.content-container .content .main > div.active {
+.content-container .content > div.active {
     display: block;
     height: 100%;
 }
-.content-container > .content > .main, .content-container > .content > .scroll-left {
-    height: 100%;
-}
-.content-container > .content > .main {
-    width: calc(100% - 26px);
-    overflow: scroll;
-    text-align-last: left;
-    margin: 10px;
-}
-.content-container > .content > .scroll {
-    width: 26px;
-}
-
-.scroll {
+.content-container > .content::-webkit-scrollbar {
     background-color: #D7D7D7;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
 }
-.scroll > .progress {
+.content-container > .content::-webkit-scrollbar-thumb {
     width: 24px;
     height: 70%;
     cursor: pointer;
@@ -317,57 +293,9 @@ body {
     border-bottom: 2px solid #2A2A2A;
     background-color: #c7c7c7;
 }
-.scroll > .progress:hover {
-    background-color: #bababa;
+.content-container > .content::-webkit-scrollbar-track {
+    background-color: #D7D7D7;
 }
-.scroll > .start, .scroll > .end {
-    width: 24px;
-    height: 22px;
-    position: relative;
-    border-left: 2px solid #FCFCFC;
-    border-top: 2px solid #FCFCFC;
-    border-right: 2px solid #2A2A2A;
-    border-bottom: 2px solid #2A2A2A;
-    background-color: #c7c7c7;
-}
-.scroll > .start:hover, .scroll > .end:hover {
-    background-color: #bababa;
-    border-left: 2px solid #2A2A2A;
-    border-top: 2px solid #2A2A2A;
-    border-right: 2px solid #FCFCFC;
-    border-bottom: 2px solid #FCFCFC;
-}
-.scroll > .start::after, .scroll > .end::after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 0;
-    height: 0;
-    top: 6px;
-    left: 4px;
-    border-top: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-bottom: 6px solid #000000;
-}
-.scroll > .end::after {
-    transform: rotate(180deg);
-}
-.scroll.-row {
-    flex-direction: row;
-}
-.scroll.-row > .progress {
-    width: 30%;
-    height: 24px;
-}
-.scroll.-row > .start::after {
-    transform: rotate(-90deg);
-}
-.scroll.-row > .end::after {
-    transform: rotate(90deg);
-}
-
-
 
 /* quiz__wrap */
 .quiz__wrap {
