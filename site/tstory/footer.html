@@ -1,0 +1,129 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">👊🏻 SITE | footer 유형 뽀개기</h2>
+
+        <div class="t_iframe">
+            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F9dsng1iVsw6HOFcutiPR1c%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D857%253A1719" allowfullscreen></iframe>
+        </div>
+
+        <hr>
+
+        <h3 class="t_tit2">✔︎ CSS Point</h3>
+        <p class="t_box">
+            ☑︎ background: url(../img/slider_bg01.jpg) no-repeat center / cover;<br>
+            &nbsp;&nbsp; 배경 이미지 url 형식으로 삽입, 반복없이 가운데 정렬 / 사이즈에 맞도록 cover
+        </p>
+        <div class="t_code">
+<pre><code class=""language-js>/* footerType */
+.footer__menu {
+    display: flex;
+    margin-bottom: 70px;
+}
+.footer__menu > div {
+    width: 16%;
+}
+.footer__menu h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.footer__menu li a {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+    display: block;
+}
+.footer__right {
+    border-top: 1px solid #d9d9d9;
+    text-align: center;
+    padding-top: 40px;
+    color: #666;
+    line-height: 1.5;
+}
+</code></pre></div>
+
+        <h3 class="t_tit2">✔︎ HTML Point</h3>
+        <p class="t_box">
+            ☑︎ 웹 표준을 맞추기 위해 시멘틱 태그 사용하기
+        </p>
+        <div class="t_code">
+<pre><code class=""language-js>&lt;body&gt;
+    &lt;footer id="footerType" class="footer__wrap nexon section gray"&gt;
+        &lt;h2 class="blind"&gt;푸터 영역&lt;/h2&gt;
+        &lt;div class="footer__inner container"&gt;
+            &lt;div class="footer__menu"&gt;
+                &lt;div&gt;
+                    &lt;h3&gt;사이트&lt;/h3&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;웹표준 사이트&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;반응형 사이트&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;패럴랙스 사이트&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;포트폴리오 사이트&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;h3&gt;헤더 영역&lt;/h3&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;메뉴 유형01&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;메뉴 유형02&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;h3&gt;슬라이드 영역&lt;/h3&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;슬라이드 유형01&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;슬라이드 유형02&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;h3&gt;이미지 영역&lt;/h3&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;이미지 유형01&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;이미지 유형02&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;이미지/텍스트 유형01&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;이미지/텍스트 유형02&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;텍스트 유형01&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;h3&gt;컨텐츠 영역&lt;/h3&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;카드 유형01&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;카드 유형02&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;카드 유형03&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;h3&gt;푸터 영역&lt;/h3&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;푸터 유형01&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;푸터 컨텐츠 유형02&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;푸터 이메일 유형03&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="footer__right"&gt;
+                2022 Webstoryboy. Portfolio is Power&lt;br&gt;
+                All rights reserved.
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+</code></pre></div>
+
+        <h3 class="t_tit2">✔︎ 결과 확인하기</h3>
+        <p class="t_desc" style="color: #bbbbbb;">CSS 공통 요소는 아래 원본 소스 보기를 통해 확인해보세요 !</p>
+        <div class="t_iframe">
+            <iframe src="https://kkb75281.github.io/coding2/site/footerType/footerType01" frameborder="0" width="100%" height="auto"></iframe>
+        </div>
+        <div class="t_link">
+            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/site/footerType/footerType01.html" target="_blank">원본 소스 보기</a>
+        </div>
+        <div class="t_link">
+            <a class="center" href="https://kkb75281.github.io/coding2/site/footerType/footerType01" target="_blank">실제 사이트 보기</a>
+        </div>
+        
+
+        
+        
+    </div>
+</main>
