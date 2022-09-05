@@ -8,6 +8,7 @@
 body {
     width: 100%;
     height: 100vh;
+    overflow: hidden;
 }
 body.img11 {
     background: #000 url(../img/effect_bg11@2x-min.jpg) no-repeat center / cover;
@@ -46,12 +47,19 @@ body::after {
     top: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(143, 143, 143, 0.3);
+    background: rgba(0, 0, 0, 0.3);
     z-index: -1;
+}
+img {
+    width: 100%;
+    vertical-align: top;
 }
 a {
     color: #fff;
     text-decoration: none;
+}
+li {
+    list-style: none;
 }
 
 /* scroll */
@@ -365,13 +373,3 @@ a {
         width: 96%;
     }
 }
-
-
-/* 
-    요소를 안보이게 하는 방법
-    1. display: none; (애니메이션 X, 영역 X)
-    2. opacity: 0; (애니메이션 O, 영역 O)
-    3. visibility: hidden; (애니메이션 X, 영역 X)
-    4. width: 0; height: 0; (애니메이션 X, 영역 X) : blind
-    5. transform: scale(0); (애니메이션 O, 영역 X)
-*/

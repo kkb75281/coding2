@@ -1,0 +1,32 @@
+.banner__inner {
+    background-image: url(../img/banner_bg01.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    padding: 120px 0;
+    color: #fff;
+}
+.banner__title {
+    font-size: 50px;
+    line-height: 1;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+.banner__desc {
+    font-size: 24px;
+    line-height: 1.5;
+    font-weight: 300;
+    margin-bottom: 70px;
+}
+.banner__desc a {
+    color: #fff;
+    display: block;
+}
+.banner__desc a:hover {
+    text-decoration: underline;
+}
+.banner__small {
+    font-size: 16px;
+    text-decoration: underline;
+}
