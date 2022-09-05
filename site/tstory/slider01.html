@@ -1,0 +1,164 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">👊🏻 SITE | slider 유형 뽀개기</h2>
+
+        <div class="t_iframe">
+            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F9dsng1iVsw6HOFcutiPR1c%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D859%253A1801" allowfullscreen></iframe>
+        </div>
+
+        <hr>
+
+        <h3 class="t_tit2">✔︎ CSS Point</h3>
+        <p class="t_box">
+            ☑︎ blind 효과 사용하기<br>
+            <a href="https://kkb7528.tistory.com/53?category=1116302">☑︎</a> 이미지 스프라이트 / ir 효과 사용하기
+        </p>
+        <div class="t_code">
+<pre><code class=""language-js>/* sliderType */
+.slider__inner {
+    margin-top: 70px;
+}
+.slider {
+    position: relative;
+}
+.slider__img {
+    background: url(../img/slider_bg01.jpg) no-repeat center / cover;
+}
+.slider__img .desc {
+    width: 1160px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+.slider__img .desc span {
+    font-size: 16px;
+    background-color: #fff;
+    padding: 1px 14px 0 14px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.slider__img .desc h3 {
+    font-size: 110px;
+    font-weight: 300;
+    line-height: 1;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    margin-left: -8px;
+}
+.slider__img .desc p {
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.35;
+    margin-bottom: 130px;
+}
+.slider__img .desc .btn a {
+    font-size: 16px;
+    background-color: #fff;
+    padding: 11px 50px;
+    display: inline-block;
+}
+.slider__img .desc .btn a.black {
+    background: #000;
+    color: #fff;
+}
+.slider__arrow a {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 56px;
+    background-image: url(../img/slider_icon.svg);
+}
+.slider__arrow a.left {
+    left: 20px;
+}
+.slider__arrow a.right {
+    right: 20px;
+    background-position: -50px 0;
+} 
+.slider__dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 25px;
+}
+.slider__dot a {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url(../img/slider_icon.svg);
+    background-position: -20px -70px;
+}
+.slider__dot a.active {
+    background-position: 0 -70px;
+}
+.slider__dot a.play {
+    background-position: -40px -70px;
+}
+.slider__dot a.stop {
+    background-position: -60px -70px;
+}
+</code></pre></div>
+
+        <h3 class="t_tit2">✔︎ HTML Point</h3>
+        <p class="t_box">
+            ☑︎ 웹 표준을 맞추기 위해 시멘틱 태그 사용하기<br>
+            ☑︎ img의 alt 설명을 span으로 대신하고 ir 효과 사용하기
+        </p>
+        <div class="t_code">
+<pre><code class=""language-js>&lt;body&gt;
+    &lt;section id="sliderType" class="slider__wrap"&gt;
+        &lt;h2 class="blind"&gt;슬라이드 영역&lt;/h2&gt;
+        &lt;div class="slider__inner"&gt;
+            &lt;div class="slider"&gt;
+                &lt;div class="slider__img"&gt;
+                    &lt;div class="desc"&gt;
+                        &lt;span&gt;INTERIOR&lt;/span&gt;
+                        &lt;h3&gt;HOME DESIGN&lt;/h3&gt;
+                        &lt;p&gt;
+                            가족 구성원의 라이프 스타일과 자유공간을 확보하는&lt;br&gt;
+                            다양한 홈디자인을 만나보세요.
+                        &lt;/p&gt;
+                        &lt;div class="btn"&gt;
+                            &lt;a href="#"&gt;자세히 보기&lt;/a&gt;
+                            &lt;a href="#" class="black"&gt;사이트 보기&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="slider__arrow"&gt;
+                    &lt;a href="#" class="left"&gt;&lt;span class="ir"&gt;이전 이미지&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href="#" class="right"&gt;&lt;span class="ir"&gt;다음 이미지&lt;/span&gt;&lt;/a&gt;
+                &lt;/div&gt;
+                &lt;div class="slider__dot"&gt;
+                    &lt;a href="#" class="dot active"&gt;&lt;span class="ir"&gt;1&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href="#" class="dot"&gt;&lt;span class="ir"&gt;2&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href="#" class="dot"&gt;&lt;span class="ir"&gt;3&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href="#" class="play"&gt;&lt;span class="ir"&gt;플레이&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href="#" class="stop"&gt;&lt;span class="ir"&gt;정지&lt;/span&gt;&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/body&gt;
+</code></pre></div>
+
+        <h3 class="t_tit2">✔︎ 결과 확인하기</h3>
+        <p class="t_desc" style="color: #bbbbbb;">CSS 공통 요소는 아래 원본 소스 보기를 통해 확인해보세요 !</p>
+        <div class="t_iframe">
+            <iframe src="https://kkb75281.github.io/coding2/site/sliderType/sliderType01" frameborder="0" width="100%" height="auto"></iframe>
+        </div>
+        <div class="t_link">
+            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/site/sliderType/sliderType01.html" target="_blank">원본 소스 보기</a>
+        </div>
+        <div class="t_link">
+            <a class="center" href="https://kkb75281.github.io/coding2/site/sliderType/sliderType01" target="_blank">실제 사이트 보기</a>
+        </div>
+        
+
+        
+        
+    </div>
+</main>

@@ -1,0 +1,110 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">👊🏻 SITE | banner 유형 뽀개기</h2>
+
+        <div class="t_iframe">
+            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F9dsng1iVsw6HOFcutiPR1c%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D856%253A1682" allowfullscreen></iframe>
+        </div>
+
+        <hr>
+
+        <h3 class="t_tit2">✔︎ CSS Point</h3>
+        <p class="t_box">
+            ☑︎ background: url(../img/slider_bg01.jpg) no-repeat center / cover;<br>
+            &nbsp;&nbsp; 배경 이미지 url 형식으로 삽입, 반복없이 가운데 정렬 / 사이즈에 맞도록 cover
+        </p>
+        <div class="t_code">
+<pre><code class=""language-js>/* bannerType */
+.banner__inner {
+    background-image: url(../img/banner_bg01.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    padding: 120px 0;
+    color: #fff;
+}
+.banner__title {
+    font-size: 50px;
+    line-height: 1;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+.banner__desc {
+    font-size: 24px;
+    line-height: 1.5;
+    font-weight: 300;
+    margin-bottom: 70px;
+}
+.banner__desc a {
+    color: #fff;
+    display: block;
+}
+.banner__desc a:hover {
+    text-decoration: underline;
+}
+.banner__small {
+    font-size: 16px;
+    text-decoration: underline;
+}
+</code></pre></div>
+
+        <h3 class="t_tit2">✔︎ HTML Point</h3>
+        <p class="t_box">
+            ☑︎ 웹 표준을 맞추기 위해 시멘틱 태그 사용하기<br>
+            ☑︎ img의 alt 설명을 span으로 대신하고 ir 효과 사용하기
+        </p>
+        <div class="t_code">
+<pre><code class=""language-js>&lt;body&gt;
+    &lt;section id="sliderType" class="slider__wrap"&gt;
+        &lt;h2 class="blind"&gt;슬라이드 영역&lt;/h2&gt;
+        &lt;div class="slider__inner"&gt;
+            &lt;div class="slider"&gt;
+                &lt;div class="slider__img"&gt;
+                    &lt;div class="desc"&gt;
+                        &lt;span&gt;INTERIOR&lt;/span&gt;
+                        &lt;h3&gt;HOME DESIGN&lt;/h3&gt;
+                        &lt;p&gt;
+                            가족 구성원의 라이프 스타일과 자유공간을 확보하는&lt;br&gt;
+                            다양한 홈디자인을 만나보세요.
+                        &lt;/p&gt;
+                        &lt;div class="btn"&gt;
+                            &lt;a href="#"&gt;자세히 보기&lt;/a&gt;
+                            &lt;a href="#" class="black"&gt;사이트 보기&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="slider__arrow"&gt;
+                    &lt;a href="#" class="left"&gt;&lt;span class="ir"&gt;이전 이미지&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href="#" class="right"&gt;&lt;span class="ir"&gt;다음 이미지&lt;/span&gt;&lt;/a&gt;
+                &lt;/div&gt;
+                &lt;div class="slider__dot"&gt;
+                    &lt;a href="#" class="dot active"&gt;&lt;span class="ir"&gt;1&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href="#" class="dot"&gt;&lt;span class="ir"&gt;2&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href="#" class="dot"&gt;&lt;span class="ir"&gt;3&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href="#" class="play"&gt;&lt;span class="ir"&gt;플레이&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href="#" class="stop"&gt;&lt;span class="ir"&gt;정지&lt;/span&gt;&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/body&gt;
+</code></pre></div>
+
+        <h3 class="t_tit2">✔︎ 결과 확인하기</h3>
+        <p class="t_desc" style="color: #bbbbbb;">CSS 공통 요소는 아래 원본 소스 보기를 통해 확인해보세요 !</p>
+        <div class="t_iframe">
+            <iframe src="https://kkb75281.github.io/coding2/site/bannerType/bannerType01" frameborder="0" width="100%" height="auto"></iframe>
+        </div>
+        <div class="t_link">
+            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/site/bannerType/bannerType01.html" target="_blank">원본 소스 보기</a>
+        </div>
+        <div class="t_link">
+            <a class="center" href="https://kkb75281.github.io/coding2/site/bannerType/bannerType01" target="_blank">실제 사이트 보기</a>
+        </div>
+        
+
+        
+        
+    </div>
+</main>
