@@ -1,6 +1,9 @@
 # coding2
 
-### 메인 페이지
+### 메인 페이지1
+https://gyupp.netlify.app/   
+
+### 메인 페이지2
 https://kkb75281.github.io/coding2/index.html  
 
 ### 자기소개 페이지
