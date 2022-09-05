@@ -220,26 +220,27 @@ li {
 }
 .modal__box .title {
     padding-inline: 1rem;
-    background-color: rgb(33, 33, 33);
+    background-color: rgb(174, 174, 174);
     display: flex;
+    padding-top: 10px;
 
     /* 중앙정렬 */
     align-items: center;
 
     color: #fff;
-    height: 50px;
+    /* height: 50px; */
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
-    
 }
 .modal__box .title .dot {
     width: 15px;
     height: 15px;
-    background-color: rgb(100, 100, 115);
+    background-color: rgb(97, 97, 145);
     display: inline-block;
     border-radius: 50%;
     margin-left: 30px;
     position: relative;
+    margin-bottom: 10px;
 }
 .modal__box .title .dot::before {
     content: '';
@@ -248,7 +249,7 @@ li {
     top: 0;
     width: 15px;
     height: 15px;
-    background-color: rgb(100, 100, 115);
+    background-color: rgb(78, 78, 110);
     border-radius: 50%;
 }
 .modal__box .title .dot::after {
@@ -258,12 +259,12 @@ li {
     top: 0;
     width: 15px;
     height: 15px;
-    background-color: rgb(100, 100, 115);
+    background-color: rgb(122, 122, 165);
     border-radius: 50%;
 }
 .modal__box .title .plus {
     color: rgb(119, 116, 127);
-    background: rgba(255,255,255,0.1);
+    background: rgba(50,49,52,0.3);
     padding: 0.5rem 0.5rem 0.3rem 0.5rem;
     border-radius: 0.5rem;
 }
@@ -273,20 +274,22 @@ li {
 }
 .modal__box .title .tabs > div {
     color: rgb(119, 116, 127);
-    background-color: rgb(50, 49, 52);
+    background-color: rgb(40, 41, 54, 0.6);
     padding: 0.3rem 0.8rem 0.25rem 0.8rem;
-    margin-right: 0.5rem;
+    margin: 0 0.5rem 0 0;
     display: flex;
     align-items: center;
-    border-radius: 0.4rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
     text-transform: uppercase;
     cursor: pointer;
 }
 .modal__box .title .tabs > div.active {
-    background-color: #1f224e;
+    background-color: #282936;
 }
 .modal__box .title .tabs > div em {
     font-style: normal;
+    color: #999;
 }
 .modal__box .title .tabs > div .favicon {
     margin-right: 0.4rem;
@@ -302,6 +305,7 @@ li {
     box-sizing: border-box;
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
+    text-align-last: left;
 }
 .modal__box .cont > div {
     display: none;
@@ -314,7 +318,7 @@ li {
     position: absolute;
     right: 20px;
     top: 20px;
-    background-color: #1f224a;
+    background-color: #aeaeae;
     padding: 1rem 1rem 0.8rem 1rem;
     border-radius: 5px;
     box-shadow: 0 5px 7px -5px rgba(25, 26, 26, 0.7);
