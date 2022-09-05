@@ -1,0 +1,43 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">✍︎ mouseenter / mouseover 의 차이를 알아봅시다 !</h2>
+        <p class="t_box">
+            어떤 영역에 마우스가 올라감을 감지하는 두 메서드의 차이점을 예제를 통해 알아봅시다.
+        </p>
+
+        <hr>
+
+        <table class="t_table">
+            <thead>
+                <tr>
+                    <th>addEventListener("mouseenter")</th>
+                    <th>addEventListener("mouseover")</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="ce">해당 영역의 자식 영역 감지 X</td>
+                    <td class="ce">해당 영역의 자식 영역 감지 O</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="t_tit2"># 예제를 통해 확인해봅시다 !</h3>
+        <div class="t_iframe">
+            <iframe height="300" style="width: 100%;" scrolling="no" title="mouseover ex" src="https://codepen.io/kkb75281/embed/oNdgRKK?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href="https://codepen.io/kkb75281/pen/oNdgRKK">
+                mouseover ex</a> by kkb75281 (<a href="https://codepen.io/kkb75281">@kkb75281</a>)
+                on <a href="https://codepen.io">CodePen</a>.
+            </iframe>
+        </div>
+        <p class="t_box">
+            mouseenter의 경우, 자식 영역까지 감지할 수 없기 때문에 부모 영역에서만 보라색으로 변하는 것을 볼 수 있습니다.
+        </p>
+        <p class="t_box">
+            mouseover의 경우, 자식 영역까지 감지하기 때문에 자식 요소가 노란색으로 변하는 것을 볼 수 있습니다.
+        </p>
+
+        
+        
+    </div>
+</main>
