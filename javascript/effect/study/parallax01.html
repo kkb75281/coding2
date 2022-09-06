@@ -1,0 +1,74 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">SLIDER 효과_좌로 움직이는 이미지(연속)를 만들어보자 !</h2>
+        <p class="t_box">
+            저번 시간에 해봤던 '이미지가 좌로 움직이는' 효과를 이번엔 '연속'으로 나오도록 만들어 봅시다. <br>
+            원본 페이지 내에서도 소스보기를 통해 코드를 바로 확인해보실 수 있습니다^0^
+        </p>
+
+        <div class="t_iframe" style="min-height : 900px; padding-top: 0;">
+            <iframe src="https://kkb75281.github.io/coding2/javascript/effect/sliderEffect03.html" frameborder="0"></iframe>
+        </div>
+
+        <div class="t_link">
+            <a href="https://github.com/kkb75281/coding2/blob/main/javascript/effect/sliderEffect03.html" target="_blank">원본 소스 보기</a>
+        </div>
+
+        <h3 class="t_tit2">script를 살펴봅시다 !</h3>
+        <p class="t_box">
+            이미지 좌로 움직이기(연속) |<br>
+            여러 이미지를 감싸는 slider__wrap을 일정 시간 간격마다 좌로 이동해서 이미지가 움직이는 것처럼 보이게 해줍니다.<br>
+            여기에 더해 첫번째 위치한 사진을 뒤에 한번 더 나오도록 해주고 리셋시켜 처음부터 다시 반복해서 나오도록 설정해줍니다.
+        </p>
+        <div class="t_code">
+<pre><code class=""language-js>&lt;script&gt;
+const sliderWrap = document.querySelector(".slider__wrap");
+const sliderImg = document.querySelector(".slider__img");       // 보여지는 영역
+const sliderInner = document.querySelector(".slider__inner");   // 움직이는 영역
+const slider = document.querySelectorAll(".slider");            // 각각의 이미지
+
+let currentIndex = 0;                                               // 현재 보이는 이미지
+let sliderCount = slider.length;                                    // 이미지 갯수
+let sliderWidth = sliderImg.offsetWidth;                            // 이미지 가로값
+let sliderClone = sliderInner.firstElementChild.cloneNode(true);    // 첫번째 이미지 복사
+sliderInner.appendChild(sliderClone);                               // 첫번째 이미지를 마지막에 넣어줌
+
+function sliderEffect() {
+    currentIndex++;
+    sliderInner.style.transition = "all 0.6s";
+
+    sliderInner.style.transform = "translateX(-"+ sliderWidth * currentIndex +"px)";
+
+    // sliderInner.style.transform = "translateX(-600px)";      600*1
+    // sliderInner.style.transform = "translateX(-1200px)";     600*2
+    // sliderInner.style.transform = "translateX(-1800px)";     600*3
+    // sliderInner.style.transform = "translateX(-2400px)";     600*4
+    // sliderInner.style.transform = "translateX(-3000px)";     600*5
+    // sliderInner.style.transform = "translateX(-3600px)";     600*1
+
+    // 마지막 사진에 위치했을 때 
+    if(currentIndex == sliderCount){
+        setTimeout(()=>{
+            sliderInner.style.transition = "0s";
+            sliderInner.style.transform = "translateX(0px)";
+        }, 700);
+        
+        currentIndex = 0;
+    }
+
+
+}
+setInterval(sliderEffect, 2000);
+&lt;/script&gt;
+</code></pre></div>
+        <p class="t_box">
+            slider__wrap 좌로 이동 ☛ 첫번째 사진 마지막 사진 뒤로 복사 ☛ 마지막 사진 위치했을 때, 초기화 설정
+        </p>
+        <p class="t_box">
+            첫번째 사진을 복사하는 이유; 복사하지 않으면 초기화 되는 과정이 부자연스럽게 보이기 때문
+        </p>
+
+        
+        
+    </div>
+</main>
