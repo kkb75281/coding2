@@ -39,10 +39,41 @@
         position: absolute; 
         left: 45px; top: 0;
     }
+    .t_icon {
+        width: 90px;
+        height: 90px;
+        margin: 0 auto;
+        margin-top: 100px;
+        margin-bottom: 20px;
+        display: block;
+        opacity: 0.8;
+    }
+    .ani_i {
+        width: 100%;
+        overflow: scroll;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+    .css_ani_image {
+        width: 5600px;
+        height: 100%;
+    }
 </style>
 <main id="main">
     <div class="document">
         <style>
+            .timing {
+                padding: 20px;
+            }
+            .timing > div {
+                width: 100px; height: 100px;
+                border-radius: 50%;
+                color: #fff;
+                text-align: center;
+                line-height: 100px;
+                margin: 10px;
+                overflow: hidden;
+            }
             .step {
                 height: 700px;
                 background: #351371;
@@ -78,6 +109,14 @@
                 border-radius: 3px;
             }
         </style>
+
+        <hr>
+        <div class="t_theme" style="text-align: center;">
+            <h5 style="color: #999;">CSS ANIMATION</h5>
+            <h2>걸어다니는 하트 만들기</h2>
+        </div>
+        <hr>
+
         <div class="sample">
             <h3><span></span><em class="sr-only">border-radius</em></h3>
             <div class="timing step">
@@ -90,6 +129,13 @@
         </div>
         <!-- //Intro2 -->  
 
+        <img class="t_icon" src="https://kkb75281.github.io/coding2/assets/ico/icon_ps.svg" alt="포토샵 아이콘" style="scale: 0.8;">
+        <div class="ani_i">
+            <img class="css_ani_image" src="https://kkb75281.github.io/coding2/assets/tistory/animation/css_ani_image.png" alt="걷는그림">
+        </div>
+        <p class="t_box">+ 먼저 연속되는 이미지를 이어 붙여 하나의 이미지로 저장합니다.</p>
+
+        <img class="t_icon" src="https://kkb75281.github.io/coding2/assets/ico/icon_html.svg" alt="html 아이콘">
         <div class="t_code">
 <pre><code class="language-html">&lt;div class="timing step"&gt;
     &lt;div class="stepbox"&gt;&lt;/div&gt;
@@ -100,6 +146,47 @@
 &lt;/div&gt;
 </code></pre>
         </div>
+        <p class="t_box">+ 움직이는 애니메이션은 .stepbox에서 만들어주었습니다.</p>
+
+        <img class="t_icon" src="https://kkb75281.github.io/coding2/assets/ico/icon_css.svg" alt="css 아이콘">
+        <div class="t_code">
+<pre><code class="language-css">.step {
+    height: 700px;
+    background: #351371;
+    position: relative;
+    border-radius: 0 0 10px 10px;
+}
+.step .stepbox {
+    width: 800px; height: 600px;
+    background: url(https://kkb75281.github.io/coding2/animation/img/hwalking.jpg);
+    border-radius: 0;
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    animation: ani 1s steps(24, start) infinite;
+}
+.step .stepbox.start {
+    animation-play-state: running;
+}
+.step .stepbox.stop {
+    animation-play-state: paused;
+}
+@keyframes ani {
+    0% {background-position: 0 0;}
+    100% {background-position: -19200px 0;}
+}
+</code></pre>
+        </div>
+        <p class="t_box">+ <i>background: url( );</i> 을 통해 이어 붙인 이미지를 불러옵니다.</p>
+        <p class="t_box">
+            + <i>animation: ani 1s steps(24, start) infinite;</i> 애니메이션을 설정해줍니다. (24 = 프레임수)
+        </p>
+        <p class="t_box">
+            + <i>@keyframes ani { }</i> 키프레임을 통해 애니메이션을 만들어줍니다.
+        </p>
+        <p class="t_box">
+            + <i>animation-play-state: running / paused;</i> 추가로 버튼을 만들어 애니메이션 진행/멈춤이 가능하도록 설정해주었습니다.
+        </p>
     </div> 
 
     <!-- Bootstrap core JavaScript -->
