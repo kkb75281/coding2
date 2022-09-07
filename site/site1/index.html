@@ -50,11 +50,11 @@
             </div>
             <nav class="header__menu">
                 <ul>
-                    <li><a href="#">헤더 영역</a></li>
-                    <li><a href="#">슬라이드 영역</a></li>
-                    <li><a href="#">배너 영역</a></li>
-                    <li><a href="#">컨텐츠 영역</a></li>
-                    <li><a href="#">푸터 영역</a></li>
+                    <li><a href="#headerType">헤더 영역</a></li>
+                    <li><a href="#sliderType">슬라이드 영역</a></li>
+                    <li><a href="#imgageType">컨텐츠 영역</a></li>
+                    <li><a href="#bannerType">배너 영역</a></li>
+                    <li><a href="#footerType">푸터 영역</a></li>
                 </ul>
             </nav>
             <div class="header__member">
@@ -332,6 +332,39 @@
         </div>
     </footer>
     <!-- // footerType -->
+
+    <script>
+        window.addEventListener("scroll", () => {
+            document.querySelectorAll(".content__item").forEach((element, index) => {
+                // >만하면 오차 발생 =도 추가, 오차 줄이기 위해 -2 추가
+                if(scrollTop >= element.offsetTop -2){
+                    document.querySelectorAll("#parallax__nav li").forEach(li => {
+                        li.classList.remove("active");
+                    });
+                    // index는 0부터 가져옴, nth-child(0)은 없으므로 +1
+                    document.querySelector("#parallax__nav li:nth-child("+(index+1)+")").classList.add("active");
+                }; 
+            });
+
+            for(i=1; i<=9; i++){
+                document.querySelector(".offset"+i).innerText = document.getElementById("section"+i).offsetTop;
+            };
+
+        });
+
+        //스크롤 이동
+        document.querySelectorAll("#parallax__nav li a").forEach(li => {
+            li.addEventListener("click", (e) => {
+                // dispatch
+                e.preventDefault();
+                // li는 a 태그, 속성값 가져오기 getattri
+                document.querySelector(li.getAttribute("href")).scrollIntoView({
+                    // 클릭하면 부드럽게 움직임
+                    behavior: "smooth"
+                });
+            });
+        });
+    </script>
 
 </body>
 
