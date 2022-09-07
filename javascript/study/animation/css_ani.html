@@ -1,0 +1,121 @@
+<style>
+    .sample {
+        box-shadow: 0px 100px 80px rgba(0, 0, 0, 0.07), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802);
+        margin-bottom: 40px;
+        border-radius: 10px;
+    }
+    .sample em {
+        display: none;
+    }
+    .sample h3 {
+        background: #f6f6f6; 
+        height: 40px;
+        padding-top: 13px;
+        margin-bottom: 0;
+        border-radius: 10px 10px 0 0;
+    }
+    .sample h3 span {
+        display: block;
+        width: 15px; height: 15px; 
+        background-color:#E96E4C;
+        border-radius: 50%;
+        margin-left:15px;
+        position: relative;
+        margin-top: 5px;
+    }
+    .sample h3 span::before {
+        content: '';
+        width: 15px; height: 15px; 
+        background-color: #E6A935;
+        border-radius: 50%;
+        position: absolute; 
+        left: 23px; top: 0;
+    }
+    .sample h3 span::after {
+        content: '';
+        width: 15px; height: 15px; 
+        background-color: #85C33D;
+        border-radius: 50%;
+        position: absolute; 
+        left: 45px; top: 0;
+    }
+</style>
+<main id="main">
+    <div class="document">
+        <style>
+            .step {
+                height: 700px;
+                background: #351371;
+                position: relative;
+                border-radius: 0 0 10px 10px;
+            }
+            .step .stepbox {
+                width: 800px; height: 600px;
+                background: url(https://kkb75281.github.io/coding2/animation/img/hwalking.jpg);
+                border-radius: 0;
+                position: absolute;
+                left: 50%; top: 50%;
+                transform: translate(-50%, -50%);
+                animation: ani 1s steps(24, start) infinite;
+            }
+            .step .stepbox.start {
+                animation-play-state: running;
+            }
+            .step .stepbox.stop {
+                animation-play-state: paused;
+            }
+            @keyframes ani {
+                0% {background-position: 0 0;}
+                100% {background-position: -19200px 0;}
+            }
+            .stepBtn {
+                position: absolute; left: 15px; top: 20px;
+            }
+            .stepBtn a {
+                background: #e16162; color: #fff;
+                padding: 10px;
+                margin: 3px;
+                border-radius: 3px;
+            }
+        </style>
+        <div class="sample">
+            <h3><span></span><em class="sr-only">border-radius</em></h3>
+            <div class="timing step">
+                <div class="stepbox"></div>
+                <span class="stepBtn">
+                    <a href="#" class="stepBtnStart">Start</a>
+                    <a href="#" class="stepBtnStop">Stop</a>
+                </span>
+            </div>
+        </div>
+        <!-- //Intro2 -->  
+
+        <div class="t_code">
+<pre><code class="language-html">&lt;div class="timing step"&gt;
+    &lt;div class="stepbox"&gt;&lt;/div&gt;
+    &lt;span class="stepBtn"&gt;
+        &lt;a href="#" class="stepBtnStart"&gt;Start&lt;/a&gt;
+        &lt;a href="#" class="stepBtnStop"&gt;Stop&lt;/a&gt;
+    &lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+    </div> 
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://github.com/kkb75281/coding2/blob/main/assets/js/jquery-1.9.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://github.com/kkb75281/coding2/blob/main/assets/js/bootstrap.min.js"></script>
+    <script src="https://github.com/kkb75281/coding2/blob/main/assets/js/docs.min.js"></script>
+    <script src="https://github.com/kkb75281/coding2/blob/main/assets/js/prism.js"></script>
+    <script>
+        $(".stepBtnStart").click(function(e){
+            e.preventDefault();
+            $(".stepbox").removeClass("stop").addClass("start");
+        });
+        $(".stepBtnStop").click(function(e){
+            e.preventDefault();
+            $(".stepbox").removeClass("start").addClass("stop");
+        });
+    </script>
+</main>
