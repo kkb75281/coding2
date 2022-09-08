@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COOKIT</title>
+
+    <link rel="stylesheet" href="css/test2_style.css">
+</head>
+<body>
+    <div id="wrap" class="container">
+        <header id="header">
+            <img class="logo" src="images/test2/logo.jpg" alt="쿡킷">
+            <nav class="nav">
+                <ul>
+                    <li><a href="#">COOKIT 소개</a></li>
+                    <li><a href="#">COOKIT 메뉴</a></li>
+                    <li><a href="#">리뷰</a></li>
+                    <li><a href="#">이벤트</a></li>
+                    <li><a href="#">MY쿡킷</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="slider">
+            <div class="slider__wrap">
+                <div class="slider__img">
+                    <div class="slider__inner">
+                        <div class="slider"><img src="images/test2/slider1.jpg" alt="이미지1"></div>
+                        <div class="slider"><img src="images/test2/slider2.jpg" alt="이미지2"></div>
+                        <div class="slider"><img src="images/test2/slider3.jpg" alt="이미지3"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="info">
+            <div class="box1">
+                <a class="order1" href="#"><img src="images/test2/icon1.jpg" alt=""></a>
+                <h3>우리집도 COOKIT 배송이 되나요?</h3>
+                <p>배송이 가능한지 알려드려요.</p>
+                <a href="#"><h4>배송지 검색</h4></a>
+            </div>
+            <div class="box2">
+                <a class="order2" href="#"><img src="images/test2/logo2.jpg" alt=""></a>
+                <h3>7월 30일(화)에 받을 수 있어요</h3>
+                <p>오전 7시까지 주문하시면 다음날 배송됩니다.</p>
+                <h4>63:28:32 <span>남은시간</span></h4>
+            </div>
+            <div class="order__cont"><div class="order__close"></div></div>
+        </div>
+        <div class="menu">
+            <div class="tebs">
+                <div class="active"><h3>실시간 베스트</h3></div>
+                <div><h3>생생한 리뷰</h3></div>
+            </div>
+            <div class="cont">
+                <div class="cont__wrap active">
+                    <section class="card c1">
+                        <a href="#"><img src="images/test2/item1.jpg" alt=""></a>
+                        <h4>평양식 어복쟁반</h4>
+                        <span>33,800원<em> /3인분</em></span>
+                    </section>
+                    <section class="card c2">
+                        <a href="#"><img src="images/test2/item2.jpg" alt=""></a>
+                        <h4>새우쭈꾸미삼겹살</h4>
+                        <span>29,800원<em> /3인분</em></span>
+                    </section>
+                    <section class="card c3">
+                        <a href="#"><img src="images/test2/item3.jpg" alt=""></a>
+                        <h4>방풍나물 아귀찜</h4>
+                        <span>32,800원<em> /3인분</em></span>
+                    </section>
+                </div>
+                <div class="cont__wrap">
+                    <section class="card c1">
+                        <a href="#"><img src="images/test2/item4.jpg" alt=""></a>
+                        <h4>평양식 어복쟁반</h4>
+                        <span>33,800원<em> /3인분</em></span>
+                    </section>
+                    <section class="card c2">
+                        <a href="#"><img src="images/test2/item5.jpg" alt=""></a>
+                        <h4>새우쭈꾸미삼겹살</h4>
+                        <span>29,800원<em> /3인분</em></span>
+                    </section>
+                    <section class="card c3">
+                        <a href="#"><img src="images/test2/item6.jpg" alt=""></a>
+                        <h4>방풍나물 아귀찜</h4>
+                        <span>32,800원<em> /3인분</em></span>
+                    </section>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+    <footer id="footer">
+        <div class="left">
+            <img class="logo" src="images/test2/footer_logo.jpg" alt="쿡킷푸터로고">
+        </div>
+        <div class="right">
+            <ul>
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">개인정보처리 방침</a></li>
+                <li><a href="#">법적고지</a></li>
+                <li><a href="#">사업자정보 확인</a></li>
+            </ul>
+            <div class="ad">
+                씨제이제일제당(주) | 대표자:신현재<br>
+                주소:서울 중구 동호로 330 CJ제일제당 센터(우)04560 | 사업자등록번호:104-86-09535<br>
+                통신판매업신고 중구 제07767호 | 개인정보보호책임자:류화정
+            </div>
+        </div>
+    </footer>
+    
+
+    <script>
+        const sliderInner = document.querySelector(".slider__inner");   //움직이는 영역
+        const slider = document.querySelectorAll(".slider");   //이미지
+        let currentIndex = 0;
+
+        sliderInner.style.transition = "all 0.6s"
+        setInterval(() => {
+            currentIndex = (currentIndex +1) % slider.length;    
+
+            sliderInner.style.transform = "translateX("+ -1000 * currentIndex +"px)";
+        },2000);
+
+
+        //모달
+        const modalBtn = document.querySelector(".order2");
+        const modalClose = document.querySelector(".order__close");
+        const modalCont = document.querySelector(".order__cont");
+
+        modalBtn.addEventListener("click", () => {
+            modalCont.classList.add("show"); //애니메이션 처리 가능
+            modalCont.classList.remove("hide"); 
+        });
+
+        modalClose.addEventListener("click", () => {
+            modalCont.classList.add("hide");
+        });
+
+
+
+
+
+        //탭 메뉴
+        const tabBtn = document.querySelectorAll(".menu .tebs div");
+        const tabCont = document.querySelectorAll(".menu .cont > .cont__wrap");
+
+        tabBtn.forEach((element, index) => {
+            //버튼 클릭
+            element.addEventListener("click", (event) => {
+
+                //이벤트 발생을 막아줌, 계속 0,0으로 올라가는 것 막아줌
+                event.preventDefault();
+
+                //클릭 했을 때 class active 모두 다 제거
+                tabBtn.forEach(li => {
+                    li.classList.remove("active");
+                });
+
+                //클릭한 버튼에는 class active 추가
+                element.classList.add("active");
+
+                //클릭 했을 때 모든 자식 박스 숨김
+                tabCont.forEach(div => {
+                    div.style.display = "none";
+                });
+
+                //클릭한 버튼[i]과 관련된 박스[i]만 보이게 함
+                tabCont[index].style.display = "flex";
+            });
+        });
+        
+    </script>
+</body>
+</html>
