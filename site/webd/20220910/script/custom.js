@@ -15,7 +15,7 @@ setInterval(function(){
     } else {
         currentIndex = 0;
     }
-    var slidePosition = currentIndex * (-378)+"px";
+    var slidePosition = currentIndex * (-374)+"px";
 
     // console.log(slidePosition);
     $(".slideList").animate({top:slidePosition},400);

@@ -1,0 +1,560 @@
+<style>
+    .csum {
+        list-style: none;
+        margin: 20px auto;
+        width: 200px;
+        text-align: center;
+        padding: 10px;
+        background: #f5f5f5;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .csum:hover {
+        background: #d6d6d6;
+
+    }
+</style>
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">웹디자인기능사 실기 | 롯데월드 사이트 만들기</h2>
+
+        <h3 class="t_tit2">1. 웹디자인기능사 실기 요령</h3>
+        <div class="t_result">
+            <details>
+                <summary class="csum">ckick</summary>
+                <div>
+                    <p class="t_box">
+                        시험장마다 Emmet이 안되는 곳이 있을 수 있음<br>
+                        👉🏻 드림위버 자동 완성 기능 활용하기
+                    </p>
+                    <p class="t_box">
+                        모든 css, js는 링크로 달기 (시험조건)
+                        👉🏻 항상 링크를 걸었으면 사이트에 연동되는지 확인하고 넘어가기
+                    </p>
+                    <p class="t_box">
+                        style에 쓸때 복사/붙여넣기 습관 들이기
+                        👉🏻 쓰면서 하다가 오류가 생기면 발견하기 어려움
+                    </p>
+                </div>
+        </details>
+        </div>
+
+        <h3 class="t_tit2">2. 사이트 구조 살펴보기</h3>
+        <img class="t_img1" src="https://kkb75281.github.io/coding2/assets/tistory/effect/webd1_1.jpg" alt="사이트구조">
+        <div class="t_result">
+            <details>
+                <summary class="csum">CSS 살펴보기</summary>
+                <div class="t_code">
+<pre><code class=""language-js>&lt;style&gt;
+    /* reset */
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        list-style: none;
+    }
+    a {
+        color: #333;
+        text-decoration: none;
+    }
+    .clearfix::before, .clearfix::after {
+        display: block;
+        content: '';
+        clear: both;
+    }
+    
+    /* layout */
+    #wrap {
+        width: 1000px;
+        margin: 0 auto;
+    }
+    #header {
+        height: 100px;
+    }
+    #banner {}
+    #content1 {}
+    #content2 {}
+    #footer {}
+    
+    /* header */
+    #header h1 {
+        float: left;
+        padding-top: 5px;
+    }
+    #header h1 img {
+        width: 130px;
+    }
+    #header .nav {
+        float: right;
+        z-index: 100px;
+        position: relative;
+        margin-top: 20px;
+    }
+    #header .nav li {
+        position: relative;
+        float: left;
+        width: 120px;
+        text-align: center;
+    }
+    #header .nav li a {
+        display: block;
+        padding: 20px 10px;
+        font-size: 18px;
+    }
+    #header .nav li a:hover {
+        background: #ddd;
+    }
+    #header .nav li ul.subMenu {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 59px;
+        z-index: 100;
+        background: #ccc;
+    }
+    #header .nav li ul.subMenu li {}
+    #header .nav li ul.subMenu li a {
+        padding: 10px;
+    }
+    #header .nav li ul.subMenu li a:hover {
+        background: #999;
+    }
+    
+    /* banner */
+    #banner {
+        width: 1000px;
+        height: 378px;
+        overflow: hidden;
+    }
+    #banner img {
+        width: 100%;
+    }
+    .slideList {
+        position: relative;
+    }
+    .slideList .slideImg {
+        position: relative;
+    }
+    .slideList .slideImg h2 {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0,0,0,0.5);
+        padding: 10px 30px;
+        border-radius: 25px;
+        color: #fff;
+        font-size: 18px;
+    }
+    .slideList .slideImg img {
+        display: block;
+    }
+    
+    /* content1 */
+    #content1 {
+        margin-top: 15px;
+    }
+    #content1 .notice {
+        float: left;
+        width: 49%;
+        height: 220px;
+        margin-right: 2%;
+        border: 1px solid #ccc;
+        /* 49% + 49% + 2% = 100% + 보더 양쪽 1px씩 추가되어버림 */
+        /* 보더값을 위드값 안으로 포함할 수 있도록 박스사이징을 보더박스로 설정 */
+        box-sizing: border-box;
+    }
+    #content1 .notice ul li a {
+        font-size: 20px;
+    }
+    #content1 .notice ul li ul li a {
+        font-size: 16px;
+        font-weight: 300;
+    }
+    #content1 .notice ul li ul li span {
+        font-weight: 300;
+        color: #666;
+    }
+    #content1 .ad {
+        float: left;
+        width: 49%;
+        margin-right: 0;
+    }
+    #content1 .ad img {
+        width: 100%;
+        /* 이미지 밑에 좀 남는 부분 없애기 */
+        display: block;
+    }
+    
+    /* notice */
+    .notice {
+        position: relative;
+        padding: 30px;
+    }
+    .notice ul {}
+    .notice ul li {
+        float: left;
+        margin-right: 20px;
+    }
+    .notice ul li a {
+        font-size: 24px;
+        font-weight: bold;
+        color: #999;
+    }
+    .notice ul li.active a {
+        color: #000;
+    }
+    .notice ul li ul {
+        position: absolute;
+        left: 30px;
+        top: 70px;
+    }
+    .notice ul li ul li {
+        width: 95%;
+        padding: 5px 0;
+    }
+    .notice ul li ul li a {
+        float: left;
+        width: 60%;
+        font-size: 16px;
+        color: #333;
+        font-weight: normal;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .notice ul li ul li span {
+        float: right;
+        width: 20%;
+    }
+    .notice .more {
+        position: absolute;
+        right: 30px;
+        top: 35px;
+    }
+    
+    /* content2 */
+    #content2 {
+        margin-top: 25px;
+    }
+    #content2 h2 {
+        margin-bottom: 10px;
+    }
+    #content2 ul {}
+    #content2 li {
+        float: left;
+        width: 24.25%;
+        margin-right: 1%;
+    }
+    #content2 li:last-child {
+        margin-right: 0;
+    }
+    #content2 li img {
+        width: 100%;
+    }
+    #content2 li span {
+        /* span은 인라인구조이기 때문에 블록선언 */
+        display: block;
+        padding: 10px 0;
+    }
+    
+    /* footer */
+    #footer {
+        border-top: 1px solid #ccc;
+        margin-top: 30px;
+        padding: 30px 0;
+    }
+    #footer address {
+        font-style: normal;
+        color: #666;
+    }
+    #footer address ul {
+        width: 660px;
+    }
+    #footer address li {
+        position: relative;
+        display: inline;
+        line-height: 1.7;
+        padding: 0 15px 0 10px;
+    }
+    #footer address li::after {
+        position: absolute;
+        content: '';
+        right: 0;
+        top: 0;
+        width: 1px;
+        height: 13px;
+        background: #666;
+    }
+    #footer address li.left {
+        padding-left: 0;
+    }
+    #footer address p {
+        text-transform: uppercase;
+        padding-top: 30px;
+    }
+    
+    /* layer */
+    .layer_bg {
+        display: none;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 900;
+    }
+    .layer {
+        width: 500px;
+        height: 500px;
+        background: #ccc;
+        border: 2px solid #000;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 1000;
+        transform: translate(-50%, -50%);
+    }
+    .layer h2 {
+        padding: 20px;
+        font-size: 30px;
+    }
+    .layer .close {
+        position: absolute;
+        bottom: 20px;
+        right: 30px;
+        font-size: 20px;
+    }
+&lt;/style&gt;
+</code></pre></div>
+        </details>
+
+        <details>
+            <summary class="csum">HTML 살펴보기</summary>
+            <div class="t_code">
+<pre><code class=""language-js>&lt;body&gt;
+    &lt;div id="wrap"&gt;
+    &lt;header id="header" class="clearfix"&gt;
+        &lt;h1&gt;&lt;a href="#"&gt;&lt;img src="images/logo.jpg" alt="롯데월드"&gt;&lt;/a&gt;&lt;/h1&gt;
+        &lt;nav class="nav"&gt;
+            &lt;ul class="clearfix"&gt;
+                &lt;li&gt;
+                    &lt;a href="#"&gt;즐길거리&lt;/a&gt;
+                    &lt;ul class="subMenu"&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;subMenu-1&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;subMenu-2&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;subMenu-3&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;subMenu-4&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;a href="#"&gt;요금/우대혜택&lt;/a&gt;
+                    &lt;ul class="subMenu"&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;subMenu-1&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;subMenu-2&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;subMenu-3&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;subMenu-4&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;a href="#"&gt;참여프로그램&lt;/a&gt;
+                    &lt;ul class="subMenu"&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;subMenu-1&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;subMenu-2&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;subMenu-3&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;subMenu-4&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;a href="#"&gt;이용가이드&lt;/a&gt;
+                    &lt;ul class="subMenu"&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;subMenu-1&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;subMenu-2&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;subMenu-3&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;subMenu-4&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;a href="#"&gt;소통서비스&lt;/a&gt;
+                    &lt;ul class="subMenu"&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;subMenu-1&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;subMenu-2&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;subMenu-3&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;subMenu-4&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    &lt;!-- //header --&gt;
+
+    &lt;section id="banner"&gt;
+        &lt;div class="slideList"&gt;
+            &lt;div class="slideImg"&gt;
+                &lt;h2&gt;이미지1&lt;/h2&gt;
+                &lt;img src="images/banner01.jpg" alt="메리크리스마스1"&gt;
+            &lt;/div&gt;
+            &lt;div class="slideImg"&gt;
+                &lt;h2&gt;이미지2&lt;/h2&gt;
+                &lt;img src="images/banner01.jpg" alt="메리크리스마스2"&gt;
+            &lt;/div&gt;
+            &lt;div class="slideImg"&gt;
+                &lt;h2&gt;이미지3&lt;/h2&gt;
+                &lt;img src="images/banner01.jpg" alt="메리크리스마스3"&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;!-- //banner --&gt;
+
+    &lt;section id="content1" class="clearfix"&gt;
+        &lt;article class="notice"&gt;
+            &lt;ul class="clearfix"&gt;
+                &lt;li class="active"&gt;&lt;a href="#"&gt;롯데월드 소식&lt;/a&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;그럴싸진곤 미라클&lt;/a&gt;&lt;span&gt;2019.05.03&lt;/span&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;드림스테이지 '힘내 소중한 너'&lt;/a&gt;&lt;span&gt;2019.05.03&lt;/span&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;'힘내 소중한 너'음원 발매&lt;/a&gt;&lt;span&gt;2019.05.03&lt;/span&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;이용 요금 조정 안내&lt;/a&gt;&lt;span&gt;2019.05.03&lt;/span&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;뉴스&middot;공지&lt;/a&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;2. 두번째 목록입니다. 두번째 목록입니다. 두번째 목록입니다.&lt;/a&gt;&lt;span&gt;2019.05.03&lt;/span&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;2. 두번째 목록입니다. 두번째 목록입니다. 두번째 목록입니다.&lt;/a&gt;&lt;span&gt;2019.05.03&lt;/span&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;2. 두번째 목록입니다. 두번째 목록입니다. 두번째 목록입니다.&lt;/a&gt;&lt;span&gt;2019.05.03&lt;/span&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;2. 두번째 목록입니다. 두번째 목록입니다. 두번째 목록입니다.&lt;/a&gt;&lt;span&gt;2019.05.03&lt;/span&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;a href="#" class="more"&gt;더보기 +&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;figure class="ad"&gt;
+            &lt;a href="#"&gt;&lt;img src="images/ad.jpg" alt="온종일 혜택"&gt;&lt;/a&gt;
+        &lt;/figure&gt;
+    &lt;/section&gt;
+    &lt;!-- //content1 --&gt;
+
+    &lt;section id="content2"&gt;
+        &lt;h2&gt;특별한 경험&lt;/h2&gt;
+        &lt;ul class="clearfix"&gt;
+            &lt;li&gt;
+                &lt;a href="#"&gt;
+                    &lt;img src="images/s1.jpg" alt="연간회원안내"&gt;
+                    &lt;span&gt;연간회원안내&lt;/span&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="#"&gt;
+                    &lt;img src="images/s2.jpg" alt="프리미엄투어"&gt;
+                    &lt;span&gt;프리미엄투어&lt;/span&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="#"&gt;
+                    &lt;img src="images/s3.jpg" alt="공연참여프로그램"&gt;
+                    &lt;span&gt;공연참여프로그램&lt;/span&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="#"&gt;
+                    &lt;img src="images/s4.jpg" alt="단체프로그램"&gt;
+                    &lt;span&gt;단체프로그램&lt;/span&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/section&gt;
+    &lt;!-- //content2 --&gt;
+
+    &lt;footer id="footer"&gt;
+        &lt;address&gt;
+            &lt;ul&gt;
+                &lt;li class="left"&gt;서울특별시 송파구 올림픽로 240 롯데월드&lt;/li&gt;
+                &lt;li&gt;대표자: 박동기&lt;/li&gt;
+                &lt;li&gt;사업자등록번호: 229-093-00392&lt;/li&gt;
+                &lt;li class="left"&gt;통신판매업신고번호: 384-02894-90348&lt;/li&gt;
+                &lt;li&gt;전화: 02-3045-3943&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;p&gt;Copyright2018 Lotteworld, All Right RESERVED&lt;/p&gt;
+        &lt;/address&gt;
+    &lt;/footer&gt;
+    &lt;!-- //footer --&gt;
+&lt;/div&gt;
+
+&lt;!-- 팝업 --&gt;
+&lt;div class="layer_bg"&gt;
+    &lt;div class="layer"&gt;
+        &lt;h2&gt;타이틀&lt;/h2&gt;
+        &lt;a href="#" class="close"&gt;닫기&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+</code></pre></div>
+        </details>
+        </div>
+
+        <h3 class="t_tit2">3. script 살펴보기</h3>
+        <div class="t_code">
+<pre><code class=""language-js>&lt;script&gt;
+    $(".nav > ul > li").mouseover(function(){
+        $(this).find(".subMenu").stop().slideDown(200);
+    });
+    
+    $(".nav > ul > li").mouseout(function(){
+        $(this).find(".subMenu").stop().slideUp(200);
+    });
+    
+    
+    var currentIndex = 0;   //현재 이미지를 변수에 저장
+    
+    setInterval(function(){
+        if(currentIndex &lt; 2){
+            currentIndex++
+        } else {
+            currentIndex = 0;
+        }
+        var slidePosition = currentIndex * (-374)+"px";
+    
+        // console.log(slidePosition);
+        $(".slideList").animate({top:slidePosition},400);
+    }, 3000);
+    
+    
+    // 탭 메뉴
+    var tabMenu = $(".notice");
+    
+    tabMenu.find("ul > li > ul").hide();
+    tabMenu.find("ul > li.active > ul").show();
+    
+    function tabList(e){
+        e.preventDefault();
+        // ul > li > a : this
+        var target = $(this);
+        target.next().show().parent("li").addClass("active").siblings("li").removeClass("active").find("ul").hide();
+    };
+    
+    tabMenu.find("ul > li > a").click(tabList).focus(tabList);
+    
+    
+    // 팝업
+    $(".ad").click(function(){
+        $(".layer_bg").css("display","block");
+    });
+    $(".layer .close").click(function(){
+        $(".layer_bg").css("display","none");
+    });
+&lt;/script&gt;
+
+        <div class="t_link">
+            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/site/webd/20220910/index.html" target="_blank">원본 소스 보기</a>
+        </div>
+        <div class="t_link">
+            <a class="center" href="https://kkb75281.github.io/coding2/site/webd/20220910/index.html" target="_blank">실제 사이트 보기</a>
+        </div>
+
+        
+        
+    </div>
+</main>
