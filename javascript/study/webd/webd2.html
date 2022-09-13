@@ -1,0 +1,624 @@
+<style>
+    .csum {
+        list-style: none;
+        margin: 20px auto;
+        width: 200px;
+        text-align: center;
+        padding: 10px;
+        background: #f5f5f5;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .csum:hover {
+        background: #d6d6d6;
+
+    }
+    .t_link_wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 340px;
+    }
+</style>
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">웹디자인기능사 실기 | 쿡킷 사이트 만들기</h2>
+
+        <hr>
+
+        <h3 class="t_tit2">1. 웹디자인기능사 실기 요령</h3>
+        <div class="t_result">
+            <details>
+                <summary class="csum">ckick</summary>
+                <div>
+                    <p class="t_box">
+                        시험장마다 Emmet이 안되는 곳이 있을 수 있음 <span style="float: right;">👉🏻 드림위버 자동 완성 기능 활용하기</span>
+                    </p>
+                    <p class="t_box">
+                        모든 css, js는 링크로 달기 (시험조건) <span style="float: right;">👉🏻 항상 링크를 걸었으면 사이트에 연동되는지 확인하고 넘어가기</span>
+                    </p>
+                    <p class="t_box">
+                        style에 쓸때 복사/붙여넣기 습관 들이기 <span style="float: right;">👉🏻 쓰면서 하다가 오류가 생기면 발견하기 어려움</span>
+                    </p>
+                </div>
+        </details>
+        </div>
+
+        <h3 class="t_tit2">2. 사이트 구조 살펴보기</h3>
+        <img class="t_img1" src="https://kkb75281.github.io/coding2/assets/tistory/webd/webd2_1.jpg" alt="사이트구조">
+        <div class="t_result">
+            <details>
+                <summary class="csum">CSS 살펴보기</summary>
+                <div class="t_code">
+<pre><code class=""language-js>&lt;style&gt;
+    /* reset */
+    * {
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+    }
+    a {
+        color: #333;
+        text-decoration: none;
+    }
+    li {
+        list-style: none;
+    }
+    .clearfix::before, .clearfix::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    
+    /* wrap */
+    #wrap {
+        width: 1000px;
+        margin: 0 auto;
+    }
+    
+    /* header */
+    #header h1 {
+        float: left;
+        padding: 15px 0 10px;
+    }
+    #header h1 img {
+        width: 100px;
+    }
+    #header .nav {
+        float: right;
+    }
+    #header .nav li {
+        position: relative;
+        float: left;
+        width: 140px;
+        text-align: center;
+    }
+    #header .nav li a {
+        display: block;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 26px 0 21px 0;
+    }
+    #header .nav li a:hover {
+        background: #ccc;
+    }
+    #header .nav li ul.subMenu {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 71px;
+        z-index: 100;
+    }
+    #header .nav li ul.subMenu li a {
+        padding: 10px;
+        background: #888;
+    }
+    #header .nav li ul.subMenu li a:hover {
+        background: #666;
+    }
+    
+    /* banner */
+    #banner {
+        height: 426px;
+        overflow: hidden;
+    }
+    #banner img {
+        width: 1000px;
+        /* 이미지 사이 여백(inline구조라) 없애기 */
+        display: block;
+    }
+    /* 상하 */
+    /* .slideList { */
+        /* top값을 주기 위해서 */
+        /* position: relative;
+        width: 1000px;
+        height: 426px;
+    }
+    .slideList .slideImg {
+        position: relative;
+    }
+    .slideList .slideImg h2 {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(255,255,255,0.6);
+        padding: 10px 30px;
+        border-radius: 20px;
+    } */
+    /* 좌우 */
+    .slideList {
+        position: relative;
+        width: 3000px;
+        z-index: 50;
+    }
+    .slideList .slideImg {
+        position: relative;
+        width: 1000px;
+        float: left;
+    }
+    .slideList .slideImg h2 {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(255,255,255,0.6);
+        padding: 10px 30px;
+        border-radius: 20px;
+    }
+    
+    /* content1 */
+    #content1 {
+        margin-top: 20px;
+    }
+    #content1 .left {
+        float: left;
+        width: 49%;
+        padding: 20px;
+        background: #f2f2f2 url(../images/icon1.jpg) no-repeat right 20px center;
+        background-size: 80px;
+        box-sizing: border-box;
+        margin-right: 2%;
+    }
+    #content1 .left .tit {
+        font-size: 20px;
+        padding-bottom: 10px;
+    }
+    #content1 .left .desc {
+        font-size: 14px;
+        color: #666;
+        padding-bottom: 15px;
+    }
+    #content1 .left .btn {
+        background: url(../images/location.jpg) no-repeat left top;
+        background-size: 15px;
+        padding-left: 25px;
+        padding-top: 2px;
+        font-weight: 600;
+    }
+    #content1 .right {
+        float: left;
+        width: 49%;
+        margin-right: 0;
+        padding: 20px;
+        box-sizing: border-box;
+        background: #f2f2f2 url(../images/delivery.jpg) no-repeat right 20px center;
+        background-size: 80px;
+        cursor: pointer;
+    }
+    #content1 .right .tit {
+        font-size: 20px;
+        padding-bottom: 10px;
+    }
+    #content1 .right .desc {
+        font-size: 14px;
+        color: #666;
+        padding-bottom: 15px;
+    }
+    #content1 .right .btn {
+        background: url(../images/time.jpg) no-repeat left top;
+        background-size: 15px;
+        padding-left: 25px;
+        padding-bottom: 3px;
+        font-weight: 600;
+    }
+    #content1 .right .btn em {
+        font-size: 13px;
+        color: #999;
+        font-style: normal;
+        padding-left: 5px;
+    }
+    
+    /* content2 */
+    #content2 {
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+    .tab-menu .tab-btn {
+        overflow: hidden;
+    }
+    .tab-menu .tab-btn li {
+        float: left;
+        margin-right: 15px;
+    }
+    .tab-menu .tab-btn li a {
+        display: block;
+        font-size: 24px;
+        font-weight: 700;
+        padding-bottom: 10px;
+        color: #999;
+    }
+    .tab-menu .tab-btn li.active a {
+        color: #000;
+    }
+    .tab-cont .best figure {
+        float: left;
+        width: 32%;
+        margin-right: 2%;
+    }
+    .tab-cont .best figure img {
+        width: 100%;
+    }
+    .tab-cont .best figure figcaption {
+        font-weight: 700;
+        padding-top: 5px;
+        font-size: 16px;
+        line-height: 1.7;
+    }
+    .tab-cont .best figure figcaption em {
+        font-style: normal;
+        color: #999;
+        font-weight: 500;
+        padding-left: 5px;
+    }
+    .tab-cont .best figure:last-child {
+        margin-right: 0;
+    }
+    
+    /* footer */
+    #footer {
+        padding: 50px 200px;
+        background: #202020;
+        margin-top: 30px;
+    }
+    #footer h2 {
+        float: left;
+        padding-left: 20px;
+    }
+    #footer h2 img {
+        width: 150px;
+    }
+    #footer .foot {
+        float: right;
+        padding-right: 50px;
+    }
+    #footer .foot ul {
+        padding-bottom: 10px;
+    }
+    #footer .foot ul li {
+        display: inline;
+    }
+    #footer .foot ul li a {
+        color: #cdcdcd;
+        padding-right: 10px;
+    }
+    #footer .foot address {
+        font-style: normal;
+        color: #999;
+        font-weight: 300;
+        font-size: 14px;
+    }
+    
+    /* layer */
+    .layer_bg {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        z-index: 900;
+    }
+    .layer {
+        display: none;
+        position: absolute;
+        left: 30px;
+        top: 30px;
+        width: 500px;
+        height: 500px;
+        border: 3px solid #000;
+        background: #fff;
+        z-index: 1000;
+    }
+    .layer h2 {
+        padding: 20px;
+        color: #000;
+    }
+    .layer .close {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+    }    
+&lt;/style&gt;
+</code></pre></div>
+        </details>
+
+        <details>
+            <summary class="csum">HTML 살펴보기</summary>
+            <div class="t_code">
+<pre><code class=""language-js>&lt;body&gt;
+    &lt;div id="wrap"&gt;
+        &lt;header id="header" class="clearfix"&gt;
+            &lt;h1&gt;&lt;a href="#"&gt;&lt;img src="images/logo.jpg" alt="cookit"&gt;&lt;/a&gt;&lt;/h1&gt;
+            &lt;nav class="nav"&gt;
+                &lt;ul class="clearfix"&gt;
+                    &lt;li&gt;
+                        &lt;a href="#"&gt;Cookit 소개&lt;/a&gt;
+                        &lt;ul class="subMenu"&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;sub-menu1&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;sub-menu1&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;sub-menu1&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;sub-menu1&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;a href="#"&gt;Cookit 메뉴&lt;/a&gt;
+                        &lt;ul class="subMenu"&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;sub-menu2&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;sub-menu2&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;sub-menu2&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;sub-menu2&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;a href="#"&gt;리뷰&lt;/a&gt;
+                        &lt;ul class="subMenu"&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;sub-menu3&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;sub-menu3&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;sub-menu3&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;sub-menu3&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;a href="#"&gt;이벤트&lt;/a&gt;
+                        &lt;ul class="subMenu"&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;sub-menu4&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;sub-menu4&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;sub-menu4&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;sub-menu4&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;a href="#"&gt;My 쿡킷&lt;/a&gt;
+                        &lt;ul class="subMenu"&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;sub-menu5&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;sub-menu5&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;sub-menu5&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#"&gt;sub-menu5&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/nav&gt;
+        &lt;/header&gt;
+        &lt;!-- //header --&gt;
+
+        &lt;section id="banner"&gt;
+            &lt;div class="slideList"&gt;
+                &lt;div class="slideImg"&gt;
+                    &lt;h2&gt;이미지1&lt;/h2&gt;
+                    &lt;img src="images/banner01.jpg" alt="한식 상차림1"&gt;
+                &lt;/div&gt;
+                &lt;div class="slideImg"&gt;
+                    &lt;h2&gt;이미지2&lt;/h2&gt;
+                    &lt;img src="images/banner02.jpg" alt="한식 상차림2"&gt;
+                &lt;/div&gt;
+                &lt;div class="slideImg"&gt;
+                    &lt;h2&gt;이미지3&lt;/h2&gt;
+                    &lt;img src="images/banner03.jpg" alt="한식 상차림3"&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+        &lt;!-- //banner --&gt;
+
+        &lt;section id="content1" class="clearfix"&gt;
+            &lt;article class="left"&gt;
+                &lt;h2 class="tit"&gt;우리집도 COOKIT 배송이 되나요?&lt;/h2&gt;
+                &lt;p class="desc"&gt;배송이 가능한지 알려드려요&lt;/p&gt;
+                &lt;a class="btn" href="#"&gt;배송지 검색&lt;/a&gt;
+            &lt;/article&gt;
+            &lt;article class="right"&gt;
+                &lt;h2 class="tit"&gt;7월 30일(화)에 받을 수 있어요&lt;/h2&gt;
+                &lt;p class="desc"&gt;오전 7시까지 주문하시면 다음날 배송됩니다.&lt;/p&gt;
+                &lt;a class="btn" href="#"&gt;63:28:32 &lt;em&gt;남은 시간&lt;/em&gt;&lt;/a&gt;
+            &lt;/article&gt;
+        &lt;/section&gt;
+        &lt;!-- //content1 --&gt;
+
+        &lt;section id="content2"&gt;
+            &lt;div class="tab-menu"&gt;
+                &lt;div class="tab-btn"&gt;
+                    &lt;ul&gt;
+                        &lt;li class="active"&gt;&lt;a href="#"&gt;실시간 베스트&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;생생한 리뷰&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                &lt;div class="tab-cont"&gt;
+                    &lt;div class="best clearfix"&gt;
+                        &lt;figure&gt;
+                            &lt;img src="images/best1-1.jpg" alt="평양식 어복쟁반"&gt;
+                            &lt;figcaption&gt;
+                                평양식 어복쟁반&lt;br&gt;
+                                33,800원 &lt;em&gt;/3인분&lt;/em&gt;
+                            &lt;/figcaption&gt;
+                        &lt;/figure&gt;
+                        &lt;figure&gt;
+                            &lt;img src="images/best1-2.jpg" alt="새우쭈꾸미삼겹살"&gt;
+                            &lt;figcaption&gt;
+                                새우쭈꾸미삼겹살&lt;br&gt;
+                                29,800원 &lt;em&gt;/3인분&lt;/em&gt;
+                            &lt;/figcaption&gt;
+                        &lt;/figure&gt;
+                        &lt;figure&gt;
+                            &lt;img src="images/best1-3.jpg" alt="방풍나물 아귀찜"&gt;
+                            &lt;figcaption&gt;
+                                방풍나물 아귀찜&lt;br&gt;
+                                32,800원 &lt;em&gt;/3인분&lt;/em&gt;
+                            &lt;/figcaption&gt;
+                        &lt;/figure&gt;
+                    &lt;/div&gt;
+                    &lt;div class="best clearfix"&gt;
+                        &lt;figure&gt;
+                            &lt;img src="images/best2-1.jpg" alt="방풍나물 아귀찜2"&gt;
+                            &lt;figcaption&gt;
+                                방풍나물 아귀찜&lt;br&gt;
+                                32,800원 &lt;em&gt;/3인분&lt;/em&gt;
+                            &lt;/figcaption&gt;
+                        &lt;/figure&gt;
+                        &lt;figure&gt;
+                            &lt;img src="images/best2-2.jpg" alt="평양식 어복쟁반2"&gt;
+                            &lt;figcaption&gt;
+                                평양식 어복쟁반&lt;br&gt;
+                                33,800원 &lt;em&gt;/3인분&lt;/em&gt;
+                            &lt;/figcaption&gt;
+                        &lt;/figure&gt;
+                        &lt;figure&gt;
+                            &lt;img src="images/best2-3.jpg" alt="새우쭈꾸미삼겹살2"&gt;
+                            &lt;figcaption&gt;
+                                새우쭈꾸미삼겹살&lt;br&gt;
+                                29,800원 &lt;em&gt;/3인분&lt;/em&gt;
+                            &lt;/figcaption&gt;
+                        &lt;/figure&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+        &lt;!-- //content2 --&gt;
+    &lt;/div&gt;
+    &lt;footer id="footer" class="clearfix"&gt;
+        &lt;h2&gt;&lt;img src="images/footer_logo.jpg" alt=""&gt;&lt;/h2&gt;
+        &lt;div class="foot"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#"&gt;이용약관&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;개인정보처리방침&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;법적고지&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;사업자정보확인&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;address&gt;
+                씨제이제일제당(주) 대표자:신현재&lt;br&gt;
+                주소:서울 중구 동호로 330 CJ 제일제당 센터 (우)04560 사업자등록번호:104-86-09535&lt;br&gt;
+                통신판매업신고 중구 제 07767호 개인정보보호책임자:류화정
+            &lt;/address&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+    &lt;!-- //footer --&gt;
+
+    &lt;!-- //wrap --&gt;
+    &lt;div class="layer_bg"&gt;&lt;/div&gt;
+    &lt;div class="layer"&gt;
+        &lt;h2&gt;제목&lt;/h2&gt;
+        &lt;a class="close" href="#"&gt;닫기&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;!-- //layer --&gt;
+&lt;/body&gt;
+</code></pre></div>
+        </details>
+
+        <details>
+        <summary class="csum">SCRIPT 살펴보기</summary>
+        <div class="t_code">
+<pre><code class=""language-js>&lt;script&gt;
+    // 네비게이션
+    $(".nav > ul > li").mouseover(function(){
+        // 전체 메뉴 내려오게 할거면 .nav > ul > li
+        // 각각 메뉴별로 내려오게 할거면 this
+        $(this).find(".subMenu").stop().slideDown(200);
+    });
+    $(".nav > ul > li").mouseout(function(){
+        $(this).find(".subMenu").stop().slideUp(200);
+    });
+    
+    // 이미지 슬라이드(상하)
+    // currentIndexs = 0; 첫번째 이미지 :0
+    // currentIndexs = 1; 두번째 이미지 :-426
+    // currentIndexs = 2; 세번째 이미지 :-852
+    // var currentIndex = 0;   // 첫번째 이미지
+    
+    // setInterval(function(){
+    //     if(currentIndex < 2){
+    //         currentIndex++;
+    //     } else {
+    //         currentIndex = 0;
+    //     }
+    
+    //     var slidePosition = currentIndex * (-426.66)+"px";
+    
+    //     $(".slideList").animate({top: slidePosition},400);
+    // },3000);
+    
+    // 이미지 슬라이드(좌우)
+    var currentIndex = 0;
+    
+    setInterval(function(){
+        if(currentIndex < 2){
+            currentIndex++;
+        } else {
+            currentIndex = 0;
+        }
+    
+        var slidePosition = currentIndex * (-1000)+"px";
+    
+        $(".slideList").animate({left: slidePosition},400);
+    },3000);
+    
+    // 탭 메뉴
+    var tabBtn = $(".tab-btn > ul > li");
+    var tabCont = $(".tab-cont > div");
+    
+    tabCont.hide().eq(0).show();
+    
+    tabBtn.click(function(e){
+        e.preventDefault();
+    
+        // 대상을 정확히 누굴 선택했는지(target) 알고 싶으면 this 사용
+        var target = $(this);
+        // 몇번째를 클릭했는지(index) 확인하기 위해서 번호 매기기
+        var index = target.index();
+        
+        // 앞에 class 있으니까 .쓰지 않음
+        tabBtn.removeClass("active");
+        // 선택한 target에는 active 추가
+        target.addClass("active");
+        tabCont.css("display","none");
+        tabCont.eq(index).css("display","block");
+    
+    });
+    
+    // 레이어 팝업
+    $("#content1 .right").click(function(){
+        // $(".layer").show(300);
+        $(".layer").slideDown(300);
+        $(".layer_bg").show();
+    });
+    $(".layer .close").click(function(){
+        // $(".layer").show(300);
+        $(".layer").slideUp(300);
+        $(".layer_bg").hide();
+    });
+&lt;/script&gt;
+</pre></code></div>
+        </details>
+        </div>
+
+        <hr>
+
+        <div class="t_link_wrap">
+            <div class="t_link">
+                <a class="center" href="https://github.com/kkb75281/coding2/blob/main/site/webd/20220911/index.html" target="_blank">원본 소스 보기</a>
+            </div>
+            <div class="t_link">
+                <a class="center" href="https://kkb75281.github.io/coding2/site/webd/20220911/index.html" target="_blank">실제 사이트 보기</a>
+            </div>
+        </div>
+</main>

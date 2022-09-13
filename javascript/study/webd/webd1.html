@@ -14,10 +14,18 @@
         background: #d6d6d6;
 
     }
+    .t_link_wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 340px;
+    }
 </style>
 <main id="main">
     <div class="document">
         <h2 class="t_tit">웹디자인기능사 실기 | 롯데월드 사이트 만들기</h2>
+
+        <hr>
 
         <h3 class="t_tit2">1. 웹디자인기능사 실기 요령</h3>
         <div class="t_result">
@@ -25,23 +33,20 @@
                 <summary class="csum">ckick</summary>
                 <div>
                     <p class="t_box">
-                        시험장마다 Emmet이 안되는 곳이 있을 수 있음<br>
-                        👉🏻 드림위버 자동 완성 기능 활용하기
+                        시험장마다 Emmet이 안되는 곳이 있을 수 있음 <span style="float: right;">👉🏻 드림위버 자동 완성 기능 활용하기</span>
                     </p>
                     <p class="t_box">
-                        모든 css, js는 링크로 달기 (시험조건)
-                        👉🏻 항상 링크를 걸었으면 사이트에 연동되는지 확인하고 넘어가기
+                        모든 css, js는 링크로 달기 (시험조건) <span style="float: right;">👉🏻 항상 링크를 걸었으면 사이트에 연동되는지 확인하고 넘어가기</span>
                     </p>
                     <p class="t_box">
-                        style에 쓸때 복사/붙여넣기 습관 들이기
-                        👉🏻 쓰면서 하다가 오류가 생기면 발견하기 어려움
+                        style에 쓸때 복사/붙여넣기 습관 들이기 <span style="float: right;">👉🏻 쓰면서 하다가 오류가 생기면 발견하기 어려움</span>
                     </p>
                 </div>
         </details>
         </div>
 
         <h3 class="t_tit2">2. 사이트 구조 살펴보기</h3>
-        <img class="t_img1" src="https://kkb75281.github.io/coding2/assets/tistory/effect/webd1_1.jpg" alt="사이트구조">
+        <img class="t_img1" src="https://kkb75281.github.io/coding2/assets/tistory/webd/webd1_1.jpg" alt="사이트구조">
         <div class="t_result">
             <details>
                 <summary class="csum">CSS 살펴보기</summary>
@@ -493,9 +498,9 @@
 &lt;/body&gt;
 </code></pre></div>
         </details>
-        </div>
 
-        <h3 class="t_tit2">3. script 살펴보기</h3>
+        <details>
+        <summary class="csum">SCRIPT 살펴보기</summary>
         <div class="t_code">
 <pre><code class=""language-js>&lt;script&gt;
     $(".nav > ul > li").mouseover(function(){
@@ -546,15 +551,18 @@
         $(".layer_bg").css("display","none");
     });
 &lt;/script&gt;
-
-        <div class="t_link">
-            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/site/webd/20220910/index.html" target="_blank">원본 소스 보기</a>
-        </div>
-        <div class="t_link">
-            <a class="center" href="https://kkb75281.github.io/coding2/site/webd/20220910/index.html" target="_blank">실제 사이트 보기</a>
+</pre></code></div>
+        </details>
         </div>
 
-        
-        
-    </div>
+        <hr>
+
+        <div class="t_link_wrap">
+            <div class="t_link">
+                <a class="center" href="https://github.com/kkb75281/coding2/blob/main/site/webd/20220910/index.html" target="_blank">원본 소스 보기</a>
+            </div>
+            <div class="t_link">
+                <a class="center" href="https://kkb75281.github.io/coding2/site/webd/20220910/index.html" target="_blank">실제 사이트 보기</a>
+            </div>
+        </div>
 </main>

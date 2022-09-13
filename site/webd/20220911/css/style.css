@@ -24,7 +24,6 @@ li {
 }
 
 /* header */
-#header {}
 #header h1 {
     float: left;
     padding: 15px 0 10px;
@@ -43,9 +42,9 @@ li {
 }
 #header .nav li a {
     display: block;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 26px 20px 21px 20px;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 26px 0 21px 0;
 }
 #header .nav li a:hover {
     background: #ccc;
@@ -130,7 +129,7 @@ li {
 }
 #content1 .left .tit {
     font-size: 20px;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
 }
 #content1 .left .desc {
     font-size: 14px;
@@ -142,6 +141,7 @@ li {
     background-size: 15px;
     padding-left: 25px;
     padding-top: 2px;
+    font-weight: 600;
 }
 #content1 .right {
     float: left;
@@ -155,7 +155,7 @@ li {
 }
 #content1 .right .tit {
     font-size: 20px;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
 }
 #content1 .right .desc {
     font-size: 14px;
@@ -167,16 +167,19 @@ li {
     background-size: 15px;
     padding-left: 25px;
     padding-bottom: 3px;
+    font-weight: 600;
 }
 #content1 .right .btn em {
     font-size: 13px;
     color: #999;
     font-style: normal;
+    padding-left: 5px;
 }
 
 /* content2 */
 #content2 {
     margin-top: 30px;
+    margin-bottom: 50px;
 }
 .tab-menu .tab-btn {
     overflow: hidden;
@@ -188,6 +191,7 @@ li {
 .tab-menu .tab-btn li a {
     display: block;
     font-size: 24px;
+    font-weight: 700;
     padding-bottom: 10px;
     color: #999;
 }
@@ -202,13 +206,25 @@ li {
 .tab-cont .best figure img {
     width: 100%;
 }
+.tab-cont .best figure figcaption {
+    font-weight: 700;
+    padding-top: 5px;
+    font-size: 16px;
+    line-height: 1.7;
+}
+.tab-cont .best figure figcaption em {
+    font-style: normal;
+    color: #999;
+    font-weight: 500;
+    padding-left: 5px;
+}
 .tab-cont .best figure:last-child {
     margin-right: 0;
 }
 
 /* footer */
 #footer {
-    padding: 20px 0;
+    padding: 50px 200px;
     background: #202020;
     margin-top: 30px;
 }
@@ -221,7 +237,7 @@ li {
 }
 #footer .foot {
     float: right;
-    padding-right: 30px;
+    padding-right: 50px;
 }
 #footer .foot ul {
     padding-bottom: 10px;
@@ -230,12 +246,14 @@ li {
     display: inline;
 }
 #footer .foot ul li a {
-    color: #fff;
+    color: #cdcdcd;
     padding-right: 10px;
 }
 #footer .foot address {
     font-style: normal;
-    color: #ccc;
+    color: #999;
+    font-weight: 300;
+    font-size: 14px;
 }
 
 /* layer */
