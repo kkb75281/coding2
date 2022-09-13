@@ -502,6 +502,7 @@
         window.addEventListener("scroll", () => {
             let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
 
+            //소수점 아래 안나오게 설정
             document.querySelector("#parallax__info span").innerText = Math.floor(scrollTop);
 
             document.querySelectorAll(".content__item").forEach((e, i) => {
@@ -515,18 +516,18 @@
         });
 
         // (x좌표 0, y좌표 1000), 어딜 눌러도 2000만 내려가고 멈춤
-                // window.scroll(0, 1000);
-                // window.scroll({left: 0, top: 2000});
-                // window.scroll({left: 0, top: 2000, behavior: "smooth"});
+        // window.scroll(0, 1000);
+        // window.scroll({left: 0, top: 2000});
+        // window.scroll({left: 0, top: 2000, behavior: "smooth"});
 
-                // window.scrollTo(0, 1000);
-                // window.scrollTo({left: 0, top: 1000});
-                // window.scrollTo({left: 0, top: 1000, behavior: "smooth"});
+        // window.scrollTo(0, 1000);
+        // window.scrollTo({left: 0, top: 1000});
+        // window.scrollTo({left: 0, top: 1000, behavior: "smooth"});
 
-                // 상대기준, 클릭할때마다 1000씩 내려감
-                // window.scrollBy(0, 1000);
-                // window.scrollTo({left: 0, top: 1000});
-                // window.scrollTo({left: 0, top: 1000, behavior: "smooth"});
+        // 상대기준, 클릭할때마다 1000씩 내려감
+        // window.scrollBy(0, 1000);
+        // window.scrollBy({left: 0, top: 1000});
+        // window.scrollBy({left: 0, top: 1000, behavior: "smooth"});
     </script>
 </body>
 
