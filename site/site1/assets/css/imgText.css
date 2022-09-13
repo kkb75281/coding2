@@ -10,7 +10,7 @@
 .imgText__txt {}                                                                                                                                                                  
 .imgText__txt span {
     font-size: 16px;
-    color: #666;
+    color: #999;
     text-decoration: underline;
     text-combine-upright: under;
     margin-bottom: 20px;
@@ -27,7 +27,7 @@
     font-size: 18px;
     font-weight: 300;
     line-height: 1.5;
-    color: #666;
+    color: #999;
     margin-bottom: 10px;
 }               
 .imgText__txt ul {
@@ -40,7 +40,7 @@
     padding-left: 20px;
 } 
 .imgText__txt ul li a {
-    color: #666;
+    color: #999;
 }
 .imgText__txt ul li:before {
     content: '';
@@ -49,8 +49,8 @@
     border-radius: 50%;
     position: absolute;
     left: 5px;
-    top: 9px;
-    background: #666;
+    top: 10px;
+    background: #999;
 }
 .imgText__img {
     border-radius: 10px;
@@ -60,15 +60,19 @@
     position: absolute;
     left: 30px;
     bottom: 30px;
-    background-color: #7c2b39;
+    background-color: #27232077;
     color: #fff;
     font-size: 18px;
     padding: 10px 30px;
     border-radius: 30px;
     display: inline-block;
+    transition: padding 0.5s;
 }
-.imgText__img a.blue {
-    background-color: #2b387c;
+.imgText__img.img1:hover a {
+    padding: 10px 125px;
+}
+.imgText__img.img2:hover a {
+    padding: 10px 95px;
 }
 .imgText__img.img1 {
     background: url(../img/imgText_bg01.jpg) no-repeat center / cover;

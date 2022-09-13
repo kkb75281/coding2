@@ -6,6 +6,7 @@
     text-align: center;
     padding: 120px 0;
     color: #fff;
+    opacity: 0.95;
 }
 .banner__title {
     font-size: 50px;
@@ -25,6 +26,7 @@
 }
 .banner__desc a:hover {
     text-decoration: underline;
+    color: #000;
 }
 .banner__small {
     font-size: 16px;

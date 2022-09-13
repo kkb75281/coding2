@@ -1,16 +1,17 @@
 .slider__inner {
-    margin-top: 70px;
+    /* margin-top: 70px; */
 }
 .slider {
     position: relative;
 }
 .slider__img {
     background: url(../img/slider_bg01.jpg) no-repeat center / cover;
+    height: 700px;
 }
 .slider__img .desc {
     width: 1160px;
     margin: 0 auto;
-    padding: 100px 20px;
+    padding: 180px 20px;
 }
 .slider__img .desc span {
     font-size: 16px;
