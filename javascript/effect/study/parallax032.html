@@ -1,37 +1,16 @@
-<style>
-    .csum {
-        list-style: none;
-        margin: 20px auto;
-        width: 200px;
-        text-align: center;
-        padding: 10px;
-        background: #f5f5f5;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: all 0.3s;
-    }
-    .csum:hover {
-        background: #d6d6d6;
-
-    }
-</style>
 <main id="main">
     <div class="document">
         <h2 class="t_tit">Parallax Scroll 효과</h2>
         <p class="t_box" style="text-align: center;">
-            <i>오늘의 목표</i><br>
-            👉🏻 사이드 메뉴 설정하기<br>
-            👉🏻 사이드 메뉴를 클릭했을 때 해당 section으로 이동하도록 설정하기<br>
-            👉🏻 사이드 메뉴가 스크롤에 따라 반응하도록 설정하기
+            오늘의 목표<br>
+            👉🏻 상단 메뉴가 스크롤을 내리면 사라지고 올릴때 나타나도록 설정하기<br>
+            👉🏻 제일 마지막 section에 위치했을때 Top 버튼이 나타나 위로 올라가도록 설정하기
         </p>
 
-        <hr>
-
-        <h3 class="t_tit2">1. 사이트 구성 살펴보기</h3>
         <img class="t_img1" src="https://kkb75281.github.io/coding2/assets/tistory/effect/parallax2_1.jpg" alt="패럴랙스 스크롤 효과">
         <div class="t_result">
             <details>
-                <summary class="csum">CSS 살펴보기</summary>
+                <summary class="csum">전체 CSS 확인하기</summary>
                 <div class="t_code">
 <pre><code class=""language-js>&lt;style&gt;
     /* parallax__nav */
@@ -251,18 +230,70 @@
     }
 &lt;/style&gt;
 </code></pre></div>
-        </details>
+            </details>
+        </div>
+        
 
-        <details>
-            <summary class="csum">HTML 살펴보기</summary>
-            <div class="t_code">
+        <h3 class="t_tit2">JAVASCRIPT</h3>
+        <div class="t_code">
+<pre><code class=""language-js>&lt;script&gt;
+    window.addEventListener("scroll", () => {
+        // 브라우저 환경에 따라 실행될 수 있도록 or로 설정
+        let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+        // 메뉴바 순서에 따라 active 바뀌도록 설정
+        document.querySelectorAll(".content__item").forEach((element, index) => {
+            // >만하면 오차 발생 =도 추가, 오차 줄이기 위해 -2 추가
+            if(scrollTop >= element.offsetTop -2){
+                document.querySelectorAll("#parallax__nav li").forEach(li => {
+                    li.classList.remove("active");
+                });
+                // index는 0부터 가져옴, nth-child(0)은 없으므로 +1
+                document.querySelector("#parallax__nav li:nth-child("+(index+1)+")").classList.add("active");
+            }; 
+        });
+
+
+        // info
+        // 소수점 없애기
+        document.querySelector(".scroll span").innerText = Math.round(scrollTop);
+
+        for(i=1; i&lt;=9; i++){
+            document.querySelector(".offset"+i).innerText = document.getElementById("section"+i).offsetTop;
+        };
+    });
+
+    //스크롤 이동
+    document.querySelectorAll("#parallax__nav li a").forEach(li => {
+        li.addEventListener("click", (e) => {
+            e.preventDefault();
+            // 여기서 li는 a 태그
+            document.querySelector(li.getAttribute("href")).scrollIntoView({
+                // 클릭하면 부드럽게 움직임
+                behavior: "smooth"
+            });
+        });
+    });
+&lt;/script&gt;
+</code></pre></div>
+        <p class="t_box">
+            <b>let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;</b><br>
+            세로 스크롤 값을 가져오는 속성입니다.
+        </p>
+        <p class="t_box">
+            <b>Math.round( );</b><br>
+            반올림하여 숫자로 반환시켜주는 수학 메서드 입니다. 생략이 불가능하며 소수점을 없애기 위해 사용해주었습니다.
+        </p>
+
+<h3 class="t_tit2">HTML</h3>
+        <div class="t_code">
 <pre><code class=""language-js>&lt;body&gt;
-&lt;header id="header"&gt;
-    &lt;h1&gt;Javascript Parallax Effect02&lt;/h1&gt;
-    &lt;p&gt;패럴랙스 이펙트 - 사이드 메뉴&lt;/p&gt;
+    &lt;header id="header"&gt;
+    &lt;h1&gt;Javascript Parallax Effect01&lt;/h1&gt;
+    &lt;p&gt;패럴랙스 이펙트 - 메뉴 이동&lt;/p&gt;
     &lt;ul&gt;
-        &lt;li&gt;&lt;a href="parallaxEffect01.html"&gt;1&lt;/a&gt;&lt;/li&gt;
-        &lt;li class="active"&gt;&lt;a href="parallaxEffect02.html"&gt;2&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="active"&gt;&lt;a href="parallaxEffect01.html"&gt;1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="parallaxEffect02.html"&gt;2&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a href="parallaxEffect03.html"&gt;3&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a href="parallaxEffect04.html"&gt;4&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a href="parallaxEffect05.html"&gt;5&lt;/a&gt;&lt;/li&gt;
@@ -272,17 +303,17 @@
 &lt;/header&gt;
 &lt;!-- //header --&gt;
 
-&lt;nav id="parallax__dot"&gt;
+&lt;nav id="parallax__nav"&gt;
     &lt;ul&gt;
-        &lt;li class="active"&gt;&lt;a href="#section1"&gt;&lt;span&gt;메뉴1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#section2"&gt;&lt;span&gt;메뉴2&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#section3"&gt;&lt;span&gt;메뉴3&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#section4"&gt;&lt;span&gt;메뉴4&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#section5"&gt;&lt;span&gt;메뉴5&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#section6"&gt;&lt;span&gt;메뉴6&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#section7"&gt;&lt;span&gt;메뉴7&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#section8"&gt;&lt;span&gt;메뉴8&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#section9"&gt;&lt;span&gt;메뉴9&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="active"&gt;&lt;a href="#section1"&gt;메뉴1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section2"&gt;메뉴2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section3"&gt;메뉴3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section4"&gt;메뉴4&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section5"&gt;메뉴5&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section6"&gt;메뉴6&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section7"&gt;메뉴7&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section8"&gt;메뉴8&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section9"&gt;메뉴9&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 &lt;/nav&gt;
 &lt;!-- //parallax__nav --&gt;
@@ -384,69 +415,211 @@
 
 &lt;aside id="parallax__info"&gt;
     &lt;div class="scroll"&gt;scrollTop : &lt;span&gt;0&lt;/span&gt;px&lt;/div&gt;
+    &lt;div class="info"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;#section1 offset() : &lt;span class="offset1"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section2 offset() : &lt;span class="offset2"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section3 offset() : &lt;span class="offset3"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section4 offset() : &lt;span class="offset4"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section5 offset() : &lt;span class="offset5"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section6 offset() : &lt;span class="offset6"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section7 offset() : &lt;span class="offset7"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section8 offset() : &lt;span class="offset8"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section9 offset() : &lt;span class="offset9"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
 &lt;/aside&gt;
 &lt;!-- //aside --&gt;
-&lt;/body&gt;
+...
 </code></pre></div>
-        </details>
-        </div>
 
-        <h3 class="t_tit2">2. script 살펴보기</h3>
-        <img class="t_img1" src="https://kkb75281.github.io/coding2/assets/tistory/effect/parallax2_2.jpg" alt="패럴랙스 스크롤 효과">
-        <img class="t_img1" src="https://kkb75281.github.io/coding2/assets/tistory/effect/parallax2_3.jpg" alt="패럴랙스 스크롤 효과">
+<h3 class="t_tit2">CSS</h3>
         <div class="t_code">
-<pre><code class=""language-js>&lt;script&gt;
-    // el은 a 태그
-    document.querySelectorAll("#parallax__dot a").forEach(el => {
-        el.addEventListener("click", e => {
-            // a 링크의 기능 차단
-            e.preventDefault();
+<pre><code class=""language-js>/* parallax__nav */
+#parallax__nav {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 2000;
+    background-color: rgba(0,0,0,0.4);
+    padding: 20px 30px;
+    border-radius: 50px;
+}
+#parallax__nav li {
+    display: inline;
+    margin: 0 5px;
+}
+#parallax__nav li a {
+    display: inline-block;
+    height: 30px;
+    padding: 5px 20px;
+    text-align: center;
+    line-height: 30px;
+}
+#parallax__nav li.active a {
+    background: #fff;
+    color: #000;
+    border-radius: 20px;
+    box-sizing: content-box;
+}
 
-            document.querySelector(el.getAttribute("href")).scrollIntoView({behavior: "smooth"});
-            
-        });
-    });
-    
-    window.addEventListener("scroll", () => {
-        let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+/* parallax__cont */
+#parallax__cont {
+    max-width: 1600px;
+    width: 98%;
+    margin: 0 auto;
+    /* background-color: rgba(255,255,255,0.1); */
+}
+.content__item {
+    width: 1000px;
+    max-width: 70vw;
+    margin: 30vw auto;
+    /* background-color: rgba(255,255,255,0.3); */
+    text-align: left;
+    margin-right: 0;
+    position: relative;
+    padding-top: 7vw;
+}
+/* even(짝수), 2n, 2n+1, 2n*8 등 입력 가능 */
+.content__item:nth-child(even){
+    margin-left: 0;
+    text-align: right;
+}
+.content__item__num {
+    font-size: 35vw;
+    font-family: 'Lato';
+    font-weight: 100;
+    position: absolute;
+    left: -5vw;
+    top: -16vw;
+    opacity: 0.07;
+    z-index: -2;
+}
+.content__item:nth-child(even) .content__item__num {
+    /* left값 초기화 후 right 값 설정 */
+    left: auto;
+    right: -5vw;
+}
+.content__item__title {
+    font-weight: 400;
+    text-transform: capitalize;
+}
+.content__item__imgWrap {
+    width: 100%;
+    padding-bottom: 56.25%;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    z-index: -1;
+}
+.content__item__img {
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    background: url(../assets/img/effect_bg01-min.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    left: -5%;
+    top: -5%;
+    filter: saturate(0%);
+    transition: all 1s;
+}
+.content__item:nth-child(1) .content__item__img {
+    background-image: url(../assets/img/effect_bg01-min.jpg);
+}
+.content__item:nth-child(2) .content__item__img {
+    background-image: url(../assets/img/effect_bg02-min.jpg);
+}
+.content__item:nth-child(3) .content__item__img {
+    background-image: url(../assets/img/effect_bg03-min.jpg);
+}
+.content__item:nth-child(4) .content__item__img {
+    background-image: url(../assets/img/effect_bg04-min.jpg);
+}
+.content__item:nth-child(5) .content__item__img {
+    background-image: url(../assets/img/effect_bg05-min.jpg);
+}
+.content__item:nth-child(6) .content__item__img {
+    background-image: url(../assets/img/effect_bg06-min.jpg);
+}
+.content__item:nth-child(7) .content__item__img {
+    background-image: url(../assets/img/effect_bg07-min.jpg);
+}
+.content__item:nth-child(8) .content__item__img {
+    background-image: url(../assets/img/effect_bg08-min.jpg);
+}
+.content__item:nth-child(9) .content__item__img {
+    background-image: url(../assets/img/effect_bg09-min.jpg);
+}
+.content__item__desc {
+    font-size: 4vw;
+    line-height: 1.4;
+    margin-top: -5vw;
+    margin-left: -4vw;
+    word-break: keep-all;
+}
+.content__item:nth-child(even) .content__item__desc {
+    margin-left: auto;
+    margin-right: -4vw;
+}
 
-        //소수점 아래 안나오게 설정
-        document.querySelector("#parallax__info span").innerText = Math.floor(scrollTop);
+/* parallax__info */
+#parallax__info {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 2000px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+#parallax__info li, .scrollTop {
+    line-height: 1.4;
+}
 
-        document.querySelectorAll(".content__item").forEach((e, i) => {
-            if(scrollTop >= e.offsetTop - 10 ){
-                document.querySelectorAll("#parallax__dot li").forEach(li => {
-                    li.classList.remove("active")
-                });
-                document.querySelector("#parallax__dot li:nth-child("+(i+1)+")").classList.add("active");
-            }
-        })
-    });
-&lt;/script&gt;
+
+@media (max-width: 800px) {
+    #parallax__cont {
+        margin-top: 70vw;
+    }
+    #parallax__nav {
+        padding: 10px;
+        right: auto;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 5px;
+        background-color: rgba(0,0,0,0.8);
+    }
+    #parallax__nav li {
+        display: block;
+        margin: 5px;
+    }
+    #parallax__nav li a {
+        font-size: 14px;
+        padding: 5px;
+        border-radius: 5px;
+        height: auto;
+        line-height: 1;
+    }
+    #parallax__nav li.active a {
+        border-radius: 5px;
+    }
+    #parallax__info {
+        left: 10px;
+        bottom: 10px;
+    }
+}
 </code></pre></div>
-        <h3 class="t_tit2">+ scroll / scrollTo / scrollBy</h3>
-        <div class="t_code">
-<pre><code class=""language-js>// (x좌표 0, y좌표 1000), 어딜 눌러도 2000만 내려가고 멈춤
-window.scroll(0, 1000);
-window.scroll({left: 0, top: 2000});
-window.scroll({left: 0, top: 2000, behavior: "smooth"});
 
-window.scrollTo(0, 1000);
-window.scrollTo({left: 0, top: 1000});
-window.scrollTo({left: 0, top: 1000, behavior: "smooth"});
-
-// 상대기준, 클릭할때마다 1000씩 내려감
-window.scrollBy(0, 1000);
-window.scrollBy({left: 0, top: 1000});
-window.scrollBy({left: 0, top: 1000, behavior: "smooth"});
-</code></pre></div>
-
-        <div class="t_link">
-            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/Javascript/effect/parallaxEffect02.html" target="_blank">원본 소스 보기</a>
-        </div>
-        <div class="t_link">
-            <a class="center" href="https://kkb75281.github.io/coding2/Javascript/effect/parallaxEffect02.html" target="_blank">실제 사이트 보기</a>
-        </div>
+<div class="t_link">
+    <a class="center" href="https://github.com/kkb75281/coding2/blob/main/Javascript/effect/parallaxEffect.html" target="_blank">원본 소스 보기</a>
+</div>
+<div class="t_link">
+    <a class="center" href="https://kkb75281.github.io/coding2/Javascript/effect/parallaxEffect.html" target="_blank">실제 사이트 보기</a>
+</div>
 
         
         
