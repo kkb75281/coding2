@@ -12,7 +12,6 @@
     }
     .csum:hover {
         background: #d6d6d6;
-
     }
 </style>
 <main id="main">
@@ -20,15 +19,14 @@
         <h2 class="t_tit">Parallax Scroll 효과</h2>
         <p class="t_box" style="text-align: center;">
             <i>오늘의 목표</i><br>
-            👉🏻 사이드 메뉴 설정하기<br>
-            👉🏻 사이드 메뉴를 클릭했을 때 해당 section으로 이동하도록 설정하기<br>
-            👉🏻 사이드 메뉴가 스크롤에 따라 반응하도록 설정하기
+            👉🏻 상단 메뉴가 스크롤을 내리면 사라지고 올릴때 나타나도록 설정하기<br>
+            👉🏻 제일 마지막 section에 위치했을때 Top 버튼이 나타나 위로 올라가도록 설정하기
         </p>
 
         <hr>
 
         <h3 class="t_tit2">1. 사이트 구성 살펴보기</h3>
-        <img class="t_img1" src="https://kkb75281.github.io/coding2/assets/tistory/effect/parallax2_1.jpg" alt="패럴랙스 스크롤 효과">
+        <img class="t_img1" src="https://kkb75281.github.io/coding2/assets/tistory/effect/parallax3_1.jpg" alt="패럴랙스 스크롤 효과">
         <div class="t_result">
             <details>
                 <summary class="csum">CSS 살펴보기</summary>
@@ -38,11 +36,15 @@
     #parallax__nav {
         position: fixed;
         right: 20px;
-        top: 20px;
+        top: -200px;
         z-index: 2000;
         background-color: rgba(0,0,0,0.4);
         padding: 20px 30px;
         border-radius: 50px;
+        transition: top .4s ease;
+    }
+    #parallax__nav.show {
+        top: 20px;
     }
     #parallax__nav li {
         display: inline;
@@ -211,43 +213,29 @@
             bottom: 10px;
         }
     }
-    #parallax__dot {
+    #parallax__top {
         position: fixed;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
+        left: 50%;
+        bottom: -200px;
         z-index: 10000;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 40px;
         background: rgba(0,0,0,0.4);
-        padding: 20px 10px;
-        border-radius: 30px;
-    }
-    #parallax__dot li {
-        position: relative;
-        width: 20px;
-        height: 20px;
+        padding: 10px;
+        text-align: center;
+        line-height: 40px;
+        color: #fff;
         border-radius: 50%;
-        margin: 12px 8px;
-        box-shadow: 0 0 0 2px rgba(255,255,255,0);
-        transition: box-shadow .2s ease;
+        cursor: pointer;
+        transition: all 0.3s;
     }
-    #parallax__dot li a {
+    #parallax__top.show {
+        bottom: 20px;
+    }
+    #parallax__top:hover {
         background: #fff;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        border-radius: 50%;
-        transition: transform .2s ease;
-    }
-    #parallax__dot li.active {
-        box-shadow: 0 0 0 2px rgba(255,255,255,1);
-    }
-    #parallax__dot li.active a {
-        scale: 0.4;
-    }
-    #parallax__dot li span {
-        display: none;
+        color: #000;
     }
 &lt;/style&gt;
 </code></pre></div>
@@ -257,13 +245,13 @@
             <summary class="csum">HTML 살펴보기</summary>
             <div class="t_code">
 <pre><code class=""language-js>&lt;body&gt;
-&lt;header id="header"&gt;
-    &lt;h1&gt;Javascript Parallax Effect02&lt;/h1&gt;
-    &lt;p&gt;패럴랙스 이펙트 - 사이드 메뉴&lt;/p&gt;
+    &lt;header id="header"&gt;
+    &lt;h1&gt;Javascript Parallax Effect03&lt;/h1&gt;
+    &lt;p&gt;패럴랙스 이펙트 - 숨김 메뉴&lt;/p&gt;
     &lt;ul&gt;
         &lt;li&gt;&lt;a href="parallaxEffect01.html"&gt;1&lt;/a&gt;&lt;/li&gt;
-        &lt;li class="active"&gt;&lt;a href="parallaxEffect02.html"&gt;2&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="parallaxEffect03.html"&gt;3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="parallaxEffect02.html"&gt;2&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="active"&gt;&lt;a href="parallaxEffect03.html"&gt;3&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a href="parallaxEffect04.html"&gt;4&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a href="parallaxEffect05.html"&gt;5&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a href="parallaxEffect06.html"&gt;6&lt;/a&gt;&lt;/li&gt;
@@ -272,20 +260,25 @@
 &lt;/header&gt;
 &lt;!-- //header --&gt;
 
-&lt;nav id="parallax__dot"&gt;
+&lt;nav id="parallax__nav"&gt;
     &lt;ul&gt;
-        &lt;li class="active"&gt;&lt;a href="#section1"&gt;&lt;span&gt;메뉴1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#section2"&gt;&lt;span&gt;메뉴2&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#section3"&gt;&lt;span&gt;메뉴3&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#section4"&gt;&lt;span&gt;메뉴4&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#section5"&gt;&lt;span&gt;메뉴5&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#section6"&gt;&lt;span&gt;메뉴6&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#section7"&gt;&lt;span&gt;메뉴7&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#section8"&gt;&lt;span&gt;메뉴8&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#section9"&gt;&lt;span&gt;메뉴9&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="active"&gt;&lt;a href="#section1"&gt;메뉴1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section2"&gt;메뉴2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section3"&gt;메뉴3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section4"&gt;메뉴4&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section5"&gt;메뉴5&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section6"&gt;메뉴6&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section7"&gt;메뉴7&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section8"&gt;메뉴8&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section9"&gt;메뉴9&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 &lt;/nav&gt;
 &lt;!-- //parallax__nav --&gt;
+
+&lt;div id="parallax__top"&gt;
+    Top
+&lt;/div&gt;
+&lt;!-- parallax__top --&gt;
 
 &lt;main id="parallax__cont"&gt;
     &lt;div id="contents"&gt;
@@ -392,60 +385,90 @@
         </div>
 
         <h3 class="t_tit2">2. script 살펴보기</h3>
-        <img class="t_img1" src="https://kkb75281.github.io/coding2/assets/tistory/effect/parallax2_2.jpg" alt="패럴랙스 스크롤 효과">
-        <img class="t_img1" src="https://kkb75281.github.io/coding2/assets/tistory/effect/parallax2_3.jpg" alt="패럴랙스 스크롤 효과">
+        <img class="t_img1" src="https://kkb75281.github.io/coding2/assets/tistory/effect/parallax3_2.jpg" alt="패럴랙스 스크롤 효과">
         <div class="t_code">
 <pre><code class=""language-js>&lt;script&gt;
-    // el은 a 태그
-    document.querySelectorAll("#parallax__dot a").forEach(el => {
-        el.addEventListener("click", e => {
-            // a 링크의 기능 차단
-            e.preventDefault();
+    // window.addEventListener("scroll", () => {
+    //     let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
 
-            document.querySelector(el.getAttribute("href")).scrollIntoView({behavior: "smooth"});
-            
-        });
-    });
-    
+    //     // 01
+    //     // if(scrollTop > 0){
+    //     //     document.querySelector("#parallax__nav").classList.add("show");
+    //     // } else {
+    //     //     document.querySelector("#parallax__nav").classList.remove("show");
+    //     // }
+
+    //     // 02
+    //     // // (문서 전체 높이 - 브라우저 높이)
+    //     // if(scrollTop == (document.innerHeight - window.innerHeight)){
+    //     //     document.querySelector("#parallax__top").classList.add("show");
+    //     // } else {
+    //     //     document.querySelector("#parallax__top").classList.remove("show");
+    //     // }
+
+    //     document.querySelector("#parallax__info span").innerText = Math.ceil(scrollTop);
+    // });
+
     window.addEventListener("scroll", () => {
         let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
 
-        //소수점 아래 안나오게 설정
-        document.querySelector("#parallax__info span").innerText = Math.floor(scrollTop);
+        // 02
+        if(scrollTop >= (document.body.scrollHeight - window.innerHeight)){
+            document.querySelector("#parallax__top").classList.add("show");
+        } else {
+            document.querySelector("#parallax__top").classList.remove("show");
+        }
 
-        document.querySelectorAll(".content__item").forEach((e, i) => {
-            if(scrollTop >= e.offsetTop - 10 ){
-                document.querySelectorAll("#parallax__dot li").forEach(li => {
-                    li.classList.remove("active")
-                });
-                document.querySelector("#parallax__dot li:nth-child("+(i+1)+")").classList.add("active");
-            }
-        })
+        // top 값
+        document.querySelector("#parallax__info span").innerText = Math.ceil(scrollTop);
     });
+
+    document.querySelector("#parallax__top").addEventListener("click", () => {
+        window.scrollTo({left: 0, top: 0, behavior: "smooth"});
+    });
+
+    // 03
+    // 트리거 함수
+    // let nowScroll = true;  > 실행
+    // let nowScroll = false;  > 실행x
+    let nowScroll = true;
+    let lastScroll = 0;
+
+    function scrollProgress(){
+        nowScroll = true;
+
+        // 무제한으로 하면 버벅거림, 방지하기 위해 텀을 준다
+        // 트리거 함수를 사용하기 위해 시간차를 준다
+        setInterval(() => {
+            // 스크롤 움직일때마다 실행될 수 있도록
+            if(nowScroll){
+                nowScroll = false;
+                hasScroll();
+            }
+        }, 300);
+    };
+
+    function hasScroll(){
+        let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+        // 현재 스크롤탑값과 0.3초전 스크롤값
+        if(scrollTop < lastScroll){
+            document.querySelector("#parallax__nav").classList.add("show");
+        } else {
+            document.querySelector("#parallax__nav").classList.remove("show");
+        }
+        lastScroll = scrollTop;
+    };
+
+    window.addEventListener("scroll", scrollProgress);
 &lt;/script&gt;
 </code></pre></div>
-        <h3 class="t_tit2">+ scroll / scrollTo / scrollBy</h3>
-        <div class="t_code">
-<pre><code class=""language-js>// (x좌표 0, y좌표 1000), 어딜 눌러도 2000만 내려가고 멈춤
-window.scroll(0, 1000);
-window.scroll({left: 0, top: 2000});
-window.scroll({left: 0, top: 2000, behavior: "smooth"});
-
-window.scrollTo(0, 1000);
-window.scrollTo({left: 0, top: 1000});
-window.scrollTo({left: 0, top: 1000, behavior: "smooth"});
-
-// 상대기준, 클릭할때마다 1000씩 내려감
-window.scrollBy(0, 1000);
-window.scrollBy({left: 0, top: 1000});
-window.scrollBy({left: 0, top: 1000, behavior: "smooth"});
-</code></pre></div>
 
         <div class="t_link">
-            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/Javascript/effect/parallaxEffect02.html" target="_blank">원본 소스 보기</a>
+            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/Javascript/effect/parallaxEffect03.html" target="_blank">원본 소스 보기</a>
         </div>
         <div class="t_link">
-            <a class="center" href="https://kkb75281.github.io/coding2/Javascript/effect/parallaxEffect02.html" target="_blank">실제 사이트 보기</a>
+            <a class="center" href="https://kkb75281.github.io/coding2/Javascript/effect/parallaxEffect03.html" target="_blank">실제 사이트 보기</a>
         </div>
 
         
