@@ -28,10 +28,11 @@
     <link rel="stylesheet" href="assets/css/text.css">
     <link rel="stylesheet" href="assets/css/footer.css">
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/swiper.css"/>
+
     <style>
         #headerType {display: none;}
-        #sliderType {display: none;}
-        #footerType {display: none;}
     </style>
 
 </head>
@@ -75,7 +76,7 @@
         <section id="sliderType" class="slider__wrap type">
             <h2 class="blind">슬라이드 영역</h2>
             <div class="slider__inner">
-                <div class="slider">
+                <!-- <div class="slider">
                     <div class="slider__img">
                         <div class="desc">
                             <span>INTRODUCE</span>
@@ -102,6 +103,57 @@
                         <a href="#" class="stop"><span class="ir">정지</span></a>
                     </div>
 
+                </div> -->
+            
+                <!-- Swiper -->
+                <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="desc">
+                            <span>INTRODUCE</span>
+                            <h3>with JEJUSARI</h3>
+                            <p>
+                                제주의 옛 서까래와 빈티지 가구,<br>
+                                디자인 조명이 만나 과거의 현대가 어우러지는 공간 
+                            </p>
+                            <div class="btn">
+                                <a href="#">자세히 보기</a>
+                                <a href="#" class="black">사이트 보기</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="desc">
+                            <span>INTRODUCE</span>
+                            <h3>with JEJUSARI</h3>
+                            <p>
+                                제주의 옛 서까래와 빈티지 가구,<br>
+                                디자인 조명이 만나 과거의 현대가 어우러지는 공간 
+                            </p>
+                            <div class="btn">
+                                <a href="#">자세히 보기</a>
+                                <a href="#" class="black">사이트 보기</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="desc">
+                            <span>INTRODUCE</span>
+                            <h3>with JEJUSARI</h3>
+                            <p>
+                                제주의 옛 서까래와 빈티지 가구,<br>
+                                디자인 조명이 만나 과거의 현대가 어우러지는 공간 
+                            </p>
+                            <div class="btn">
+                                <a href="#">자세히 보기</a>
+                                <a href="#" class="black">사이트 보기</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
                 </div>
             </div>
         </section>
@@ -349,6 +401,22 @@
     </footer>
     <!-- // footerType -->
 
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          autoplay: {
+            delay: 2000,
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+          }
+        });
+    </script>
     <script>
         window.addEventListener("scroll", () => {
             let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
