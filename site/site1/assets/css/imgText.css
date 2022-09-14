@@ -67,10 +67,10 @@
     transition: padding 0.5s;
 }
 .imgText__img.img1:hover a {
-    padding: 10px 125px;
+    padding: 10px 120px;
 }
 .imgText__img.img2:hover a {
-    padding: 10px 95px;
+    padding: 10px 90px;
 }
 .imgText__img.img1 {
     background: url(../img/imgText_bg01.jpg) no-repeat center / cover;

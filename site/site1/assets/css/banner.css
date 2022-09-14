@@ -20,6 +20,11 @@
     font-weight: 300;
     margin-bottom: 70px;
 }
+.banner__desc span {
+    display: none;
+    font-size: 24px;
+    font-weight: 300;
+}
 .banner__desc a {
     color: #fff;
     display: block;

@@ -47,28 +47,18 @@
     -webkit-box-orient: vertical;
 }
 .image__btn {
-    /* font-size: 16px;
-    color: #fff;
-    background-color: #787878;
-    padding: 10px 20px;
-    display: inline-block; */
     display: none;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
+    text-align: center;
     font-size: 16px;
+    background-color: rgba(0,0,0,0.4);
     color: #fff;
-}
-.image__btn::before {
+    width: 100%;
+    padding: 175px 0;
     position: absolute;
     content: '';
-    left: -480%;
-    top: -950%;
-    width: 1060%;
-    height: 370px;
-    z-index: -1;
-    background: rgba(0,0,0,0.4);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 .image:hover .image__btn {
     display: block;
