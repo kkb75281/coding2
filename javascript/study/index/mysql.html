@@ -1,24 +1,14 @@
 <style>
-    .csum {
-        list-style: none;
-        margin: 20px auto;
-        width: 200px;
-        text-align: center;
-        padding: 10px;
-        background: #f5f5f5;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: all 0.3s;
+    .t_tit3 {
+        margin-top: 40px !important;
     }
-    .csum:hover {
-        background: #d6d6d6;
-
-    }
-    .t_link_wrap {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin: 0 340px;
+    .t_boxq {
+        margin-left: 10px;
+        font-size: 16px;
+        line-height: 1.6;
+        margin-top: 20px !important;
+        margin-bottom: 5px;
+        font-weight: 400;
     }
 </style>
 <main id="main">
@@ -27,19 +17,18 @@
 
         <hr>
 
-        <h3 class="t_tit2">MYSQL</h3>
+        <h3 class="t_tit2">💡 MYSQL</h3>
         <p class="t_box">
             MYSQL은 데이터베이스 소프트웨어입니다.
             일반적으로 데이터를 추가하거나 검색, 추출하는 기능을 모두 포함해서 데이터베이스라고 부릅니다.
         </p>
-        <p class="t_desc">
-            MYSQL은 데이터베이스 소프트웨어입니다.
-            일반적으로 데이터를 추가하거나 검색, 추출하는 기능을 모두 포함해서 데이터베이스라고 부릅니다.
+        <p class="t_box">
+            MYSQL은 세계에서 가장 많이 쓰이는 오픈 소스의 관계형 데이터베이스 관리시스템(RDBMS)입니다. MYSQL은 PHP 스크립트 언어와 상호 연동이 잘 되면서 오픈소스로 개발된 무료 프로그램입니다. 그래서 홈페이지나 쇼핑몰(워드프레스, cafe24, 제로보드, 그누보드)등 일반적으로 웹 개발에 널리 사용하고 있습니다.
         </p>
 
         <hr>
 
-        <h3 class="t_tit2">MYSQL 설치</h3>
+        <h3 class="t_tit2">💡 MYSQL 설치</h3>
         <p class="t_box">
             MAMP란 웹사이트를 개발할 때 쓰이는 기술 스택인 macOS, Apache, MySQL, PHP의 약어이자 솔루션 스택이다.<br>
             <a href="http://www.mwmp.info/en/downloads/" target="_blank">http://www.mwmp.info/en/downloads/</a>
@@ -47,7 +36,7 @@
 
         <hr>
 
-        <h3 class="t_tit2">MYSQL 실행</h3>
+        <h3 class="t_tit2">💡 MYSQL 실행</h3>
         <p class="t_box">
             윈도우 : cd MAMP/bin/mysql/bin<br>
             로그인 : mysql -uroot -proot 
@@ -87,25 +76,21 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
         <hr>
 
-        <h3 class="t_tit2">데이터베이스</h3>
-        <div class="t_result">
-            <details>
-                <summary class="csum">데이터베이스 만들기</summary>
-                <p class="t_box">
-                    create database 데이터베이스 이름;
-                </p>
-                <div class="t_code">
+        <h3 class="t_tit2">💡 데이터베이스</h3>
+        <h4 class="t_tit3">1) 데이터베이스 만들기</h4>
+        <p class="t_box">
+            create database 데이터베이스 이름;
+        </p>
+        <div class="t_code">
 <pre><code class=""language-js>mysql> create database sample02;
 Query OK, 1 row affected (0.01 sec)
 </code></pre></div>
-            </details>
-            
-            <details>
-                <summary class="csum">데이터베이스 보기</summary>
-                <p class="t_box">
-                    show databases;
-                </p>
-                <div class="t_code">
+
+        <h4 class="t_tit3">2) 데이터베이스 보기</h4>
+        <p class="t_box">
+            show databases;
+        </p>
+        <div class="t_code">
 <pre><code class=""language-js>mysql> show databases;
 +--------------------+
 | Database           |
@@ -119,41 +104,33 @@ Query OK, 1 row affected (0.01 sec)
 +--------------------+
 6 rows in set (0.00 sec)
 </code></pre></div>
-            </details>
 
-            <details>
-                <summary class="csum">데이터베이스 사용</summary>
-                <p class="t_box">
-                    use 데이터베이스 이름;
-                </p>
-                <div class="t_code">
+        <h4 class="t_tit3">3) 데이터베이스 사용</h4>
+        <p class="t_box">
+            use 데이터베이스 이름;
+        </p>
+        <div class="t_code">
 <pre><code class=""language-js>mysql> use sample01;
 Database changed
 </code></pre></div>
-            </details>
 
-            <details>
-                <summary class="csum">데이터베이스 삭제</summary>
-                <p class="t_box">
-                    drop database 데이터베이스 이름;
-                </p>
-                <div class="t_code">
+        <h4 class="t_tit3">4) 데이터베이스 삭제</h4>
+        <p class="t_box">
+            drop database 데이터베이스 이름;
+        </p>
+        <div class="t_code">
 <pre><code class=""language-js>mysql> drop database sample02;
 Query OK, 0 rows affected (0.04 sec)
 </code></pre></div>
-            </details>
-        </div>
 
         <hr>
 
-        <h3 class="t_tit2">테이블</h3>
-        <div class="t_result">
-            <details>
-                <summary class="csum">테이블 만들기</summary>
-                <p class="t_box">
-                    cteate table 테이블 이름;
-                </p>
-                <div class="t_code">
+        <h3 class="t_tit2">💡 테이블</h3>
+        <h4 class="t_tit3">1) 테이블 만들기</h4>
+        <p class="t_box">
+            cteate table 테이블 이름;
+        </p>
+        <div class="t_code">
 <pre><code class=""language-js>create table member (
     myMemberID int(10) unsigned auto_increment,
     youEmail varchar(40) NOT NULL,
@@ -164,14 +141,12 @@ Query OK, 0 rows affected (0.04 sec)
     PRIMARY KEY (myMemberID)
 ) charset=utf8;
 </code></pre></div>
-            </details>
-            
-            <details>
-                <summary class="csum">테이블 전체보기</summary>
-                <p class="t_box">
-                    show tables;
-                </p>
-                <div class="t_code">
+
+        <h4 class="t_tit3">2) 테이블 전체보기</h4>
+        <p class="t_box">
+            show tables;
+        </p>
+        <div class="t_code">
 <pre><code class=""language-js>mysql> show tables;
 +--------------------+
 | Tables_in_sample01 |
@@ -180,14 +155,12 @@ Query OK, 0 rows affected (0.04 sec)
 +--------------------+
 1 row in set (0.00 sec)
 </code></pre></div>
-            </details>
 
-            <details>
-                <summary class="csum">테이블 보기</summary>
-                <p class="t_box">
-                    desc 테이블 이름;
-                </p>
-                <div class="t_code">
+        <h4 class="t_tit3">3) 테이블 보기</h4>
+        <p class="t_box">
+            desc 테이블 이름;
+        </p>
+        <div class="t_code">
 <pre><code class=""language-js>mysql> desc member;
 +------------+------------------+------+-----+---------+----------------+
 | Field      | Type             | Null | Key | Default | Extra          |
@@ -201,28 +174,99 @@ Query OK, 0 rows affected (0.04 sec)
 +------------+------------------+------+-----+---------+----------------+
 6 rows in set (0.03 sec)
 </code></pre></div>
-            </details>
 
-            <details>
-                <summary class="csum">테이블 삭제</summary>
-                <p class="t_box">
-                    drop table 테이블 이름;
-                </p>
-                <div class="t_code">
+        <h4 class="t_tit3">4) 테이블 삭제</h4>
+        <p class="t_box">
+            drop table 테이블 이름;
+        </p>
+        <div class="t_code">
 <pre><code class=""language-js>mysql> drop table member;
 Query OK, 0 rows affected (0.03 sec)
 </code></pre></div>
-            </details>
-        </div>
 
         <hr>
 
-        <div class="t_link_wrap">
-            <div class="t_link">
-                <a class="center" href="https://github.com/kkb75281/coding2/blob/main/site/webd/20220911/index.html" target="_blank">원본 소스 보기</a>
-            </div>
-            <div class="t_link">
-                <a class="center" href="https://kkb75281.github.io/coding2/site/webd/20220911/index.html" target="_blank">실제 사이트 보기</a>
-            </div>
-        </div>
+        <h3 class="t_tit2">💡 테이블 데이터</h3>
+        <h4 class="t_tit3">1) 데이터 입력하기</h4>
+        <p class="t_box">
+            INSERT INTO 테이블이름(필드명) VALUE(데이터);
+        </p>
+        <div class="t_code">
+<pre><code class=""language-js>INSERT INTO member(youEmail, youName, youPass, youBirth, regTime) VALUES('kkb7528@naver.com','권규비','1234','19990303','1234567');
+</code></pre></div>
+
+        <h4 class="t_tit3">2) 데이터 불러오기</h4>
+        <p class="t_box">
+            SELECT 필드명 FROM 테이블명 WHERE 조건;
+        </p>
+        <p class="t_boxq">
+            Q. 전체 데이터 불러오기
+        </p>
+        <div class="t_code">
+<pre><code class=""language-js>mysql> SELECT * FROM member;
++------------+--------------------------+------------+---------+----------+---------+
+| myMemberID | youEmail                 | youName    | youPass | youBirth | regTime |
++------------+--------------------------+------------+---------+----------+---------+
+|          1 | kkb7528@naver.com        | 권규비     | 1234    | 19990303 | 1234567 |
+|          2 | webstoryboy@naver.com    | 황상연     | 1234    | 19990303 | 1234567 |
+|          3 | thdtjdgml415@naver.com   | 송성희     | 1234    | 19970415 | 1234567 |
+|          4 | mo0647@naver.com         | 김민정     | 1234    | 19970530 | 1234567 |
+|          5 | tjrwnsrkdtj@naver.com    | 김석준     | 1234    | 19941009 | 1234567 |
+|          6 | jwor124@naver.com        | 정은 비    | 1234    | 19990303 | 1234567 |
+|          7 | leesh3432@naver.com      | 이영환     | 1234    | 19970205 | 1234567 |
+|          8 | kkk5993@naver.com        | 김성현     | 1234    | 19960617 | 1234567 |
+|          9 | sshin4882@naver.com      | 박현신     | 1234    | 19990303 | 1234567 |
+|         10 | to_before@naver.com      | 김상준     | 1234    | 19970809 |       4 |
+|         11 | piowm123@gmail.com       | 문병내     | 1234    | 19990303 | 1234567 |
+|         12 | ghkddbwls96@gmail.com    | 황유진     | 1234    | 19990303 | 1234567 |
+|         13 | sunhey9810@gmail.com     | 박선혜     | 1234    | 19981010 | 1234567 |
+|         14 | kde66034@gmail.com       | 김동언     | 1234    | 19700101 | 1234567 |
+|         15 | praise1109@gmail.com     | 이하은     | 1234    | 19990303 | 1234567 |
+|         16 | hjkang306@gmail.com      | 강현지     | 1234    | 19990303 | 1234567 |
+|         17 | noeyheyh@gmail.com       | 권혜현     | 1234    | 19960331 | 1234567 |
+|         18 | wjsqhdus971007@gmail.com | 전보연     | 1234    | 19971007 | 1234567 |
+|         19 | eodnjs9605@naver.com     | 김대원     | 1234    | 19960530 | 1234567 |
+|         20 | sshin4882@naver.com      | 박현신     | 1234    | 19990303 | 1234567 |
+|         21 | oranssy@naver.com        | 최진주     | 3950    | 20010415 | 1234567 |
++------------+--------------------------+------------+---------+----------+---------+
+21 rows in set (0.00 sec)
+</code></pre></div>
+
+        <p class="t_boxq">
+            Q. myMemberID가 6번인 경우
+        </p>
+        <div class="t_code">
+<pre><code class=""language-js>mysql> SELECT * FROM member WHERE  myMemberID = 6;
++------------+-------------------+------------+---------+----------+---------+
+| myMemberID | youEmail          | youName    | youPass | youBirth | regTime |
++------------+-------------------+------------+---------+----------+---------+
+|          6 | jwor124@naver.com | 정은 비    | 1234    | 19990303 | 1234567 |
++------------+-------------------+------------+---------+----------+---------+
+1 row in set (0.01 sec)
+</code></pre></div>
+
+        <p class="t_boxq">
+            Q. email 중에 naver 텍스트를 포함하고 있는 경우
+        </p>
+        <div class="t_code">
+<pre><code class=""language-js>mysql> SELECT * FROM member WHERE youEmail LIKE '%naver%';
++------------+------------------------+------------+---------+----------+---------+
+| myMemberID | youEmail               | youName    | youPass | youBirth | regTime |
++------------+------------------------+------------+---------+----------+---------+
+|          1 | kkb7528@naver.com      | 권규비     | 1234    | 19990303 | 1234567 |
+|          2 | webstoryboy@naver.com  | 황상연     | 1234    | 19990303 | 1234567 |
+|          3 | thdtjdgml415@naver.com | 송성희     | 1234    | 19970415 | 1234567 |
+|          4 | mo0647@naver.com       | 김민정     | 1234    | 19970530 | 1234567 |
+|          5 | tjrwnsrkdtj@naver.com  | 김석준     | 1234    | 19941009 | 1234567 |
+|          6 | jwor124@naver.com      | 정은 비    | 1234    | 19990303 | 1234567 |
+|          7 | leesh3432@naver.com    | 이영환     | 1234    | 19970205 | 1234567 |
+|          8 | kkk5993@naver.com      | 김성현     | 1234    | 19960617 | 1234567 |
+|          9 | sshin4882@naver.com    | 박현신     | 1234    | 19990303 | 1234567 |
+|         10 | to_before@naver.com    | 김상준     | 1234    | 19970809 |       4 |
+|         19 | eodnjs9605@naver.com   | 김대원     | 1234    | 19960530 | 1234567 |
+|         20 | sshin4882@naver.com    | 박현신     | 1234    | 19990303 | 1234567 |
+|         21 | oranssy@naver.com      | 최진주     | 3950    | 20010415 | 1234567 |
++------------+------------------------+------------+---------+----------+---------+
+13 rows in set (0.01 sec)
+</code></pre></div>
 </main>
