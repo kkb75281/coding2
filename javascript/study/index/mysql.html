@@ -1,0 +1,228 @@
+<style>
+    .csum {
+        list-style: none;
+        margin: 20px auto;
+        width: 200px;
+        text-align: center;
+        padding: 10px;
+        background: #f5f5f5;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .csum:hover {
+        background: #d6d6d6;
+
+    }
+    .t_link_wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 340px;
+    }
+</style>
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">MYSQL v1.0 &lt;/doc&gt;</h2>
+
+        <hr>
+
+        <h3 class="t_tit2">MYSQL</h3>
+        <p class="t_box">
+            MYSQL은 데이터베이스 소프트웨어입니다.
+            일반적으로 데이터를 추가하거나 검색, 추출하는 기능을 모두 포함해서 데이터베이스라고 부릅니다.
+        </p>
+        <p class="t_desc">
+            MYSQL은 데이터베이스 소프트웨어입니다.
+            일반적으로 데이터를 추가하거나 검색, 추출하는 기능을 모두 포함해서 데이터베이스라고 부릅니다.
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2">MYSQL 설치</h3>
+        <p class="t_box">
+            MAMP란 웹사이트를 개발할 때 쓰이는 기술 스택인 macOS, Apache, MySQL, PHP의 약어이자 솔루션 스택이다.<br>
+            <a href="http://www.mwmp.info/en/downloads/" target="_blank">http://www.mwmp.info/en/downloads/</a>
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2">MYSQL 실행</h3>
+        <p class="t_box">
+            윈도우 : cd MAMP/bin/mysql/bin<br>
+            로그인 : mysql -uroot -proot 
+        </p>
+        <div class="t_code">
+<pre><code class=""language-js>Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 4
+Server version: 5.7.24 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+</code></pre></div>
+        <p class="t_box">
+            맥 : cd Application/MAMP/Libary/bin<br>
+            로그인 : ./mysql -uroot -proot 
+        </p>
+        <div class="t_code">
+<pre><code class=""language-js>gyupp@gwongyubiui-MacBookPro bin % ./mysql -uroot -proot
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 230
+Server version: 5.7.34 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+</code></pre></div>
+
+        <hr>
+
+        <h3 class="t_tit2">데이터베이스</h3>
+        <div class="t_result">
+            <details>
+                <summary class="csum">데이터베이스 만들기</summary>
+                <p class="t_box">
+                    create database 데이터베이스 이름;
+                </p>
+                <div class="t_code">
+<pre><code class=""language-js>mysql> create database sample02;
+Query OK, 1 row affected (0.01 sec)
+</code></pre></div>
+            </details>
+            
+            <details>
+                <summary class="csum">데이터베이스 보기</summary>
+                <p class="t_box">
+                    show databases;
+                </p>
+                <div class="t_code">
+<pre><code class=""language-js>mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sample01           |
+| sample02           |
+| sys                |
++--------------------+
+6 rows in set (0.00 sec)
+</code></pre></div>
+            </details>
+
+            <details>
+                <summary class="csum">데이터베이스 사용</summary>
+                <p class="t_box">
+                    use 데이터베이스 이름;
+                </p>
+                <div class="t_code">
+<pre><code class=""language-js>mysql> use sample01;
+Database changed
+</code></pre></div>
+            </details>
+
+            <details>
+                <summary class="csum">데이터베이스 삭제</summary>
+                <p class="t_box">
+                    drop database 데이터베이스 이름;
+                </p>
+                <div class="t_code">
+<pre><code class=""language-js>mysql> drop database sample02;
+Query OK, 0 rows affected (0.04 sec)
+</code></pre></div>
+            </details>
+        </div>
+
+        <hr>
+
+        <h3 class="t_tit2">테이블</h3>
+        <div class="t_result">
+            <details>
+                <summary class="csum">테이블 만들기</summary>
+                <p class="t_box">
+                    cteate table 테이블 이름;
+                </p>
+                <div class="t_code">
+<pre><code class=""language-js>create table member (
+    myMemberID int(10) unsigned auto_increment,
+    youEmail varchar(40) NOT NULL,
+    youName varchar(20) NOT NULL,
+    youPass varchar(20) NOT NULL,
+    youBirth int(20) NOT NULL,
+    regTime int(20) NOT NULL,
+    PRIMARY KEY (myMemberID)
+) charset=utf8;
+</code></pre></div>
+            </details>
+            
+            <details>
+                <summary class="csum">테이블 전체보기</summary>
+                <p class="t_box">
+                    show tables;
+                </p>
+                <div class="t_code">
+<pre><code class=""language-js>mysql> show tables;
++--------------------+
+| Tables_in_sample01 |
++--------------------+
+| member             |
++--------------------+
+1 row in set (0.00 sec)
+</code></pre></div>
+            </details>
+
+            <details>
+                <summary class="csum">테이블 보기</summary>
+                <p class="t_box">
+                    desc 테이블 이름;
+                </p>
+                <div class="t_code">
+<pre><code class=""language-js>mysql> desc member;
++------------+------------------+------+-----+---------+----------------+
+| Field      | Type             | Null | Key | Default | Extra          |
++------------+------------------+------+-----+---------+----------------+
+| myMemberID | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
+| youEmail   | varchar(40)      | NO   |     | NULL    |                |
+| youName    | varchar(20)      | NO   |     | NULL    |                |
+| youPass    | varchar(20)      | NO   |     | NULL    |                |
+| youBirth   | int(20)          | NO   |     | NULL    |                |
+| regTime    | int(20)          | NO   |     | NULL    |                |
++------------+------------------+------+-----+---------+----------------+
+6 rows in set (0.03 sec)
+</code></pre></div>
+            </details>
+
+            <details>
+                <summary class="csum">테이블 삭제</summary>
+                <p class="t_box">
+                    drop table 테이블 이름;
+                </p>
+                <div class="t_code">
+<pre><code class=""language-js>mysql> drop table member;
+Query OK, 0 rows affected (0.03 sec)
+</code></pre></div>
+            </details>
+        </div>
+
+        <hr>
+
+        <div class="t_link_wrap">
+            <div class="t_link">
+                <a class="center" href="https://github.com/kkb75281/coding2/blob/main/site/webd/20220911/index.html" target="_blank">원본 소스 보기</a>
+            </div>
+            <div class="t_link">
+                <a class="center" href="https://kkb75281.github.io/coding2/site/webd/20220911/index.html" target="_blank">실제 사이트 보기</a>
+            </div>
+        </div>
+</main>

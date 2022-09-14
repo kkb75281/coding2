@@ -19,8 +19,6 @@
 .imgText__txt h3 {
     font-size: 50px;
     font-weight: 300;
-    word-break: keep-all;
-    line-height: 1.4;
     margin-bottom: 20px;
 }                
 .imgText__txt p {
@@ -79,4 +77,57 @@
 }
 .imgText__img.img2 {
     background: url(../img/imgText_bg02.jpg) no-repeat center / cover;
+}
+
+@media (max-width: 960px) {
+    .imgText__inner {
+        flex-wrap: wrap;
+    }
+    .imgText__txt h3 {
+        font-size: 40px;
+    }
+    .imgText__txt p {
+        margin-bottom: 60px;
+    }
+    .imgText__inner > div.imgText__txt {
+        width: 100%;
+        height: auto;
+        text-align: center;
+    }
+    .imgText__inner > div.imgText__txt ul {
+        display: none;
+    }
+    .imgText__inner > div.imgText__img {
+        width: 49%;
+    }
+}
+@media (max-width: 600px) {
+    .imgText__txt span {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    .imgText__txt h3 {
+        font-size: 30px;
+    }
+    .imgText__txt p {
+        margin-bottom: 50px;
+        font-size: 16px;
+    }
+    .imgText__inner > div.imgText__img {
+        width: 100%;
+        height: 200px;
+    }
+    .imgText__inner > div.imgText__img.img1 {
+        margin-bottom: 20px;
+    }
+    .imgText__img a {
+        left: 20px;
+        bottom: 20px;
+    }
+    .imgText__img.img1:hover a {
+        padding: 10px 180px;
+    }
+    .imgText__img.img2:hover a {
+        padding: 10px 150px;
+    }
 }
