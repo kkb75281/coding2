@@ -106,7 +106,7 @@
     transform: rotate(135deg);
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1330px) {
     .header__menu {
         position: fixed;
         top: 69px;
