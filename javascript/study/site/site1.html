@@ -10,7 +10,7 @@
             <iframe src="https://kkb75281.github.io/coding2/site/site1/index" frameborder="0" width="100%" height="auto"></iframe>
         </div>
         <div class="t_link">
-            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/site/site1/index.html" target="_blank">원본 소스 보기</a>
+            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/site/site1/index.html" target="_blank">전체 소스 보기</a>
         </div>
         <div class="t_link">
             <a class="center" href="https://kkb75281.github.io/coding2/site/site1/index" target="_blank">실제 사이트 보기</a>
@@ -18,24 +18,21 @@
 
         <hr>
 
-        <h3 class="t_tit2" style="font-weight: bold;">reset.css</h3>
-
         <h3 class="t_tit2" style="font-weight: bold;">#header</h3>
         <p class="t_box">
-            💡 햄버거 메뉴를 사용해주었습니다.
+            💡 햄버거 메뉴를 사용해주었습니다.<br>
             <span style="color: #c5c5c5; margin-left: 20px;">화면 크기 1300px부터는 헤더 메뉴를 보이지 않게 처리하고 햄버거 메뉴로 대신하게 만들었습니다.</span><br>
             <span style="color: #c5c5c5; margin-left: 20px;">* 햄버거 메뉴 : 주로 앱 상단 모퉁이에 위치하며, 메뉴를 토글하거나 네비게이션 바의 역할을 합니다.</span>
         </p>
         <p class="t_box">
-            🧨 window 상에서 햄버거 메뉴 키고 끌때 화면 튕김 현상을 막아주었습니다.
-            <span style="color: #c5c5c5; margin-left: 20px;">body에 overflow: overlay; 를 추가시켜줍니다.</span><br>
-            🧨 햄버거 메뉴를 열었을 때 스크롤이 생기는 현상을 막아주었습니다.<br>
-            <span style="color: #c5c5c5; margin-left: 20px;">script 통해 해결해주었습니다.</span><br>
-            <span style="color: #c5c5c5; margin-left: 20px;">햄버거 메뉴를 클릭했을 때, body에 overflow: hidden; 로 설정해줍니다.</span><br>
-            🧨 햄버거 메뉴를 열어놓<br>
-            <span style="color: #c5c5c5; margin-left: 20px;">script 통해 해결해주었습니다.</span>
-
+            ⚠ 햄버거 메뉴를 열었을 때 스크롤이 생기는 현상을 막아주었습니다.<br>
+            <span style="color: #c5c5c5; margin-left: 20px;">script로 햄버거 메뉴를 클릭했을 때, body에 class="fixed"를 추가시켜 해결해주었습니다.</span><br>
+            ⚠ 햄버거 메뉴를 열어놓은 상태에서 화면크기를 최대로 키웠다가 다시 줄였을 때 메뉴가 다시 닫히는게 아닌 열려 있는 현상을 막아주었습니다.<br>
+            <span style="color: #c5c5c5; margin-left: 20px;">script로 화면 크기가 설정해둔 크기 이상이 되었을 때, fixed와 active를 제거해 초기화하여 해결해주었습니다.</span>
         </p>
+        <div class="t_link">
+            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/site/site1/assets/css/header.css" target="_blank">➪ header.css</a>
+        </div>
 
         <h3 class="t_tit2" style="font-weight: bold;">#slider</h3>
         <p class="t_box">
@@ -102,6 +99,29 @@
         </p>
         <div class="t_link">
             <a class="center" href="https://github.com/kkb75281/coding2/blob/main/site/site1/assets/css/footer.css" target="_blank">➪ footer.css</a>
+        </div>
+
+        <hr>
+
+        <h3 class="t_tit2" style="font-weight: bold;">reset.css</h3>
+        <p class="t_box">
+            ⚠ 가로모드에서 글씨 크기가 커지는 것을 막아주었습니다.<br>
+            <span style="color: #c5c5c5; margin-left: 20px;">html에 -ms-text-size-adjust: 100%;,
+                -webkit-text-size-adjust: 100%;를 추가시켜줍니다.</span>
+        </p>
+        <div class="t_link">
+            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/site/site1/assets/css/reset.css" target="_blank">➪ reset.css</a>
+        </div>
+
+        <h3 class="t_tit2" style="font-weight: bold;">common.css</h3>
+        <p class="t_box">
+            ⚠ window 상에서 햄버거 메뉴 키고 끌때 화면 튕김 현상을 막아주었습니다.<br>
+            <span style="color: #c5c5c5; margin-left: 20px;">body에 overflow: overlay; 를 추가시켜줍니다.</span><br>
+            ⚠ 햄버거 메뉴를 열었을 때 스크롤이 생기는 현상을 막아주었습니다.<br>
+            <span style="color: #c5c5c5; margin-left: 20px;">body에 overflow: hidden; 으로 설정하여 화면을 고정시켜줍니다.</span><br>
+        </p>
+        <div class="t_link">
+            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/site/site1/assets/css/common.css" target="_blank">➪ common.css</a>
         </div>
 
     </div>
