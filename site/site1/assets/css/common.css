@@ -99,6 +99,12 @@ html, body {
     background-color: #39342ff7;
 }
 
+/* fixed */
+body.fixed {
+    height: 100vh;
+    overflow: hidden;
+}
+
 /* 간격 셋팅 */
 .mb0 {margin-bottom: 0 !important;}
 .mb10 {margin-bottom: 10px !important;}

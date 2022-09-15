@@ -25,7 +25,7 @@
     font-weight: 400;
 }
 .header__menu {
-    width: 80%;
+    width: 86%;
     text-align: center;
 }
 .header__menu li {
@@ -46,13 +46,14 @@
     color: #fff;
     border-radius: 5px;
 }
+
+/* 로그인 */
 .header__member {
-    width: 10%;
-    text-align: right;
+    width: 4%;
+    float: right;
 }
 .header__member img {
     width: 50px;
-    text-align: right;
 }
 /* .header__member a {
     font-size: 16px;
@@ -65,33 +66,82 @@
     background-color: #39342ff7;
     color: #fff;
 } */
-
-@media (max-width: 1290px) {
-    .header__logo {
-        width: 10%;
-        font-size: 25px;
-        font-weight: 700;
-        text-transform: uppercase;
-    }
-    .header__menu li {
-        display: inline-block;
-    }
-    .header__menu li a {
-        padding: 13px 25px;
-    }
+.header__ham {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 3000;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
 }
-/* @media (max-width: 450px) {
-    .header__inner {
-        width: 450px;
+.header__ham span {
+    display: block;
+    background: #666;
+    width: 30px;
+    height: 2px;
+    border-radius: 3px;
+    margin-left: 10px;
+    margin-top: 5px;
+    transition: 0.25s margin 0.25s, 0.25s transform ;
+}
+.header__ham span:nth-child(1) {
+    margin-top: 17px;
+}
+.header__ham.active span {
+    /* 시간 transform 딜레이 */
+    transition: 0.25s margin, 0.25s transform 0.25s ;
+}
+.header__ham.active span:nth-child(1) {
+    margin-top: 25px;
+    margin-bottom: -7px;
+    transform: rotate(45deg);
+}
+.header__ham.active span:nth-child(2) {
+    transform: rotate(45deg);
+}
+.header__ham.active span:nth-child(3) {
+    margin-top: -2px;
+    transform: rotate(135deg);
+}
+
+@media (max-width: 1300px) {
+    .header__menu {
+        position: fixed;
+        top: 69px;
+        right: -100%;
+        background: #fff;
+        width: 60%;
+        height: 100vh;
+        padding: 20px;
+        text-align: right;
+        transition: right 0.4s ease-in;
+    }
+    .header__menu ul li {
+        display: block;
+        margin: 20px;
+    }.header__menu ul li a {
+        padding: 10px;
+        white-space: nowrap;
+    }
+    .header__menu.active {
+        right: 0;
     }
     .header__logo {
-        width: 50%;
-    }
-    .header__menu {
-        display: none;
+        width: auto;
+        float: left;
     }
     .header__member {
-        width: 50%;
-        text-align: right;
+        width: auto;
+        float: right;
+        margin-right: 50px;
     }
-} */
+    .header__ham {
+        display: block;
+    }
+}
+
+@media (max-width: 600px) {
+    
+}
