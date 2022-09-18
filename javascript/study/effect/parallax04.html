@@ -1,0 +1,477 @@
+<style>
+    .csum {
+        list-style: none;
+        margin: 20px auto;
+        width: 200px;
+        text-align: center;
+        padding: 10px;
+        background: #f5f5f5;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .csum:hover {
+        background: #d6d6d6;
+    }
+</style>
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">Parallax Scroll 효과</h2>
+        <p class="t_box" style="text-align: center;">
+            <i>오늘의 목표</i><br>
+            👉🏻 상단 메뉴가 스크롤을 내리면 사라지고 올릴때 나타나도록 설정하기<br>
+            👉🏻 제일 마지막 section에 위치했을때 Top 버튼이 나타나 위로 올라가도록 설정하기
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2">1. 사이트 구성 살펴보기</h3>
+        <img class="t_img1" src="https://kkb75281.github.io/coding2/assets/tistory/effect/parallax3_1.jpg" alt="패럴랙스 스크롤 효과">
+        <div class="t_result">
+            <details>
+                <summary class="csum">CSS 살펴보기</summary>
+                <div class="t_code">
+<pre><code class=""language-js>&lt;style&gt;
+    /* parallax__nav */
+    #parallax__nav {
+        position: fixed;
+        right: 20px;
+        top: -200px;
+        z-index: 2000;
+        background-color: rgba(0,0,0,0.4);
+        padding: 20px 30px;
+        border-radius: 50px;
+        transition: top .4s ease;
+    }
+    #parallax__nav.show {
+        top: 20px;
+    }
+    #parallax__nav li {
+        display: inline;
+        margin: 0 5px;
+    }
+    #parallax__nav li a {
+        display: inline-block;
+        height: 30px;
+        padding: 5px 20px;
+        text-align: center;
+        line-height: 30px;
+    }
+    #parallax__nav li.active a {
+        background: #fff;
+        color: #000;
+        border-radius: 20px;
+        box-sizing: content-box;
+    }
+
+    /* parallax__cont */
+    #parallax__cont {
+        max-width: 1600px;
+        width: 98%;
+        margin: 0 auto;
+        /* background-color: rgba(255,255,255,0.1); */
+    }
+    .content__item {
+        width: 1000px;
+        max-width: 70vw;
+        margin: 30vw auto;
+        /* background-color: rgba(255,255,255,0.3); */
+        text-align: left;
+        margin-right: 0;
+        position: relative;
+        padding-top: 7vw;
+    }
+    /* even(짝수), 2n, 2n+1, 2n*8 등 입력 가능 */
+    .content__item:nth-child(even){
+        margin-left: 0;
+        text-align: right;
+    }
+    .content__item__num {
+        font-size: 35vw;
+        font-family: 'Lato';
+        font-weight: 100;
+        position: absolute;
+        left: -5vw;
+        top: -16vw;
+        opacity: 0.07;
+        z-index: -2;
+    }
+    .content__item:nth-child(even) .content__item__num {
+        /* left값 초기화 후 right 값 설정 */
+        left: auto;
+        right: -5vw;
+    }
+    .content__item__title {
+        font-weight: 400;
+        text-transform: capitalize;
+    }
+    .content__item__imgWrap {
+        width: 100%;
+        padding-bottom: 56.25%;
+        background: #000;
+        position: relative;
+        overflow: hidden;
+        z-index: -1;
+    }
+    .content__item__img {
+        position: absolute;
+        width: 110%;
+        height: 110%;
+        background: url(../assets/img/effect_bg01-min.jpg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        left: -5%;
+        top: -5%;
+        filter: saturate(0%);
+        transition: all 1s;
+    }
+    .content__item:nth-child(1) .content__item__img {
+        background-image: url(../assets/img/effect_bg01-min.jpg);
+    }
+    .content__item:nth-child(2) .content__item__img {
+        background-image: url(../assets/img/effect_bg02-min.jpg);
+    }
+    .content__item:nth-child(3) .content__item__img {
+        background-image: url(../assets/img/effect_bg03-min.jpg);
+    }
+    .content__item:nth-child(4) .content__item__img {
+        background-image: url(../assets/img/effect_bg04-min.jpg);
+    }
+    .content__item:nth-child(5) .content__item__img {
+        background-image: url(../assets/img/effect_bg05-min.jpg);
+    }
+    .content__item:nth-child(6) .content__item__img {
+        background-image: url(../assets/img/effect_bg06-min.jpg);
+    }
+    .content__item:nth-child(7) .content__item__img {
+        background-image: url(../assets/img/effect_bg07-min.jpg);
+    }
+    .content__item:nth-child(8) .content__item__img {
+        background-image: url(../assets/img/effect_bg08-min.jpg);
+    }
+    .content__item:nth-child(9) .content__item__img {
+        background-image: url(../assets/img/effect_bg09-min.jpg);
+    }
+    .content__item__desc {
+        font-size: 4vw;
+        line-height: 1.4;
+        margin-top: -5vw;
+        margin-left: -4vw;
+        word-break: keep-all;
+    }
+    .content__item:nth-child(even) .content__item__desc {
+        margin-left: auto;
+        margin-right: -4vw;
+    }
+
+    /* parallax__info */
+    #parallax__info {
+        position: fixed;
+        left: 20px;
+        bottom: 20px;
+        z-index: 2000px;
+        background: rgba(0,0,0,0.6);
+        color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    #parallax__info li, .scrollTop {
+        line-height: 1.4;
+    }
+
+
+    @media (max-width: 800px) {
+        #parallax__cont {
+            margin-top: 70vw;
+        }
+        #parallax__nav {
+            padding: 10px;
+            right: auto;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 5px;
+            background-color: rgba(0,0,0,0.8);
+        }
+        #parallax__nav li {
+            display: block;
+            margin: 5px;
+        }
+        #parallax__nav li a {
+            font-size: 14px;
+            padding: 5px;
+            border-radius: 5px;
+            height: auto;
+            line-height: 1;
+        }
+        #parallax__nav li.active a {
+            border-radius: 5px;
+        }
+        #parallax__info {
+            left: 10px;
+            bottom: 10px;
+        }
+    }
+    #parallax__top {
+        position: fixed;
+        left: 50%;
+        bottom: -200px;
+        z-index: 10000;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 40px;
+        background: rgba(0,0,0,0.4);
+        padding: 10px;
+        text-align: center;
+        line-height: 40px;
+        color: #fff;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    #parallax__top.show {
+        bottom: 20px;
+    }
+    #parallax__top:hover {
+        background: #fff;
+        color: #000;
+    }
+&lt;/style&gt;
+</code></pre></div>
+        </details>
+
+        <details>
+            <summary class="csum">HTML 살펴보기</summary>
+            <div class="t_code">
+<pre><code class=""language-js>&lt;body&gt;
+    &lt;header id="header"&gt;
+    &lt;h1&gt;Javascript Parallax Effect03&lt;/h1&gt;
+    &lt;p&gt;패럴랙스 이펙트 - 숨김 메뉴&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="parallaxEffect01.html"&gt;1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="parallaxEffect02.html"&gt;2&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="active"&gt;&lt;a href="parallaxEffect03.html"&gt;3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="parallaxEffect04.html"&gt;4&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="parallaxEffect05.html"&gt;5&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="parallaxEffect06.html"&gt;6&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="parallaxEffect07.html"&gt;7&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/header&gt;
+&lt;!-- //header --&gt;
+
+&lt;nav id="parallax__nav"&gt;
+    &lt;ul&gt;
+        &lt;li class="active"&gt;&lt;a href="#section1"&gt;메뉴1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section2"&gt;메뉴2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section3"&gt;메뉴3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section4"&gt;메뉴4&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section5"&gt;메뉴5&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section6"&gt;메뉴6&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section7"&gt;메뉴7&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section8"&gt;메뉴8&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section9"&gt;메뉴9&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+&lt;!-- //parallax__nav --&gt;
+
+&lt;div id="parallax__top"&gt;
+    Top
+&lt;/div&gt;
+&lt;!-- parallax__top --&gt;
+
+&lt;main id="parallax__cont"&gt;
+    &lt;div id="contents"&gt;
+        &lt;section id="section1" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;01&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section1&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;우선 무엇이 되고자 하는가를 자신에게 말하라 그리고 해야 할일을 하라.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section1 --&gt;
+
+        &lt;section id="section2" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;02&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section2&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;이미 끝나버린 일을 후회하기 보다는 하고 싶었던 일들을 하지 못한 것을 후회하라.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section2 --&gt;
+
+        &lt;section id="section3" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;03&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section3&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;문제는 목적지에 얼마나 빨리 가느내가 아니라 그 목적지가 어디냐는 것이다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section3 --&gt;
+
+        &lt;section id="section4" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;04&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section4&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;도저히 손댈 수가 없는 곤란에 부딪혔다면 과감하게 그 속으로 뛰어들라.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section4 --&gt;
+
+        &lt;section id="section5" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;05&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section5&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;당신이 할수 있다고 믿든 할수 없다고 믿든 믿는 대로 될것이다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section5 --&gt;
+
+        &lt;section id="section6" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;06&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section6&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;마음만을 가지고 있어서는 안된다. 반드시 실천하여야 한다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section6 --&gt;
+
+        &lt;section id="section7" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;07&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section7&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;꿈을 계속 간직하고 있으면 반드시 실현할 때가 온다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section7 --&gt;
+
+        &lt;section id="section8" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;08&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section8&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;오랫동안 꿈을 그리는 사람은 마침내 그 꿈을 닮아 간다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section8 --&gt;
+
+        &lt;section id="section9" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;09&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section9&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;먼저 핀 꽃은 먼저진다. 남보다 먼저 공을 세우려고 조급히 서둘것이 아니다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section9 --&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+&lt;!-- //main --&gt;
+
+&lt;aside id="parallax__info"&gt;
+    &lt;div class="scroll"&gt;scrollTop : &lt;span&gt;0&lt;/span&gt;px&lt;/div&gt;
+&lt;/aside&gt;
+&lt;!-- //aside --&gt;
+&lt;/body&gt;
+</code></pre></div>
+        </details>
+        </div>
+
+        <h3 class="t_tit2">2. script 살펴보기</h3>
+        <img class="t_img1" src="https://kkb75281.github.io/coding2/assets/tistory/effect/parallax3_2.jpg" alt="패럴랙스 스크롤 효과">
+        <div class="t_code">
+<pre><code class=""language-js>&lt;script&gt;
+    // window.addEventListener("scroll", () => {
+    //     let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+    //     // 01
+    //     // if(scrollTop > 0){
+    //     //     document.querySelector("#parallax__nav").classList.add("show");
+    //     // } else {
+    //     //     document.querySelector("#parallax__nav").classList.remove("show");
+    //     // }
+
+    //     // 02
+    //     // // (문서 전체 높이 - 브라우저 높이)
+    //     // if(scrollTop == (document.innerHeight - window.innerHeight)){
+    //     //     document.querySelector("#parallax__top").classList.add("show");
+    //     // } else {
+    //     //     document.querySelector("#parallax__top").classList.remove("show");
+    //     // }
+
+    //     document.querySelector("#parallax__info span").innerText = Math.ceil(scrollTop);
+    // });
+
+    window.addEventListener("scroll", () => {
+        let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+        // 02
+        if(scrollTop >= (document.body.scrollHeight - window.innerHeight)){
+            document.querySelector("#parallax__top").classList.add("show");
+        } else {
+            document.querySelector("#parallax__top").classList.remove("show");
+        }
+
+        // top 값
+        document.querySelector("#parallax__info span").innerText = Math.ceil(scrollTop);
+    });
+
+    document.querySelector("#parallax__top").addEventListener("click", () => {
+        window.scrollTo({left: 0, top: 0, behavior: "smooth"});
+    });
+
+    // 03
+    // 트리거 함수
+    // let nowScroll = true;  > 실행
+    // let nowScroll = false;  > 실행x
+    let nowScroll = true;
+    let lastScroll = 0;
+
+    function scrollProgress(){
+        nowScroll = true;
+
+        // 무제한으로 하면 버벅거림, 방지하기 위해 텀을 준다
+        // 트리거 함수를 사용하기 위해 시간차를 준다
+        setInterval(() => {
+            // 스크롤 움직일때마다 실행될 수 있도록
+            if(nowScroll){
+                nowScroll = false;
+                hasScroll();
+            }
+        }, 300);
+    };
+
+    function hasScroll(){
+        let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+        // 현재 스크롤탑값과 0.3초전 스크롤값
+        if(scrollTop < lastScroll){
+            document.querySelector("#parallax__nav").classList.add("show");
+        } else {
+            document.querySelector("#parallax__nav").classList.remove("show");
+        }
+        lastScroll = scrollTop;
+    };
+
+    window.addEventListener("scroll", scrollProgress);
+&lt;/script&gt;
+</code></pre></div>
+
+        <div class="t_link">
+            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/Javascript/effect/parallaxEffect03.html" target="_blank">원본 소스 보기</a>
+        </div>
+        <div class="t_link">
+            <a class="center" href="https://kkb75281.github.io/coding2/Javascript/effect/parallaxEffect03.html" target="_blank">실제 사이트 보기</a>
+        </div>
+
+        
+        
+    </div>
+</main>
