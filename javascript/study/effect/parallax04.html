@@ -26,6 +26,9 @@
         <hr>
 
         <h3 class="t_tit2">1. 사이트 구조 살펴보기</h3>
+        <div class="t_iframe" style="min-height : 1000px; padding-top: 0;">
+            <iframe src="https://kkb75281.github.io/coding2/javascript/effect/parallaxEffect04.html" frameborder="0"></iframe>
+        </div>
         <div class="t_result">
             <details>
                 <summary class="csum">CSS 살펴보기</summary>
@@ -255,44 +258,6 @@
         </details>
 
         <details>
-            <summary class="csum">transform 효과 살펴보기</summary>
-            <table class="t_table">
-                <thead>
-                    <tr>
-                        <th>속성값</th>
-                        <th>의미</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>transform:skew()</td>
-                        <td>
-                            skew(X축의 기울기 각도, Y축의 기울기 각도)<br>
-                            X축과 Y축에 따른 경사 변형을 지정하며 하나의 값만 쓴다면 Y축은 경사지지 않습니다.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>transform:skewX()</td>
-                        <td>
-                            X축에 따른 경사 변형을 지정합니다.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>transform:skewY()</td>
-                        <td>
-                            Y축에 따른 경사 변형을 지정합니다.
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <p class="t_box">
-                베지어 곡선(cubic-bezier);<br>
-                보통 transform 으로 효과를 줄때 흔히 쓰이는 ease, linear, ease-in, ...등의 효과가 이게 해당하는데 더 구체적인 값을 설정해준다면 더욱 있어보이게 효과를 줄 수 있습니다.
-                값을 어떻게 줄지 모르겠다면 검사하기를 통해서 미리 설정해보고 그 값을 대입하면 더 쉽게 적용할 수 있습니다.
-            </p>
-        </details>
-
-        <details>
             <summary class="csum">HTML 살펴보기</summary>
             <div class="t_code">
 <pre><code class=""language-js>&lt;main id="parallax__cont"&gt;
@@ -392,11 +357,49 @@
         </details>
         </div>
 
-        <h3 class="t_tit2">2. script 살펴보기</h3>
+        <h3 class="t_tit2">2. transform 효과 살펴보기</h3>
+        <h4 class="t_tit3">1) skew();</h4>
+        <table class="t_table">
+            <thead>
+                <tr>
+                    <th>속성값</th>
+                    <th>의미</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>transform:skew()</td>
+                    <td>
+                        skew(X축의 기울기 각도, Y축의 기울기 각도)<br>
+                        X축과 Y축에 따른 경사 변형을 지정하며 하나의 값만 쓴다면 Y축은 경사지지 않습니다.
+                    </td>
+                </tr>
+                <tr>
+                    <td>transform:skewX()</td>
+                    <td>
+                        X축에 따른 경사 변형을 지정합니다.
+                    </td>
+                </tr>
+                <tr>
+                    <td>transform:skewY()</td>
+                    <td>
+                        Y축에 따른 경사 변형을 지정합니다.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h4 class="t_tit3">2) cubic-bezier();</h4>
+        <p class="t_box">
+            베지어 곡선(cubic-bezier);<br>
+            보통 transform 으로 효과를 줄때 흔히 쓰이는 ease, linear, ease-in, ...등의 효과가 이에 해당하는데 더 구체적인 값을 설정해준다면 더욱 있어보이게 효과를 줄 수 있습니다.<br>
+            값을 어떻게 줄지 모르겠다면 검사하기를 통해서 미리 설정해보고 그 값을 대입하면 더 쉽게 적용할 수 있습니다.
+        </p>
+
+        <h3 class="t_tit2">3. script 살펴보기</h3>
         <p class="t_box">
             window.addEventListener 을 통해 스크롤 효과를 주면 리소스를 계속 만들기 때문에 사이트가 느려지는 단점이 있습니다.이를 방지하기 위해 <i>재귀함수</i>를 활용할 수 있습니다.<br> 
-            하지만 이 또한 <i>requestAnimationFrame(scroll);</i>을 써주지 않는다면 무한궤도에 빠지기 때문에 주의해주세요 !<br>
-            함수를 1분에 60번 실행시켜주는 메서드로 브라우저에 최적화되어 메모리도 훨씬 적게 차지되고 부드럽게 실행됩니다.
+            하지만 연속해서 루프가 생겨 무한궤도(Maximum callstack)에 빠져 화면이 멈추는 현상이 나타나게 됩니다.<br>
+            그래서 아래와 같이 scroll();을 실행하지 않고 requestAnimationFrame() 메서드를 통해 실행시켜 주었습니다.
         </p>
         <div class="t_code">
 <pre><code class=""language-js>&lt;script&gt;
@@ -409,6 +412,7 @@
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop || window.screenY;
 
         document.querySelectorAll(".content__item").forEach(item => {
+            // 올라오는 속도 조절을 위해 %2
             if(scrollTop > item.offsetTop - window.innerHeight/2){
                 item.classList.add("show");
             }
@@ -420,6 +424,22 @@
     }
     scroll();
 &lt;/script&gt;
+</code></pre></div>
+        <p class="t_box">
+            📍<b>requestAnimationFrame(반복할 함수);</b><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;함수를 1분에 60번 실행시켜주는 메서드로 브라우저에 최적화되어 메모리도 훨씬 적게 차지되고 부드럽게 실행됩니다.
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2">+ 연관된 메서드 살펴보기</h3>
+        <p class="t_box">
+            📍<b>cancelAnimationFrame();</b><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;requestAnimationFrame()를 취소하는 방법입니다. 아래와 같이 사용합니다.
+        </p>
+        <div class="t_code">
+<pre><code class=""language-js>cbReq = requestAnimationFrame(callback);
+cancelAnimationFrame(cbReq);
 </code></pre></div>
 
         <div class="t_link">

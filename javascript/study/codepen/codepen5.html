@@ -1,0 +1,71 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">울렁울렁 웨이브 애니메이션 만들기 ➰</h2>
+        <p class="t_desc2">
+            원 형태의 여러 점에 스핀 효과와 스케일 효과를 적용하여 웨이브처럼 보이게 만들어 보았습니다.<br>
+            이번엔 Pug와 SCSS를 활용해서 만들었으니 참고해주세요 !
+        </p>
+
+        <hr>
+
+        <div class="t_iframe">
+            <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/kkb75281/embed/gOzWXKW?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href="https://codepen.io/kkb75281/pen/gOzWXKW">
+                Untitled</a> by kkb75281 (<a href="https://codepen.io/kkb75281">@kkb75281</a>)
+                on <a href="https://codepen.io">CodePen</a>.
+            </iframe>
+        </div>
+
+        <h3 class="t_tit2">#1. HTML(Pug) 코드를 확인해보자</h3>
+        <div class="t_code">
+<pre><code class="language-js">div.circle-wrap
+    - for (var x =1; x &lt;= 12; x++)
+        div.row
+            - for (var y = 1; y &lt;= 12; y++)
+                div.circle 
+</code></pre>
+        </div>
+
+        <h3 class="t_tit2">#2. CSS(SCSS) 코드를 확인해보자</h3>
+        <div class="t_code">
+<pre><code class="language-js">@mixin center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+body {
+    @include center;
+    height: 100vh;
+    background-image: linear-gradient(45deg, #00dbde 0%, #fc00ff 100%);
+}
+.row {
+    display: flex;
+
+    .circle {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin: 5px 10px;
+        background: #fff;
+        transform-origin: top center;
+        animation: spin 1s linear infinite;
+    }
+}
+@keyframes spin {
+    0% {transform: scale(1.1) rotate(0deg)}
+    50% {transform: scale(0.1) rotate(180deg)}
+    100% {transform: scale(1.1) rotate(360deg)}
+}
+@for $i from 1 through 12 {
+    .row:nth-child(#{$i}) .circle {
+    animation-delay: 100ms * $i
+    }
+}
+</code></pre>
+        </div>
+        <p class="t_box">
+            SCSS를 활용하면 for문 작성도 가능합니다.
+        </p>
+
+    </div>
+</main>
