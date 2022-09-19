@@ -1,0 +1,227 @@
+<style>
+    .csum {
+        list-style: none;
+        margin: 20px auto;
+        width: 200px;
+        text-align: center;
+        padding: 10px;
+        background: #f5f5f5;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .csum:hover {
+        background: #d6d6d6;
+    }
+</style>
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">mouseEffect | 마우스 따라다니기</h2>
+        <p class="t_box" style="text-align: center;">
+            <i>오늘의 목표</i><br>
+            👉🏻 마우스 커서 대신 css로 디자인한 모양이 마우스를 따라다니도록 설정하기<br>
+            👉🏻 강조하고 싶은 글자에 커서를 가져갔을 떄 다양한 효과주기
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2">1. 사이트 구조 살펴보기</h3>
+        <div class="t_result">
+            <details>
+                <summary class="csum">CSS 살펴보기</summary>
+                <div class="t_code">
+<pre><code class=""language-js>&lt;style&gt;
+    /* mouseType */
+    .mouse__wrap {
+        /* vw하면 스크롤 생김 */
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: none;
+        /* 두줄효과 */
+        flex-direction: column;
+        color: #fff;
+        overflow: hidden;
+    }
+
+    .mouse__wrap p {
+        font-size: 2vw;
+        line-height: 2;
+        font-weight: 300;
+    }
+
+    .mouse__wrap p:last-child {
+        font-size: 3vw;
+        font-weight: 400;
+    }
+
+    .mouse__wrap span {
+        border-bottom: 0.15vw dashed orange;
+        color: orange;
+    }
+
+    @media (max-width: 800px) {
+        .mouse__wrap p {
+            padding: 0 20px;
+            font-size: 24px;
+            line-height: 1.5;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .mouse__wrap p:last-child {
+            font-size: 40px;
+            line-height: 1.5;
+            word-break: keep-all;
+        }
+    }
+
+    .mouse__cursor {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        background-color: rgba(255, 255, 255, 0.1);
+        /* 선택이나 클릭이 되지 않도록 */
+        user-select: none;
+        pointer-events: none;
+        transition:
+            background-color 0.3s,
+            border-color 0.3s,
+            transform 0.6s,
+            border-radius 0.3s;
+    }
+
+    .mouse__cursor.style1 {
+        background-color: rgba(255, 165, 0, 0.4);
+        border-color: orange;
+    }
+
+    .mouse__cursor.style2 {
+        background-color: rgba(255, 247, 0, 0.4);
+        border-color: rgb(251, 255, 0);
+        transform: scale(2) rotateY(720deg);
+    }
+
+    .mouse__cursor.style3 {
+        background-color: rgba(0, 166, 255, 0.4);
+        border-color: rgb(0, 136, 255);
+    }
+
+    .mouse__cursor.style4 {
+        background-color: rgba(255, 0, 170, 0.4);
+        border-color: rgb(255, 0, 234);
+    }
+
+    .mouse__cursor.style5 {
+        background-color: rgba(0, 255, 145, 0.4);
+        border-color: rgb(0, 255, 115);
+        transform: scale(1.5) rotateX(390deg);
+    }
+
+    .mouse__cursor.style6 {
+        background-color: rgba(255, 0, 0, 0.4);
+        border-color: rgb(255, 0, 0);
+        border-radius: 10%;
+        transform: scale(2) skew(40deg);
+    }
+
+    .mouse__info {
+        position: absolute;
+        left: 20px;
+        bottom: 10px;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #fff;
+    }
+&lt;/style&gt;
+</code></pre></div>
+        </details>
+
+        <details>
+            <summary class="csum">HTML 살펴보기</summary>
+            <div class="t_code">
+<pre><code class=""language-js>&lt;main id="main"&gt;
+    &lt;section id="mouseType"&gt;
+        &lt;div class="mouse__cursor"&gt;&lt;/div&gt;
+        &lt;div class="mouse__wrap"&gt;
+            &lt;p&gt;
+                You &lt;span class="style1"&gt;can't&lt;/span&gt; be &lt;span class="style2"&gt;more than&lt;/span&gt; others if you
+                &lt;span class="style3"&gt;do like&lt;/span&gt; others
+            &lt;/p&gt;
+            &lt;p&gt;&lt;span class="style4"&gt;남과 같이&lt;/span&gt; 해서는 &lt;span class="style5"&gt;남 이상&lt;/span&gt;이 될 수 &lt;span
+                    class="style6"&gt;없다.&lt;/span&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;div class="mouse__info"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;clientX : &lt;span class="clientX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;clientY : &lt;span class="clientY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;offsetX : &lt;span class="offsetX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;offsetY : &lt;span class="offsetY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;pageX : &lt;span class="pageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;pageY : &lt;span class="pageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;screenX : &lt;span class="screenX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;screenY : &lt;span class="screenY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+</code></pre></div>
+        </details>
+        </div>
+
+        <h3 class="t_tit2">2. script 살펴보기</h3>
+        <div class="t_code">
+<pre><code class="language-js">&lt;script&gt;
+    window.addEventListener("mousemove", (event) => {
+        document.querySelector(".clientX").innerText = event.clientX;
+        document.querySelector(".clientY").innerText = event.clientY;
+        document.querySelector(".offsetX").innerText = event.offsetX;
+        document.querySelector(".offsetY").innerText = event.offsetY;
+        document.querySelector(".pageX").innerText = event.pageX;
+        document.querySelector(".pageY").innerText = event.pageY;
+        document.querySelector(".screenX").innerText = event.screenX;
+        document.querySelector(".screenY").innerText = event.screenY;
+    });
+
+    const cursor = document.querySelector(".mouse__cursor");
+
+    window.addEventListener("mousemove", (e) => {
+        cursor.style.left = e.clientX - 25 + "px";
+        cursor.style.top = e.clientY - 25 + "px";
+    });
+
+
+    // innerText / textContent span 안에 글자 바꾸고 싶을때
+    // getAttribute span 안에 속성을 가지고 온다
+    document.querySelectorAll(".mouse__wrap span").forEach((span) => {
+        let attr = span.getAttribute("class");
+
+        span.addEventListener("mouseover", () => {
+            cursor.classList.add(attr);
+        });
+
+        span.addEventListener("mouseout", () => {
+            cursor.classList.remove(attr);
+        });
+    });
+&lt;/script&gt;
+</code></pre></div>
+
+        <div class="t_link">
+            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/javascript/effect/mouseEffect01.html" target="_blank">원본 소스 보기</a>
+        </div>
+        <div class="t_link">
+            <a class="center" href="https://kkb75281.github.io/coding2/javascript/effect/mouseEffect01.html" target="_blank">실제 사이트 보기</a>
+        </div>
+
+        
+        
+    </div>
+</main>

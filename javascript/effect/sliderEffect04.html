@@ -346,7 +346,7 @@ setInterval(sliderEffect, 2000);
 
         // 왼쪽 버튼을 클릭했을 때
         sliderBtnPrev.addEventListener("click", () => {
-            let prevIndex = (currentIndex + 4) % sliderCount
+            let prevIndex = (currentIndex + (sliderCount -1)) % sliderCount
             // 4, 1, 2, 3, 4, 1, 2, ...
             gotoSlider(prevIndex);
         });
