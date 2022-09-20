@@ -1,0 +1,156 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">입체감 있는 카드 마우스 오버효과🖱</h2>
+        <p class="t_box">
+            마우스를 올리고 내릴때마다 입체감 있게 돌아가는 마우스 오버 효과 적용 방법을 배워봅시다 ~
+        </p>
+
+        <hr>
+
+        <div class="t_iframe">
+            <iframe height="300" style="width: 100%;" scrolling="no" title="MouseHoverEffect" src="https://codepen.io/kkb75281/embed/ZEoyyqq?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href="https://codepen.io/kkb75281/pen/ZEoyyqq">
+                MouseHoverEffect</a> by kkb75281 (<a href="https://codepen.io/kkb75281">@kkb75281</a>)
+                on <a href="https://codepen.io">CodePen</a>.
+            </iframe>
+        </div>
+
+        <h3 class="t_tit2">#1. HTML 코드를 확인해보자</h3>
+        <div class="t_code">
+<pre><code class="language-html">&lt;div class="hover__wrap"&gt;
+    &lt;div class="hover__updown"&gt;
+      &lt;figure class="front"&gt;
+        &lt;img src="https://kkb75281.github.io/coding2/assets/tistory/codepen/1.jpg" alt=""&gt;
+        &lt;figcaption&gt;
+          &lt;h3&gt;Mouse Hover Effect&lt;/h3&gt;
+          &lt;p&gt;마우스 올리면 Up&lt;/p&gt;
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+      &lt;figure class="back"&gt;
+        &lt;img src="https://kkb75281.github.io/coding2/assets/tistory/codepen/4.jpg" alt=""&gt;
+        &lt;figcaption&gt;
+          &lt;h3&gt;Mouse Hover Effect&lt;/h3&gt;
+          &lt;p&gt;마우스 내리면 Down&lt;/p&gt;
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+    &lt;/div&gt;
+    &lt;div class="hover__leftright"&gt;
+      &lt;figure class="front"&gt;
+        &lt;img src="https://kkb75281.github.io/coding2/assets/tistory/codepen/2.jpg" alt=""&gt;
+        &lt;figcaption&gt;
+          &lt;h3&gt;Mouse Hover Effect&lt;/h3&gt;
+          &lt;p&gt;마우스 올리면 Right&lt;/p&gt;
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+      &lt;figure class="back"&gt;
+        &lt;img src="https://kkb75281.github.io/coding2/assets/tistory/codepen/3.jpg" alt=""&gt;
+        &lt;figcaption&gt;
+          &lt;h3&gt;Mouse Hover Effect&lt;/h3&gt;
+          &lt;p&gt;마우스 내리면 Left&lt;/p&gt;
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+
+        <h3 class="t_tit2">#2. CSS(SCSS) 코드를 확인해보자</h3>
+        <div class="t_code">
+<pre><code class="language-css">body {
+    font-family: 'LocusSangsang';
+    background-image: linear-gradient(135deg, #191970 0%, #483D8B 40%, #9370DB 100%);
+    height: 100vh;
+}
+.hover__wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.hover__wrap > div {
+    max-width: 400px;
+    margin: 3%;
+    position: relative;
+    /*  숫자 작을수록 가깝게 보이는  */
+    perspective: 1000px;
+}
+  .hover__wrap > div img {
+    width: 100%;
+    border: 10px solid #f0f8ff;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    /*  이미지 정렬이 잘 안맞을때 맞추기 위해서  */
+    vertical-align: top;
+}
+.hover__wrap > div .front {
+    transition: transform 1s;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+.hover__wrap > div .back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+.hover__wrap > div figcaption {
+    background: rgba(0,0,0,0.4);
+    color: #f8f8ff;
+    padding: 10px;
+    text-align: center;
+    line-height: 1.5;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) translatez(100px);
+    width: 60%;
+    backface-visibility: hidden;
+}
+
+/* mouse hover effect */
+.hover__updown .front {
+    transform: rotatex(0deg);
+}
+.hover__updown:hover .front {
+    transform: rotatex(180deg);
+}
+.hover__updown .back {
+    transform: rotatex(-180deg);
+}
+.hover__updown:hover .back {
+    transform: rotatex(0deg);
+}
+
+.hover__leftright .front {
+    transform: rotatey(0deg);
+}
+.hover__leftright:hover .front {
+    transform: rotatey(180deg);
+}
+.hover__leftright .back {
+    transform: rotatey(-180deg);
+}
+.hover__leftright:hover .back {
+    transform: rotatey(0deg);
+}
+</code></pre>
+        </div>
+        <p class="t_box">
+            📍 perspective: 1000px;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;원근감을 주는 속성으로 숫자가 적을수록 가깝게, 클수록 멀리 있는 것처럼 보입니다.<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;📍 perspective-origin: center / top / bottom right / -170% / 500% 200% / ...<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perspective의 기준점을 설정해주는 속성입니다.
+        </p>
+        <p class="t_box">
+            📍 transform-style: preserve-3d;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;자식 요소를 3d 공간에 배치할지(preserve-3d) 2d 공간에 배치할지(flat)를 정하는 속성입니다.
+        </p>
+        <p class="t_box">
+            📍 backface-visibility: hidden;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;뒤집었을 때 뒷면을 보이게 할지(visible) 안보이게 할지(hidden) 정하는 속성입니다.
+        </p>
+
+    </div>
+</main>
