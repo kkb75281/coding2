@@ -40,6 +40,9 @@ body.img19 {
 body.img20 {
     background: #000 url(../img/effect_bg20@2x-min.jpg) no-repeat center / cover;
 }
+body.img21 {
+    background: #000 url(../img/effect_bg21-1.jpg) no-repeat center / cover;
+}
 body::after {
     content: '';
     position: absolute;
