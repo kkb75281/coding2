@@ -1,0 +1,181 @@
+<style>
+    .csum {
+        list-style: none;
+        margin: 20px auto;
+        width: 200px;
+        text-align: center;
+        padding: 10px;
+        background: #f5f5f5;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .csum:hover {
+        background: #d6d6d6;
+    }
+</style>
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">mouseEffect | 배경 조명 효과</h2>
+        <p class="t_box" style="text-align: center;">
+            <i>오늘의 목표</i><br>
+            👉🏻 마우스 커서 움직임에 따라 배경 사진에 조명을 비추는 느낌으로 효과주기
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2">1. 사이트 구조 살펴보기</h3>
+        <div class="t_iframe" style="min-height : 1000px; padding-top: 0;">
+            <iframe src="https://kkb75281.github.io/coding2/javascript/effect/mouseEffect03.html" frameborder="0"></iframe>
+        </div>
+        <div class="t_result">
+            <details>
+                <summary class="csum">CSS 살펴보기</summary>
+                <p class="t_box">
+                    span으로 감싼 글자는 키워드로 색깔을 다르게 주었습니다.
+                </p>
+                <p class="t_box">
+                    cursor 디자인도 따로 조명을 비추는 듯한 느낌으로 디자인 했습니다.
+                </p>
+                <div class="t_code">
+<pre><code class=""language-js>&lt;style&gt;
+    /* mouseType */
+    .mouse__wrap {
+        /* vw하면 스크롤 생김 */
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* 두줄 */
+        flex-direction: column;
+        color: #fff;
+        overflow: hidden;
+        cursor: none;
+    }
+
+    .mouse__wrap p {
+        font-size: 2vw;
+        line-height: 2;
+        font-weight: 300;
+    }
+
+    .mouse__wrap p:last-child {
+        font-size: 3vw;
+        font-weight: 400;
+    }
+
+    .mouse__wrap span {
+        border-bottom: 0.15vw dashed orange;
+        color: orange;
+    }
+
+    @media (max-width: 800px) {
+        .mouse__wrap p {
+            padding: 0 20px;
+            font-size: 24px;
+            line-height: 1.5;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .mouse__wrap p:last-child {
+            font-size: 40px;
+            line-height: 1.5;
+            word-break: keep-all;
+        }
+    }
+
+    .mouse__cursor {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 200px;
+        height: 200px;
+        z-index: -1;
+        border-radius: 50%;
+        background-image: url(../assets/img/effect_bg21.jpg);
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        border: 5px solid #fff;
+        cursor: none;
+    }
+&lt;/style&gt;
+</code></pre></div>
+        </details>
+
+        <details>
+            <summary class="csum">HTML 살펴보기</summary>
+            <p class="t_box">영화 '니모를 찾아서'에 나오는 명언을 넣어주었습니다.</p>
+            <div class="t_code">
+<pre><code class=""language-js>&lt;main id="main"&gt;
+    &lt;section id="mouseType"&gt;
+        &lt;div class="mouse__cursor"&gt;&lt;/div&gt;
+        &lt;div class="mouse__wrap"&gt;
+            &lt;p&gt;
+                The &lt;span&gt;best moment&lt;/span&gt; suddenly &lt;span&gt;comes.&lt;/span&gt;
+            &lt;/p&gt;
+            &lt;p&gt;
+                &lt;span&gt;최고의 순간&lt;/span&gt;은 &lt;span&gt;갑자기 찾아오는&lt;/span&gt; 거야.
+            &lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+</code></pre></div>
+        </details>
+        </div>
+
+        <h3 class="t_tit2">2. script 살펴보기</h3>
+        <p class="t_box">
+            📌 cursor에 움직임에 따라 배경이 컬러로 보일 수 있는 이유<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;cursor 자체에 background-image를 넣고 위치와 크기를 맞춰준 다음 fix시켜 마우스의 움직임에 따라 보일 수 있도록 설정해주었습니다.
+        </p>
+        <p class="t_box">
+            cursor의 위치를 마우스 가운데로 위치하기 위해 left와 top 값을 재지정했습니다.
+        </p>
+        <p class="t_box">
+            움직임을 더 부드럽게 해주기 위해 gsap를 활용했습니다.
+        </p>
+        <div class="t_code">
+<pre><code class="language-js">&lt;script&gt;
+    const cursor = document.querySelector(".mouse__cursor");
+
+    // const circleW = cursor.offsetWidth;    //200 : 보더값 포함
+    // const circleH = cursor.offsetHeight;    //200 : 보더값 포함
+    // const circle2 = cursor.clientWidth;    //190 : 보더값 제외
+
+    const circle = cursor.getBoundingClientRect();
+    // 아래는 console.log(circle); 을 통해 나오는 결과값입니다.
+    // const DOMRect = {
+    //     X: 0,
+    //     y: 0,
+    //     bottom: 200,
+    //     height: 200,
+    //     left: 0,
+    //     right: 200,
+    //     top: 0,
+    //     width: 200
+    // }
+
+    window.addEventListener("mousemove", (e) => {
+        gsap.to(cursor, {
+            duration: 0.5,
+            left: e.pageX - circle.width/2,
+            top: e.pageY- circle.height/2
+        });
+    });
+&lt;/script&gt;
+</code></pre></div>
+
+        <div class="t_link">
+            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/javascript/effect/mouseEffect03.html" target="_blank">원본 소스 보기</a>
+        </div>
+        <div class="t_link">
+            <a class="center" href="https://kkb75281.github.io/coding2/javascript/effect/mouseEffect03.html" target="_blank">실제 사이트 보기</a>
+        </div>
+
+        
+        
+    </div>
+</main>

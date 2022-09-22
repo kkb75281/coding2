@@ -10,6 +10,9 @@ body {
     height: 100vh;
     overflow: hidden;
 }
+body.img04 {
+    background: #000 url(../img/effect_bg04.jpg) no-repeat center / cover;
+}
 body.img11 {
     background: #000 url(../img/effect_bg11@2x-min.jpg) no-repeat center / cover;
 }
