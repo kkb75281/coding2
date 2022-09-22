@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>마우스 이펙트03</title>
+    <title>마우스 이펙트04</title>
     <link rel="stylesheet" href="../assets/css/mouse.css">
     <link rel="stylesheet" href="../assets/css/dracula.css">
     <link href="https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css" rel="stylesheet">
@@ -22,68 +22,68 @@
             flex-direction: column;
             color: #fff;
             overflow: hidden;
+        }
+        .mouse__wrap figure {
+            width: 50vw;
+            height: 50vh;
+            position: relative;
+            overflow: hidden;
+            transition: transform 500ms ease;
             cursor: none;
         }
-
-        .mouse__wrap p {
-            font-size: 2vw;
-            line-height: 2;
+        .mouse__wrap figure:hover {
+            transform: scale(1.025);
+        }
+        .mouse__wrap figure img {
+            position: absolute;
+            left: -5%;
+            top: -5%;
+            width: 110%;
+            height: 110%;
+            object-fit: cover;
+        }
+        .mouse__wrap figure figcaption {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 16px;
+            white-space: nowrap;
+            line-height: 1.4;
             font-weight: 300;
         }
-
-        .mouse__wrap p:last-child {
-            font-size: 3vw;
-            font-weight: 400;
-        }
-
-        .mouse__wrap span {
-            border-bottom: 0.15vw dashed orange;
-            color: orange;
-        }
-
-        @media (max-width: 800px) {
-            .mouse__wrap p {
-                padding: 0 20px;
-                font-size: 24px;
-                line-height: 1.5;
-                text-align: center;
-                margin-bottom: 10px;
-            }
-
-            .mouse__wrap p:last-child {
-                font-size: 40px;
-                line-height: 1.5;
-                word-break: keep-all;
-            }
-        }
-
         .mouse__cursor {
             position: absolute;
             left: 0;
             top: 0;
-            width: 200px;
-            height: 200px;
-            z-index: -1;
+            width: 20px;
+            height: 20px;
+            background: #fff;
             border-radius: 50%;
-            background-image: url(../assets/img/effect_bg13@2x-min.jpg);
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            border: 5px solid #fff;
-            cursor: none;
+            z-index: 1000;
+            user-select: none;
+        }
+        .mouse__info {
+            position: absolute;
+            left: 20px;
+            bottom: 10px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #fff;
         }
     </style>
 </head>
 
-<body class="img13">
+<body class="img14">
     <header id="header">
-        <h1>Javascript Mouse Effect03</h1>
-        <p>마우스 이펙트 - 조명 효과</p>
+        <h1>Javascript Mouse Effect04</h1>
+        <p>마우스 이펙트 - 이미지 효과</p>
         <ul>
             <li><a href="mouseEffect01.html">1</a></li>
             <li><a href="mouseEffect02.html">2</a></li>
-            <li class="active"><a href="mouseEffect03.html">3</a></li>
-            <li><a href="mouseEffect04.html">4</a></li>
+            <li><a href="mouseEffect03.html">3</a></li>
+            <li class="active"><a href="mouseEffect04.html">4</a></li>
             <li><a href="mouseEffect05.html">5</a></li>
             <li><a href="mouseEffect06.html">6</a></li>
             <li><a href="mouseEffect07.html">7</a></li>
@@ -94,14 +94,24 @@
         <section id="mouseType">
             <div class="mouse__cursor"></div>
             <div class="mouse__wrap">
-                <p>
-                    The <span class="style2">best moment</span> suddenly <span class="style3">comes.</span>
-                </p>
-                <p>
-                    <span class="style4">최고의 순간</span>은 <span class="style6">갑자기 찾아오는</span> 거야.
-                </p>
+                <figure>
+                    <img src="../assets/img/effect_bg04-min.jpg" alt="이미지">
+                    <figcaption>
+                        <p>No more hiding, I gotta seize my moment.</p>
+                        <p>더이상 숨기지 않고, 오늘을 즐기며 최선을 다할 거야.</p>
+                    </figcaption>
+                </figure>
             </div>
         </section>
+
+        <div class="mouse__info">
+            <ul>
+                <li>mousePageX : <span class="mousePageX">0</span>px</li>
+                <li>mousePageY : <span class="mousePageY">0</span>px</li>
+                <li>centerPageX : <span class="centerPageX">0</span>px</li>
+                <li>centerPageY : <span class="centerPageY">0</span>px</li>
+            </ul>
+        </div>
     </main>
     <!-- //main -->
     <footer id="footer">
@@ -226,32 +236,50 @@
     <script src="../assets/js/common.js"></script>
     <script src="../assets/js/gsap.min.js"></script>
     <script>
+        
         const cursor = document.querySelector(".mouse__cursor");
+        const cursorRect = cursor.getBoundingClientRect();
 
-        // const circleW = cursor.offsetWidth;    //200
-        // const circleH = cursor.offsetHeight;    //200
-        // const circle2 = cursor.clientWidth;    //190 : 보더값 제외
-
-        const circle = cursor.getBoundingClientRect();
-        console.log(circle);
-        // const DOMRect = {
-        //     X: 0,
-        //     y: 0,
-        //     bottom: 200,
-        //     height: 200,
-        //     left: 0,
-        //     right: 200,
-        //     top: 0,
-        //     width: 200
-        // }
-
-        window.addEventListener("mousemove", (e) => {
+        // .mouse__wrap figure 범위 정해줬기 때문에 여기 안에서만 커서 움직임
+        document.querySelector(".mouse__wrap figure").addEventListener("mousemove", (e) => {
+            // 커서
             gsap.to(cursor, {
-                duration: 0.5,
-                left: e.pageX - circle.width/2,
-                top: e.pageY- circle.height/2
-            });
+                duration: .2,
+                left: e.pageX - cursorRect.width/2,
+                top: e.pageY - cursorRect.height/2,
+            })
+
+            // 마우스 좌표 값
+            let mousePageX = e.pageX;
+            let mousePageY = e.pageY;
+
+            // 전체 가로
+            // window.innerWidth    //1920 : 브라우저 크기(스크롤바 미포함) //스크린 크기따라
+            // window.outerWidth    //1920 : 브라우저 크기(스크롤바 포함)
+            // window.screen.width    //1920 : 화면 크기 //모니터 크기
+
+            // 마우스 좌표 값 가운데로 초기화
+            // 전체길이/2 - 마우스 좌표값 == 0
+            let centerPageX = window.innerWidth/2 - mousePageX;
+            let centerPageY = window.innerHeight/2 - mousePageY;
+
+            // 이미지 움직이기
+            const imgMove = document.querySelector(".mouse__wrap figure img");
+            // imgMove.style.transform = "translate("+ centerPageX/20 +"px, "+ centerPageY/20 +"px)"
+
+            gsap.to(imgMove, {
+                duration: 0.3,
+                x: centerPageX/20,
+                y: centerPageY/20
+            })
+
+            // 출력
+            document.querySelector(".mousePageX").textContent = mousePageX;
+            document.querySelector(".mousePageY").textContent = mousePageY;
+            document.querySelector(".centerPageX").textContent = centerPageX;
+            document.querySelector(".centerPageY").textContent = centerPageY;
         });
+
 
 
     </script>
