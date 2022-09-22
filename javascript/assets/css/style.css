@@ -282,6 +282,32 @@ body {
     }
 }
 
+/* main__top */
+#main__top {
+    position: fixed;
+    left: 50%;
+    bottom: -200px;
+    z-index: 10000;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(0,0,0,0.4);
+    padding: 10px;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+#main__top.show {
+    bottom: 20px;
+}
+#main__top:hover {
+    background: #fff;
+    color: #000;
+}
+
 
 /* 티스토리용 문서 */
 .document i {

@@ -758,6 +758,10 @@ info2.result2();
     
             </div>
             <div class="main_desc"></div>
+            <div id="main__top">
+                Top
+            </div>
+            <!-- main__top -->
         </div>
     </main>
     <!-- //main -->
@@ -771,7 +775,23 @@ info2.result2();
     <script>
         hljs.highlightAll();
     </script>
+    <script>
+        window.addEventListener("scroll", () => {
+            let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
 
+            // 02
+            if(scrollTop >= (document.body.scrollHeight - window.innerHeight)){
+                document.querySelector("#main__top").classList.add("show");
+            } else {
+                document.querySelector("#main__top").classList.remove("show");
+            }
+
+        });
+
+        document.querySelector("#main__top").addEventListener("click", () => {
+            window.scrollTo({left: 0, top: 0, behavior: "smooth"});
+        });
+    </script>
     <script>
         // 변수(데이터 저장), 배열(여러개의 데이터 저장), 객체(데이터 저장-내가 저장, 내장 객체-자바스크립트에서 저장하는 것) --> 출력은 함수(실행문)로, 실행시키기 위해선 (제어문) 필요
         // 변수(데이터 저장), 배열(데이터 저장), 객체(데이터 저장) --> 함수(실행문)(쩨어문)

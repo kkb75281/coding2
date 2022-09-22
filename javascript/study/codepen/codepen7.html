@@ -1,0 +1,99 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">글자가 올라왔다 내려갔다 반복하는 효과 ⇡⇣</h2>
+        <p class="t_box">
+            글자가 '점핑저점핑'하는 효과를 만들어봅시다 !
+        </p>
+
+        <hr>
+
+        <div class="t_iframe">
+            <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/kkb75281/embed/ZEoygad?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href="https://codepen.io/kkb75281/pen/ZEoygad">
+                Untitled</a> by kkb75281 (<a href="https://codepen.io/kkb75281">@kkb75281</a>)
+                on <a href="https://codepen.io">CodePen</a>.
+            </iframe>
+        </div>
+
+        <h3 class="t_tit2">#1. HTML 코드를 확인해보자</h3>
+        <p class="t_box">글자마다 span으로 감싸서 만들어줍니다.</p>
+        <div class="t_code">
+<pre><code class="language-html">&lt;h1&gt;
+    &lt;span&gt;I&lt;/span&gt;
+    &lt;span&gt;'&lt;/span&gt;
+    &lt;span&gt;m&lt;/span&gt;
+    &lt;span&gt;G&lt;/span&gt;
+    &lt;span&gt;y&lt;/span&gt;
+    &lt;span&gt;u&lt;/span&gt;
+    &lt;span&gt;p&lt;/span&gt;
+    &lt;span&gt;p&lt;/span&gt;
+&lt;/h1&gt;
+</code></pre>
+        </div>
+
+        <h3 class="t_tit2">#2. CSS(SCSS) 코드를 확인해보자</h3>
+        <div class="t_code">
+<pre><code class="language-css">html, body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(140deg, black 0%, plum 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+h1 {
+    height: 100px;
+}
+  
+h1 span {
+    font-family: serif;
+    font-size: 80px;
+    color: #fff;
+    position: relative;
+    top: 20px;
+    display: inline-block;
+    /*  폰트가 부드러워지게 설정  */
+    -webkit-font-smoothing: antialiased;
+    /*  x축, y축, 블러 설정  */
+    text-shadow: 0 1px 0 #ccc, 
+                 0 2px 0 #ccc, 
+                 0 3px 0 #ccc,  
+                 0 4px 0 #ccc, 
+                 0 5px 0 #ccc, 
+                 0 6px 0 transparent,
+                 0 7px 0 transparent,
+                 0 8px 0 transparent,
+                 0 9px 0 transparent,
+                 0 10px 10px rgba(0,0,0,0.4);
+    animation: bounce 0.3s ease infinite alternate;
+}
+h1 span:nth-child(2){animation-delay: 0.1s;}
+h1 span:nth-child(3){animation-delay: 0.2s;}
+h1 span:nth-child(4){animation-delay: 0.3s;}
+h1 span:nth-child(5){animation-delay: 0.4s;}
+h1 span:nth-child(6){animation-delay: 0.5s;}
+h1 span:nth-child(7){animation-delay: 0.6s;}
+h1 span:nth-child(8){animation-delay: 0.7s;}
+  
+  
+@keyframes bounce {
+    100% {
+        top: -20px;
+        text-shadow: 0 1px 0 #ccc,
+                     0 1px 0 #ccc,
+                     0 3px 0 #ccc,
+                     0 4px 0 #ccc,
+                     0 5px 0 #ccc,
+                     0 6px 0 transparent,
+                     0 7px 0 transparent,
+                     0 8px 0 transparent,
+                     0 9px 0 transparent,
+                     0 50px 20px rgba(0,0,0,0.4);
+    }
+}
+</code></pre>
+        </div>
+
+    </div>
+</main>

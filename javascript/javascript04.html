@@ -396,6 +396,10 @@
                 <div class="main_script"></div>
                 <div class="main_desc"></div>
             </div>
+            <div id="main__top">
+                Top
+            </div>
+            <!-- main__top -->
         </div>
     </main>
     <!-- //main -->
@@ -408,6 +412,23 @@
     <script src="assets/js/highlight.min.js"></script>
     <script>
         hljs.highlightAll();
+    </script>
+    <script>
+        window.addEventListener("scroll", () => {
+            let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+            // 02
+            if(scrollTop >= (document.body.scrollHeight - window.innerHeight)){
+                document.querySelector("#main__top").classList.add("show");
+            } else {
+                document.querySelector("#main__top").classList.remove("show");
+            }
+
+        });
+
+        document.querySelector("#main__top").addEventListener("click", () => {
+            window.scrollTo({left: 0, top: 0, behavior: "smooth"});
+        });
     </script>
     <script>
         //(제어문 : 조건문, 반복문, 중지, 건너뛰기)
