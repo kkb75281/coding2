@@ -16,26 +16,25 @@
 </style>
 <main id="main">
     <div class="document">
-        <h2 class="t_tit">mouseEffect | 배경 조명 효과</h2>
+        <h2 class="t_tit">mouseEffect | 이미지 효과</h2>
         <p class="t_box" style="text-align: center;">
             <i>오늘의 목표</i><br>
-            👉🏻 마우스 커서 움직임에 따라 배경 사진에 조명을 비추는 느낌으로 효과주기
+            👉🏻 마우스 커서 움직임에 따라 배경 이미지가 반대로 움직이는 효과주기<br>
+            👉🏻 마우스 커서 디자인이 이미지 안에서만 따라다니도록 설정하기
         </p>
 
         <hr>
 
         <h3 class="t_tit2">1. 사이트 구조 살펴보기</h3>
         <div class="t_iframe" style="min-height : 1000px; padding-top: 0;">
-            <iframe src="https://kkb75281.github.io/coding2/javascript/effect/mouseEffect03.html" frameborder="0"></iframe>
+            <iframe src="https://kkb75281.github.io/coding2/javascript/effect/mouseEffect04.html" frameborder="0"></iframe>
         </div>
         <div class="t_result">
             <details>
                 <summary class="csum">CSS 살펴보기</summary>
                 <p class="t_box">
-                    span으로 감싼 글자는 키워드로 색깔을 다르게 주었습니다.
-                </p>
-                <p class="t_box">
-                    cursor 디자인도 따로 조명을 비추는 듯한 느낌으로 디자인 했습니다.
+                    + object-fit: cover;
+                    &nbsp;&nbsp; background-size: cover;와 같은 역할을 하는 속성으로 배경이 아닌 이미지에 사용할때 쓰이는 속성입니다.
                 </p>
                 <div class="t_code">
 <pre><code class=""language-js>&lt;style&gt;
@@ -51,55 +50,55 @@
         flex-direction: column;
         color: #fff;
         overflow: hidden;
+    }
+    .mouse__wrap figure {
+        width: 50vw;
+        height: 50vh;
+        position: relative;
+        overflow: hidden;
+        transition: transform 500ms ease;
         cursor: none;
     }
-
-    .mouse__wrap p {
-        font-size: 2vw;
-        line-height: 2;
+    .mouse__wrap figure:hover {
+        transform: scale(1.025);
+    }
+    .mouse__wrap figure img {
+        position: absolute;
+        left: -5%;
+        top: -5%;
+        width: 110%;
+        height: 110%;
+        object-fit: cover;
+    }
+    .mouse__wrap figure figcaption {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: 16px;
+        white-space: nowrap;
+        line-height: 1.4;
         font-weight: 300;
     }
-
-    .mouse__wrap p:last-child {
-        font-size: 3vw;
-        font-weight: 400;
-    }
-
-    .mouse__wrap span {
-        border-bottom: 0.15vw dashed orange;
-        color: orange;
-    }
-
-    @media (max-width: 800px) {
-        .mouse__wrap p {
-            padding: 0 20px;
-            font-size: 24px;
-            line-height: 1.5;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        .mouse__wrap p:last-child {
-            font-size: 40px;
-            line-height: 1.5;
-            word-break: keep-all;
-        }
-    }
-
     .mouse__cursor {
         position: absolute;
         left: 0;
         top: 0;
-        width: 200px;
-        height: 200px;
-        z-index: -1;
+        width: 20px;
+        height: 20px;
+        background: #fff;
         border-radius: 50%;
-        background-image: url(../assets/img/effect_bg21.jpg);
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        border: 5px solid #fff;
-        cursor: none;
+        z-index: 1000;
+        user-select: none;
+    }
+    .mouse__info {
+        position: absolute;
+        left: 20px;
+        bottom: 10px;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #fff;
     }
 &lt;/style&gt;
 </code></pre></div>
@@ -107,72 +106,106 @@
 
         <details>
             <summary class="csum">HTML 살펴보기</summary>
-            <p class="t_box">영화 '니모를 찾아서'에 나오는 명언을 넣어주었습니다.</p>
+            <p class="t_box">영화 '쥬토피아'에 나오는 명언을 넣어주었습니다.</p>
             <div class="t_code">
 <pre><code class=""language-js>&lt;main id="main"&gt;
     &lt;section id="mouseType"&gt;
         &lt;div class="mouse__cursor"&gt;&lt;/div&gt;
         &lt;div class="mouse__wrap"&gt;
-            &lt;p&gt;
-                The &lt;span&gt;best moment&lt;/span&gt; suddenly &lt;span&gt;comes.&lt;/span&gt;
-            &lt;/p&gt;
-            &lt;p&gt;
-                &lt;span&gt;최고의 순간&lt;/span&gt;은 &lt;span&gt;갑자기 찾아오는&lt;/span&gt; 거야.
-            &lt;/p&gt;
+            &lt;figure&gt;
+                &lt;img src="../assets/img/effect_bg04-min.jpg" alt="이미지"&gt;
+                &lt;figcaption&gt;
+                    &lt;p&gt;Don't beat yourself up. Don't need to run so fast.&lt;br&gt; Sometimes we coma last but we did our best.&lt;/p&gt;
+                    &lt;p&gt;자신을 자책하지마, 너무 서두르지 않아도 돼.&lt;br&gt; 마지막으로 들어왔더라도 최선을 다했으면 됐어.&lt;/p&gt;
+                &lt;/figcaption&gt;
+            &lt;/figure&gt;
         &lt;/div&gt;
     &lt;/section&gt;
+
+    &lt;div class="mouse__info"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;mousePageX : &lt;span class="mousePageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;mousePageY : &lt;span class="mousePageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;centerPageX : &lt;span class="centerPageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;centerPageY : &lt;span class="centerPageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
 &lt;/main&gt;
 </code></pre></div>
         </details>
         </div>
 
         <h3 class="t_tit2">2. script 살펴보기</h3>
+        <h4 class="t_tit3">📌 cursor 설정하기 : gsap 활용</h4>
         <p class="t_box">
-            📌 cursor에 움직임에 따라 배경이 컬러로 보일 수 있는 이유<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;cursor 자체에 background-image를 넣고 위치와 크기를 맞춰준 다음 fix시켜 마우스의 움직임에 따라 보일 수 있도록 설정해주었습니다.
+            커서가 중앙에 올 수 있도록 왼쪽 좌표값에 cursorRect.width/2, 위쪽 좌표값에 cursorRect.height/2 를 설정해주었습니다.
         </p>
+        <h4 class="t_tit3">📌 cursor 위치 좌표값 초기화하기</h4>
         <p class="t_box">
-            cursor의 위치를 마우스 가운데로 위치하기 위해 left와 top 값을 재지정했습니다.
+            커서가 화면 정중앙에 있다고 가정하고<br>
+            window.innerWidth/2(브라우저의 가로값/2 : 페이지 가로 중앙값)에서 커서의 x축 좌표값 pageX를 빼면 값이 0이 됩니다.<br>
+            이를 Y축도 같은 방식으로 구하고 난 후 커서의 움직임에 따라 값을 살펴보면<br>
+            오른쪽, 아래쪽으로 갈수록 (-)값, 왼쪽, 위쪽으로 갈수록 (+)값이 나오는 것을 볼 수 있습니다.
         </p>
+        <h4 class="t_tit3">📌 cursor에 움직임에 따라 배경 이미지 반대로 움직이기 : gsap 활용</h4>
         <p class="t_box">
-            움직임을 더 부드럽게 해주기 위해 gsap를 활용했습니다.
+            이미지에 transform = translate()를 통해 움직여주는데 마우스의 움직임에 따라 살짝씩 움직일 수 있도록 centerPageX,Y/20 으로 설정해주었습니다.<br>
+            (이때, centerPageX,Y 값은 위에서 커서 좌표값을 초기화 해준 값을 가리킵니다.)<br>
+            overflow: hidden;과 마우스를 오버했을 때 스케일이 살짝 커지는 효과를 설정해주면 더 있어보이게 연출이 가능합니다.
         </p>
         <div class="t_code">
 <pre><code class="language-js">&lt;script&gt;
+    // 선택자 설정
     const cursor = document.querySelector(".mouse__cursor");
+    const cursorRect = cursor.getBoundingClientRect();
 
-    // const circleW = cursor.offsetWidth;    //200 : 보더값 포함
-    // const circleH = cursor.offsetHeight;    //200 : 보더값 포함
-    // const circle2 = cursor.clientWidth;    //190 : 보더값 제외
-
-    const circle = cursor.getBoundingClientRect();
-    // 아래는 console.log(circle); 을 통해 나오는 결과값입니다.
-    // const DOMRect = {
-    //     X: 0,
-    //     y: 0,
-    //     bottom: 200,
-    //     height: 200,
-    //     left: 0,
-    //     right: 200,
-    //     top: 0,
-    //     width: 200
-    // }
-
-    window.addEventListener("mousemove", (e) => {
+    // .mouse__wrap figure 범위 정해줬기 때문에 여기 안에서만 커서가 움직임
+    document.querySelector(".mouse__wrap figure").addEventListener("mousemove", (e) => {
+        // 커서
         gsap.to(cursor, {
-            duration: 0.5,
-            left: e.pageX - circle.width/2,
-            top: e.pageY- circle.height/2
-        });
+            duration: .2,
+            left: e.pageX - cursorRect.width/2,
+            top: e.pageY - cursorRect.height/2,
+        })
+
+        // 마우스 좌표 값
+        let mousePageX = e.pageX;
+        let mousePageY = e.pageY;
+
+        // 전체 가로
+        // window.innerWidth    //1920 : 브라우저 크기(스크롤바 미포함) //스크린 크기따라
+        // window.outerWidth    //1920 : 브라우저 크기(스크롤바 포함)
+        // window.screen.width    //1920 : 화면 크기 //모니터 크기
+
+        // 마우스 좌표 값 가운데로 초기화
+        // 전체길이/2 - 마우스 좌표값 == 0
+        let centerPageX = window.innerWidth/2 - mousePageX;
+        let centerPageY = window.innerHeight/2 - mousePageY;
+
+        // 이미지 움직이기
+        const imgMove = document.querySelector(".mouse__wrap figure img");
+        // imgMove.style.transform = "translate("+ centerPageX/20 +"px, "+ centerPageY/20 +"px)"
+
+        gsap.to(imgMove, {
+            duration: 0.3,
+            x: centerPageX/20,
+            y: centerPageY/20
+        })
+
+        // 출력
+        document.querySelector(".mousePageX").textContent = mousePageX;
+        document.querySelector(".mousePageY").textContent = mousePageY;
+        document.querySelector(".centerPageX").textContent = centerPageX;
+        document.querySelector(".centerPageY").textContent = centerPageY;
     });
 &lt;/script&gt;
 </code></pre></div>
 
         <div class="t_link">
-            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/javascript/effect/mouseEffect03.html" target="_blank">원본 소스 보기</a>
+            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/javascript/effect/mouseEffect04.html" target="_blank">원본 소스 보기</a>
         </div>
         <div class="t_link">
-            <a class="center" href="https://kkb75281.github.io/coding2/javascript/effect/mouseEffect03.html" target="_blank">실제 사이트 보기</a>
+            <a class="center" href="https://kkb75281.github.io/coding2/javascript/effect/mouseEffect04.html" target="_blank">실제 사이트 보기</a>
         </div>
 
         

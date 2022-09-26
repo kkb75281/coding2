@@ -1,0 +1,110 @@
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">시간차를 두고 돌아가는 로딩 표시 만들기</h2>
+        <p class="t_box">
+            마우스와 키보드에 따라 눈동자가 움직이도록 애니메이션을 만들어봅시다 ~!
+        </p>
+
+        <hr>
+
+        <div class="t_iframe">
+            <iframe height="300" style="width: 100%;" scrolling="no" title="Loading circle" src="https://codepen.io/kkb75281/embed/MWGEbNj?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+				See the Pen <a href="https://codepen.io/kkb75281/pen/MWGEbNj">
+				Loading circle</a> by kkb75281 (<a href="https://codepen.io/kkb75281">@kkb75281</a>)
+				on <a href="https://codepen.io">CodePen</a>.
+			</iframe>
+        </div>
+
+        <h3 class="t_tit2">#1. HTML 코드를 확인해보자</h3>
+        <p class="t_box">공 10개를 div 박스로 만들어줍니다.</p>
+        <div class="t_code">
+<pre><code class="language-html">&lt;div class="loader"&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+	&lt;div class="ball"&gt;&lt;/div&gt;
+	&lt;div class="ball"&gt;&lt;/div&gt;
+	&lt;div class="ball"&gt;&lt;/div&gt;
+	&lt;div class="ball"&gt;&lt;/div&gt;
+	&lt;div class="ball"&gt;&lt;/div&gt;
+	&lt;div class="ball"&gt;&lt;/div&gt;
+	&lt;div class="ball"&gt;&lt;/div&gt;
+	&lt;div class="ball"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+
+        <h3 class="t_tit2">#2. CSS(SCSS) 코드를 확인해보자</h3>
+        <div class="t_code">
+<pre><code class="language-css"> body{
+	background-color: #333;
+}
+
+.loader  {
+	position: absolute;
+	top: 50%;
+	left:50%; 
+	transform:translate(-50%,-50%); 
+	width:100px; 
+	height:100px; 
+	animation: spin .6s linear infinite reverse;
+}
+.ball {
+	position: absolute; 
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	height:100%; 
+	animation: spin 1s infinite ease-in-out; 
+}
+.ball::after {
+	position: absolute; 
+	content: ''; 
+	background-color: #fff;
+	width:5px; 
+	height:5px;
+	border-radius:100%; 
+	top:0px;
+} 
+
+
+.ball:nth-child(2) {
+animation-delay:-0.1s; 
+}
+.ball:nth-child(3) {
+animation-delay:-0.2s;
+}
+.ball:nth-child(4) {
+animation-delay:-0.3s;
+}
+.ball:nth-child(5) {
+animation-delay:-0.4s;
+}
+.ball:nth-child(6) {
+animation-delay:-0.5s;
+}
+.ball:nth-child(7) {
+animation-delay:-0.6s;
+}
+.ball:nth-child(8) {
+animation-delay:-0.7s;
+}
+.ball:nth-child(9) {
+animation-delay:-0.8s;
+}
+.ball:nth-child(10) {
+animation-delay:-0.9s; 
+}
+
+@keyframes spin { 
+   0% { 
+	  transform:translate(-50%,-50%) rotate(0deg);
+   }
+   100% {
+	  transform:translate(-50%,-50%) rotate(360deg);
+   }
+}
+</code></pre>
+        </div>
+
+    </div>
+</main>

@@ -1,0 +1,116 @@
+/* textType */
+.text__inner {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+}
+.text__title {
+    width: 30%;
+}
+.text__title span {
+    background: #FF3344;
+    color: #fff;
+    padding: 3px 20px;
+    display: inline-block;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+.text__title h3 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    word-break: keep-all;
+}
+.text__title p {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.6;
+    word-break: keep-all;
+}
+.text__text {
+    width: 66%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.text__text .text {
+    width: 46%;
+}
+.text__text .text:nth-child(1){
+    margin-bottom: 60px;
+}
+.text__text .text h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    padding-top: 60px;
+    position: relative;
+}
+.text__text .text h3::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-image: url(../img/text_bg01.svg);
+    background-size: 200px;
+}
+.text__text .text:nth-child(1) h3::before {
+    background-position: 10px 10px;
+    background-color: #D3D8FA;
+}
+.text__text .text:nth-child(2) h3::before {
+    background-position: -32.5px 10px;
+    background-color: #CEF6EE;
+}
+.text__text .text:nth-child(3) h3::before {
+    background-position: -75px 10px;
+    background-color: #F6F4E0;
+}
+.text__text .text:nth-child(4) h3::before {
+    background-position: -118px 10px;
+    background-color: #F8D1D8;
+}
+.text__text .text p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+@media (max-width: 860px) {
+    .text__inner {
+        flex-wrap: wrap;
+        padding: 0 30px;
+    }
+    .text__title {
+        width: 100%;
+        text-align: center;
+    }
+    .text__title h3 {
+        font-size: 40px;
+    } 
+    .text__title p {
+        display: none;
+    }
+    .text__text {
+        width: 100%;
+        height: auto;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .text__text .text {
+        width: 100%;
+    }
+    .text__text .text h3::before {
+        margin-top: 20px;
+    }
+    .text__text .text:nth-child(1){
+        margin-bottom: 0;
+    }
+}

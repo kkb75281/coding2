@@ -1,0 +1,77 @@
+/* cardType */
+.card__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.card__inner .card {
+    width: 24%;
+    text-align: left;
+}
+.card__inner .card:nth-child(1){
+    margin-bottom: 50px;
+}
+.card__desc {
+    position: relative;
+}
+.card__desc h3 {
+    font-size: 28px;
+    font-weight: 500;
+    margin: 20px 0 10px;
+}
+.card__desc p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+}
+.card__desc a {
+    position: absolute;
+    right: 0; 
+    top: 0;
+    width: 28px; 
+    height: 28px;
+    background: url(https://webstoryboy.github.io/web2022/webs_img/card02_arrow.svg);
+    background-size: cover;
+}
+
+@media (max-width: 900px) {
+    .card__inner .card {
+        width: 32%;
+    }
+    .card__inner .card:nth-child(7), .card__inner .card:last-child{
+        display: none;
+    }
+    .card__desc h3 {
+        font-size: 24px;
+    }
+    .card__desc p {
+        font-size: 17px;
+    }
+}
+@media (max-width: 640px) {
+    .card__inner .card {
+        width: 49%;
+    }
+    .card__inner .card:nth-child(5), .card__inner .card:nth-child(6){
+        display: none;
+    }
+    .card__desc h3 {
+        font-size: 22px;
+    }
+    .card__desc p {
+        font-size: 16px;
+    }
+}
+@media (max-width: 480px) {
+    .card__desc h3 {
+        font-size: 20px;
+    }
+    .card__desc p {
+        font-size: 15px;
+    }
+}
