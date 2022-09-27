@@ -82,8 +82,8 @@
                     <li><a href="#sample14">14. 문자열 메서드 : 검색 : charAt() : 지정한 인덱스의 문자를 추출 : 반환(문자열)</a></li>
                     <li><a href="#sample14">14. 문자열 메서드 : 검색 : charcodeAt() : 지정한 인덱스의 문자를 추출 : 반환(숫자)</a></li>
     
-                    <li><a href="#sample10">10. 문자열 메서드 : 검색 : startsWith() : 문자열 포함 여부 검색 : 반환(불린)</a></li>
-                    <li><a href="#sample11">11. 문자열 메서드 : 검색 : endsWith() : 문자열 포함 여부 검색 : 반환(불린)</a></li>
+                    <li><a href="#sample10">15. 문자열 메서드 : 검색 : startsWith() : 문자열 포함 여부 검색 : 반환(불린)</a></li>
+                    <li><a href="#sample11">15. 문자열 메서드 : 검색 : endsWith() : 문자열 포함 여부 검색 : 반환(불린)</a></li>
                 </ul>
             </div>
             <!-- //main_menu -->
@@ -629,22 +629,60 @@
                 <!-- //sample13 -->
     
                 <div id="sample14" class="sample">
-                    <h3>14. charAt()</h3>
-                    <p>charAt() 메서드는 ...</p>
+                    <h3>14. charAt() / charcode()</h3>
+                    <p>charAt() 메서드는 지정한 숫자(index)의 단일 문자값을 반환하고 charCode() 메서드는 지정한 숫자의 유니코드 값을 반환합니다.</p>
                     <div class="box">
                         "문자열".charAt("숫자")<br>
+                        "문자열".charCode("숫자")<br>
                     </div>
                     <div class="script">
-    <pre><code class="language-js">const str1 = "javascript reference";
-    
-    const currentstr1 = str1.charAt();            //j
-    const currentstr2 = str1.charAt("0");            //j
-    const currentstr3 = str1.charAt("1");            //a
-    const currentstr4 = str1.charAt("2");            //v
-    </code></pre>
+<pre><code class="language-js">const str1 = "javascript reference";
+const currentstr1 = str1.charAt();               //j
+const currentstr2 = str1.charAt("0");            //j
+const currentstr3 = str1.charAt("1");            //a
+const currentstr4 = str1.charAt("2");            //v
+
+const currentstr5 = str1.charCode();             //106
+const currentstr6 = str1.charCode("0");          //106
+const currentstr7 = str1.charCode("1");          //97
+const currentstr8 = str1.charCode("2");          //118
+</code></pre>
                     </div>
                 </div>
                 <!-- //sample14 -->
+
+                <div id="sample15" class="sample">
+                    <h3>15. startsWith() / endsWith()</h3>
+                    <p>startsWith() 메서드는 시작하는 문자열에서 문자열을 검색하여 불린(true, false)로 변환하며, endsWith() 메서드는 끝나는 문자열에서 문자열을 검색하여 불린(true, false)을 반환합니다.</p>
+                    <div class="box">
+                        "문자열".startsWith(검색 문자열)<br>
+                        "문자열".startsWith(검색 문자열, 위치값)<br>
+                        "문자열".endsWith(검색 문자열)<br>
+                        "문자열".endsWith(검색 문자열, 위치값)
+                    </div>
+                    <div class="script">
+<pre><code class="language-js">const str1 = "javascript reference";
+const currentStr1 = str1.startsWith('javascript');         //true
+const currentStr2 = str1.startsWith('j');                  //true
+const currentStr3 = str1.startsWith('java');               //true
+const currentStr4 = str1.startsWith('reference');          //false
+const currentStr5 = str1.startsWith();                     //false
+const currentStr6 = str1.startsWith('');                   //true
+const currentStr7 = str1.startsWith('reference', 7);       //false
+const currentStr8 = str1.startsWith('reference', 11);      //true
+
+const currentStr9 = str1.endsWith('reference');            //true
+const currentStr10 = str1.endsWith('e');                   //true
+const currentStr11 = str1.endsWith('refer');               //false
+const currentStr12 = str1.endsWith('javascript');          //false
+const currentStr13 = str1.endsWith();                      //false
+const currentStr14 = str1.endsWith('');                    //true
+const currentStr15 = str1.endsWith('reference', 7);        //false
+const currentStr16 = str1.endsWith('reference', 20);       //true
+</code></pre>
+                    </div>
+                </div>
+                <!-- //sample15 -->
                 
     
     
@@ -1036,15 +1074,93 @@
         }
 
         // 14
-        {
-            // "문자열".charAt(숫자);
+        // {
+        //     // "문자열".charAt(숫자);
 
+        //     const str1 = "javascript reference";
+        //     const currentstr1 = str1.charAt();               //j
+        //     const currentstr2 = str1.charAt("0");            //j
+        //     const currentstr3 = str1.charAt("1");            //a
+        //     const currentstr4 = str1.charAt("2");            //v
+
+        //     const currentstr5 = str1.charCode();             //106
+        //     const currentstr6 = str1.charCode("0");          //106
+        //     const currentstr7 = str1.charCode("1");          //97
+        //     const currentstr8 = str1.charCode("2");          //118
+
+        //     //console.log(currentstr5);
+        // }
+        
+        // 15
+        {
             const str1 = "javascript reference";
-            const currentstr1 = str1.charAt();            //j
-            const currentstr2 = str1.charAt("0");            //j
-            const currentstr3 = str1.charAt("1");            //a
-            const currentstr4 = str1.charAt("2");            //v
+            const currentStr1 = str1.startsWith('javascript');         //true
+            const currentStr2 = str1.startsWith('j');                  //true
+            const currentStr3 = str1.startsWith('java');               //true
+            const currentStr4 = str1.startsWith('reference');          //false
+            const currentStr5 = str1.startsWith();                     //false
+            const currentStr6 = str1.startsWith('');                   //true
+            const currentStr7 = str1.startsWith('reference', 7);       //false
+            const currentStr8 = str1.startsWith('reference', 11);      //true
+
+            const currentStr9 = str1.endsWith('reference');            //true
+            const currentStr10 = str1.endsWith('e');                   //true
+            const currentStr11 = str1.endsWith('refer');               //false
+            const currentStr12 = str1.endsWith('javascript');          //false
+            const currentStr13 = str1.endsWith();                      //false
+            const currentStr14 = str1.endsWith('');                    //true
+            const currentStr15 = str1.endsWith('reference', 7);        //false
+            const currentStr16 = str1.endsWith('reference', 20);       //true
+
+            //console.log(currentStr1);
         }
+
+
+
+
+        {
+            const number = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+
+            // 결과값이 400이 나올 수 있도록 (5가지 방식)
+            // const result1 = number.slice(3,4);
+            // console.log(result1);
+
+            // const result2 = number.find(e => e === 400);
+            // console.log(result2);
+
+            // const result3 = number.filter(e => e === 400);
+            // console.log(result3);
+
+            // const result4 = number.slice(3,1);
+            // console.log(result4);
+
+            // const result5 = number.slice(3,1);
+            // console.log(result5);
+
+            // 결과값이 400, 500 나올 수 있도록 (5가지 방식)
+            const number6 = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+            const result6 = number6.slice(3,5);
+            console.log(result6);
+
+            const number7 = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+            const result7 = number7.slice(-6,-4);
+            console.log(result7);
+
+            const number8 = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+            const result8 = number8.splice(3,2);
+            console.log(result8);
+
+            const number9 = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+            const result9 = number9.splice(-6,2);
+            console.log(result9);
+
+            const number10 = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+            const result10 = number10.find(el => el === 400, 500);
+            console.log(result10);
+
+        }
+    
+    
     </script>
 </body>
 </html>
