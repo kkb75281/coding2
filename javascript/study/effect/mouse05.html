@@ -1,0 +1,239 @@
+<style>
+    .csum {
+        list-style: none;
+        margin: 20px auto;
+        width: 200px;
+        text-align: center;
+        padding: 10px;
+        background: #f5f5f5;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .csum:hover {
+        background: #d6d6d6;
+    }
+</style>
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">mouseEffect | 기울기 효과 / 글씨 반전 효과</h2>
+        <p class="t_box" style="text-align: center;">
+            <i>오늘의 목표</i><br>
+            👉🏻 마우스 커서 움직임에 따라 이미지가 기울어지는 효과주기<br>
+            👉🏻 마우스 커서와 글/이미지가 만나는 부분은 반전효과 설정하기
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2">1. 사이트 구조 살펴보기</h3>
+        <div class="t_iframe" style="min-height : 1000px; padding-top: 0;">
+            <iframe src="https://kkb75281.github.io/coding2/javascript/effect/mouseEffect05.html" frameborder="0"></iframe>
+        </div>
+        <div class="t_result">
+            <details>
+                <summary class="csum">CSS 살펴보기</summary>
+                <p class="t_box">
+                    요소에 적용할 변화의 종류를 미리 브라우저에게 알려주는 역할을 함으로써, 실제 요소가 변하기 전에 미리 브라우저를 그에 맞게 최적화시키는 속성입니다.
+                </p>
+                <div class="t_code">
+<pre><code class=""language-js>&lt;style&gt;
+    /* mouseType */
+    .mouse__wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: #fff;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        cursor: none;
+    }
+    .mouse__img {
+        transform: perspective(600px) rotateX(0deg) rotateY(0deg);
+        transform-style: preserve-3d;
+        /* 미리 감지하고 메모리 효율적으로 쓰게 해주는 */
+        will-change: transform;
+        transition: all .3s;
+    }
+    .mouse__wrap figure {
+        width: 50vw;
+        position: relative;
+    }
+    .mouse__wrap figure::before {
+        content: '';
+        position: absolute;
+        left: 5%;
+        bottom: -30px;
+        width: 90%;
+        height: 40px;
+        background: url(../assets/img/effect_bg09-min.jpg) center no-repeat;
+        background-size: 100% 40px;
+        filter: blur(15px) grayscale(50%);
+        opacity: 0.7;
+        z-index: -1;
+    }
+    .mouse__img figcaption {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        font-size: 1vw;
+        line-height: 1.6;
+        transform: translate3d(-50%, -50%, 100px);
+        padding: 1vw;
+        white-space: nowrap;
+        text-align: center;
+        background: rgba(0,0,0,0.4);
+    }
+    .mouse__cursor {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: #fff;
+        z-index: 1000;
+        pointer-events: none;
+        user-select: none;
+        mix-blend-mode: difference;
+    }
+    .mouse__info {
+        position: absolute;
+        left: 20px;
+        bottom: 10px;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #fff;
+    }
+&lt;/style&gt;
+</code></pre></div>
+</details>
+        <h4 class="t_tit3">📌 will-change</h4>
+        <p class="t_box">
+            요소에 적용할 변화의 종류를 미리 브라우저에게 알려주는 역할을 함으로써, 실제 요소가 변하기 전에 미리 브라우저를 그에 맞게 최적화시키는 속성입니다.
+        </p>
+        <p class="t_box">
+            - will-change 적용시 원래보다 더 오랜 시간 최적화를 유지해야하기 때문에 스크립트를 통해 변화 전후에 활성/비활성을 설정해주는 것이 좋습니다.(초기화 값 : auto)<br>
+            - 너무 과도하게 사용할 경우 브라우저가 예상되는 모든 변화에 대한 준비를 시도하느라 오히려 더 메모리를 과도하게 사용할 수 있기 때문에 주의하시는게 좋습니다.
+        </p>
+        <h4 class="t_tit3">📌 mix-blend-mode</h4>
+        <p class="t_box">
+            이미지 등 요소가 서로 겹치는 경우 중첩된 상태를 설정해주는 속성입니다.<br>
+            여러 속성값 중 mix-blend-mode: difference;를 사용하여 반전효과를 나타내주었습니다.
+        </p>
+
+        <details>
+            <summary class="csum">HTML 살펴보기</summary>
+            <p class="t_box">maxPage값과 anglePage값을 추가로 화면에 나타내주었습니다.</p>
+            <div class="t_code">
+<pre><code class=""language-js>&lt;main id="main"&gt;
+    &lt;section id="mouseType"&gt;
+    &lt;div class="mouse__cursor"&gt;&lt;/div&gt;
+    &lt;div class="mouse__wrap"&gt;
+        &lt;div class="mouse__img"&gt;
+            &lt;figure&gt;
+                &lt;img src="../assets/img/effect_bg09-min.jpg" alt="이미지"&gt;
+            &lt;/figure&gt;
+            &lt;figcaption&gt;
+                &lt;p&gt;Success is not given for free.&lt;br&gt;You have to be able to do anything for your goals.&lt;/p&gt;
+                &lt;p&gt;성공은 공짜로 주어지는게 아니야. 목표를 위해 무엇이든 할 수 있어야해.&lt;/p&gt;
+            &lt;/figcaption&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+&lt;div class="mouse__info"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;mousePageX : &lt;span class="mousePageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;mousePageY : &lt;span class="mousePageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;centerPageX : &lt;span class="centerPageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;centerPageY : &lt;span class="centerPageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;maxPageX : &lt;span class="maxPageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;maxPageY : &lt;span class="maxPageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;anglePageX : &lt;span class="anglePageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;anglePageY : &lt;span class="anglePageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;/main&gt;
+</code></pre></div>
+        </details>
+        </div>
+
+        <h3 class="t_tit2">2. script 살펴보기</h3>
+        <h4 class="t_tit3">📌 cursor 설정하기</h4>
+        <p class="t_box">
+            pageX, pageY를 사용하여 마우스 좌표값을 가져옵니다.<br>
+            가져온 좌표값의 기준점을 가운데로 변경하기 위해 저번 mouseEffect04 떄와 마찬가지로 설정하여 centerPageX, centerPageY 값을 설정해줍니다.<br>
+        </p>
+        <h4 class="t_tit3">📌 centerPage 최소/최대값 설정하기</h4>
+        <p class="t_box">
+            커서에 움직임에 따라 너무 과하게 회전되는 현상을 막기 위헤 centerPage 값의 최소값과 최대값을 설정해줍니다.<br>
+            Math.max 속성과 Math.min 속성을 사용하여 설정해줄 수 있습니다. 이때 최소/최대값 설정에 따라 변화되는 폭이 달라집니다. 
+        </p>
+        <h4 class="t_tit3">📌 이미지가 돌아가는 각도와 속도(부드러움) 설정하기</h4>
+        <p class="t_box">
+            위에서 구한 maxPage 값을 줄여서 돌아가는 각도를 작게 하기 위해 0.1를 곱한 값을 anglePage 값으로 설정하였습니다.<br>
+            이어서 부드럽게 돌아가는 효과를 주기 위해 softPage 값을 설정하여 anglePage 값에서 빼고 0.4를 곱해주었습니다.
+        </p>
+        <h4 class="t_tit3">📌 이미지가 움직이기</h4>
+        <p class="t_box">
+            이렇게 최종적으로 구한 softPage 값을 이미지 transform 효과 rotate 값에 적용시켜 움직이도록 설정해줍니다.
+        </p>
+        <div class="t_code">
+<pre><code class="language-js">&lt;script&gt;
+    const mouseMove = (e) => {
+        // 마우스 좌표값 가져오기
+        let mousePageX = e. pageX;
+        let mousePageY = e. pageY;
+
+        // 마우스 좌표값 기준점을 가운데로 변경
+        let centerPageX = window.innerWidth/2 - mousePageX;
+        let centerPageY = window.innerHeight/2 - mousePageY;
+
+        // centerPage 최소값 -100 최대값 100 설정 (! Point)
+        let maxPageX = Math.max(-200, Math.min(100, centerPageX));
+        let maxPageY = Math.max(-200, Math.min(100, centerPageY));
+
+        // 각도 줄이는 설정
+        let anglePageX = maxPageX * 0.1;
+        let anglePageY = maxPageY * 0.1;
+
+        // 부드럽게 설정
+        let softPageX = softPageY = 0;
+        softPageX += (anglePageX - softPageX)* 0.4;
+        softPageY += (anglePageY - softPageY)* 0.4;
+
+        // 이미지 움직이기
+        const imgMove = document.querySelector(".mouse__img");
+        imgMove.style.transform = "perspective(600px) rotateX(" + softPageY + "deg) rotateY(" + -softPageX + "deg)"
+
+        // 커서
+        gsap.to(".mouse__cursor", {duration: .3, left: mousePageX -50 , top: mousePageY -50 });
+
+        // 마우스 좌표값 하단에 출력
+        document.querySelector(".mousePageX").textContent = mousePageX;
+        document.querySelector(".mousePageY").textContent = mousePageY;
+        document.querySelector(".centerPageX").textContent = centerPageX;
+        document.querySelector(".centerPageY").textContent = centerPageY;
+        document.querySelector(".maxPageX").textContent = maxPageX;
+        document.querySelector(".maxPageY").textContent = maxPageY;
+        document.querySelector(".anglePageX").textContent = Math.round(anglePageX);
+        document.querySelector(".anglePageY").textContent = Math.round(anglePageY);
+    };
+
+    window.addEventListener("mousemove", mouseMove);
+    // = document.addEventListener("mousemove", mouseMove);
+&lt;/script&gt;
+</code></pre></div>
+
+        <div class="t_link">
+            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/javascript/effect/mouseEffect05.html" target="_blank">원본 소스 보기</a>
+        </div>
+        <div class="t_link">
+            <a class="center" href="https://kkb75281.github.io/coding2/javascript/effect/mouseEffect05.html" target="_blank">실제 사이트 보기</a>
+        </div>
+
+        
+        
+    </div>
+</main>

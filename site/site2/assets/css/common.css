@@ -93,10 +93,21 @@ html, body {
     font-family: 'nexonLv1Gothic';
     font-weight: 400;
 }
+.gmark {
+    font-family: 'GmarketSans';
+    font-weight: 500;
+}
+
 
 /* 배경 */
 .gray {
-    background-color: #F6F8FD;
+    background-color: #f5f5f5;
+}
+.brown {
+    background-color: #39342ff7;
+}
+.skyBlue {
+    background-color: #f6f8fd;
 }
 
 /* fixed */

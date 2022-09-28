@@ -54,7 +54,7 @@ select,
 table,
 textarea {
     color: #000;
-    font-family: 'GmarketSans', 'NexonLv1Gothic', 'AppleSDGothicNeo-Regular', 'Malgun Gothic', '맑은 고딕', dotum, 돋움;
+    font-family: 'GmarketSans', 'AppleSDGothicNeo-Regular', 'Malgun Gothic', '맑은 고딕', dotum, 돋움;
 }
 
 /* 가로모드 초기화 */
@@ -129,21 +129,6 @@ img, fieldset, button {
 /* 이미지 대체(ir) 효과 */
 .ir {
     display: block;
-    overflow: hidden;
-    font-size: 0;
-    line-height: 0;
-    text-indent: -9999px;
-}
-.ir_so {
-    overflow: hidden;
-    position: absolute;
-    width: 0;
-    height: 0;
-    line-height: 0;
-    text-indent: -9999px;
-}
-.ir_pm {
-    display: inline-block;
     overflow: hidden;
     font-size: 0;
     line-height: 0;
