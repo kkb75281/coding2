@@ -282,7 +282,8 @@
     <script src="../assets/js/gsap.min.js"></script>
     <script>
         const cursor = document.querySelector(".mouse__cursor");
-        const mouseText = document.querySelectorAll(".mouse__text");
+        const textSlow = document.querySelectorAll(".spanSlow");
+        const textFast = document.querySelectorAll(".spanFast");
 
         const mouseMove = (e) => {
             // 이질감 주기 위해 0.1 곱하기
@@ -296,11 +297,19 @@
         window.addEventListener("mousemove", mouseMove);
 
         // 마우스 커서가 글씨 위에 올라가면 크기는 5배 크게, 글씨 반전 효과 추가
-        mouseText.forEach((line) => {
-            line.addEventListener("mouseover", () => {
+        textSlow.forEach((text) => {
+            text.addEventListener("mouseover", () => {
                 cursor.classList.add("big");
             });
-            line.addEventListener("mouseout", () => {
+            text.addEventListener("mouseout", () => {
+                cursor.classList.remove("big");
+            });
+        });
+        textFast.forEach((text) => {
+            text.addEventListener("mouseover", () => {
+                cursor.classList.add("big");
+            });
+            text.addEventListener("mouseout", () => {
                 cursor.classList.remove("big");
             });
         });
