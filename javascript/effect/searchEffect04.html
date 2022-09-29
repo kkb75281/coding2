@@ -618,17 +618,24 @@ setInterval(() => {
             searchList.innerHTML += `<span>${element.name}</span>`;
         });
 
-        // 속성 버튼을 클릭했을 때, 설명이 출력되도록
-        searchList.addEventListener("click", (e) => {
-            findProperty(e.target.textContent);
-        })
-
         // 입력하기
         searchBox.addEventListener("keyup", () => {
             const searchWord = searchBox.value;     // 사용자가 쓴 값, 지역변수라 다른 함수에서 값을 가져오지 못함
             // console.log(searchWord);
             findProperty(searchWord);   //searchWord 매개변수로 만들어서
         });
+        
+        // 속성 버튼을 클릭했을 때, 설명이 출력되도록
+        // 속성 버튼을 클릭했을 때, 위로 올라가도록
+        // document.querySelectorAll(".search__list span").forEach(span => {
+        //     span.addEventListener("click", (e) => {
+        //         const clickWord = span.innerText;    //클릭했을때 글씨 가져오기
+        //         findProperty(clickWord);     //findProperty에 값 보내주기
+        //     })
+        // })
+        searchList.addEventListener("click", (e) => {
+            findProperty(e.target.textContent);
+        })
 
         // 속성찾기
         function findProperty(searchData) {     //전달시키기

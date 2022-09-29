@@ -1,26 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>텍스트 유형02</title>
+    <title>텍스트 유형</title>
     <style>
         /* fonts */
         @import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
-
         .gmark {
-            font-family: "GmarketSans";
+            font-family: 'GmarketSans';
             font-weight: 500;
         }
-
         /* reset */
         * {
             margin: 0;
             padding: 0;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: normal;
         }
         a {
             text-decoration: none;
@@ -29,7 +24,22 @@
         img {
             width: 100%;
         }
-
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+        .blind {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
         /* common */
         .container {
             width: 1160px;
@@ -40,122 +50,139 @@
         .section {
             padding: 120px 0;
         }
-        .section > h2 {
+        .section>h2 {
             font-size: 50px;
             line-height: 1;
             text-align: center;
             margin-bottom: 20px;
         }
-        .section > p {
+        .section>p {
             font-size: 22px;
-            font-weight: 3oo;
+            font-weight: 300;
             color: #666;
             text-align: center;
             margin-bottom: 70px;
         }
-
-        /* textType02 */
-        .text__inner {
-            display: grid;
-            grid-template-areas: 
-                "box1 box2 box3"
-                "box1 box4 box5"
-            ;
-            grid-template-columns: 32.3% 32.3% 32.3%;
-            grid-template-rows: 50% 50%;
-            grid-gap: 50px 20px;
+        .section>span {
+            display: block;
+            text-align: center;
+            font-size: 16px;
+            text-decoration: underline;
+            margin-bottom: 16px;
+        }
+        .mb70 {
+            margin-bottom: 70px !important;
+        }
+        .skyBlue {
+            background-color: #F6F8FD;
+        }
+        /* textType */
+        .text__innner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .text__title {
+            width: 33%;
+        }
+        .text__title span {
+            background: #FF3344;
+            font-size: 14px;
+            padding: 2px 20px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            font-weight: 300;
+            color: #fff;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+        .text__title h3 {
+            font-size: 50px;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .text__title p {
+            font-size: 18px;
+            line-height: 1.5;
+            padding-right: 20%;
+            word-break: keep-all;
         }
         .text__desc {
-            grid-area: box1;
+            width: 66%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
-        .text__inner:nth-child(2) {
-            grid-area: box2;
+        .text__desc>div {
+            width: 48%;
+            margin-bottom: 4%;
         }
-        .text__inner:nth-child(3) {
-            grid-area: box3;
+        .text__desc>div h4 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            position: relative;
+            padding-top: 75px;
         }
-        .text__inner:nth-child(4) {
-            grid-area: box4;
-        }
-        .text__inner:nth-child(5) {
-            grid-area: box5;
-        }
-        .text__desc h6{
-            width: 180px;
-            height: 25px;
-            padding: 0 20px;
-            border-radius: 20px;
-            background-color: #F45B5B;
-            color: #fff;
-            font-size: 16px;
-            text-align: center;
-            line-height: 25px;
-            font-weight: 300;
-            margin-bottom: 10px;
-        }
-        .text__desc h2{
-            font-size: 50px;
-            line-height: 1.2;
-            font-weight: 700;
-            word-break: keep-all;
-            margin-bottom: 20px;
-        }
-        .text__desc p{
-            font-size: 18px;
-            line-height: 1.4;
-        }
-        .text__box img {
+        .text__desc>div h4::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
             width: 60px;
             height: 60px;
-            border-radius: 50%;
-            margin-bottom: 10px;
+            background: url(img/text_icon.svg);
         }
-        .text__box h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
+        .text__desc>div:nth-child(1) h4::before {
+            background-position: 0 0;
         }
-        .text__box p {
-            width: 333px;
+        .text__desc>div:nth-child(2) h4::before {
+            background-position: -60px 0;
+        }
+        .text__desc>div:nth-child(3) h4::before {
+            background-position: -120px 0;
+        }
+        .text__desc>div:nth-child(4) h4::before {
+            background-position: -180px 0;
+        }
+        .text__desc>div p {
             font-size: 18px;
-            line-height: 1.4;
-            color: #666;
+            line-height: 1.5;
             font-weight: 300;
         }
-
     </style>
 </head>
 <body>
-    <section id="textType02" class="text__wrap section gmark">
-        <div class="text__inner container">
-            <article class="text__desc">
-                <h6>TEXT TYPE02</h6>
-                <h2>입문/전문가 필름카메라</h2>
+    <section id="textType" class="text__wrap gmark section skyBlue">
+        <h2 class="blind">스크립트를 익히는 방법</h2>
+        <div class="text__innner container">
+            <div class="text__title">
+                <span>frontend</span>
+                <h3>프론트앤드<br>전문과정</h3>
                 <p>
-                    입문자, 전문가 모두 사용하기 좋은<br>
-                    필름 카메라 추천 사이트 입니다.<br>
-                    많은 관심 부탁드립니다 ~
+                    프론트앤드 개발자로 취업하기 위한
+                    전문 과정입니다.
+                    여러분들도 도전해보세요!
                 </p>
-            </article>
-            <article class="text__box">
-                <img src="img/icon2_1.jpg" alt="아이콘1">
-                <h3>코닥 M35 : 아날로그 감성</h3>
-                <p>최근 아날로그 방식으로 일상을 기록하는 사람들이 많아졌습니다. 그에 맞는 입문 필름 카메라로 코닥 M35를 가지고 왔습니 ...</p>
-            </article>
-            <article class="text__box">
-                <img src="img/icon2_2.jpg" alt="아이콘5">
-                <h3>킷캣 토이카메라 : 스페셜에디션</h3>
-                <p>kitkat 스페셜 에디션으로 나온 킷켓 토이 카메라에 대해 알아봅시다. 외관도 브랜드 색상에 맞춰 레드로 귀엽고 키치하게 나 ...</p>
-            </article>
-            <article class="text__box">
-                <img src="img/icon2_3.jpg" alt="아이콘4">
-                <h3>니콘 F3 : 저렴이 튼튼이</h3>
-                <p>니콘 제품 중에서도 가장 튼튼하다고 평이 좋은 니콘 F3 입니다. 사용 방법도 간단하며 모드 설정도 사용자에 맞게 바꿀 수 ...</p>
-            </article>
-            <article class="text__box">
-                <img src="img/icon2_4.jpg" alt="아이콘6">
-                <h3>캐논 AE-1</h3>
-                <p>다양한 렌즈를 적용할 수 있는 캐논 AE-1 입니다. 카메라 헤드에는 삼각형 모양으로 캐논 로고를 보실 수 있으며, 조리개부터 ...</p>
-            </article>
+            </div>
+            <div class="text__desc">
+                <div>
+                    <h4>웹 디자인</h4>
+                    <p>웹디자이너가 포함된 웹 및 멀티미디어 디자이너는 다른 직업과 비교하여 임금과 복리후생이 낮은 퍼블리싱은 웹 사이트를 제작할 것입니다.</p>
+                </div>
+                <div>
+                    <h4>웹 퍼블리셔</h4>
+                    <p>웹디자이너가 포함된 웹 및 멀티미디어 디자이너는 다른 직업과 비교하여 임금과 복리후생이 낮은 퍼블리싱은 웹 사이트를 제작할 것입니다.</p>
+                </div>
+                <div>
+                    <h4>프론트앤드 개발자</h4>
+                    <p>웹디자이너가 포함된 웹 및 멀티미디어 디자이너는 다른 직업과 비교하여 임금과 복리후생이 낮은 퍼블리싱은 웹 사이트를 제작할 것입니다.</p>
+                </div>
+                <div>
+                    <h4>백앤드 개발자</h4>
+                    <p>웹디자이너가 포함된 웹 및 멀티미디어 디자이너는 다른 직업과 비교하여 임금과 복리후생이 낮은 퍼블리싱은 웹 사이트를 제작할 것입니다.</p>
+                </div>
+            </div>
         </div>
     </section>
 </body>

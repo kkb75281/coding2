@@ -1,0 +1,239 @@
+<style>
+    .csum {
+        list-style: none;
+        margin: 20px auto;
+        width: 200px;
+        text-align: center;
+        padding: 10px;
+        background: #f5f5f5;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .csum:hover {
+        background: #d6d6d6;
+    }
+</style>
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">mouseEffect | 텍스트 효과</h2>
+        <p class="t_box" style="text-align: center;">
+            <i>오늘의 목표</i><br>
+            👉🏻 마우스 커서 움직임에 따라 글자가 접혀서 움직이는 듯한 효과주기<br>
+            👉🏻 글자에 마우스 커서를 올리면 커서가 확대되면서 글자 반전 효과주기
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2">1. 사이트 구조 살펴보기</h3>
+        <div class="t_iframe" style="min-height : 1000px; padding-top: 0;">
+            <iframe src="https://kkb75281.github.io/coding2/javascript/effect/mouseEffect06.html" frameborder="0"></iframe>
+        </div>
+        <div class="t_result">
+            <details>
+            <summary class="csum">HTML 살펴보기</summary>
+            <p class="t_box">글자를 왼쪽과 오른쪽 부분으로 나눠 구조를 짜주었습니다.</p>
+            <div class="t_code">
+<pre><code class=""language-js>&lt;main id="main"&gt;
+    &lt;section id="mouseType"&gt;
+        &lt;div class="mouse__cursor"&gt;&lt;/div&gt;
+        &lt;div class="mouse__wrap"&gt;
+            &lt;div class="mouse__img"&gt;
+                &lt;figure&gt;
+                    &lt;img src="../assets/img/effect_bg03@2x-min.jpg" alt=""&gt;
+                &lt;/figure&gt;
+            &lt;/div&gt;
+            &lt;div class="mouse__text"&gt;
+                &lt;div class="line"&gt;
+                    &lt;div class="left"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanSlow"&gt;Pain Past&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="right"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanSlow"&gt;Pain Past&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="line"&gt;
+                    &lt;div class="left"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanFast"&gt;is pleasure&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="right"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanFast"&gt;is pleasure&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="line"&gt;
+                    &lt;div class="left"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanSlow"&gt;지나간 고통은&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="right"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanSlow"&gt;지나간 고통은&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="line"&gt;
+                    &lt;div class="left"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanFast"&gt;쾌락이다.&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="right"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanFast"&gt;쾌락이다.&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+</code></pre></div>
+            </details>
+
+            <details>
+                <summary class="csum">CSS 살펴보기</summary>
+                <p class="t_box">
+                    shew 속성과 overflow 속성을 사용하여 글자가 접힌듯한 효과를 주었습니다.
+                </p>
+                <div class="t_code">
+<pre><code class=""language-js>&lt;style&gt;
+    /* mouseType */
+    .mouse__wrap {
+        color: #fff;
+        width: 100%;
+        height: 100vh;
+        cursor: none;
+    }
+    .mouse__img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+    }
+    .mouse__text {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -20%);
+        font-size: 3vw;
+        line-height: 1.5;
+    }
+    .mouse__text .line {
+        width: 100%;
+        display: flex;
+    }
+    .mouse__text .line .left {
+        width: 50vw;
+        color: orange;
+        overflow: hidden;
+        transform: skew(0deg, -15deg);
+    }
+    .mouse__text .line .left .spanWrap{
+        width: 100vw;
+        text-align: center;
+    }
+    .mouse__text .line .right {
+        width: 50vw;
+        overflow: hidden;
+        transform: skew(0deg, 15deg);
+    }
+    .mouse__text .line .right .spanWrap {
+        width: 100vw;
+        text-align: center;
+        transform: translateX(-50vw);
+    }
+    .mouse__text span {
+        display: inline-block;
+    }
+    .mouse__cursor {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        z-index: 9999;
+        border-radius: 50%;
+        background-color: rgba(255,255,255,0.9);
+        user-select: none;
+        pointer-events: none;
+        mix-blend-mode: difference;
+        transition: transform .3s;
+    }
+    .mouse__cursor.big {
+        transform: scale(5);
+    }
+&lt;/style&gt;
+</code></pre></div>
+            </details>
+
+        </div>
+
+        <h3 class="t_tit2">2. script 살펴보기</h3>
+        <h4 class="t_tit3">📌 cursor 설정하기</h4>
+        <p class="t_box">
+            pageX, pageY를 사용하여 마우스 좌표값을 가져옵니다.<br>
+            가져온 좌표값의 기준점을 가운데로 변경하기 위해 저번 mouseEffect04 떄와 마찬가지로 설정하여 centerPageX, centerPageY 값을 설정해줍니다.<br>
+        </p>
+        <h4 class="t_tit3">📌 centerPage 최소/최대값 설정하기</h4>
+        <p class="t_box">
+            커서에 움직임에 따라 너무 과하게 회전되는 현상을 막기 위헤 centerPage 값의 최소값과 최대값을 설정해줍니다.<br>
+            Math.max 속성과 Math.min 속성을 사용하여 설정해줄 수 있습니다. 이때 최소/최대값 설정에 따라 변화되는 폭이 달라집니다. 
+        </p>
+        <h4 class="t_tit3">📌 이미지가 돌아가는 각도와 속도(부드러움) 설정하기</h4>
+        <p class="t_box">
+            위에서 구한 maxPage 값을 줄여서 돌아가는 각도를 작게 하기 위해 0.1를 곱한 값을 anglePage 값으로 설정하였습니다.<br>
+            이어서 부드럽게 돌아가는 효과를 주기 위해 softPage 값을 설정하여 anglePage 값에서 빼고 0.4를 곱해주었습니다.
+        </p>
+        <h4 class="t_tit3">📌 이미지가 움직이기</h4>
+        <p class="t_box">
+            이렇게 최종적으로 구한 softPage 값을 이미지 transform 효과 rotate 값에 적용시켜 움직이도록 설정해줍니다.
+        </p>
+        <div class="t_code">
+<pre><code class="language-js">&lt;script&gt;
+    const cursor = document.querySelector(".mouse__cursor");
+    const mouseText = document.querySelectorAll(".mouse__text");
+
+    const mouseMove = (e) => {
+        // 이질감 주기 위해 0.1 곱하기
+        let positionSlow = (e.pageX - (window.innerWidth / 2)) * 0.1;
+        let positionFast = (e.pageX - (window.innerWidth / 2)) * 0.2;
+
+        gsap.to(".spanSlow", {duration: .4, x:positionSlow});
+        gsap.to(".spanFast", {duration: .4, x:-positionFast});
+        gsap.to(".mouse__cursor", {duration: .3, left: e.pageX -5, top: e.pageY -5});
+    }
+    window.addEventListener("mousemove", mouseMove);
+
+    // 마우스 커서가 글씨 위에 올라가면 크기는 5배 크게, 글씨 반전 효과 추가
+    mouseText.forEach((line) => {
+        line.addEventListener("mouseover", () => {
+            cursor.classList.add("big");
+        });
+        line.addEventListener("mouseout", () => {
+            cursor.classList.remove("big");
+        });
+    });
+&lt;/script&gt;
+</code></pre></div>
+
+        <div class="t_link">
+            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/javascript/effect/mouseEffect06.html" target="_blank">원본 소스 보기</a>
+        </div>
+        <div class="t_link">
+            <a class="center" href="https://kkb75281.github.io/coding2/javascript/effect/mouseEffect06.html" target="_blank">실제 사이트 보기</a>
+        </div>
+
+        
+        
+    </div>
+</main>

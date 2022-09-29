@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 유형03</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/NexonLv2Gothic/NexonLv2Gothic.css');
+
+        .Nexon {
+            font-family: "NexonLv2Gothic";
+            font-weight: 400;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: normal;
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        img {
+            width: 100%;
+        }
+        body {
+            background-color: rgba(120, 26, 21, 0.05);
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+        .section {
+            padding: 120px 0;
+        }
+        .section > h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section > p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        /* textType03 */
+        .text__inner {
+            display: flex;
+            justify-content: space-between;
+        }
+        .text__box {
+            width: 373px;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-left: 20px;
+            position: relative;
+            transition: all 0.3s;
+        }
+        .text__box:nth-child(1) {
+            margin-left: 0;
+        }
+        .text__box:hover {
+            scale: 1.03;
+            box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.15);
+        }
+        .text__box p {
+            font-size: 18px;
+            line-height: 1.4;
+            margin-bottom: 30px;
+        }
+        .text__box p::before {
+            content: '';
+            width: 313px;
+            height: 1px;
+            background: #dcdcdc;
+            position: absolute;
+            left: 30px;
+            top: 240px;
+        }
+        .text__box .more {
+            width: 110px;
+            height: 30px;
+            border-radius: 50px;
+            background-color: #781A15;
+            color: #fff;
+            text-align: center;
+            font-size: 15px;
+            margin-left: 100px;
+            padding: 6px 20px;
+        }
+        .text__info {
+            display: flex;
+            padding: 30px 0;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .text__info::before {
+            content: '';
+            width: 313px;
+            height: 1px;
+            background: #dcdcdc;
+            position: absolute;
+            left: 0;
+            top: 110px;
+        }
+        .text__info .prof {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .text__info h3 {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        .text__info h4 {
+            font-size: 16px;
+            font-weight: 300;
+            margin-top: 9px;
+        }
+        .text__info .star {
+            position: absolute;
+            left: 65px;
+            bottom: 28px;
+        }
+        .star img {
+            width: 15px;
+            height: 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <section id="textType03" class="text__wrap section Nexon">
+        <h2>시현하다 후기 👀</h2>
+        <p>“누구나 고유의 색이 있다” 라는 슬로건으로 각자의 개성과 이야기를 풀어나가는 곳; 시현하다</p>
+        <div class="text__inner container">
+            <article class="text__box">
+                <p>
+                    이렇게 각 잡고 찍어보지 않았어서 표정이나 자세를 잡기 어려웠는데 하나하나 다 잡아주셔서 편하게 찍을 수 있었던 것 같아요 !<br>
+                    주변에서도 다들 너무 잘 나왔다고 해줘서 작가님께 감사할 따름입니다 :)<br>
+                    다음번에는 새로운 컨셉으로 찍어보고 싶어졌어요 ! 다음에 뵙겠습니다 ~~!
+                </p>
+                <div class="text__info">
+                    <img class="prof" src="img/icon3_1.svg" alt="사람1">
+                    <h3>이현지</h3>
+                    <h4>현아 기록가</h4>
+                    <div class="star">
+                        <img src="img/Star.svg" alt="채워진 별">
+                        <img src="img/Star.svg" alt="채워진 별">
+                        <img src="img/Star.svg" alt="채워진 별">
+                        <img src="img/Star.svg" alt="채워진 별">
+                        <img src="img/Star.svg" alt="채워진 별">
+                    </div>
+                </div>
+                <a class="more" href="">자세히 보기</a>
+            </article>
+            <article class="text__box">
+                <p>
+                    인테리어부터 정말 제 스타일이였어요 !<br>
+                    가보니 정말 많은 분들의 증명사진이 붙어져 있는 것 같더라구요~! 사진마다 각자의 개성이 담겨져 있는 것 같아 저도 편하게 상담받고 진행했습니다 ‘0’<br>
+                    배경색 고르는게 가장 힘들었는데 추천해주신 색이 정말 잘 어울리는 것 같았어요 !!
+                </p>
+                <div class="text__info">
+                    <img class="prof" src="img/icon3_2.svg" alt="사람1">
+                    <h3>최규리</h3>
+                    <h4>진솔 기록가</h4>
+                    <div class="star">
+                        <img src="img/Star.svg" alt="채워진 별">
+                        <img src="img/Star.svg" alt="채워진 별">
+                        <img src="img/Star.svg" alt="채워진 별">
+                        <img src="img/Star.svg" alt="채워진 별">
+                        <img src="img/Star_empty.svg" alt="채워지지 않은 별">
+                    </div>
+                </div>
+                <a class="more" href="">자세히 보기</a>
+            </article>
+            <article class="text__box">
+                <p>
+                    도착해서 상담받고 사진찍고 보정하는 시간까지 너무 알찬 시간이였습니다 :D<br>
+                    직원분들도 너무 친절하시고 시설도 정말 깔끔했어요 !
+                    증명사진용으로 찍으러 간거라 아무래도 다양한 시도는 못해봤지만 다음번에 갈때는 프로필용으로도 찍어보려고 합니다 ! 감사합니다 ~~
+                </p>
+                <div class="text__info">
+                    <img class="prof" src="img/icon3_3.svg" alt="사람1">
+                    <h3>권혜연</h3>
+                    <h4>시현 기록가</h4>
+                    <div class="star">
+                        <img src="img/Star.svg" alt="채워진 별">
+                        <img src="img/Star.svg" alt="채워진 별">
+                        <img src="img/Star.svg" alt="채워진 별">
+                        <img src="img/Star.svg" alt="채워진 별">
+                        <img src="img/Star.svg" alt="채워진 별">
+                    </div>
+                </div>
+                <a class="more" href="">자세히 보기</a>
+            </article>
+        </div>
+    </section>
+</body>
+</html>

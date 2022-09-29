@@ -1861,9 +1861,9 @@ document.querySelector(".sample14_P3").innerHTML = result3;
         }
 
         {
-            //const num = [a, b, c, d, e, f, g, h, i, k];
+            // const num = [a, b, c, d, e, f, g, h, i, k];
 
-            //b d f h k 출력 (4가지 방법)
+            // b d f h k 출력 (4가지 방법)
             const num1 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
             const result11 = [...num1].map(el => el);
             for (let result11=1; result11 < num1.length; result11 += 2){
@@ -1890,6 +1890,13 @@ document.querySelector(".sample14_P3").innerHTML = result3;
                 console.log(result14);
             }
 
+            // e f 출력 (3가지) - slice, splice X
+            const num5 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
+            const result15 = num5.filter(e => e == "e"|| e == "f");
+            console.log(result15);
+
+            // const num6 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
+            // const result16 = 
             
 
             
