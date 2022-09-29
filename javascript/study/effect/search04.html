@@ -1,0 +1,131 @@
+<style>
+    .csum {
+        list-style: none;
+        margin: 20px auto;
+        width: 200px;
+        text-align: center;
+        padding: 10px;
+        background: #f5f5f5;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .csum:hover {
+        background: #d6d6d6;
+    }
+</style>
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">searchEffect | find()를 이용하여 속성 설명 나타내기</h2>
+        <p class="t_box" style="text-align: center;">
+            <i>오늘의 목표</i><br>
+            💡 스크립트를 통해 속성 리스트를 나타내기<br>
+            💡 데이터를 입력하고 리스트와 비교하여 설명 출력하기
+        </p>
+        <p class="t_box" style="text-align: center;">
+            <i>오늘의 미션</i><br>
+            👉🏻 속성 버튼을 클릭했을 때도 설명 출력되도록 만들기
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2">1. 사이트 구조 살펴보기</h3>
+        <div class="t_iframe" style="min-height : 1000px; padding-top: 0;">
+            <iframe src="https://kkb75281.github.io/coding2/javascript/effect/searchEffect04.html" frameborder="0"></iframe>
+        </div>
+        <div class="t_result">
+            <details>
+                <summary class="csum">HTML 살펴보기</summary>
+                <p class="t_box">속성 목록은 자바스크립트로 표현해주기 위해 비워두었습니다.</p>
+                <div class="t_code">
+<pre><code class=""language-js>&lt;main id="main"&gt;
+    &lt;div class="search__wrap"&gt;
+    &lt;span&gt;find()를 이용하여 속성을 검색하면 설명 보여주기&lt;/span&gt;
+    &lt;h1&gt;CSS 속성 검색하기&lt;/h1&gt;
+    &lt;div class="search__box"&gt;
+        &lt;label for="search"&gt;검색하기&lt;/label&gt;
+        &lt;input type="text" id="search" placeholder="CSS 속성 및 유형을 입력해주세요!"&gt;
+    &lt;/div&gt;
+
+    &lt;div class="search__desc"&gt;
+        속성을 검색하시면 설명이 표시됩니다. !!!
+    &lt;/div&gt;
+    
+    &lt;div class="search__info"&gt;
+        &lt;div&gt;
+            CSS 속성 갯수 : &lt;span class="num"&gt;&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="search__list"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/main&gt;
+</code></pre></div>
+            </details>
+        </div>
+
+        <h3 class="t_tit2">2. script 살펴보기</h3>
+        <h4 class="t_tit3">📌 속성 리스트 만들고 출력하기</h4>
+        <p class="t_box">
+            속성 리스트는 cssProperty 내 배열 속 객체로 만들어주었고 map을 활용하여 출력해주었습니다.
+        </p>
+        <h4 class="t_tit3">📌 속성을 검색했을때 설명 출력하기</h4>
+        <p class="t_box">
+            addEventListener를 searchBox에 적용하고 사용자가 쓴 값을 변수로 만들어줍니다. 이때의 searchWord는 지역변수로 다른 함수에서는 값을 사용할 수 없습니다.
+            이럴땐 searchWord를 매개변수로 만들어 속성을 찾는데 이용합니다. return은 출력의 의미도 있지만 종료의 의미도 있습니다 !
+        </p>
+        <h4 class="t_tit3">📌 속성 버튼을 클릭했을 때 설명 출력하기</h4>
+        <p class="t_box">
+            findProperty를 사용하여 이벤트를 타겟으로 잡고 구해주었습니다.
+        </p>
+        <div class="t_code">
+<pre><code class="language-js">&lt;script&gt;
+    const cssProperty = [...]
+    const searchList = document.querySelector(".search__list");
+    const searchNum = document.querySelector(".search__info .num");   //전체 갯수
+    const searchBox = document.querySelector(".search__box input");
+    const searchDesc = document.querySelector(".search__desc");
+
+    // 출력하기
+    cssProperty.map((element, index) => {
+        searchNum.innerText = index + 1;
+        searchList.innerHTML += `<span>${element.name}</span>`;
+    });
+
+    // 속성 버튼을 클릭했을 때, 설명이 출력되도록
+    searchList.addEventListener("click", (e) => {
+        findProperty(e.target.textContent);
+    })
+
+    // 입력하기
+    searchBox.addEventListener("keyup", () => {
+        const searchWord = searchBox.value;     // 사용자가 쓴 값, 지역변수라 다른 함수에서 값을 가져오지 못함
+        // console.log(searchWord);
+        findProperty(searchWord);   //searchWord 매개변수로 만들어서
+    });
+
+    // 속성찾기
+    function findProperty(searchData) {     //전달시키기
+        const targetData = cssProperty.find((data) => data.name === searchData);
+
+        if(targetData == null){
+            searchDesc.textContent = "해당 속성은 존재하지 않습니다. 다시 검색해주세요 !"
+            return;     //출력의 의미도 있지만 종료의 의미도 있음. 아래 수식이 계속해서 실행되기 떄문에 return으로 종료시키기
+        }
+
+        searchDesc.textContent = targetData.desc;
+    };
+&lt;/script&gt;
+</code></pre></div>
+
+        <div class="t_link">
+            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/javascript/effect/searchEffect04.html" target="_blank">원본 소스 보기</a>
+        </div>
+        <div class="t_link">
+            <a class="center" href="https://kkb75281.github.io/coding2/javascript/effect/searchEffect04.html" target="_blank">실제 사이트 보기</a>
+        </div>
+
+        
+        
+    </div>
+</main>

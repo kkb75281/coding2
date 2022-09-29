@@ -608,7 +608,6 @@ setInterval(() => {
         ];
 
         const searchList = document.querySelector(".search__list");
-        const searchListBtn = document.querySelectorAll(".search__list span");
         const searchNum = document.querySelector(".search__info .num");   //전체 갯수
         const searchBox = document.querySelector(".search__box input");
         const searchDesc = document.querySelector(".search__desc");
@@ -620,12 +619,9 @@ setInterval(() => {
         });
 
         // 속성 버튼을 클릭했을 때, 설명이 출력되도록
-        searchListBtn.forEach(span => {
-            span.addEventListener("click", (e) => {
-                const searchWord = e.target.textContent;
-                findProperty(searchWord);
-            });
-        });
+        searchList.addEventListener("click", (e) => {
+            findProperty(e.target.textContent);
+        })
 
         // 입력하기
         searchBox.addEventListener("keyup", () => {

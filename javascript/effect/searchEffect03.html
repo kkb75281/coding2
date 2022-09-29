@@ -32,6 +32,7 @@
             <h1>CSS 속성 첫글자 검색하기</h1>
             <div class="search__info">
                 <div class="keyword">
+                    <span>all</span>
                     <span>a</span>
                     <span>b</span>
                     <span>c</span>
@@ -59,8 +60,8 @@
                     <span>y</span>
                     <span>z</span>
                 </div>
-                <div>
-                    CSS 속성 갯수 : <span class="num"></span>
+                <div class="num">
+                    <!-- <span class="name"></span>로 시작하는 속성은 총 <span class="num2"></span>개 입니다. -->
                 </div>
             </div>
             <div class="search__list">
@@ -464,17 +465,17 @@
         //선택자
         const searchKeyword = document.querySelectorAll(".search__info .keyword span");   //알파벳
         const searchList = document.querySelectorAll(".search__list ul li");   //목록 리스트
-        const searchInfo = document.querySelector(".search__info .num") ;   //전체 갯수
+        const searchInfo = document.querySelector(".search__info .num");   //전체 갯수
         // const searchNum = document.querySelector(".search__info.subnum");
         let count = 0;
         
-        //전체 속성 갯수 설정
-        searchInfo.innerHTML = searchList.length;
+        // 전체 속성 갯수 설정
+        // searchInfo.innerHTML = searchList.length;
 
         searchKeyword.forEach(el => {
             el.addEventListener("click", () => {
                 const searchWord = el.innerText;    //사용자가 클릭한 알파벳
-                searchWord.textContent = searchInfo.length;     //
+                searchWord.textContent = searchInfo.length;     
 
                 //console.log(searchWord);
 
@@ -491,14 +492,25 @@
                     }
                     searchInfo.textContent = count;
                 });
+
+                // 클릭했을때 어떤 알파벳을 클릭했는지 가지고 와야함
+                // all 버튼 추가
+                if(searchWord == "all"){
+                    searchInfo.textContent = `전체 속성의 갯수는 ${searchList.length}개 입니다.`;
+                } else if(count == 0) {
+                    searchInfo.textContent = `속성값을 찾을 수 없습니다. 다시 입력해주세요!`;
+                } else {
+                    searchInfo.textContent = `${searchWord}로 시작하는 속성은 총 ${count}개 입니다.`;
+                }
+
                 count = 0;
             });
         });
 
-        // a로 시작하는 속성은 총 --- 개 입니다.
-        // 클릭했을때 어떤 알파벳을 클릭했는지 가지고 와야함
+        
 
-        // all 버튼 추가
+        
+
 
 
     </script>

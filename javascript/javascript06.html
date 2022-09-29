@@ -1858,11 +1858,43 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             // const result10 = number10.filter(ele => ele >300 && ele<600)
             // console.log(result10);
 
-            const num = [a, b, c, d, e, f, g, h, i, k];
+        }
+
+        {
+            //const num = [a, b, c, d, e, f, g, h, i, k];
 
             //b d f h k 출력 (4가지 방법)
+            const num1 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
+            const result11 = [...num1].map(el => el);
+            for (let result11=1; result11 < num1.length; result11 += 2){
+                console.log(num1[result11]);
+            }
 
+            const num2 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
+            const result12 = [...num2].map(el => el);
+            for (let result12=1; result12 < num2.length; result12++){
+                if (result12%2 == 1){
+                    console.log(num2[result12]);
+                }
+            }
+
+            const num3 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
+            const result13 = num3.filter(function(e, i){
+                return i%2 == 1 ? true : false;
+            })
+            console.log(result13);
+
+            const num4 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
+            for(i=1; i<num4.length; i+=2){
+                const result14 = num4.slice(i,i+1);
+                console.log(result14);
+            }
+
+            
+
+            
         }
+
     
     
     
