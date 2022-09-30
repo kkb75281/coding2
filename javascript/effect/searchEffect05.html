@@ -42,10 +42,10 @@
                     <li data-star="5"><a href="#">★★★★★</a></li>
                 </ul>
                 <ul>
-                    <li><a href="#">1개 이상</a></li>
-                    <li><a href="#">2개 이상</a></li>
-                    <li><a href="#">3개 이상</a></li>
-                    <li><a href="#">4개 이상</a></li>
+                    <li data-num="1"><a href="#">1개 이상</a></li>
+                    <li data-num="2"><a href="#">2개 이상</a></li>
+                    <li data-num="3"><a href="#">3개 이상</a></li>
+                    <li data-num="4"><a href="#">4개 이상</a></li>
                 </ul>
             </div>
             
@@ -624,53 +624,63 @@ setInterval(() => {
         //선택자
         const searchList = document.querySelector(".search__list ul");
         const searchClick = document.querySelectorAll(".search__click ul li");
+        // const searchLine = document.querySelectorAll(".seach__list ul li")
+        // const searchNum = document.querySelector(".search__info .num");
 
         // 출력하기 (재활용이 가능한 함수)
         function updateList(list){
             listCSS = '';
 
-            // list 에서 받아온걸 data라고 칭할거다
+            // list 에서 받아온걸 data라고 칭할거다~
             for(const data of list){
-                listCSS += `<li>${data.name} : ${data.desc} <em>${data.star}</em></li>`;
+                // listCSS += `<li>${data.name} : ${data.desc} <em>${data.star}</em></li>`;
+
+                switch(data.star){
+                    case 0:
+                        listCSS += `<li>${data.name} : ${data.desc} <em>☆☆☆☆☆</em></li>`;
+                    break;
+                    case 1:
+                        listCSS += `<li>${data.name} : ${data.desc} <em>★☆☆☆☆</em></li>`;
+                    break;
+                    case 2:
+                        listCSS += `<li>${data.name} : ${data.desc} <em>★★☆☆☆</em></li>`;
+                    break;
+                    case 3:
+                        listCSS += `<li>${data.name} : ${data.desc} <em>★★★☆☆</em></li>`;
+                    break;
+                    case 4:
+                        listCSS += `<li>${data.name} : ${data.desc} <em>★★★★☆</em></li>`;
+                    break;
+                    case 5:
+                        listCSS += `<li>${data.name} : ${data.desc} <em>★★★★★</em></li>`;
+                    break;
+                    default:
+                        listCSS += `<li>${data.name} : ${data.desc} <em>검색 결과가 없습니다.</em></li>`;
+                    break;
+                }
             }
 
             searchList.innerHTML = listCSS;
+
+            const searchLine = document.querySelectorAll(".search__list ul li");
+            document.querySelector(".num").textContent=searchLine.length;
         }
         updateList(cssProperty);
 
         // 클릭하기
         searchClick.forEach(star => {
             star.addEventListener("click", () => {
-                const target = star.dataset.star;
+                const targetStar = star.dataset.star;
+                const targetNum = star.dataset.num;
                 // find도 가능
                 // filter callback 함수 사용
-                const filterList = cssProperty.filter(data => data.star == target);
+                const filterList = cssProperty.filter(data => data.star == targetStar || data.star >= targetNum);
 
                 updateList(filterList);
             });
         });
 
         // 숫자를 별로 치환하기 (치환-switch, if...)
-        // switch () {
-        //     case cssProperty.star === 0 :
-
-        // }
-        const searchStar = () => {
-            switch (cssProperty[object.keys(star)]) {
-                case "1":
-                return "★☆☆☆☆";
-                case "2":
-                return "★★☆☆☆";
-                case "3":
-                return "★★★☆☆";
-                case "4":
-                return "★★★★☆";
-                case "5":
-                return "★★★★★";
-                default:
-                return "☆☆☆☆☆";
-            }
-            };
         // dataset 안쓰고 가져오는 방법(index)
         // 1개 이상, 2개 이상 조건문 만들기
         // 전체 속성 갯수 표시

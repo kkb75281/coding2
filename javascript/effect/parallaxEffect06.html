@@ -529,6 +529,8 @@
             //     }
             // })
 
+            // 첫번째 span (0.01), 두번째 span (0.03), ...
+            // 1씩 늘어남 index값 활용해서 시간차두고 나타나도록 스크립트 짜기
             document.querySelectorAll(".content__item").forEach(item => {
                 if(scrollTop >= item.offsetTop){
                     item.querySelectorAll(".split span").forEach((span, index) => {
@@ -540,8 +542,7 @@
 
             requestAnimationFrame(scroll);
 
-            // 첫번째 span (0.01), 두번째 span (0.03), ...
-            // 1씩 늘어남 index값 활용해서 시간차두고 나타나도록 스크립트 짜기
+            
         }
         scroll();
         

@@ -1895,8 +1895,15 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             const result15 = num5.filter(e => e == "e"|| e == "f");
             console.log(result15);
 
-            // const num6 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
-            // const result16 = 
+            const num6 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
+            for(i=4; i<6; i++){
+                console.log(num6[i]);
+            }
+
+            const num7 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
+            for(let key in num7) {
+                if(key == 4 || key == 5 ) console.log(num7[key]);
+            }
             
 
             
