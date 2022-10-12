@@ -1,0 +1,125 @@
+/* @import url('https://webfontworld.github.io/fontlab/LABDigital.css'); */
+@import url('https://webfontworld.github.io/earlyfont/EF_Hyunygothic.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'EF_Hyunygothic';
+    font-weight: normal;
+    cursor: none;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+}
+.cursor img {
+    width: 15px;
+}
+.cursor .c2 {
+    width: 30px;
+    display: none;
+}
+/* .cursor.over .c1 {
+    display: none;
+}
+.cursor.over .c2 {
+    display: block;
+} */
+
+#header {
+    position: fixed;
+    width: 100%;
+    background: #011d3f;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+#header h1 {
+    font-size: 20px;
+    color: #fff;
+    padding: 5px 0;
+}
+
+#header .time {
+    color: #fff;
+}
+
+.icon_box {
+    text-align: center;
+}
+
+.icon {
+    position: absolute;
+    left: 100px;
+    width: 54px;
+}
+
+.icon img {
+    width: 54px;
+}
+
+.icon span {
+    display: block;
+    background: #000;
+    color: #fff;
+    font-size: 14px;
+    padding: 2px;
+    white-space: nowrap;
+}
+
+.i1 {
+    top: 100px;
+}
+
+.i2 {
+    top: 200px;
+}
+
+.i3 {
+    top: 300px;
+}
+
+.i4 {
+    top: 400px;
+}
+
+.i5 {
+    top: 500px;
+}
+
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #011d3f;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+    color: #fff;
+    text-align: center;
+}
+
+#footer.agent {
+    
+}
+
+.window #footer {
+    /* background-color: #fff; */
+}
+.mac #footer {}
+.iphone #footer {}
+.android #footer {}
