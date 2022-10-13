@@ -116,46 +116,54 @@
     <script src="../assets/js/gsap.min.js"></script>
     <script src="../assets/js/music.js"></script>
     <script>
-        $(".i1").draggable({
-            drag: function() {
-                $(".cursor img").attr("src", "../assets/img/cursor_over1.png")
-            }
-        });
-        $(".i2").draggable({
-            drag: function() {
-                $(".c2").attr("src", "../assets/img/cursor_over2.png")
-            }
-        });
-        $(".i3").draggable({
-            drag: function() {
-                $(".c2").attr("src", "../assets/img/cursor_over3.png")
-            }
-        });
-        $(".i4").draggable({
-            drag: function() {
-                $(".c2").attr("src", "../assets/img/cursor_over4.png")
-            }
-        });
-        $(".i5").draggable({
-            drag: function() {
-                $(".c2").attr("src", "../assets/img/cursor_over5.png")
-            }
-        });
+        $(".i1").draggable({});
+        $(".i2").draggable({});
+        $(".i3").draggable({});
+        $(".i4").draggable({});
+        $(".i5").draggable({});
         $(".music__wrap").draggable();
 
         const icon = document.querySelector(".icon");
+        const i1 = document.querySelector(".i1");
+        const i2 = document.querySelector(".i2");
+        const i3 = document.querySelector(".i3");
+        const i4 = document.querySelector(".i4");
+        const i5 = document.querySelector(".i5");
         const cursor = document.querySelector(".cursor");
 
         window.addEventListener("mousemove", e => {
             gsap.to(cursor, {duration: 0, left: e.pageX -2 , top: e.pageY - 5});
         })
 
-        icon.addEventListener("mouseover", e => {
-            cursor.attr("class", "c2");
-            // cursor.classList.add("over");
+        i1.addEventListener("mouseover", e => {
+            $(".cursor img").attr("src", "../assets/img/cursor_over1.png")
         })
-        icon.addEventListener("mouseout", e => {
-            cursor.classList.remove("c2");
+        i1.addEventListener("mouseout", e => {
+            $(".cursor img").attr("src", "../assets/img/cursor_icon.png")
+        })
+        i2.addEventListener("mouseover", e => {
+            $(".cursor img").attr("src", "../assets/img/cursor_over2.png")
+        })
+        i2.addEventListener("mouseout", e => {
+            $(".cursor img").attr("src", "../assets/img/cursor_icon.png")
+        })
+        i3.addEventListener("mouseover", e => {
+            $(".cursor img").attr("src", "../assets/img/cursor_over3.png")
+        })
+        i3.addEventListener("mouseout", e => {
+            $(".cursor img").attr("src", "../assets/img/cursor_icon.png")
+        })
+        i4.addEventListener("mouseover", e => {
+            $(".cursor img").attr("src", "../assets/img/cursor_over4.png")
+        })
+        i4.addEventListener("mouseout", e => {
+            $(".cursor img").attr("src", "../assets/img/cursor_icon.png")
+        })
+        i5.addEventListener("mouseover", e => {
+            $(".cursor img").attr("src", "../assets/img/cursor_over5.png")
+        })
+        i5.addEventListener("mouseout", e => {
+            $(".cursor img").attr("src", "../assets/img/cursor_icon.png")
         })
 
          //시계
