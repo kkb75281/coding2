@@ -14,15 +14,16 @@
         <img src="../assets/img/game_cursor_icon11.png" alt="마우스">
     </div>
 
-    <div class="icon_iframe">
-        <iframe src="https://github1s.com/kkb75281/coding2/blob/main/javascript/effect/gameEffect01.html"></iframe>
-    </div>
-
     <header id="header">
         <h1>gameEffect</h1>
         <div class="time"></div>
     </header>
     <!-- // header -->
+
+    <div class="icon_iframe">
+        <iframe src="https://github1s.com/kkb75281/coding2"></iframe>
+        <div class="code_close"><img src="../assets/img/code_close.png" alt=""></div>
+    </div>
 
     <main id="main">
         <div class="icon_box">
@@ -143,6 +144,7 @@
         const cursor = document.querySelector(".cursor");
         const musicBox = document.querySelector(".music__wrap");
         const codeSite = document.querySelector(".icon_iframe");
+        const codeExit = document.querySelector(".code_close");
 
         window.addEventListener("mousemove", e => {
             gsap.to(cursor, {duration: 0, left: e.pageX -2 , top: e.pageY - 5});
@@ -213,6 +215,10 @@
             codeSite.classList.add("show");
         })
 
+        codeExit.addEventListener("click", ()=>{
+            codeSite.classList.remove("show");
+        })
+
         // 볼륨 조절
         const audio = document.getElementById('main-audio');
         const audioVolume = document.getElementById('volume-control');
@@ -222,13 +228,13 @@
 
 
         // 외부영역 클릭 시 팝업 닫기
-        $(document).mouseup(function (e){
-        	var LayerPopup = $(".icon_iframe");
-        	if(LayerPopup.has(e.target).length === 0){
-        		LayerPopup.removeClass("show");
-                $(".i6 img").attr("src", "../assets/img/game_folder_icon16.png");
-        	}
-        });
+        // $(document).mouseup(function (e){
+        // 	var LayerPopup = $(".icon_iframe");
+        // 	if(LayerPopup.has(e.target).length === 0){
+        // 		LayerPopup.removeClass("show");
+        //         $(".i6 img").attr("src", "../assets/img/game_folder_icon16.png");
+        // 	}
+        // });
 
          //시계
          function printTime(){
