@@ -6,14 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gameEffect01</title>
 
-    <link rel="stylesheet" href="../assets/css/bg.css">
     <link rel="stylesheet" href="../assets/css/game.css">
     <link rel="stylesheet" href="../assets/css/music.css">
 </head>
 <body>
     <div class="cursor">
-        <img src="../assets/img/cursor_icon.png" alt="마우스">
-        <!-- <img class="c2" src="../assets/img/cursor_icon2.png" alt="마우스오버"> -->
+        <img src="../assets/img/game_cursor_icon11.png" alt="마우스">
     </div>
 
     <div class="icon_iframe">
@@ -29,27 +27,27 @@
     <main id="main">
         <div class="icon_box">
             <div class="icon i1">
-                <img src="../assets/img/folder_icon1.png" alt="뮤직">
+                <img src="../assets/img/game_folder_icon11.png" alt="뮤직">
                 <span>Music</span>
             </div>
             <div class="icon i2">
-                <img src="../assets/img/folder_icon2.png" alt="파랑폴더">
-                <span>Music</span>
+                <img src="../assets/img/game_folder_icon12.png" alt="2">
+                <span>aaa</span>
             </div>
             <div class="icon i3">
-                <img src="../assets/img/folder_icon3.png" alt="초록폴더">
-                <span>Music</span>
+                <img src="../assets/img/game_folder_icon12.png" alt="3">
+                <span>bbb</span>
             </div>
             <div class="icon i4">
-                <img src="../assets/img/folder_icon4.png" alt="초록폴더">
-                <span>Music</span>
+                <img src="../assets/img/game_folder_icon12.png" alt="4">
+                <span>ccc</span>
             </div>
             <div class="icon i5">
-                <img src="../assets/img/folder_icon5.png" alt="초록폴더">
-                <span>Music</span>
+                <img src="../assets/img/game_folder_icon12.png" alt="5">
+                <span>ddd</span>
             </div>
             <div class="icon i6">
-                <img src="../assets/img/folder_icon6.png" alt="회색폴더">
+                <img src="../assets/img/game_folder_icon16.png" alt="코드보기">
                 <span>Code</span>
             </div>
         </div>
@@ -142,62 +140,84 @@
         const i4 = document.querySelector(".i4");
         const i5 = document.querySelector(".i5");
         const i6 = document.querySelector(".i6");
+        const musicBox = document.querySelector(".music__wrap");
         const cursor = document.querySelector(".cursor");
 
         window.addEventListener("mousemove", e => {
             gsap.to(cursor, {duration: 0, left: e.pageX -2 , top: e.pageY - 5});
         })
 
-        i1.addEventListener("mouseover", e => {
-            $(".cursor img").attr("src", "../assets/img/cursor_over1.png")
+        i1.addEventListener("click", ()=>{
+            if(i1.classList.contains("active")){
+                $(".i1 img").attr("src", "../assets/img/game_folder_icon11.png");
+                i1.classList.remove("active");
+                musicBox.classList.remove("show");
+            } else {
+                $(".i1 img").attr("src", "../assets/img/game_folder_over11.png");
+                i1.classList.add("active");
+                musicBox.classList.add("show");
+            }
         })
-        i1.addEventListener("mouseout", e => {
-            $(".cursor img").attr("src", "../assets/img/cursor_icon.png")
+
+        i2.addEventListener("click", ()=>{
+            if(i2.classList.contains("active")){
+                i2.classList.remove("active");
+                i2.classList.remove("show");
+            } else {
+                i2.classList.add("active");
+                i2.classList.add("show");
+            }
         })
-        i2.addEventListener("mouseover", e => {
-            $(".cursor img").attr("src", "../assets/img/cursor_over2.png")
+
+        i3.addEventListener("click", ()=>{
+            if(i3.classList.contains("active")){
+                i3.classList.remove("active");
+                i3.classList.remove("show");
+            } else {
+                i3.classList.add("active");
+                i3.classList.add("show");
+            }
         })
-        i2.addEventListener("mouseout", e => {
-            $(".cursor img").attr("src", "../assets/img/cursor_icon.png")
+
+        i4.addEventListener("click", ()=>{
+            if(i4.classList.contains("active")){
+                i4.classList.remove("active");
+                i4.classList.remove("show");
+            } else {
+                i4.classList.add("active");
+                i4.classList.add("show");
+            }
         })
-        i3.addEventListener("mouseover", e => {
-            $(".cursor img").attr("src", "../assets/img/cursor_over3.png")
+
+        i5.addEventListener("click", ()=>{
+            if(i5.classList.contains("active")){
+                i5.classList.remove("active");
+                i5.classList.remove("show");
+            } else {
+                i5.classList.add("active");
+                i5.classList.add("show");
+            }
         })
-        i3.addEventListener("mouseout", e => {
-            $(".cursor img").attr("src", "../assets/img/cursor_icon.png")
-        })
-        i4.addEventListener("mouseover", e => {
-            $(".cursor img").attr("src", "../assets/img/cursor_over4.png")
-        })
-        i4.addEventListener("mouseout", e => {
-            $(".cursor img").attr("src", "../assets/img/cursor_icon.png")
-        })
-        i5.addEventListener("mouseover", e => {
-            $(".cursor img").attr("src", "../assets/img/cursor_over5.png")
-        })
-        i5.addEventListener("mouseout", e => {
-            $(".cursor img").attr("src", "../assets/img/cursor_icon.png")
-        })
-        i6.addEventListener("mouseover", e => {
-            $(".cursor img").attr("src", "../assets/img/cursor_over6.png")
-        })
-        i6.addEventListener("mouseout", e => {
-            $(".cursor img").attr("src", "../assets/img/cursor_icon.png")
+
+        i6.addEventListener("click", ()=>{
+            if(i6.classList.contains("active")){
+                $(".i6 img").attr("src", "../assets/img/game_folder_icon16.png");
+                i6.classList.remove("active");
+            } else {
+                $(".i6 img").attr("src", "../assets/img/game_folder_over16.png");
+                i6.classList.add("active");
+            }
         })
 
         // 팝업 열기
         const codeBtn = document.querySelector(".i6");
-        const musicBtn = document.querySelector(".i1");
         const codeSite = document.querySelector(".icon_iframe");
-        const musicBox = document.querySelector(".music__wrap");
-
+        
         codeBtn.addEventListener("click", ()=>{
             codeSite.classList.add("show");
         });
-        musicBtn.addEventListener("click", ()=>{
-            musicBox.classList.add("show");
-        });
 
+        // 볼륨 조절
         const audio = document.getElementById('main-audio');
         const audioVolume = document.getElementById('volume-control');
         audioVolume.addEventListener("change", function(e) {
@@ -208,12 +228,8 @@
         // 외부영역 클릭 시 팝업 닫기
         $(document).mouseup(function (e){
         	var LayerPopup = $(".icon_iframe");
-        	var MusicPopup = $(".music__wrap");
         	if(LayerPopup.has(e.target).length === 0){
         		LayerPopup.removeClass("show");
-        	}
-            if(MusicPopup.has(e.target).length === 0){
-        		MusicPopup.removeClass("show");
         	}
         });
 

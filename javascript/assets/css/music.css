@@ -1,9 +1,15 @@
 @import url('https://webfontworld.github.io/Cafe24SsurroundAir/Cafe24SsurroundAir.css');
 
-.music__wrap {}
+.music__wrap {
+    display: none;
+}
+.music__wrap.show {
+    display: block;
+}
 .music__inner {
     width: 450px;
-    background: #000;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
     position: absolute;
     right: 100px;
     top: 100px;
@@ -22,7 +28,7 @@
     font-size: 14px;
 }
 .music__contents {
-    background: #c4c4c4;
+    background: rgba(255,255,255,0.5);
     width: 100%;
 }
 .music__view {
