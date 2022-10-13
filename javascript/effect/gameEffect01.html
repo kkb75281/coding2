@@ -140,8 +140,9 @@
         const i4 = document.querySelector(".i4");
         const i5 = document.querySelector(".i5");
         const i6 = document.querySelector(".i6");
-        const musicBox = document.querySelector(".music__wrap");
         const cursor = document.querySelector(".cursor");
+        const musicBox = document.querySelector(".music__wrap");
+        const codeSite = document.querySelector(".icon_iframe");
 
         window.addEventListener("mousemove", e => {
             gsap.to(cursor, {duration: 0, left: e.pageX -2 , top: e.pageY - 5});
@@ -161,9 +162,11 @@
 
         i2.addEventListener("click", ()=>{
             if(i2.classList.contains("active")){
+                $(".i2 img").attr("src", "../assets/img/game_folder_icon12.png");
                 i2.classList.remove("active");
                 i2.classList.remove("show");
             } else {
+                $(".i2 img").attr("src", "../assets/img/game_folder_over12.png");
                 i2.classList.add("active");
                 i2.classList.add("show");
             }
@@ -171,9 +174,11 @@
 
         i3.addEventListener("click", ()=>{
             if(i3.classList.contains("active")){
+                $(".i3 img").attr("src", "../assets/img/game_folder_icon12.png");
                 i3.classList.remove("active");
                 i3.classList.remove("show");
             } else {
+                $(".i3 img").attr("src", "../assets/img/game_folder_over12.png");
                 i3.classList.add("active");
                 i3.classList.add("show");
             }
@@ -181,9 +186,11 @@
 
         i4.addEventListener("click", ()=>{
             if(i4.classList.contains("active")){
+                $(".i4 img").attr("src", "../assets/img/game_folder_icon12.png");
                 i4.classList.remove("active");
                 i4.classList.remove("show");
             } else {
+                $(".i4 img").attr("src", "../assets/img/game_folder_over12.png");
                 i4.classList.add("active");
                 i4.classList.add("show");
             }
@@ -191,31 +198,20 @@
 
         i5.addEventListener("click", ()=>{
             if(i5.classList.contains("active")){
+                $(".i5 img").attr("src", "../assets/img/game_folder_icon12.png");
                 i5.classList.remove("active");
                 i5.classList.remove("show");
             } else {
+                $(".i5 img").attr("src", "../assets/img/game_folder_over12.png");
                 i5.classList.add("active");
                 i5.classList.add("show");
             }
         })
 
         i6.addEventListener("click", ()=>{
-            if(i6.classList.contains("active")){
-                $(".i6 img").attr("src", "../assets/img/game_folder_icon16.png");
-                i6.classList.remove("active");
-            } else {
-                $(".i6 img").attr("src", "../assets/img/game_folder_over16.png");
-                i6.classList.add("active");
-            }
-        })
-
-        // 팝업 열기
-        const codeBtn = document.querySelector(".i6");
-        const codeSite = document.querySelector(".icon_iframe");
-        
-        codeBtn.addEventListener("click", ()=>{
+            $(".i6 img").attr("src", "../assets/img/game_folder_over16.png");
             codeSite.classList.add("show");
-        });
+        })
 
         // 볼륨 조절
         const audio = document.getElementById('main-audio');
@@ -230,6 +226,7 @@
         	var LayerPopup = $(".icon_iframe");
         	if(LayerPopup.has(e.target).length === 0){
         		LayerPopup.removeClass("show");
+                $(".i6 img").attr("src", "../assets/img/game_folder_icon16.png");
         	}
         });
 

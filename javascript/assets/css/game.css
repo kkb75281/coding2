@@ -90,48 +90,16 @@ body {
     top: 200px;
 }
 
-.i2:hover,
-.i2.active {
-    background-image: url(../img/game_folder_over12.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 0 1px;
-}
-
 .i3 {
     top: 300px;
-}
-
-.i3:hover,
-.i3.active {
-    background-image: url(../img/game_folder_over12.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 0 1px;
 }
 
 .i4 {
     top: 400px;
 }
 
-.i4:hover,
-.i4.active {
-    background-image: url(../img/game_folder_over12.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 0 1px;
-}
-
 .i5 {
     top: 500px;
-}
-
-.i5:hover,
-.i5.active {
-    background-image: url(../img/game_folder_over12.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 0 1px;
 }
 
 .i6 {
