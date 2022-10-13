@@ -172,7 +172,7 @@
     height: 24px;
     background: url(../img/music_control_icon.svg);
     background-position: 96px 0;
-    margin-right: 5px;
+    margin-right: 10px;
     vertical-align: -5px;
 }
 .music__list h3 .close {
