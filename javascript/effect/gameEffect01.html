@@ -97,7 +97,7 @@
             </div>
             <div class="music__footer">
                 <div class="music__list">
-                    <h3><span class="list"></span>뮤직 리스트</h3>
+                    <h3><span class="list"></span>뮤직 리스트<a href="#" class="close"></a></h3>
                     <ul>
                         <!-- <li>
                             <strong>제목</strong>
@@ -147,7 +147,7 @@
         const cursor = document.querySelector(".cursor");
 
         window.addEventListener("mousemove", e => {
-            gsap.to(cursor, {duration: 0, left: e.pageX + 10 , top: e.pageY - 10});
+            gsap.to(cursor, {duration: 0, left: e.pageX -2 , top: e.pageY - 5});
         })
 
         icon.addEventListener("mouseover", e => {
@@ -158,18 +158,37 @@
             cursor.classList.remove("c2");
         })
 
-        function printTime(){
+         //시계
+         function printTime(){
+            //지금 시간 넣기기
             const clock = document.querySelector(".time");
             const now = new Date();
-            clock.textContent = now;
-            const nowTime = now.getFullYear() + "년 " + (now.getMonth() + 1) + "월 " + now.getDate() + "일 " + now.getHours() + "시 " + now.getMinutes() + "분 " + now.getSeconds() + "초 입니다.";
 
-            // if(getHours() > 12) (getMinutes() - 12) = "0" + getMinutes();
-            // if(getMinutes() < 10) getMinutes() = "0" + getMinutes();
-            // if(getSeconds() < 10) getSeconds() = "0" + getSeconds();
+            //한자리 숫자 앞에다 0을 넣어주기 위한 변수
+            let nowHours = now.getHours();
+            let nowMins = now.getMinutes();
+            let nowSecs = now.getSeconds();
+            if(nowHours > 12) {
+                nowHours = `${nowHours - 12}`
+            } else if(nowHours >= 0 &&  nowHours<=9){
+                nowHours = `0${nowHours}`
+            };
+            if(nowMins < 10) nowMins = `0${nowMins}`;
+            if(nowSecs < 10) nowSecs = `0${nowSecs}`;
 
+
+            let nowMonth = now.getMonth() + 1;
+            let nowDate = now.getDate();
+            if(nowMonth  < 10 ) nowMonth = `0${nowMonth}`
+            if(nowDate < 10 ) nowDate = `0${nowDate}`
+
+            //데이터에서 연도만 가져오기
+            const nowTime = now.getFullYear() + ". " +  nowMonth + ". " + nowDate + "| " + nowHours + "시 " + nowMins + "분 " + nowSecs + "초입니다."
+            
             clock.innerText = nowTime;
             setTimeout("printTime()", 1000);
+
+    
         }
 
         function printAgent(){
