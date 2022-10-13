@@ -231,6 +231,7 @@ musicListBtn.addEventListener("click", () => {
     musicList.classList.add("show");
 });
 
+// 뮤직 리스트 닫기 버튼
 musicListClose.addEventListener("click", () => {
     musicList.classList.remove("show");
 })

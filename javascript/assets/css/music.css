@@ -94,11 +94,19 @@
     background: url(../img/music_control_icon.svg);
     background-position: 96px 0;
 }
+.music__control .control .repeat:hover {
+    background: url(../img/music_control_over_icon.svg);
+    background-position: 96px 0;
+}
 .music__control .control .repeat_one {
     display: block;
     width: 24px;
     height: 24px;
     background: url(../img/music_control_icon.svg);
+    background-position: 72px 0;
+}
+.music__control .control .repeat_one:hover {
+    background: url(../img/music_control_over_icon.svg);
     background-position: 72px 0;
 }
 .music__control .control .shuffle {
@@ -108,6 +116,10 @@
     background: url(../img/music_control_icon.svg);
     background-position: 48px -2.5px;
 }
+.music__control .control .shuffle:hover {
+    background: url(../img/music_control_over_icon.svg);
+    background-position: 48px -2.5px;
+}
 .music__control .control .prev {
     display: block;
     width: 24px;
@@ -115,11 +127,19 @@
     background: url(../img/music_control_icon.svg);
     background-position: 168px 0;
 }
+.music__control .control .prev:hover {
+    background: url(../img/music_control_over_icon.svg);
+    background-position: 168px 0;
+}
 .music__control .control .next {
     display: block;
     width: 24px;
     height: 24px;
     background: url(../img/music_control_icon.svg);
+    background-position: 144px 0;
+}
+.music__control .control .next:hover {
+    background: url(../img/music_control_over_icon.svg);
     background-position: 144px 0;
 }
 .music__control .control .center {
@@ -134,6 +154,9 @@
     height: 24px;
     background: url(../img/music_control_icon.svg);
 }
+.music__control .control .play:hover {
+    background: url(../img/music_control_over_icon.svg);
+}
 .music__control .control .stop {
     display: block;
     width: 24px;
@@ -141,11 +164,19 @@
     background: url(../img/music_control_icon.svg);
     background-position: -24px 0;
 }
+.music__control .control .stop:hover {
+    background: url(../img/music_control_over_icon.svg);
+    background-position: -24px 0;
+}
 .music__control .control .list {
     display: block;
     width: 24px;
     height: 24px;
     background: url(../img/music_control_icon.svg);
+    background-position: 120px 0;
+}
+.music__control .control .list:hover {
+    background: url(../img/music_control_over_icon.svg);
     background-position: 120px 0;
 }
 .music__footer {
