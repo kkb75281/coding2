@@ -112,23 +112,25 @@ body {
 
 .icon_iframe iframe {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform : translate(-50%, -50%);
-    width: 99%;
-    height: 90%;
+    top: 50px;
+    left: 200px;
+    /* transform : translate(-50%, -50%); */
+    width: 85%;
+    height: 88%;
     z-index: 3;
 }
 .icon_iframe.show {
     display: block;
+    /* animation: foldOut 1s ease forwards; */
 }
 .icon_iframe {
+    /* transform: scale(0); */
     display: none;
 }
 .code_close {
     position: absolute;
-    top: 55px;
-    right: 30px;
+    top: 63px;
+    right: 35px;
     scale: 1.5;
     z-index: 4;
 }

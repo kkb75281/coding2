@@ -211,8 +211,18 @@
         })
 
         i6.addEventListener("click", ()=>{
-            $(".i6 img").attr("src", "../assets/img/game_folder_over16.png");
-            codeSite.classList.add("show");
+            // $(".i6 img").attr("src", "../assets/img/game_folder_over16.png");
+            // codeSite.classList.add("show");
+
+            if(i6.classList.contains("show")){
+                $(".i6 img").attr("src", "../assets/img/game_folder_icon16.png");
+                codeSite.classList.remove("show");
+                i6.classList.remove("show");
+            } else {
+                $(".i6 img").attr("src", "../assets/img/game_folder_over16.png");
+                codeSite.classList.add("show");
+                i6.classList.add("show");
+            }
         })
 
         codeExit.addEventListener("click", ()=>{

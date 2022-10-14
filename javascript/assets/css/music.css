@@ -267,6 +267,9 @@
     position: relative;
     padding: 7px 0 5px;
 }
+.music__list li:hover {
+    color: #fff;
+}
 .music__list li.playing {
     color: #73FBF9;
     /* background-color: rgba(0,0,0,0.3); */
