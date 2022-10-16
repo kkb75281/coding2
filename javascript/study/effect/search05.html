@@ -1,0 +1,160 @@
+<style>
+    .csum {
+        list-style: none;
+        margin: 20px auto;
+        width: 200px;
+        text-align: center;
+        padding: 10px;
+        background: #f5f5f5;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .csum:hover {
+        background: #d6d6d6;
+    }
+</style>
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">searchEffect | filter()를 이용하여 속성의 중요도 보여주기</h2>
+        <p class="t_box" style="text-align: center;">
+            <i>오늘의 목표</i><br>
+            💡 스크립트를 통해 속성 리스트를 나타내기<br>
+            💡 중요도에 따라 리스트 나타내기
+        </p>
+        <p class="t_box" style="text-align: center;">
+            <i>오늘의 미션</i><br>
+            👉🏻 난이도 1개 이상, 2개 이상,... 버튼 구현하기
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2">1. 사이트 구조 살펴보기</h3>
+        <div class="t_iframe" style="min-height : 1000px; padding-top: 0;">
+            <iframe src="https://kkb75281.github.io/coding2/javascript/effect/searchEffect05.html" frameborder="0"></iframe>
+        </div>
+        <div class="t_result">
+            <details>
+                <summary class="csum">HTML 살펴보기</summary>
+                <p class="t_box">속성 목록은 자바스크립트로 표현해주기 위해 비워두었습니다.</p>
+                <div class="t_code">
+<pre><code class=""language-js>&lt;main id="main"&gt;
+    &lt;div class="search__wrap"&gt;
+        &lt;span&gt;filter()를 이용하여 속성의 중요도 보여주기&lt;/span&gt;
+        &lt;h1&gt;CSS 속성 검색하기&lt;/h1&gt;
+
+        &lt;div class="search__click"&gt;
+            &lt;ul&gt;
+                &lt;li data-star="0"&gt;&lt;a href="#"&gt;☆☆☆☆☆&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-star="1"&gt;&lt;a href="#"&gt;★☆☆☆☆&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-star="2"&gt;&lt;a href="#"&gt;★★☆☆☆&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-star="3"&gt;&lt;a href="#"&gt;★★★☆☆&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-star="4"&gt;&lt;a href="#"&gt;★★★★☆&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-star="5"&gt;&lt;a href="#"&gt;★★★★★&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;ul&gt;
+                &lt;li data-num="1"&gt;&lt;a href="#"&gt;1개 이상&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-num="2"&gt;&lt;a href="#"&gt;2개 이상&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-num="3"&gt;&lt;a href="#"&gt;3개 이상&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-num="4"&gt;&lt;a href="#"&gt;4개 이상&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="search__info"&gt;
+            &lt;div&gt;
+                CSS 속성 갯수 : &lt;span class="num"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="search__list"&gt;
+            &lt;ul class="line"&gt;
+
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+</code></pre></div>
+            </details>
+        </div>
+
+        <h3 class="t_tit2">2. script 살펴보기</h3>
+        <h4 class="t_tit3">📌 속성 리스트 만들고 출력하기</h4>
+        <p class="t_box">
+            속성 리스트는 cssProperty 내 배열 속 객체로 만들어주었고 map을 활용하여 출력해주었습니다.
+        </p>
+        <h4 class="t_tit3">📌 난이도 버튼에 따라 리스트 나타내기</h4>
+        <p class="t_box">
+            아래 코드를 참고해주세요 !
+        </p>
+        <div class="t_code">
+<pre><code class="language-js">&lt;script&gt;
+    const cssProperty = [...]
+    const searchList = document.querySelector(".search__list ul");
+    const searchClick = document.querySelectorAll(".search__click ul li");
+
+    // 출력하기 (재활용이 가능한 함수)
+    function updateList(list){
+        listCSS = '';
+
+        // list 에서 받아온걸 data라고 칭할거다~
+        for(const data of list){
+            // listCSS += `&lt;li&gt;${data.name} : ${data.desc} &lt;em&gt;${data.star}&lt;/em&gt;&lt;/li&gt;`;
+
+            switch(data.star){
+                case 0:
+                    listCSS += `&lt;li&gt;${data.name} : ${data.desc} &lt;em&gt;☆☆☆☆☆&lt;/em&gt;&lt;/li&gt;`;
+                break;
+                case 1:
+                    listCSS += `&lt;li&gt;${data.name} : ${data.desc} &lt;em&gt;★☆☆☆☆&lt;/em&gt;&lt;/li&gt;`;
+                break;
+                case 2:
+                    listCSS += `&lt;li&gt;${data.name} : ${data.desc} &lt;em&gt;★★☆☆☆&lt;/em&gt;&lt;/li&gt;`;
+                break;
+                case 3:
+                    listCSS += `&lt;li&gt;${data.name} : ${data.desc} &lt;em&gt;★★★☆☆&lt;/em&gt;&lt;/li&gt;`;
+                break;
+                case 4:
+                    listCSS += `&lt;li&gt;${data.name} : ${data.desc} &lt;em&gt;★★★★☆&lt;/em&gt;&lt;/li&gt;`;
+                break;
+                case 5:
+                    listCSS += `&lt;li&gt;${data.name} : ${data.desc} &lt;em&gt;★★★★★&lt;/em&gt;&lt;/li&gt;`;
+                break;
+                default:
+                    listCSS += `&lt;li&gt;${data.name} : ${data.desc} &lt;em>검색 결과가 없습니다.&lt;/em>&lt;/li>`;
+                break;
+            }
+        }
+
+        searchList.innerHTML = listCSS;
+
+        const searchLine = document.querySelectorAll(".search__list ul li");
+        document.querySelector(".num").textContent=searchLine.length;
+    }
+    updateList(cssProperty);
+
+    // 클릭하기
+    searchClick.forEach(star => {
+        star.addEventListener("click", () => {
+            const targetStar = star.dataset.star;
+            const targetNum = star.dataset.num;
+            // find도 가능
+            // filter callback 함수 사용
+            const filterList = cssProperty.filter(data => data.star == targetStar || data.star >= targetNum);
+
+            updateList(filterList);
+        });
+    });
+&lt;/script&gt;
+</code></pre></div>
+
+        <div class="t_link">
+            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/javascript/effect/searchEffect05.html" target="_blank">원본 소스 보기</a>
+        </div>
+        <div class="t_link">
+            <a class="center" href="https://kkb75281.github.io/coding2/javascript/effect/searchEffect05.html" target="_blank">실제 사이트 보기</a>
+        </div>
+
+        
+        
+    </div>
+</main>

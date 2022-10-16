@@ -1,0 +1,346 @@
+<style>
+    .csum {
+        list-style: none;
+        margin: 20px auto;
+        width: 200px;
+        text-align: center;
+        padding: 10px;
+        background: #f5f5f5;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .csum:hover {
+        background: #d6d6d6;
+    }
+</style>
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">searchEffect | sort(), reverse()를 이용하여 정렬하기</h2>
+        <p class="t_box" style="text-align: center;">
+            <i>오늘의 목표</i><br>
+            💡 여러 정렬 구현하기(오름차순, 내림차순, 알파벳순, ...)<br>
+            💡 랜덤 정렬하기
+            💡 카테고리별 정렬하기
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2">1. 사이트 구조 살펴보기</h3>
+        <div class="t_iframe" style="min-height : 1000px; padding-top: 0;">
+            <iframe src="https://kkb75281.github.io/coding2/javascript/effect/searchEffect06.html" frameborder="0"></iframe>
+        </div>
+        <div class="t_result">
+            <details>
+                <summary class="csum">HTML 살펴보기</summary>
+                <p class="t_box">속성 목록은 자바스크립트로 표현해주기 위해 비워두었습니다.</p>
+                <div class="t_code">
+<pre><code class=""language-js>&lt;main id="main"&gt;
+    &lt;div class="search__wrap"&gt;
+        &lt;span&gt;sort(), reverse()를 이용하여 정렬하기&lt;/span&gt;
+        &lt;h1&gt;CSS 속성 정렬하기&lt;/h1&gt;
+
+        &lt;div class="search__click"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#" class="btn1"&gt;반대로 정렬하기&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" class="btn2"&gt;오름차순 정렬하기&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" class="btn3"&gt;내림차순 정렬하기&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" class="btn4"&gt;알파벳순(a~z)&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" class="btn5"&gt;알파벳순(z~a)&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" class="btn6"&gt;랜덤 정렬하기&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" class="btn7"&gt;카테고리별 정렬하기&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;ul class="btnCate"&gt;
+                &lt;li data-cate="animation"&gt;&lt;a href="#"&gt;animation&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="background"&gt;&lt;a href="#"&gt;background&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="border"&gt;&lt;a href="#"&gt;border&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="column"&gt;&lt;a href="#"&gt;column&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="flex"&gt;&lt;a href="#"&gt;flex&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="font"&gt;&lt;a href="#"&gt;font&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="grid"&gt;&lt;a href="#"&gt;grid&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="inset"&gt;&lt;a href="#"&gt;inset&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="line"&gt;&lt;a href="#"&gt;line&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="list"&gt;&lt;a href="#"&gt;list&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="margin"&gt;&lt;a href="#"&gt;margin&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="mask"&gt;&lt;a href="#"&gt;mask&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="max"&gt;&lt;a href="#"&gt;max&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="min"&gt;&lt;a href="#"&gt;min&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="offset"&gt;&lt;a href="#"&gt;offset&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="outline"&gt;&lt;a href="#"&gt;outline&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="overflow"&gt;&lt;a href="#"&gt;overflow&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="overscroll"&gt;&lt;a href="#"&gt;overscroll&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="padding"&gt;&lt;a href="#"&gt;padding&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="scroll"&gt;&lt;a href="#"&gt;scroll&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="text"&gt;&lt;a href="#"&gt;text&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="transform"&gt;&lt;a href="#"&gt;transform&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="transition"&gt;&lt;a href="#"&gt;transition&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-cate="etc"&gt;&lt;a href="#"&gt;etc&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="search__info"&gt;
+            &lt;div&gt;
+                CSS 속성 갯수 : &lt;span class="num"&gt;382&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="search__list"&gt;
+            &lt;ul class="line"&gt;&lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+</code></pre></div>
+            </details>
+        </div>
+
+        <h3 class="t_tit2">2. script 살펴보기</h3>
+        <h4 class="t_tit3">📌 sort( ) 활용하여 정렬하기</h4>
+        <p class="t_box">
+            sort( )를 이용하여 속성을 내림차순/오름차순/알파벳순/카테고리별로 정렬해주었습니다.
+            자세한 코드는 아래를 확인해주세요 !
+        </p>
+        <h4 class="t_tit3">📌 random( ) 활용하여 정렬하기</h4>
+        <p class="t_box">
+            random( )을 이용하여 중복없이 무작위로 숫자가 나오도록 설정하여 index값에 대입해 랜덤 정렬을 설정해주었습니다.
+        </p>
+        <div class="t_code">
+<pre><code class="language-js">&lt;script&gt;
+    const cssProperty = [...]
+    const cssList = document.querySelector(".search__list .line");
+    const cssCategory = document.querySelectorAll(".btnCate li a");
+    
+    // 데이터 출력하기
+    const updateList = () => {
+        let listCSS = "";
+        
+        cssProperty.forEach((data, index) => {
+            listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>${data.category}</em></li>`;
+        });
+        
+        cssList.innerHTML = listCSS;
+        // console.log(listCSS)
+
+    }
+    updateList();
+
+    // 반대로 정렬
+    function sortReverse(){
+        cssProperty.reverse();
+        updateList();
+    }
+
+    // 내림차순 정렬
+    function sortDescending(){
+        cssProperty.sort((a,b) => {
+            return b.num - a.num;
+        })
+        updateList();
+    }
+
+    // 오름차순 정렬
+    function sortAscending(){
+        cssProperty.sort((a,b) => {
+            return a.num - b.num;
+        })
+        updateList();
+    }
+
+    // a~z (미션)
+    function sortAlphabet(){
+        cssProperty.sort((a, b) => {
+            let x = a.name;
+            let y = b.name;
+            return x.localeCompare(y);
+        });
+        updateList();
+    }
+
+    // z~a (미션)
+    function sortAlphabetZ(){
+        cssProperty.sort((a, b) => {
+            let x = a.name;
+            let y = b.name;
+            return y.localeCompare(x);
+        });
+        updateList();
+    }
+
+    // 랜덤 정렬
+    function shuffle(){
+        for( let i = cssProperty.length-1; i >= 0; i--){
+            const randomIndex = Math.floor(Math.random() * (i + 1));
+            // console.log(randomIndex);
+            // 중복없이 무작위로 숫자 나오게 설정
+            [cssProperty[i], cssProperty[randomIndex]] = [cssProperty[randomIndex], cssProperty[i]];
+            cssProperty.innerHTML += cssProperty[i];
+        }
+        updateList();
+    }
+
+    // 카테고리별 정렬
+    function sortCate(){
+        cssProperty.sort((a, b) => {
+            let x = a.category;
+            let y = b.name;
+            console.log(y)
+            return x.localeCompare(y);
+        });
+        updateList();
+    }
+
+    // 반대로 정렬 클릭
+    document.querySelector(".btn1").addEventListener("click", ()=>{
+        sortReverse();
+    });
+
+    // 내림차순 정렬 클릭
+    document.querySelector(".btn3").addEventListener("click", ()=>{
+        sortDescending();
+    });
+
+    // 오름차순 정렬 클릭
+    document.querySelector(".btn2").addEventListener("click", ()=>{
+        sortAscending();
+    });
+
+    // a~z 정렬 클릭
+    document.querySelector(".btn4").addEventListener("click", (e) => {
+        e.preventDefault();
+        sortAlphabet();
+    });
+
+    // z~a 정렬 클릭
+    document.querySelector(".btn5").addEventListener("click", (e) => {
+        e.preventDefault();
+        sortAlphabetZ();
+    });
+
+    // 랜덤 정렬 클릭
+    // return Math.random() - cssProperty.length/2
+    document.querySelector(".btn6").addEventListener("click", (e)=>{
+        e.preventDefault();
+        shuffle(cssProperty);
+    });
+
+    // 카테고리 정렬 클릭
+    document.querySelector(".btn7").addEventListener("click", (e) => {
+        e.preventDefault();
+        sortCate();
+    });
+
+    // 카테고리 단어별
+    function updateList2(list){
+        listCSS = '';
+
+        for(const data of list){
+
+            switch(data.category){
+                case "animation":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>animation</em></li>`;
+                break;
+                case "background":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>background</em></li>`;
+                break;
+                case "border":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>border</em></li>`;
+                break;
+                case "column":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>column</em></li>`;
+                break;
+                case "flex":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>flex</em></li>`;
+                break;
+                case "break":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>break</em></li>`;
+                break;
+                case "font":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>font</em></li>`;
+                break;
+                case "grid":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>grid</em></li>`;
+                break;
+                case "inset":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>inset</em></li>`;
+                break;
+                case "line":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>line</em></li>`;
+                break;
+                case "list":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>list</em></li>`;
+                break;
+                case "margin":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>margin</em></li>`;
+                break;
+                case "mask":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>mask</em></li>`;
+                break;
+                case "max":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>max</em></li>`;
+                break;
+                case "min":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>min</em></li>`;
+                break;
+                case "offset":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>offset</em></li>`;
+                break;
+                case "outline":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>outline</em></li>`;
+                break;
+                case "overflow":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>overflow</em></li>`;
+                break;
+                case "overscroll":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>overscroll</em></li>`;
+                break;
+                case "padding":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>padding</em></li>`;
+                break;
+                case "scroll":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>scroll</em></li>`;
+                break;
+                case "text":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>text</em></li>`;
+                break;
+                case "transform":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>transform</em></li>`;
+                break;
+                case "transition":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>transition</em></li>`;
+                break;
+                case "etc":
+                    listCSS += `<li>${data.num}. ${data.name} : ${data.desc} <em>etc</em></li>`;
+                break;
+                default:
+                    listCSS += `<li>해당하는 카테고리가 없습니다.</li>`;
+                break;
+            }
+        }
+
+        cssList.innerHTML = listCSS;
+        
+    }
+    updateList2(cssProperty);
+
+    // 카테고리 버튼 클릭
+    cssCategory.forEach(cate => {
+        cate.addEventListener("click", (e) => {
+            e.preventDefault();
+            const targetCate = cate.dataset.cate;
+            const filterList = cssProperty.filter(data => data.category == targetCate);
+            updateList2(filterList);
+        });
+    });
+&lt;/script&gt;
+</code></pre></div>
+
+        <div class="t_link">
+            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/javascript/effect/searchEffect06.html" target="_blank">원본 소스 보기</a>
+        </div>
+        <div class="t_link">
+            <a class="center" href="https://kkb75281.github.io/coding2/javascript/effect/searchEffect06.html" target="_blank">실제 사이트 보기</a>
+        </div>
+
+        
+        
+    </div>
+</main>

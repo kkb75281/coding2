@@ -1,0 +1,345 @@
+<style>
+    .csum {
+        list-style: none;
+        margin: 20px auto;
+        width: 200px;
+        text-align: center;
+        padding: 10px;
+        background: #f5f5f5;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .csum:hover {
+        background: #d6d6d6;
+    }
+</style>
+<main id="main">
+    <div class="document">
+        <h2 class="t_tit">parallaxEffect | 리빌(Reveal) 효과</h2>
+        <p class="t_box" style="text-align: center;">
+            <i>오늘의 목표</i><br>
+            👉🏻 스크롤을 내렸을때 이미지와 글씨에 리빌 효과 주기
+        </p>
+
+        <hr>
+
+        <h3 class="t_tit2">1. 사이트 구조 살펴보기</h3>
+        <div class="t_iframe" style="min-height : 1000px; padding-top: 0;">
+            <iframe src="https://kkb75281.github.io/coding2/javascript/effect/parallaxEffect07.html" frameborder="0"></iframe>
+        </div>
+        <div class="t_result">
+            <details>
+                <summary class="csum">HTML 살펴보기</summary>
+                <div class="t_code">
+<pre><code class=""language-js>&lt;main id="parallax__cont"&gt;
+    &lt;div id="contents"&gt;
+        &lt;section id="section1" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;01&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section1&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc split reveal"&gt;우선 무엇이 되고자 하는가를 자신에게 말하라 그리고 해야 할일을 하라.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section1 --&gt;
+
+        &lt;section id="section2" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;02&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section2&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal-RTL"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc split reveal reveal-RTL" data-delay="500"&gt;이미 끝나버린 일을 후회하기 보다는 하고 싶었던 일들을 하지 못한 것을 후회하라.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section2 --&gt;
+
+        &lt;section id="section3" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;03&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section3&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal-TTB"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc split reveal reveal-TTB" data-delay="500"&gt;문제는 목적지에 얼마나 빨리 가느냐가 아니라 그 목적지가 어디냐는 것이다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section3 --&gt;
+
+        &lt;section id="section4" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;04&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section4&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal-TWO" data-delay="1500"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc split reveal reveal-TWO"&gt;도저히 손댈 수가 없는 곤란에 부딪혔다면 과감하게 그 속으로 뛰어들라.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section4 --&gt;
+
+        &lt;section id="section5" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;05&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section5&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal-TWO reveal-RTL"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc split reveal reveal-TWO reveal-RTL"&gt;당신이 할수 있다고 믿든 할수 없다고 믿든 믿는 대로 될것이다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section5 --&gt;
+
+        &lt;section id="section6" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;06&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section6&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal-TWO reveal-TTB"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc split reveal reveal-TWO reveal-TTB"&gt;마음만을 가지고 있어서는 안된다. 반드시 실천하여야 한다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section6 --&gt;
+
+        &lt;section id="section7" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;07&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section7&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal-TWO reveal-BTT"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc split reveal reveal-TWO reveal-BTT"&gt;꿈을 계속 간직하고 있으면 반드시 실현할 때가 온다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section7 --&gt;
+
+        &lt;section id="section8" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;08&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section8&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc split reveal"&gt;오랫동안 꿈을 그리는 사람은 마침내 그 꿈을 닮아 간다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section8 --&gt;
+
+        &lt;section id="section9" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;09&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section9&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal-RTL"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc split reveal reveal-RTL"&gt;먼저 핀 꽃은 먼저진다. 남보다 먼저 공을 세우려고 조급히 서둘것이 아니다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section9 --&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+</code></pre></div>
+            </details>
+
+            <details>
+                <summary class="csum">CSS 살펴보기</summary>
+                <div class="t_code">
+<pre><code class=""language-js>&lt;style&gt;
+    /* parallax__info */
+    #parallax__info {
+        position: fixed;
+        left: 20px;
+        bottom: 20px;
+        z-index: 2000px;
+        background: rgba(0,0,0,0.6);
+        color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    #parallax__info li, .scrollTop {
+        line-height: 1.4;
+    }
+
+    @media (max-width: 800px) {
+        #parallax__cont {
+            margin-top: 70vw;
+        }
+        #parallax__nav {
+            padding: 10px;
+            right: auto;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 5px;
+            background-color: rgba(0,0,0,0.8);
+        }
+        #parallax__nav li {
+            display: block;
+            margin: 5px;
+        }
+        #parallax__nav li a {
+            font-size: 14px;
+            padding: 5px;
+            border-radius: 5px;
+            height: auto;
+            line-height: 1;
+        }
+        #parallax__nav li.active a {
+            border-radius: 5px;
+        }
+    }
+
+    /* option */
+    .reveal > div,
+    .reveal > span {  
+        opacity: 0;
+    }
+    .reveal.show > div,
+    .reveal.show > span {
+        animation: opacity 1s linear forwards;
+    }
+    .reveal {
+        position: relative;
+    }
+    .reveal::before {
+        position: absolute;
+        content: '';
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 100%;
+        background: #999;
+        z-index: 1;
+    }
+    .reveal.reveal-TWO::after {
+        position: absolute;
+        content: '';
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 100%;
+        z-index: 1;
+        background: #000;
+    }
+
+    /* reveal-ONE */
+    .reveal.show::before {
+        animation: reveal 1s;
+    }
+    .reveal-RTL.show::before  {
+        animation: reveal-RTL 1s;
+    }
+    .reveal-TTB.show::before  {
+        animation: reveal-TTB 1s;
+    }
+    .reveal-BTT.show::before  {
+        animation: reveal-BTT 1s;
+    }
+
+    /* reveal-TWO */
+    .reveal.show::after {
+        animation: reveal 1s 0.3s;
+    }
+    .reveal.reveal-RTL.show::after {
+        animation: reveal-RTL 1s 0.3s;
+    }
+    .reveal.reveal-TTB.show::after {
+        animation: reveal-TTB 1s 0.3s;
+    }
+    .reveal.reveal-BTT.show::after {
+        animation: reveal-BTT 1s 0.3s;
+    }
+
+    .content__item__num,
+    .content__item__title {
+        display: none;
+    }
+
+    @keyframes opacity {
+        0% {opacity: 0;}
+        60% {opacity: 0;}
+        70% {opacity: 1;}
+        100% {opacity: 1;}
+    }
+    @keyframes reveal {
+        0% {width: 0; left: 0;}
+        50% {width: 100%; left: 0;}
+        80% {width: 100%; left: 0;}
+        100% {width: 0; left: 100%;}
+    }
+    @keyframes reveal-RTL {
+        0% {width: 0; right: 0; left: auto;}
+        50% {width: 100%; right: 0; left: auto;}
+        80% {width: 100%; right: 0; left: auto;}
+        100% {width: 0; right: 100%; left: auto;}
+    }
+    @keyframes reveal-TTB {
+        0% {width: 100%; height: 0; top: 0;}
+        50% {width: 100%; height: 100%; top: 0;}
+        80% {width: 100%; height: 100%; top: 0;}
+        100% {width: 100%; height: 0; top: 100%;}
+    }
+    @keyframes reveal-BTT {
+        0% {width: 100%; height: 0; bottom: 0; top: auto;}
+        50% {width: 100%; height: 100%; bottom: 0; top: auto;}
+        80% {width: 100%; height: 100%; bottom: 0; top: auto;}
+        100% {width: 100%; height: 0; bottom: 100%; top: auto;}
+    }
+&lt;/style&gt;
+</code></pre></div>
+            </details>
+        </div>
+
+        <h3 class="t_tit2">3. script 살펴보기</h3>
+        <h4 class="t_tit3">📌 클래스 자식요소를 span으로 감싸주기</h4>
+        <p class="t_box">
+            하나씩 html을 고치는 방법도 있겠지만 내용이 많을 경우 하나하나 고치기는 힘들기 때문에 자바스크립트를 활용해 바꿔줍니다.
+            이번 리빌 효과에서는 리빌 클래스 자식요소에 글씨만 있을 경우에만 가상으로 span 태그를 만들어서 감싸주었습니다.
+            reveal 클래스가 여러개이므로 querySelectorAll을 통해 선택해주고 forEach를 활용해 각 요소의 텍스트에 span 태그를 붙여줍니다.
+        </p>
+        <h4 class="t_tit3">📌 스크롤에 따라 reveal 클래스에 또다른 클래스 추가시키기</h4>
+        <p class="t_box">
+            스크롤에 따라 일정 위치에 도착했을 경우 reveal 클래스에 show를 주고 딜레이 효과를 주어 리빌 효과를 만들어줍니다.
+        </p>
+        <div class="t_code">
+<pre><code class=""language-js>&lt;script&gt;
+    // reveal 클래스 자식요소에 글씨만 있다면, 가상으로 span 태그를 만들어서 넣어주세요 !
+    document.querySelectorAll(".reveal").forEach(el => {
+        let text = el.innerText;
+        // console.log(text);  
+        if(text){
+            el.innerHTML = "<span>" + text + "</span>";
+        }
+    });
+
+    function scroll(){
+        let scrollTop = window.scrollY;
+
+        const reveal = document.querySelectorAll(".reveal");
+
+        reveal.forEach(el => {
+            let revealOffset = el.offsetTop + el.parentElement.offsetTop;
+            let revealDelay = el.dataset.delay;
+
+            // if(scrollTop > revealOffset - window.innerHeight){
+            //     el.classList.add("show");
+            // }
+
+            if(scrollTop >= revealOffset - window.innerHeight){
+                if(revealDelay == undefined){
+                    el.classList.add("show");
+                } else {
+                    setTimeout(() => {
+                        el.classList.add("show");
+                    }, revealDelay)
+                }
+            }
+        });
+
+        document.querySelector("#parallax__info .scroll").innerText = Math.round(scrollTop);
+        requestAnimationFrame(scroll);
+    }
+    scroll();
+&lt;/script&gt;
+</code></pre></div>
+
+        <hr>
+
+        <div class="t_link">
+            <a class="center" href="https://github.com/kkb75281/coding2/blob/main/javascript/effect/parallaxEffect07.html" target="_blank">원본 소스 보기</a>
+        </div>
+        <div class="t_link">
+            <a class="center" href="https://kkb75281.github.io/coding2/javascript/effect/parallaxEffect07.html" target="_blank">실제 사이트 보기</a>
+        </div>
+
+        
+        
+    </div>
+</main>
