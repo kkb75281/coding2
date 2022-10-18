@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="../assets/css/game.css">
     <link rel="stylesheet" href="../assets/css/music.css">
+    <link rel="stylesheet" href="../assets/css/searchgame.css">
 </head>
 <body>
     <div class="cursor">
@@ -33,7 +34,7 @@
             </div>
             <div class="icon i2">
                 <img src="../assets/img/game_folder_icon12.png" alt="2">
-                <span>aaa</span>
+                <span>search</span>
             </div>
             <div class="icon i3">
                 <img src="../assets/img/game_folder_icon12.png" alt="3">
@@ -121,6 +122,57 @@
     </div>
     <!-- //music player -->
 
+    <!-- search_game -->
+    <div class="search__wrap">
+        <div class="search__inner">
+            <div class="search__audio">
+                <span class="play">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 6.3706C15 4.65827 12.9884 3.73774 11.6926 4.85712L8.36317 7.73321C7.99989 8.04704 7.53583 8.21972 7.05576 8.21973L5.49998 8.21974C4.11928 8.21975 3 9.33903 3 10.7197V14.0127C3 15.3934 4.11929 16.5127 5.5 16.5127H7.0558C7.53587 16.5127 7.99993 16.6854 8.36322 16.9992L11.6926 19.8753C12.9884 20.9947 15 20.0741 15 18.3618V12.3662V6.3706Z" fill="#223547" stroke="#223547" stroke-width="1.5"/>
+                        <path d="M18 15.3667C18.6279 14.531 19 13.4923 19 12.3667C19 11.2411 18.6279 10.2024 18 9.3667" stroke="#223547" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M20 18.3667C21.2558 16.6954 22 14.6179 22 12.3667C22 10.1155 21.2558 8.03802 20 6.3667" stroke="#223547" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </span>
+                <span class="stop">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 6.3706C14 4.65827 11.9884 3.73774 10.6926 4.85712L7.36317 7.73321C6.99989 8.04704 6.53583 8.21972 6.05576 8.21973L4.49998 8.21974C3.11928 8.21975 2 9.33903 2 10.7197V14.0127C2 15.3934 3.11929 16.5127 4.5 16.5127H6.0558C6.53587 16.5127 6.99993 16.6854 7.36322 16.9992L10.6926 19.8753C11.9884 20.9947 14 20.0741 14 18.3618V12.3662V6.3706Z" fill="#223547" stroke="#223547" stroke-width="1.5"/>
+                        <path d="M18 14.1215L22.2427 9.87891" stroke="#223547" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M18 9.87894L22.2427 14.1216" stroke="#223547" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                <audio id="audio" src="../assets/audio/search_game_bg.mp3" loop="loop"></audio>
+            </div>
+
+            <div class="search__header neonText">
+                <h2>누가누가 더 많이?</h2>
+                <span>CSS 속성 외우고 1등하자!</span>
+            </div>
+
+            <div class="time">
+                <span>2:00</span>
+            </div>
+
+            <div class="search__box">
+                <label for="search">검색하기</label>
+                <input type="text" id="search" placeholder="CSS 속성을 입력해주세요!">
+                <div class="start">게임 시작!</div>
+            </div>
+
+            <div class="search__info center">
+                <div>전체 속성 갯수 : <span class="num">0</span></div>
+                <div>현재 맞춘 갯수 : <span class="now">0</span></div>
+            </div>
+
+            <div class="search__answers"></div>
+
+            <div class="search__missAnswers"></div>
+
+            <div class="search__list"></div>
+
+        </div>
+    </div>
+    <!-- //search_game -->
+
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="../assets/js/gsap.min.js"></script>
@@ -143,6 +195,7 @@
         const i6 = document.querySelector(".i6");
         const cursor = document.querySelector(".cursor");
         const musicBox = document.querySelector(".music__wrap");
+        const searchGame = document.querySelector(".search__wrap");
         const codeSite = document.querySelector(".icon_iframe");
         const codeExit = document.querySelector(".code_close");
 
@@ -166,11 +219,11 @@
             if(i2.classList.contains("active")){
                 $(".i2 img").attr("src", "../assets/img/game_folder_icon12.png");
                 i2.classList.remove("active");
-                i2.classList.remove("show");
+                searchGame.classList.remove("show");
             } else {
                 $(".i2 img").attr("src", "../assets/img/game_folder_over12.png");
                 i2.classList.add("active");
-                i2.classList.add("show");
+                searchGame.classList.add("show");
             }
         })
 
