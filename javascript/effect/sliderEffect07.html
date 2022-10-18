@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>슬라이드 이펙트06</title>
+    <title>슬라이드 이펙트07</title>
 
     <link rel="stylesheet" href="../assets/css/slider.css">
     <link href="https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css" rel="stylesheet">
@@ -24,7 +24,7 @@
             position: relative;
             width: 600px;
             height: 400px;
-            overflow: hidden;
+            /* overflow: hidden; */
         }
         /* 이미지 감싸고 있는 부모 : 움직이는 부분 */
         .slider__inner {
@@ -116,22 +116,56 @@
         .slider__dot .dot.active {
             background: rgba(255,255,255,0.9);
         }
+        .slider__dot .play {
+            display: inline-block;
+            width: 23px;
+            height: 20px;
+            margin-left: 7px;
+            vertical-align: -5.5px;
+            border-left: 14px solid #fff;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+        }
+        .slider__dot .stop {
+            display: inline-block;
+            width: 16px;
+            height: 20px;
+            margin-left: 7px;
+            vertical-align: -5.5px;
+            position: relative;
+        }
+        .slider__dot .stop::before {
+            content: '';
+            width: 5px;
+            height: 20px;
+            background: #fff;
+            position: absolute;
+            left: 0; top: 0;
+        }
+        .slider__dot .stop::after {
+            content: '';
+            width: 5px;
+            height: 20px;
+            background: #fff;
+            position: absolute;
+            right: 0; top: 0;
+        }
 
         
     </style>
 </head>
 <body class="img13">
     <header id="header">
-        <h1>JAVASCRIPT Slider Effect06</h1>
-        <p>슬라이드 이펙트 - 이미지 슬라이드(버튼, 닷메뉴, 무한)</p>
+        <h1>JAVASCRIPT Slider Effect07</h1>
+        <p>슬라이드 이펙트 - 이미지 슬라이드(버튼, 닷메뉴, 무한, 플레이, 정지, 자동 플레이)</p>
         <ul>
             <li><a href="sliderEffect01.html">1</a></li>
             <li><a href="sliderEffect02.html">2</a></li>
             <li><a href="sliderEffect03.html">3</a></li>
             <li><a href="sliderEffect04.html">4</a></li>
             <li><a href="sliderEffect05.html">5</a></li>
-            <li class="active"><a href="sliderEffect06.html">6</a></li>
-            <li><a href="sliderEffect07.html">7</a></li>
+            <li><a href="sliderEffect06.html">6</a></li>
+            <li class="active"><a href="sliderEffect07.html">7</a></li>
         </ul>
     </header>
     <!-- //header -->
@@ -367,9 +401,9 @@ setInterval(sliderEffect, 2000);
         const sliderBtn = document.querySelector(".slider__btn");                 // 버튼
         const sliderBtnPrev = document.querySelector(".slider__btn .prev");       // 왼쪽 버튼
         const sliderBtnNext = document.querySelector(".slider__btn .next");       // 오른쪽 버튼
+        const sliderBtnPlay = document.querySelector(".slider__dot .play");       // 재생 버튼
+        const sliderBtnStop = document.querySelector(".slider__dot .stop");       // 정지 버튼
 
-
-        // 이미지 끊기지 않도록 1번 앞에 5번, 5번 뒤에 1번 붙여서 처리
 
         let currentIndex = 0,
             sliderLength = slider.length,
@@ -378,51 +412,60 @@ setInterval(sliderEffect, 2000);
             sliderLast = slider[sliderLength -1],       // 마지막 이미지
             cloneFirst = sliderFirst.cloneNode(true),   // 첫번째 이미지 복사
             cloneLast = sliderLast.cloneNode(true),     // 마지막 이미지 복사
-            dotIndex = "";
+            dotIndex = "",
+            interval = 1000,
+            sliderTimer = "";
 
-
-        // appendChild 제일 마지막 자식에 첫번째 슬라이드 복사
-        sliderInner.appendChild(cloneFirst);
-        sliderInner.insertBefore(cloneLast, sliderFirst);
 
         function init(){
-            // 이미지 갯수 만큼 닷메뉴 생기도록
-            // slider.forEach(() => {dotIndex += "<a href='#' class='dot'>이미지1</a>";});
-            // sliderDot.innerHTML = dotIndex;
-            for(let i=0; i<sliderLength; i++){
-                dotIndex += "<a href='#' class='dot'>이미지1</a>";
-            }
-            sliderDot.innerHTML = dotIndex;
-            sliderDot.firstElementChild.classList.add("active");
+            imgClone();         // 이미지 복사
+            createDot();        // 닷버튼 생성
+            autoPlay();
         }
         init();
 
-        // 이미지 이동
-        function gotoSlider(direction){
+        function autoPlay(){
+            sliderTimer = setInterval(() => {
+                let intervalNum = currentIndex + 1;
+                gotoSlider(intervalNum);
+            }, interval)
+        }
 
-            sliderInner.classList.add("transition");
-            sliderBtn.classList.add("disable");
-            posInitial = sliderInner.offsetLeft;
-            console.log(posInitial);
+        function stopPlay(){
+            clearInterval(sliderTimer);
+        }
 
-            if(direction == -1){
-                sliderInner.style.left = (posInitial + sliderWidth) + "px";
-                currentIndex--;
-            } else if(direction == 1){
-                sliderInner.style.left = (posInitial - sliderWidth) + "px";
-                currentIndex++;
+        function imgClone(){
+            sliderInner.appendChild(cloneFirst);
+            sliderInner.insertBefore(cloneLast, sliderFirst);
+        }
+
+        function createDot(){
+            for(let i=0; i<sliderLength; i++){
+                dotIndex += "<a href='#' class='dot'>이미지1</a>";
             }
 
+            dotIndex += "<a href='#' class='play'></a>";
+            dotIndex += "<a href='#' class='stop'></a>";
+
+            sliderDot.innerHTML = dotIndex;
+            sliderDot.firstElementChild.classList.add("active");
+            document.querySelector(".slider__dot .stop").style.display = "none";
+        }
+
+        function gotoSlider(index){
+            sliderInner.classList.add("transition");
+            let posInitial = sliderInner.offsetLeft;    // -600
+            sliderInner.style.left = -sliderWidth * (index + 1) + "px";
+
+            currentIndex = index;
+            
             
         }
 
-        // 순간이동 이미지 슬라이드
         function checkIndex(){
             sliderInner.classList.remove("transition");
 
-            console.log(currentIndex);
-
-            // trnasition이 사라졌기 때문에 순간적으로 이동함
             // 마지막 이미지
             if(currentIndex == sliderLength){
                 sliderInner.style.left = -(1 * sliderWidth) + "px";
@@ -435,26 +478,37 @@ setInterval(sliderEffect, 2000);
                 currentIndex = sliderLength - 1;
             }
 
-            // 닷메뉴 숙제
+            // 닷버튼
             let dotActive = document.querySelectorAll(".slider__dot .dot");
             dotActive.forEach(el => el.classList.remove("active"));
             dotActive[currentIndex].classList.add("active");
         }
 
         sliderBtnPrev.addEventListener("click", () => {
-            gotoSlider(-1);
-            setTimeout(()=>{
-                sliderBtn.classList.remove("disable");
-            },300);
+            let prevIndex = currentIndex -1;
+            gotoSlider(prevIndex);
         });
-        sliderBtnNext.addEventListener("click", () => {
-            gotoSlider(1);
-            setTimeout(()=>{
-                sliderBtn.classList.remove("disable");
-            },300);
-        });
-        sliderInner.addEventListener("transitionend", checkIndex);
 
+        sliderBtnNext.addEventListener("click", () => {
+            let nextIndex = currentIndex +1;
+            gotoSlider(nextIndex);
+        });
+
+        document.querySelector(".slider__dot .play").addEventListener("click", () => {
+            document.querySelector(".slider__dot .play").style.display = "none";
+            document.querySelector(".slider__dot .stop").style.display = "inline-block";
+            stopPlay();
+        });
+
+        document.querySelector(".slider__dot .stop").addEventListener("click", () => {
+            document.querySelector(".slider__dot .stop").style.display = "none";
+            document.querySelector(".slider__dot .play").style.display = "inline-block";
+            autoPlay();
+        })
+
+        sliderInner.addEventListener("mouseenter", stopPlay);
+        sliderInner.addEventListener("mouseleave", autoPlay);
+        sliderInner.addEventListener("transitionend", checkIndex);
 
 
 
