@@ -18,13 +18,13 @@
 }
 
 .search__inner {
-  width: 72%;
-  height: 72%;
+  width: 85%;
+  height: 88%;
   background: rgba(0,0,0,0.6);
   backdrop-filter: blur(5px);
   position: absolute;
-  top: 14%;
-  right: 10%;
+  top: 50px;
+  left: 200px;
   padding: 50px;
   border: 1px solid #000;
   text-align: center;
@@ -33,11 +33,8 @@
 }
 
 .search__audio span svg {
-    position: absolute;
     width: 24px;
     height: 24px;
-    left: 20px;
-    top: 20px;
 }
 
 .search__inner>span {
@@ -81,15 +78,19 @@
 }
 
 .search__inner .timer {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 auto;
     color: #fff;
-    font-size: 20px;
 }
 
 .search__inner .timer span {
   color: #fff;
+  font-size: 34px;
+  font-weight: 100;
 }
 
 .search__box {
@@ -127,12 +128,7 @@
   border: 2px solid #73FBF9;
   padding: 15px 20px;
   color: #333;
-}
-
-.search__box .start:hover {
-  background: #333;
-  color: #73FBF9;
-  box-shadow: inset 3px 3px 30px 3px #73fbf934;
+  cursor: pointer;
 }
 
 .search__list {
@@ -342,11 +338,6 @@
   margin-top: 10px;
   cursor: pointer;
 }
-.search__result .restart:hover {
-  background: #333;
-  color: #EA3CF1;
-  box-shadow: inset 3px 3px 30px 3px #eb3cf133;
-}
 
 .search__audio {
   cursor: pointer;
@@ -424,7 +415,7 @@
 
 .search__answers {
   border-bottom: 2px dashed var(--htmlColor);
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   display: none;
 }
 
