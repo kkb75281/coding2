@@ -400,7 +400,7 @@ const music = document.querySelector(".search__audio #audio");
 const searchWrap = document.querySelector(".search__wrap");
 const searchHint = document.querySelector(".search__info .hint"); //힌트 버튼
 
-let timeReamining = 5,
+let timeReamining = 120,
     answers = {},
     score = 0;
     timeInterval = "",    

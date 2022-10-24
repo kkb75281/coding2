@@ -223,7 +223,7 @@
 	font-family: 'Gaegu', cursive; font-size: 40px;
 }
 #contents_tit p a {
-	color:#2c94c4; 
+	color:#7796e6; 
 }
 
 
@@ -280,51 +280,50 @@
 }
 
 .gridly .webstandard a {
-	color: #157ed3;
+	color: #7796e6;
 	display: block;
-	border-bottom: 3px solid #a5d5fa;
+	border-bottom: 3px solid #7796e6;
 	margin-right: 20px;
 } 
 .gridly .html5 a {
-	color: #8432c4;
+	color: #7796e6;
 	display: block;
-	border-bottom: 3px solid #8432c4;
+	border-bottom: 3px solid #7796e6;
 	margin-right: 20px;
 	
 }
 .gridly .photoshop a {
-	color: #8ccc3d;
+	color: #7796e6;
 	display: block;
-	border-bottom: 3px solid #8ccc3d;
+	border-bottom: 3px solid #7796e6;
 	margin-right: 20px;
 }
 .gridly .illustrator a {
-	color: #8ccc3d;
+	color: #7796e6;
 	display: block;
-	border-bottom: 3px solid #8ccc3d;
+	border-bottom: 3px solid #7796e6;
 	margin-right: 20px;
 }
 .gridly .javascript a {
-	color: #8ccc3d;
+	color: #7796e6;
 	display: block;
-	border-bottom: 3px solid #8ccc3d;
+	border-bottom: 3px solid #7796e6;
 	margin-right: 20px;
 }
 .gridly .jquery a {
-	color: #8ccc3d;
+	color: #7796e6;
 	display: block;
-	border-bottom: 3px solid #8ccc3d;
+	border-bottom: 3px solid #7796e6;
 	margin-right: 20px;
 }
 .gridly .reference a {
-	color: #8ccc3d;
+	color: #7796e6;
 	display: block;
-	border-bottom: 3px solid #8ccc3d;
+	border-bottom: 3px solid #7796e6;
 	margin-right: 20px;
 }
 .photoshop .image-wrap .img-text h5 {
-	color: #8ccc3d;
-
+	color: #7796e6;
 }
 
 
@@ -384,7 +383,7 @@
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background: #f2a1d1;
+	background: #5b668181;
 	color: #FFFFFF;
 	font-size: 25px;
 	font-weight: 300;
@@ -397,9 +396,7 @@
 }
 
 .image-wrap .hover-wrap .overlay-img-donut.black {
-
 	background: #000;
-
 }
 
 .image-wrap .hover-wrap .overlay-text-thumb-donut {
@@ -407,7 +404,7 @@
 	width: 100%;
 	height: 32px;
 	top: 50%;
-	color: #a92c76;
+	color: #38476b;
 	font-size: 20px;
 	text-transform: uppercase;
 	line-height: 20px;
@@ -416,6 +413,42 @@
 	opacity: 1;
 	filter: alpha(opacity=100);
     text-align: center;
+}
+
+.image-wrap .hover-wrap .overlay-text-thumb-donut.bts {
+    background: #7796e6;
+    color: #fff;
+    width: auto;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    margin-bottom: 5px;
+    border-radius: 50px;
+    line-height: 1;
+    height: auto;
+    white-space: nowrap;
+    font-weight: normal;
+    font-size: 20px;
+}
+.image-wrap .hover-wrap .overlay-text-thumb-donut.bts:hover {
+    background: #5469a1;
+}
+.image-wrap .hover-wrap .overlay-text-thumb1-donut.bts {
+    background: #7796e6;
+    color: #fff;
+    width: auto;
+    left: 50%;
+    top: 54%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    margin-bottom: 5px;
+    border-radius: 50px;
+    line-height: 1;
+    height: auto;
+}
+.image-wrap .hover-wrap .overlay-text-thumb1-donut.bts:hover {
+    background: #5469a1;
 }
 
 .image-wrap .hover-wrap .overlay-text-thumb1-donut {
@@ -554,7 +587,7 @@
 	width: 100%;
 	height: 32px;
 	top: 50%;
-	color: #a46816;
+	color: #7796e6;
 	font-size: 20px;
 	text-transform: uppercase;
 	line-height: 20px;
@@ -627,7 +660,7 @@
 	width: 100%;
 	height: 32px;
 	top: 50%;
-	color: #ff860d;
+	color: #7796e6;
 	font-size: 20px;
 	text-transform: uppercase;
 	line-height: 20px;
@@ -1941,102 +1974,102 @@
 
 
 .donutImg {text-align: center; }
-.donutImg h5 {color: #f47cc3; font-size: 23px; padding-top: 22px; text-transform: uppercase;}
+.donutImg h5 {color: #6577aa; font-size: 23px; padding-top: 22px; text-transform: uppercase;}
 .donutImg p {color: #565656; font-size: 18px; }
 .donutImg span {color: #999; font-size: 12px; text-transform: uppercase;}
 
 .appleImg {text-align: center; }
-.appleImg h5 {color: #51b224; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
+.appleImg h5 {color: #6577aa; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
 .appleImg p {color: #565656; font-size: 18px; }
 .appleImg span {color: #999; font-size: 12px; text-transform: uppercase;}
 
 .breadImg {text-align: center; }
-.breadImg h5 {color: #a46816; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
+.breadImg h5 {color: #6577aa; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
 .breadImg p {color: #565656; font-size: 18px; }
 .breadImg span {color: #999; font-size: 12px; text-transform: uppercase;}
 
 .carrotImg {text-align: center; }
-.carrotImg h5 {color: #ff860d; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
+.carrotImg h5 {color: #6577aa; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
 .carrotImg p {color: #565656; font-size: 18px; }
 .carrotImg span {color: #999; font-size: 12px; text-transform: uppercase;}
 
 .burgerImg {text-align: center; }
-.burgerImg h5 {color: #de912a; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
+.burgerImg h5 {color: #6577aa; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
 .burgerImg p {color: #565656; font-size: 18px; }
 .burgerImg span {color: #999; font-size: 12px; text-transform: uppercase;}
 
 .cherriesImg {text-align: center; }
-.cherriesImg h5 {color: #f04b3e; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
+.cherriesImg h5 {color: #6577aa; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
 .cherriesImg p {color: #565656; font-size: 18px; }
 .cherriesImg span {color: #999; font-size: 12px; text-transform: uppercase;}
 
 .cookieImg {text-align: center; }
-.cookieImg h5 {color: #c8801d; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
+.cookieImg h5 {color: #6577aa; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
 .cookieImg p {color: #565656; font-size: 18px; }
 .cookieImg span {color: #999; font-size: 12px; text-transform: uppercase;}
 
 .frenchImg {text-align: center; }
-.frenchImg h5 {color: #f04b3e; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
+.frenchImg h5 {color: #6577aa; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
 .frenchImg p {color: #565656; font-size: 18px; }
 .frenchImg span {color: #999; font-size: 12px; text-transform: uppercase;}
 
 .chickenImg {text-align: center; }
-.chickenImg h5 {color: #a35a2d; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
+.chickenImg h5 {color: #6577aa; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
 .chickenImg p {color: #565656; font-size: 18px; }
 .chickenImg span {color: #999; font-size: 12px; text-transform: uppercase;}
 
 .grapesImg {text-align: center; }
-.grapesImg h5 {color: #51b224; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
+.grapesImg h5 {color: #6577aa; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
 .grapesImg p {color: #565656; font-size: 18px; }
 .grapesImg span {color: #999; font-size: 12px; text-transform: uppercase;}
 
 .hotdogImg {text-align: center; }
-.hotdogImg h5 {color: #a64b23; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
+.hotdogImg h5 {color: #6577aa; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
 .hotdogImg p {color: #565656; font-size: 18px; }
 .hotdogImg span {color: #999; font-size: 12px; text-transform: uppercase;}
 
 .cupcakeImg {text-align: center; }
-.cupcakeImg h5 {color: #d6bb8d; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
+.cupcakeImg h5 {color: #6577aa; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
 .cupcakeImg p {color: #565656; font-size: 18px; }
 .cupcakeImg span {color: #999; font-size: 12px; text-transform: uppercase;}
 
 .lemonImg {text-align: center; }
-.lemonImg h5 {color: #ffd10a; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
+.lemonImg h5 {color: #6577aa; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
 .lemonImg p {color: #565656; font-size: 18px; }
 .lemonImg span {color: #999; font-size: 12px; text-transform: uppercase;}
 
 .macaronImg {text-align: center; }
-.macaronImg h5 {color: #824b3d; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
+.macaronImg h5 {color: #6577aa; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
 .macaronImg p {color: #565656; font-size: 18px; }
 .macaronImg span {color: #999; font-size: 12px; text-transform: uppercase;}
 
 .pearImg {text-align: center; }
-.pearImg h5 {color: #ffd10a; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
+.pearImg h5 {color: #6577aa; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
 .pearImg p {color: #565656; font-size: 18px; }
 .pearImg span {color: #999; font-size: 12px; text-transform: uppercase;}
 
 .pizzaImg {text-align: center; }
-.pizzaImg h5 {color: #c52525; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
+.pizzaImg h5 {color: #6577aa; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
 .pizzaImg p {color: #565656; font-size: 18px; }
 .pizzaImg span {color: #999; font-size: 12px; text-transform: uppercase;}
 
 .popcornImg {text-align: center; }
-.popcornImg h5 {color: #c52525; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
+.popcornImg h5 {color: #6577aa; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
 .popcornImg p {color: #565656; font-size: 18px; }
 .popcornImg span {color: #999; font-size: 12px; text-transform: uppercase;}
 
 .creamImg {text-align: center; }
-.creamImg h5 {color: #d6bb8d; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
+.creamImg h5 {color: #6577aa; font-size: 22px; padding-top: 22px; text-transform: uppercase;}
 .creamImg p {color: #565656; font-size: 18px; }
 .creamImg span {color: #999; font-size: 12px; text-transform: uppercase;}
 
 .magnumImg {text-align: center; }
-.magnumImg h5 {color: #f47cc3; font-size: 23px; padding-top: 22px; text-transform: uppercase;}
+.magnumImg h5 {color: #6577aa; font-size: 23px; padding-top: 22px; text-transform: uppercase;}
 .magnumImg p {color: #565656; font-size: 18px; }
 .magnumImg span {color: #999; font-size: 12px; text-transform: uppercase;}
 
 .vanillaImg {text-align: center; }
-.vanillaImg h5 {color: #824b3d; font-size: 23px; padding-top: 22px; text-transform: uppercase;}
+.vanillaImg h5 {color: #6577aa; font-size: 23px; padding-top: 22px; text-transform: uppercase;}
 .vanillaImg p {color: #565656; font-size: 18px; }
 .vanillaImg span {color: #999; font-size: 12px; text-transform: uppercase;}
 
