@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="assets/css/footer.css">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/swiper.css"/>
+    <link rel="stylesheet" href="assets/css/swiper.css" />
 
 </head>
 
@@ -106,7 +106,7 @@
                     </div>
 
                 </div> -->
-            
+
                 <!-- Swiper -->
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
@@ -116,7 +116,7 @@
                                 <h3>with JEJUSARI</h3>
                                 <p>
                                     제주의 옛 서까래와 빈티지 가구,<br>
-                                    디자인 조명이 만나 과거의 현대가 어우러지는 공간 
+                                    디자인 조명이 만나 과거의 현대가 어우러지는 공간
                                 </p>
                                 <div class="btn">
                                     <a href="#">자세히 보기</a>
@@ -130,7 +130,7 @@
                                 <h3>with JEJUSARI</h3>
                                 <p>
                                     제주의 옛 서까래와 빈티지 가구,<br>
-                                    디자인 조명이 만나 과거의 현대가 어우러지는 공간 
+                                    디자인 조명이 만나 과거의 현대가 어우러지는 공간
                                 </p>
                                 <div class="btn">
                                     <a href="#">자세히 보기</a>
@@ -144,7 +144,7 @@
                                 <h3>with JEJUSARI</h3>
                                 <p>
                                     제주의 옛 서까래와 빈티지 가구,<br>
-                                    디자인 조명이 만나 과거의 현대가 어우러지는 공간 
+                                    디자인 조명이 만나 과거의 현대가 어우러지는 공간
                                 </p>
                                 <div class="btn">
                                     <a href="#">자세히 보기</a>
@@ -249,7 +249,7 @@
                     <div class="card__body">
                         <h3 class="tit">Outdoor Pool</h3>
                         <p class="desc">
-                            제주 바다의 푸르름, 파도소리와 어우러지는 음악은 여정을 더욱 즐겁게 만듭니다. 
+                            제주 바다의 푸르름, 파도소리와 어우러지는 음악은 여정을 더욱 즐겁게 만듭니다.
                             청정한 공기로 가득한 휴식공간에서 자쿠지의 따뜻함에 기대 푸른 별을 바라보면, 휴식의 진정한 본질을 깨달을 수 있습니다.
                         </p>
                         <a href="#">
@@ -273,7 +273,7 @@
                         <h3 class="tit">Meeting Room</h3>
                         <p class="desc">
                             프라이빗하고 고급스러운 분위기의 미팅룸으로 임원 미팅 및 VIP 행사에 적합합니다.
-                            소그룹부터 대그룹의 인원까지 수용가능한 미팅룸으로 
+                            소그룹부터 대그룹의 인원까지 수용가능한 미팅룸으로
                         </p>
                         <a href="#">
                             더 자세히 보기
@@ -410,19 +410,19 @@
     <script src="assets/js/swiper-bundle.min.js"></script>
     <script>
         var swiper = new Swiper(".mySwiper", {
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
-          autoplay: {
-            delay: 2000,
-            disableOnInteraction: false,
-          },
-          pagination: {
-            el: '.swiper-pagination',
-            type: 'bullets',
-            clickable: true,
-          }
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'bullets',
+                clickable: true,
+            }
         });
 
         const btnStop = document.querySelector(".swiper-button-stop");
@@ -459,7 +459,7 @@
 
         window.addEventListener("resize", () => {
             let width = window.innerWidth;
-            if(width > 1300) {
+            if (width > 1300) {
                 document.body.classList.remove("fixed");
                 btnMenu.classList.remove("active");
                 btnHam.classList.remove("active");
@@ -473,13 +473,13 @@
             // forEach문
             document.querySelectorAll(".type").forEach((element, index) => {
                 // >만하면 오차 발생 =도 추가, 오차 줄이기 위해 -2 추가
-                if(scrollTop >= element.offsetTop -100){
+                if (scrollTop >= element.offsetTop - 100) {
                     document.querySelectorAll(".header__menu ul li").forEach(li => {
                         li.classList.remove("active");
                     });
                     // index는 0부터 가져옴, nth-child(0)은 없으므로 +1
-                    document.querySelector(".header__menu ul li:nth-child("+(index+1)+")").classList.add("active");
-                }; 
+                    document.querySelector(".header__menu ul li:nth-child(" + (index + 1) + ")").classList.add("active");
+                };
             });
 
         });
