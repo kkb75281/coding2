@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,8 +10,9 @@
     <link rel="stylesheet" href="assets/css/dracula.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-    <header id="header">    
+    <header id="header">
         <h1><a href="index.html">Javascript</a></h1>
         <nav class="header_nav">
             <ul>
@@ -32,7 +34,7 @@
             <ul class="effect">
                 <li><a href="effect/searchEffect.html">검색 효과</a></li>
                 <li><a href="effect/quizEffect.html">퀴즈 효과</a></li>
-                <li><a href="effect/dataEffect.html">데이터 효과</a></li>
+                <!-- <li><a href="effect/dataEffect.html">데이터 효과</a></li> -->
                 <li><a href="effect/mouseEffect.html">마우스 효과</a></li>
                 <li><a href="effect/sliderEffect.html">슬라이드 효과</a></li>
                 <li><a href="effect/parallaxEffect.html">패랠랙스 효과</a></li>
@@ -42,7 +44,7 @@
     </header>
     <!-- //header -->
 
-    <main id="main"> 
+    <main id="main">
         <div class="container">
             <div class="main_menu">
                 <ul>
@@ -70,7 +72,7 @@
                 </ul>
             </div>
             <!-- //main_menu -->
-            
+
             <div class="main_sample">
                 <div id="sample01" class="sample">
                     <h3>01. 배열 속성 : length : 배열 길이 구하기 : 반환(숫자)</h3>
@@ -112,7 +114,7 @@
                         </table>
                     </div>
                     <div class="script">
-    <pre><code class="language-js">const arrNum = [ 100, 200, 300, 400, 500 ];
+                        <pre><code class="language-js">const arrNum = [ 100, 200, 300, 400, 500 ];
     
     //01.
     document.querySelector(".sample01_N1").innerHTML = "1";
@@ -183,7 +185,7 @@
                         </table>
                     </div>
                     <div class="script">
-    <pre><code class="language-js">const arrNum = [100, 200, 300, 400, 500];
+                        <pre><code class="language-js">const arrNum = [100, 200, 300, 400, 500];
     const text1 = arrNum.join('');
     const text2 = arrNum.join(' ');
     const text3 = arrNum.join('⭑');
@@ -219,7 +221,7 @@
 
                 <div id="sample03" class="sample">
                     <h3>03. 배열 메서드 : puch() / pop()</h3>
-                    <p>push()메서드는  배열 마지막 요소에 추가하고 리턴값 전체 길이,  pop() 메서드는 배열 마지막 요소를 삭제합니다 리턴값 마지막 요소.</p>
+                    <p>push()메서드는 배열 마지막 요소에 추가하고 리턴값 전체 길이, pop() 메서드는 배열 마지막 요소를 삭제합니다 리턴값 마지막 요소.</p>
                     <div class="table">
                         <table>
                             <colgroup>
@@ -255,7 +257,7 @@
                         </table>
                     </div>
                     <div class="script">
-    <pre><code class="language-js">//01
+                        <pre><code class="language-js">//01
     const arrNum = [100, 200, 300, 400, 500];
     const arrPush = arrNum.push(600);       //배열에 추가
     
@@ -281,7 +283,7 @@
 
                 <div id="sample04" class="sample">
                     <h3>04. 배열 메서드 : unshift() / shift()</h3>
-                    <p>unshift() 메서드 : 배열 처음 요소에 추가,  pop() 메서드 : 배열 처음 요소를 삭제</p>
+                    <p>unshift() 메서드 : 배열 처음 요소에 추가, pop() 메서드 : 배열 처음 요소를 삭제</p>
                     <div class="table">
                         <table>
                             <colgroup>
@@ -317,7 +319,7 @@
                         </table>
                     </div>
                     <div class="script">
-<pre><code class="language-js">//01
+                        <pre><code class="language-js">//01
 const arrNum1 = [100, 200, 300, 400, 500];
 const arrNumUnshift = arrNum1.unshift(600);
 
@@ -344,7 +346,7 @@ document.querySelector(".sample04_A2").innerHTML = arrNum2;
 
                 <div id="sample05" class="sample">
                     <h3>05. 배열 메서드 : reverse() / sort()</h3>
-                    <p>reverse() 메서드 : 순서를 반대로 정렬,  sort() 메서드 : 배열 요소를 정렬</p>
+                    <p>reverse() 메서드 : 순서를 반대로 정렬, sort() 메서드 : 배열 요소를 정렬</p>
                     <div class="table">
                         <table>
                             <colgroup>
@@ -400,7 +402,7 @@ document.querySelector(".sample04_A2").innerHTML = arrNum2;
                         </table>
                     </div>
                     <div class="script">
-<pre><code class="language-js">//01
+                        <pre><code class="language-js">//01
 const arrNum1 = [100, 200, 300, 400, 500];
 const arrNumReverse = arrNum1.reverse();
 
@@ -492,7 +494,7 @@ document.querySelector(".sample05_P6").innerHTML = arrNumSort6;
                         </table>
                     </div>
                     <div class="script">
-<pre><code class="language-js">//01
+                        <pre><code class="language-js">//01
 const arrNum1 = [100, 200, 300];
 const arrNum2 = [400, 500, 600];
 const arrConcat = arrNum1.concat(arrNum2);
@@ -566,7 +568,7 @@ document.querySelector(".sample06_P2").innerHTML = arrSpered;
                         </table>
                     </div>
                     <div class="script">
-<pre><code class="language-js">//01
+                        <pre><code class="language-js">//01
 const arrNum1 = [100, 200, 300, 400, 500];
 const arrReduce1 = arrNum1.reduce(element => element);
 
@@ -672,7 +674,7 @@ document.querySelector(".sample07_P5").innerHTML = arrReduce5;
                         </table>
                     </div>
                     <div class="script">
-<pre><code class="language-js">//01
+                        <pre><code class="language-js">//01
 const arrNum = [100, 200, 300, 400, 500];
 const result1 = arrNum.slice(2);
 
@@ -786,7 +788,7 @@ document.querySelector(".sample08_P6").innerHTML = result6;
                         </table>
                     </div>
                     <div class="script">
-<pre><code class="language-js">//01
+                        <pre><code class="language-js">//01
 arrNum = [100, 200, 300, 400, 500];
 const result = arrNum.splice(2);
 
@@ -904,7 +906,7 @@ document.querySelector(".sample09_A6").innerHTML = arrNum6;
                         </table>
                     </div>
                     <div class="script">
-<pre><code class="language-js">//01
+                        <pre><code class="language-js">//01
 
 </code></pre>
                     </div>
@@ -969,7 +971,7 @@ document.querySelector(".sample09_A6").innerHTML = arrNum6;
                         </table>
                     </div>
                     <div class="script">
-<pre><code class="language-js">//01
+                        <pre><code class="language-js">//01
 const arrNum = [100, 200, 300, 400, 500];
 // const result = arrnum.find(function(element){
 //     return element === 300;
@@ -1061,7 +1063,7 @@ document.querySelector(".sample11_P5").innerHTML = result5;
                         </table>
                     </div>
                     <div class="script">
-<pre><code class="language-js">//01
+                        <pre><code class="language-js">//01
 const arrNum = [100, 200, 300, 400, 500];
 const result = arrNum.filter(el => el === 300);
 
@@ -1139,7 +1141,7 @@ document.querySelector(".sample12_P3").innerHTML = result3;
                         </table>
                     </div>
                     <div class="script">
-<pre><code class="language-js">//01
+                        <pre><code class="language-js">//01
 const arrNum = [100, 200, 300, 400, 500];
 const result = arrNum.map(el => el);
 
@@ -1219,7 +1221,7 @@ document.querySelector(".sample13_P4").innerHTML = result4;
                         </table>
                     </div>
                     <div class="script">
-<pre><code class="language-js">//01
+                        <pre><code class="language-js">//01
 const text = "javascript";
 const result = Array.from(text);
 
@@ -1251,10 +1253,10 @@ document.querySelector(".sample14_P3").innerHTML = result3;
                     </div>
                 </div>
                 <!-- //sample14 -->
-                
-                
-    
-    
+
+
+
+
             </div>
             <!-- //main_sample -->
             <div class="main_script"></div>
@@ -1263,7 +1265,7 @@ document.querySelector(".sample14_P3").innerHTML = result3;
     </main>
     <!-- //main -->
 
-    <footer id="footer">    
+    <footer id="footer">
         <a href="mailto:kkb7528@naver.com">kkb7528@naver.com</a>
     </footer>
     <!-- //footer -->
@@ -1274,7 +1276,8 @@ document.querySelector(".sample14_P3").innerHTML = result3;
     </script>
     <script>
         //01
-        {   const arrNum = [ 100, 200, 300, 400, 500 ];
+        {
+            const arrNum = [100, 200, 300, 400, 500];
 
             document.querySelector(".sample01_N1").innerHTML = "1";
             document.querySelector(".sample01_Q1").innerHTML = "[100, 200, 300, 400, 500]";
@@ -1338,7 +1341,7 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             document.querySelector(".sample02_Q3").innerHTML = "[100, 200, 300, 400, 500]";
             document.querySelector(".sample02_M3").innerHTML = "join('⭑')";
             document.querySelector(".sample02_P3").innerHTML = text3;
-            
+
             document.querySelector(".sample02_N4").innerHTML = "4";
             document.querySelector(".sample02_Q4").innerHTML = "[100, 200, 300, 400, 500]";
             document.querySelector(".sample02_M4").innerHTML = "join('-')";
@@ -1356,7 +1359,7 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             document.querySelector(".sample03_A1").innerHTML = arrNum;      //100,200,300,400,500,600
 
             const arrNum2 = [100, 200, 300, 400, 500];
-            const arrPop2 = arrNum2.pop(); 
+            const arrPop2 = arrNum2.pop();
 
             document.querySelector(".sample03_N2").innerHTML = "2";
             document.querySelector(".sample03_Q2").innerHTML = "[100, 200, 300, 400, 500]";
@@ -1373,7 +1376,7 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             document.querySelector(".sample04_Q1").innerHTML = "[100, 200, 300, 400, 500]";
             document.querySelector(".sample04_M1").innerHTML = "unshift(600)";
             document.querySelector(".sample04_P1").innerHTML = arrNumUnshift;
-            document.querySelector(".sample04_A1").innerHTML = arrNum1;  
+            document.querySelector(".sample04_A1").innerHTML = arrNum1;
 
             const arrNum2 = [100, 200, 300, 400, 500];
             const arrNumShift = arrNum2.shift();
@@ -1382,7 +1385,7 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             document.querySelector(".sample04_Q2").innerHTML = "[100, 200, 300, 400, 500]";
             document.querySelector(".sample04_M2").innerHTML = "shift()";
             document.querySelector(".sample04_P2").innerHTML = arrNumShift;
-            document.querySelector(".sample04_A2").innerHTML = arrNum2; 
+            document.querySelector(".sample04_A2").innerHTML = arrNum2;
         }
         //05
         {
@@ -1403,7 +1406,7 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             document.querySelector(".sample05_P2").innerHTML = arrNumSort2;
 
             const arrNum3 = [100, 200, 300, 400, 500];
-            const arrNumSort3 = arrNum3.sort(function(a,b){return b-a});
+            const arrNumSort3 = arrNum3.sort(function (a, b) { return b - a });
 
             document.querySelector(".sample05_N3").innerHTML = "3";
             document.querySelector(".sample05_Q3").innerHTML = "[100, 200, 300, 400, 500]";
@@ -1411,7 +1414,7 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             document.querySelector(".sample05_P3").innerHTML = arrNumSort3;
 
             const arrNum4 = [500, 400, 300, 200, 100];
-            const arrNumSort4 = arrNum4.sort(function(a,b){return a-b});
+            const arrNumSort4 = arrNum4.sort(function (a, b) { return a - b });
 
             document.querySelector(".sample05_N4").innerHTML = "4";
             document.querySelector(".sample05_Q4").innerHTML = "[500, 400, 300, 200, 100]";
@@ -1419,7 +1422,7 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             document.querySelector(".sample05_P4").innerHTML = arrNumSort4;
 
             const arrNum5 = ['c', 'b', 'e', 'w', 'h'];
-            const arrNumSort5 = arrNum5.sort(function(a,b){return a.localeCompare(b)});
+            const arrNumSort5 = arrNum5.sort(function (a, b) { return a.localeCompare(b) });
 
             document.querySelector(".sample05_N5").innerHTML = "5";
             document.querySelector(".sample05_Q5").innerHTML = "['c', 'b', 'e', 'w', 'h']";
@@ -1427,7 +1430,7 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             document.querySelector(".sample05_P5").innerHTML = arrNumSort5;
 
             const arrNum6 = ['c', 'b', 'e', 'w', 'h'];
-            const arrNumSort6 = arrNum6.sort(function(a,b){return b.localeCompare(a)});
+            const arrNumSort6 = arrNum6.sort(function (a, b) { return b.localeCompare(a) });
 
             document.querySelector(".sample05_N6").innerHTML = "6";
             document.querySelector(".sample05_Q6").innerHTML = "['c', 'b', 'e', 'w', 'h']";
@@ -1445,7 +1448,7 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             document.querySelector(".sample06_M1").innerHTML = "arrNum1.concat(arrNum2)";
             document.querySelector(".sample06_P1").innerHTML = arrConcat;
 
-            const arrSpered = [ ...arrNum1, ...arrNum2 ];
+            const arrSpered = [...arrNum1, ...arrNum2];
 
             document.querySelector(".sample06_N2").innerHTML = "2";
             document.querySelector(".sample06_Q2").innerHTML = "[100, 200, 300], [400, 500, 600]";
@@ -1496,17 +1499,17 @@ document.querySelector(".sample14_P3").innerHTML = result3;
 
             const arrNum3 = [100, 200, 300, 400, 500];
             let sum = 0;
-            for (let i=0; i<arrNum3.length; i++){
+            for (let i = 0; i < arrNum3.length; i++) {
                 sum += arrNum3[i];
             }
-            
+
             document.querySelector(".sample07_N3").innerHTML = "3";
             document.querySelector(".sample07_Q3").innerHTML = "[100, 200, 300, 400, 500]";
             document.querySelector(".sample07_M3").innerHTML = "for()";
             document.querySelector(".sample07_P3").innerHTML = sum;
 
             const arrNum4 = [[100, 200], [300, 400]];
-            const arrReduce4 = arrNum4.reduce((p,c) => p.concat(c));
+            const arrReduce4 = arrNum4.reduce((p, c) => p.concat(c));
 
             document.querySelector(".sample07_N4").innerHTML = "4";
             document.querySelector(".sample07_Q4").innerHTML = "[[100, 200], [300, 400]]";
@@ -1514,7 +1517,7 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             document.querySelector(".sample07_P4").innerHTML = arrReduce4;
 
             const arrNum5 = ["javascript", "react", "vue"];
-            const arrReduce5 = arrNum5.reduceRight((p,c) => p+c);
+            const arrReduce5 = arrNum5.reduceRight((p, c) => p + c);
 
             document.querySelector(".sample07_N5").innerHTML = "5";
             document.querySelector(".sample07_Q5").innerHTML = "['javascript', 'react', 'vue']";
@@ -1531,21 +1534,21 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             document.querySelector(".sample08_M1").innerHTML = "arrNum.slice(2)";
             document.querySelector(".sample08_P1").innerHTML = result1;
 
-            const result2 = arrNum.slice(2,3);
+            const result2 = arrNum.slice(2, 3);
 
             document.querySelector(".sample08_N2").innerHTML = "2";
             document.querySelector(".sample08_Q2").innerHTML = "[100, 200, 300, 400, 500]";
             document.querySelector(".sample08_M2").innerHTML = "arrNum.slice(2,3)";
             document.querySelector(".sample08_P2").innerHTML = result2;
 
-            const result3 = arrNum.slice(2,4);
+            const result3 = arrNum.slice(2, 4);
 
             document.querySelector(".sample08_N3").innerHTML = "3";
             document.querySelector(".sample08_Q3").innerHTML = "[100, 200, 300, 400, 500]";
             document.querySelector(".sample08_M3").innerHTML = "arrNum.slice(2,4)";
             document.querySelector(".sample08_P3").innerHTML = result3;
 
-            const result4 = arrNum.slice(2,5);
+            const result4 = arrNum.slice(2, 5);
 
             document.querySelector(".sample08_N4").innerHTML = "4";
             document.querySelector(".sample08_Q4").innerHTML = "[100, 200, 300, 400, 500]";
@@ -1559,7 +1562,7 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             document.querySelector(".sample08_M5").innerHTML = "arrNum.slice(-2)";
             document.querySelector(".sample08_P5").innerHTML = result5;
 
-            const result6 = arrNum.slice(-2,5);
+            const result6 = arrNum.slice(-2, 5);
 
             document.querySelector(".sample08_N6").innerHTML = "6";
             document.querySelector(".sample08_Q6").innerHTML = "[100, 200, 300, 400, 500]";
@@ -1578,7 +1581,7 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             document.querySelector(".sample09_A1").innerHTML = arrNum;
 
             arrNum2 = [100, 200, 300, 400, 500];
-            const result2 = arrNum2.splice(2,3);
+            const result2 = arrNum2.splice(2, 3);
 
             document.querySelector(".sample09_N2").innerHTML = "2";
             document.querySelector(".sample09_Q2").innerHTML = "[100, 200, 300, 400, 500]";
@@ -1587,7 +1590,7 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             document.querySelector(".sample09_A2").innerHTML = arrNum2;
 
             arrNum3 = [100, 200, 300, 400, 500];
-            const result3 = arrNum3.splice(2,3, 'javascript');
+            const result3 = arrNum3.splice(2, 3, 'javascript');
 
             document.querySelector(".sample09_N3").innerHTML = "3";
             document.querySelector(".sample09_Q3").innerHTML = "[100, 200, 300, 400, 500]";
@@ -1596,7 +1599,7 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             document.querySelector(".sample09_A3").innerHTML = arrNum3;
 
             arrNum4 = [100, 200, 300, 400, 500];
-            const result4 = arrNum4.splice(1,1, 'javascript');
+            const result4 = arrNum4.splice(1, 1, 'javascript');
 
             document.querySelector(".sample09_N4").innerHTML = "4";
             document.querySelector(".sample09_Q4").innerHTML = "[100, 200, 300, 400, 500]";
@@ -1605,7 +1608,7 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             document.querySelector(".sample09_A4").innerHTML = arrNum4;
 
             arrNum5 = [100, 200, 300, 400, 500];
-            const result5 = arrNum4.splice(1,0, 'javascript');
+            const result5 = arrNum4.splice(1, 0, 'javascript');
 
             document.querySelector(".sample09_N5").innerHTML = "5";
             document.querySelector(".sample09_Q5").innerHTML = "[100, 200, 300, 400, 500]";
@@ -1614,7 +1617,7 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             document.querySelector(".sample09_A5").innerHTML = arrNum5;
 
             arrNum6 = [100, 200, 300, 400, 500];
-            const result6 = arrNum4.splice(0,4, 'javascript');
+            const result6 = arrNum4.splice(0, 4, 'javascript');
 
             document.querySelector(".sample09_N6").innerHTML = "6";
             document.querySelector(".sample09_Q6").innerHTML = "[100, 200, 300, 400, 500]";
@@ -1778,7 +1781,7 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             document.querySelector(".sample13_P3").innerHTML = result3;
 
             //04
-            const arrNum4 = [{a:100}, {a:200}, {a:300}];
+            const arrNum4 = [{ a: 100 }, { a: 200 }, { a: 300 }];
             const result4 = arrNum4.map(el => el.a);
 
             document.querySelector(".sample13_N4").innerHTML = "4";
@@ -1866,52 +1869,53 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             // b d f h k 출력 (4가지 방법)
             const num1 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
             const result11 = [...num1].map(el => el);
-            for (let result11=1; result11 < num1.length; result11 += 2){
+            for (let result11 = 1; result11 < num1.length; result11 += 2) {
                 console.log(num1[result11]);
             }
 
             const num2 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
             const result12 = [...num2].map(el => el);
-            for (let result12=1; result12 < num2.length; result12++){
-                if (result12%2 == 1){
+            for (let result12 = 1; result12 < num2.length; result12++) {
+                if (result12 % 2 == 1) {
                     console.log(num2[result12]);
                 }
             }
 
             const num3 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
-            const result13 = num3.filter(function(e, i){
-                return i%2 == 1 ? true : false;
+            const result13 = num3.filter(function (e, i) {
+                return i % 2 == 1 ? true : false;
             })
             console.log(result13);
 
             const num4 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
-            for(i=1; i<num4.length; i+=2){
-                const result14 = num4.slice(i,i+1);
+            for (i = 1; i < num4.length; i += 2) {
+                const result14 = num4.slice(i, i + 1);
                 console.log(result14);
             }
 
             // e f 출력 (3가지) - slice, splice X
             const num5 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
-            const result15 = num5.filter(e => e == "e"|| e == "f");
+            const result15 = num5.filter(e => e == "e" || e == "f");
             console.log(result15);
 
             const num6 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
-            for(i=4; i<6; i++){
+            for (i = 4; i < 6; i++) {
                 console.log(num6[i]);
             }
 
             const num7 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
-            for(let key in num7) {
-                if(key == 4 || key == 5 ) console.log(num7[key]);
+            for (let key in num7) {
+                if (key == 4 || key == 5) console.log(num7[key]);
             }
-            
 
-            
+
+
         }
 
-    
-    
-    
+
+
+
     </script>
 </body>
+
 </html>

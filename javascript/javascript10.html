@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,8 +9,9 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-    <header id="header">    
+    <header id="header">
         <h1><a href="index.html">Javascript</a></h1>
         <nav class="header_nav">
             <ul>
@@ -31,7 +33,7 @@
             <ul class="effect">
                 <li><a href="effect/searchEffect.html">검색 효과</a></li>
                 <li><a href="effect/quizEffect.html">퀴즈 효과</a></li>
-                <li><a href="effect/dataEffect.html">데이터 효과</a></li>
+                <!-- <li><a href="effect/dataEffect.html">데이터 효과</a></li> -->
                 <li><a href="effect/mouseEffect.html">마우스 효과</a></li>
                 <li><a href="effect/sliderEffect.html">슬라이드 효과</a></li>
                 <li><a href="effect/parallaxEffect.html">패랠랙스 효과</a></li>
@@ -41,7 +43,7 @@
     </header>
     <!-- //header -->
 
-    <main id="main"> 
+    <main id="main">
         <div class="container">
             <div class="main_menu">
                 <ul>
@@ -70,14 +72,15 @@
                     <li><a href="#">06. 요소 속성 : 크기 및 위치 : element.offsetHeight : 요소의 높이값(보더/패딩 포함)</a></li>
                     <li><a href="#">07. 요소 속성 : 크기 및 위치 : element.offsetTop : 요소의 Y축값(문서 기준)</a></li>
                     <li><a href="#">08. 요소 속성 : 크기 및 위치 : element.offsetLeft : 요소의 X축값(문서 기준)</a></li>
-                    <li><a href="#">09. 요소 메서드 : 크기 및 위치 : element.getBoundungClientRect() : top, left, right, bottom, x, y, width, height(크기 및 위치)</a></li>
+                    <li><a href="#">09. 요소 메서드 : 크기 및 위치 : element.getBoundungClientRect() : top, left, right, bottom,
+                            x, y, width, height(크기 및 위치)</a></li>
                     <li><a href="#">10. 요소 메서드 : 요소 추가 : element.insertAdjacentHTML(beforebegin) : 요소 앞에</a></li>
                     <li><a href="#">10. 요소 메서드 : 요소 추가 : element.insertAdjacentHTML(afterbegin) : 요소 안에 첫번째 자식</a></li>
                     <li><a href="#">10. 요소 메서드 : 요소 추가 : element.insertAdjacentHTML(beforeend) : 요소 안에 마지막 자식</a></li>
                     <li><a href="#">10. 요소 메서드 : 요소 추가 : element.insertAdjacentHTML(afterend) : 요소 뒤에</a></li>
                     <li><a href="#">11. 요소 메서드 : 요소 추가 : element.appendChild : 자식 요소에 추가</a></li>
                 </ul>
-            </div>   
+            </div>
             <!-- main__menu -->
 
             <div class="main_sample">
@@ -114,7 +117,7 @@
     </main>
     <!-- //main -->
 
-    <footer id="footer">    
+    <footer id="footer">
         <a href="mailto:kkb7528@naver.com">kkb7528@naver.com</a>
     </footer>
     <!-- //footer -->
@@ -122,41 +125,41 @@
     <script>
         const box1 = document.querySelector("#sample01 .sbox");
 
-        document.querySelector("#sample01 .btn1").addEventListener("click", (e)=>{
+        document.querySelector("#sample01 .btn1").addEventListener("click", (e) => {
             e.preventDefault();     // 위로 올라감 방지
-            document.querySelector("#sample01 .sResult").innerHTML = "이 박스의 가로값은 " +box1.clientWidth + "px(margin/border 불포함) 입니다.";
+            document.querySelector("#sample01 .sResult").innerHTML = "이 박스의 가로값은 " + box1.clientWidth + "px(margin/border 불포함) 입니다.";
         });
-        document.querySelector("#sample01 .btn2").addEventListener("click", (e)=>{
+        document.querySelector("#sample01 .btn2").addEventListener("click", (e) => {
             e.preventDefault();
-            document.querySelector("#sample01 .sResult").innerHTML = "이 박스의 높이값은 " +box1.clientHeight + "px(margin/border 불포함) 입니다.";
+            document.querySelector("#sample01 .sResult").innerHTML = "이 박스의 높이값은 " + box1.clientHeight + "px(margin/border 불포함) 입니다.";
         });
-        document.querySelector("#sample01 .btn3").addEventListener("click", (e)=>{
+        document.querySelector("#sample01 .btn3").addEventListener("click", (e) => {
             e.preventDefault();
-            document.querySelector("#sample01 .sResult").innerHTML = "이 박스의 Y축값은 " +box1.clientTop + "px(부모 기준) 입니다.";
+            document.querySelector("#sample01 .sResult").innerHTML = "이 박스의 Y축값은 " + box1.clientTop + "px(부모 기준) 입니다.";
         });
-        document.querySelector("#sample01 .btn4").addEventListener("click", (e)=>{
+        document.querySelector("#sample01 .btn4").addEventListener("click", (e) => {
             e.preventDefault();
-            document.querySelector("#sample01 .sResult").innerHTML = "이 박스의 X축값은 " +box1.clientLeft + "px(부모 기준) 입니다.";
+            document.querySelector("#sample01 .sResult").innerHTML = "이 박스의 X축값은 " + box1.clientLeft + "px(부모 기준) 입니다.";
         });
-        document.querySelector("#sample01 .btn5").addEventListener("click", (e)=>{
+        document.querySelector("#sample01 .btn5").addEventListener("click", (e) => {
             e.preventDefault();
-            document.querySelector("#sample01 .sResult").innerHTML = "이 박스의 가로값은 " +box1.offsetWidth + "px(margin/border 포함) 입니다.";
+            document.querySelector("#sample01 .sResult").innerHTML = "이 박스의 가로값은 " + box1.offsetWidth + "px(margin/border 포함) 입니다.";
         });
-        document.querySelector("#sample01 .btn6").addEventListener("click", (e)=>{
+        document.querySelector("#sample01 .btn6").addEventListener("click", (e) => {
             e.preventDefault();
-            document.querySelector("#sample01 .sResult").innerHTML = "이 박스의 높이값은 " +box1.offsetHeight + "px(margin/border 포함) 입니다.";
+            document.querySelector("#sample01 .sResult").innerHTML = "이 박스의 높이값은 " + box1.offsetHeight + "px(margin/border 포함) 입니다.";
         });
-        document.querySelector("#sample01 .btn7").addEventListener("click", (e)=>{
+        document.querySelector("#sample01 .btn7").addEventListener("click", (e) => {
             e.preventDefault();
-            document.querySelector("#sample01 .sResult").innerHTML = "이 박스의 Y축값은 " +box1.offsetTop + "px(문서 기준) 입니다.";
+            document.querySelector("#sample01 .sResult").innerHTML = "이 박스의 Y축값은 " + box1.offsetTop + "px(문서 기준) 입니다.";
         });
-        document.querySelector("#sample01 .btn8").addEventListener("click", (e)=>{
+        document.querySelector("#sample01 .btn8").addEventListener("click", (e) => {
             e.preventDefault();
-            document.querySelector("#sample01 .sResult").innerHTML = "이 박스의 X축값은 " +box1.offsetLeft + "px(문서 기준) 입니다.";
+            document.querySelector("#sample01 .sResult").innerHTML = "이 박스의 X축값은 " + box1.offsetLeft + "px(문서 기준) 입니다.";
         });
 
         // 9
-        document.querySelector("#sample01 .btn9").addEventListener("click", (e)=>{
+        document.querySelector("#sample01 .btn9").addEventListener("click", (e) => {
             e.preventDefault();
 
             // document.querySelector("#sample01 .sResult").innerHTML = "이 박스의 getBoundingClientRect()값은 " +box1.getBoundingClientRect() + "px(문서 기준) 입니다.";
@@ -168,10 +171,10 @@
 
             result.innerHTML = "";
 
-            for(let key in rect){
-                if(typeof rect[key] !== "function"){                // 객체 안에 함수가 아닌 것 찾기
+            for (let key in rect) {
+                if (typeof rect[key] !== "function") {                // 객체 안에 함수가 아닌 것 찾기
                     let span = document.createElement("span");      // 데이터 값을 span에 넣어줌
-                    span.textContent= `${key}: ${rect[key]} `;
+                    span.textContent = `${key}: ${rect[key]} `;
                     result.appendChild(span);
                 };
             };
@@ -179,4 +182,5 @@
 
     </script>
 </body>
+
 </html>
