@@ -2,6 +2,10 @@
     display: none;
 }
 
+.memory__wrap.show {
+    display: block;
+}
+
 .memory__inner {
     width: 600px;
     padding: 0 2rem;
