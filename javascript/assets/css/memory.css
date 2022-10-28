@@ -1,4 +1,6 @@
-.memory__wrap {}
+.memory__wrap {
+    display: none;
+}
 
 .memory__inner {
     width: 600px;
