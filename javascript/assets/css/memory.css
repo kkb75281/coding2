@@ -181,3 +181,27 @@
         transform: translate3d(0, 10px, 0);
     }
 }
+
+.memory__wrap .times {
+    position: absolute;
+    content: '';
+    top: 10px;
+    right: -50px;
+    width: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.memory__wrap .times span {
+    background-color: #EA3CF1;
+    box-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #EA3CF1, 0 0 42px #EA3CF1,
+        0 0 82px #EA3CF1, 0 0 92px #EA3CF1;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 20px;
+}
+
+.memory__wrap .times span.error {
+    background-color: transparent;
+}

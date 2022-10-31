@@ -4,6 +4,7 @@
 
 const memoryWrap = document.querySelector(".memory__wrap");
 const memoryCards = memoryWrap.querySelectorAll(".cards li");
+const times = memoryWrap.querySelectorAll(".memory__inner .times");
 
 let cardOne, cardTwo;
 let disableDeck = false;
@@ -67,6 +68,17 @@ function matchCards(img1, img2) {
       cardOne = cardTwo = "";
       disableDeck = false;
     }, 1600);
+
+    // times.forEach(function())
+
+    // times.forEach(function (time) {
+    //   time.classList.add("error");
+    // });
+
+    for (i = 5; i >= 0; i--) {
+      $(".memory__inner .times:nth-child(i)").classList.add("error");
+      i--;
+    }
 
     soundUnMatch.play();
   }
