@@ -75,7 +75,7 @@ function matchCards(img1, img2) {
     //   time.classList.add("error");
     // });
 
-    for (i = 5; i >= 0; i--) {
+    for (i = 5; i <= 0; i--) {
       $(".memory__inner .times:nth-child(i)").classList.add("error");
       i--;
     }
