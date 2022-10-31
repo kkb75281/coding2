@@ -103,21 +103,23 @@
 @keyframes flicker {
 
     0%,
-    18%,
-    22%,
-    25%,
-    53%,
-    57%,
     100% {
-        text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #73FBF9,
-            0 0 80px #73FBF9, 0 0 90px #73FBF9, 0 0 100px #73FBF9, 0 0 150px #73FBF9;
+        /* box-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #73FBF9,
+            0 0 80px #73FBF9, 0 0 90px #73FBF9, 0 0 100px #73FBF9, 0 0 150px #73FBF9; */
+        /* box-shadow:
+            0 0 .5rem #73FBF9,
+            inset 0 0 .5rem #73FBF9,
+            0 0 2rem #73FBF9,
+            inset 0 0 2rem #73FBF9,
+            0 0 4rem #73FBF9,
+            inset 0 0 4rem #73FBF9; */
     }
 
-    20%,
+    /* 20%,
     24%,
     55% {
         text-shadow: none;
-    }
+    } */
 }
 
 @keyframes shakeX {

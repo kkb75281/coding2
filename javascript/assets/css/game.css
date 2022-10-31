@@ -27,9 +27,11 @@ body {
     pointer-events: none;
     user-select: none;
 }
+
 .cursor img {
     width: 15px;
 }
+
 .cursor .c2 {
     width: 30px;
     display: none;
@@ -38,7 +40,7 @@ body {
 #header {
     position: fixed;
     width: 100%;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -63,6 +65,11 @@ body {
     position: absolute;
     left: 70px;
     width: 54px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .icon img {
@@ -78,7 +85,7 @@ body {
     white-space: nowrap;
 }
 
-.icon.active span{
+.icon.active span {
     background: #000;
 }
 
@@ -119,14 +126,17 @@ body {
     height: 88%;
     z-index: 3;
 }
+
 .icon_iframe.show {
     display: block;
     /* animation: foldOut 1s ease forwards; */
 }
+
 .icon_iframe {
     /* transform: scale(0); */
     display: none;
 }
+
 .code_close {
     position: absolute;
     top: 63px;
@@ -140,7 +150,7 @@ body {
     left: 0;
     bottom: 0;
     width: 100%;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -149,13 +159,14 @@ body {
     text-align: center;
 }
 
-#footer.agent {
-    
-}
+#footer.agent {}
 
 .window #footer {
     /* background-color: #fff; */
 }
+
 .mac #footer {}
+
 .iphone #footer {}
+
 .android #footer {}
