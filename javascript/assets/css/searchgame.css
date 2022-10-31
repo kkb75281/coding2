@@ -9,11 +9,14 @@
   height: 1500px;
   max-height: calc(100vh);
   overflow-y: auto; */
-  display: none;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+  /* display: none; */
 }
 
 .search__wrap.show {
-  display: block;
+  /* display: block; */
+  transform: scaleX(1);
 }
 
 .search__inner {
