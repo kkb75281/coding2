@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코딩 테스트 05</title>
+
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+
+    <style>
+        @font-face {
+            font-family: 'Eulyoo1945';
+            font-weight: 400;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.eot');
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.eot?#iefix') format('embedded-opentype'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.ttf') format("truetype");
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Eulyoo1945';
+            font-weight: 600;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.eot');
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.eot?#iefix') format('embedded-opentype'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.ttf') format("truetype");
+            font-display: swap;
+        }
+
+        .test__wrap {
+            margin: 0;
+            padding: 0;
+            padding: 0 5rem;
+            font-family: 'Eulyoo1945';
+            font-weight: 400;
+        }
+
+        .title {
+            text-align: center;
+            padding-top: 50px;
+            position: relative;
+        }
+
+        .title h1 {
+            margin: 30px 0;
+            font-size: 40px;
+            font-weight: 600;
+        }
+
+        .title em {
+            position: absolute;
+            content: '';
+            bottom: 0;
+            right: 6.5rem;
+            font-style: normal;
+            border: 1px solid #202B3D;
+            border-radius: 10px;
+            padding: 10px 30px;
+        }
+
+        .info {
+            display: flex;
+            flex-wrap: nowrap;
+            padding: 0 10rem;
+            margin-bottom: 50px;
+        }
+
+        .info .test__info__table {
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        .info .test__info__table td {
+            padding: 7px;
+            border: 1px solid #202B3D;
+            text-align: center;
+        }
+
+        .test {
+            width: 100%;
+            padding: 20px;
+            padding-top: 60px;
+            border: 1px solid #202B3D;
+            border-radius: 5px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            margin-bottom: 5px;
+        }
+
+        .test span, .answer span {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #202B3D;
+            color: #fff;
+            border-radius: 30px;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
+        .test em {
+            width: 100%;
+            font-style: normal;
+            padding-left: 14px;
+            padding-top: 10px;
+            color: #777;
+            line-height: 1.4;
+        }
+        .answer {
+            background-color: #f5f5f5;
+            padding: 20px;
+            padding-top: 60px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test__wrap">
+        <div class="title">
+            <span>프로그래머스 코딩테스트 연습 문제지</span>
+            <h1>코딩 영역</h1>
+            <em>Lv.1</em>
+        </div>
+        <div class="info">
+            <table class="test__info__table" style="width: 30%;">
+                <colgroup>
+                    <col style="width: 30%;">
+                    <col style="width: 70%;">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td>성명</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="test__info__table" style="width: 50%;">
+                <colgroup>
+                    <col style="width: 30%;">
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col style="width: 2%;">
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td>수험 번호</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>-</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="test">
+            <span>나머지가 1이 되는 수 찾기</span>
+            05. 길이가 n이고, "수박수박수박수...."와 같은 패턴을 유지하는 문자열을 리턴하는 함수, solution을 완성하세요. 예를들어 n이 4이면 "수박수박"을 리턴하고 3이라면 "수박수"를 리턴하면 됩니다.
+            <em>
+                * n은 길이 10,000이하인 자연수입니다.<br> 
+                ex) n=3 => return = "수박수", n=4 => return = "수박수박"
+            </em>
+        </div>
+        <div class="t_code">
+<pre><code class="language-js">function solution(n) {
+    for(let x = 1; x<=n; x++){
+        if(n % x == 1){
+            return x;
+        };
+    };
+};
+</code></pre>
+        </div>
+        <div class="answer">
+            <span>나의 풀이</span>
+            x=1부터 n까지 반복하는 동안 나머지가 1이 나오는 가장 작은 수를 리턴합니다.
+        </div>
+
+        <div class="t_code">
+<pre><code class="language-js">function solution(n, x = 1) {    
+    while (x++) {
+        if (n % x === 1) {
+            return x;
+        }
+    }    
+}
+</code></pre>
+        </div>
+        <div class="answer">
+            <span>다른 풀이</span>
+            기본값을 설정 후 while 문에서 증감 연산자를 사용하여 구해주었네요.
+        </div>
+    </div>
+
+    <script src="../../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>
