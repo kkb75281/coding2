@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코딩 테스트 08</title>
+
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+
+    <style>
+        @font-face {
+            font-family: 'Eulyoo1945';
+            font-weight: 400;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.eot');
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.eot?#iefix') format('embedded-opentype'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.ttf') format("truetype");
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Eulyoo1945';
+            font-weight: 600;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.eot');
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.eot?#iefix') format('embedded-opentype'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.ttf') format("truetype");
+            font-display: swap;
+        }
+
+        .test__wrap {
+            margin: 0;
+            padding: 0;
+            padding: 0 5rem;
+            font-family: 'Eulyoo1945';
+            font-weight: 400;
+        }
+
+        .title {
+            text-align: center;
+            padding-top: 50px;
+            position: relative;
+        }
+
+        .title h1 {
+            margin: 30px 0;
+            font-size: 40px;
+            font-weight: 600;
+        }
+
+        .title em {
+            position: absolute;
+            content: '';
+            bottom: 0;
+            right: 6.5rem;
+            font-style: normal;
+            border: 1px solid #202B3D;
+            border-radius: 10px;
+            padding: 10px 30px;
+        }
+
+        .info {
+            display: flex;
+            flex-wrap: nowrap;
+            padding: 0 10rem;
+            margin-bottom: 50px;
+        }
+
+        .info .test__info__table {
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        .info .test__info__table td {
+            padding: 7px;
+            border: 1px solid #202B3D;
+            text-align: center;
+        }
+
+        .test {
+            width: 100%;
+            padding: 20px;
+            padding-top: 60px;
+            border: 1px solid #202B3D;
+            border-radius: 5px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        .test span,
+        .answer span {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #202B3D;
+            color: #fff;
+            border-radius: 30px;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
+        .test em {
+            width: 100%;
+            font-style: normal;
+            padding-left: 14px;
+            padding-top: 10px;
+            color: #777;
+            line-height: 1.4;
+        }
+
+        .answer {
+            background-color: #f5f5f5;
+            padding: 20px;
+            padding-top: 60px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            margin-bottom: 50px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test__wrap">
+        <div class="title">
+            <span>프로그래머스 코딩테스트 연습 문제지</span>
+            <h1>코딩 영역</h1>
+            <em>Lv.1</em>
+        </div>
+        <div class="info">
+            <table class="test__info__table" style="width: 30%;">
+                <colgroup>
+                    <col style="width: 30%;">
+                    <col style="width: 70%;">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td>성명</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="test__info__table" style="width: 50%;">
+                <colgroup>
+                    <col style="width: 30%;">
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col style="width: 2%;">
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td>수험 번호</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>-</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="test">
+            <span>핸드폰 번호 가리기</span>
+            08. String형 배열 seoul의 element중 "Kim"의 위치 x를 찾아, "김서방은 x에 있다"는 String을 반환하는 함수, solution을 완성하세요. seoul에
+            "Kim"은 오직 한 번만 나타나며 잘못된 값이 입력되는 경우는 없습니다.
+            <em>
+                * seoul은 길이 1 이상, 1000 이하인 배열입니다.<br>
+                * seoul의 원소는 길이 1 이상, 20 이하인 문자열입니다.<br>
+                * "Kim"은 반드시 seoul 안에 포함되어 있습니다.
+            </em>
+        </div>
+        <div class="t_code">
+<pre><code class="language-js">function solution(seoul) {
+    var answer = "김서방은 " + seoul.indexOf("Kim") + "에 있다";
+    return answer;
+}
+</code></pre>
+        </div>
+        <div class="answer">
+            <span>나의 풀이</span>
+            indexOf 메서드를 활용하여 값을 도출했습니다.
+        </div>
+
+        <div class="t_code">
+<pre><code class="language-js">const solution = (arr) => `김서방은 ${arr.findIndex(s => s === 'Kim')}에 있다`;
+</code></pre>
+        </div>
+        <div class="answer">
+            <span>다른 풀이</span>
+            한줄로 간단히 표현도 가능하네요 !
+        </div>
+
+        <div class="t_code">
+<pre><code class="language-js">function findKim(seoul){
+    var idx = 0;
+    //함수를 완성하세요
+        for (var i = 0; i < seoul.length; ++i)
+    {
+        if (seoul[i] == "Kim")
+        {
+            idx = i;
+        break;
+        }
+    }
+    return "김서방은 " + idx + "에 있다";
+    }
+</code></pre>
+        </div>
+        <div class="answer">
+            <span>다른 풀이</span>
+            for문과 if문을 활용한 풀이입니다.
+        </div>
+
+        <script src="../../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+</body>
+
+</html>

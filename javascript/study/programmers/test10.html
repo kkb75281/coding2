@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코딩 테스트 10</title>
+
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+
+    <style>
+        @font-face {
+            font-family: 'Eulyoo1945';
+            font-weight: 400;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.eot');
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.eot?#iefix') format('embedded-opentype'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.ttf') format("truetype");
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Eulyoo1945';
+            font-weight: 600;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.eot');
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.eot?#iefix') format('embedded-opentype'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.ttf') format("truetype");
+            font-display: swap;
+        }
+
+        .test__wrap {
+            margin: 0;
+            padding: 0;
+            padding: 0 5rem;
+            font-family: 'Eulyoo1945';
+            font-weight: 400;
+        }
+
+        .title {
+            text-align: center;
+            padding-top: 50px;
+            position: relative;
+        }
+
+        .title h1 {
+            margin: 30px 0;
+            font-size: 40px;
+            font-weight: 600;
+        }
+
+        .title em {
+            position: absolute;
+            content: '';
+            bottom: 0;
+            right: 6.5rem;
+            font-style: normal;
+            border: 1px solid #202B3D;
+            border-radius: 10px;
+            padding: 10px 30px;
+        }
+
+        .info {
+            display: flex;
+            flex-wrap: nowrap;
+            padding: 0 10rem;
+            margin-bottom: 50px;
+        }
+
+        .info .test__info__table {
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        .info .test__info__table td {
+            padding: 7px;
+            border: 1px solid #202B3D;
+            text-align: center;
+        }
+
+        .test {
+            width: 100%;
+            padding: 20px;
+            padding-top: 60px;
+            border: 1px solid #202B3D;
+            border-radius: 5px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        .test span,
+        .answer span {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #202B3D;
+            color: #fff;
+            border-radius: 30px;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
+        .test_box {
+            width: 100%;
+            background-color: #202b3d29;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 10px 0;
+        }
+
+        .test em {
+            width: 100%;
+            font-style: normal;
+            padding-left: 14px;
+            padding-top: 10px;
+            color: #777;
+            line-height: 1.4;
+        }
+
+        .answer {
+            background-color: #f5f5f5;
+            padding: 20px;
+            padding-top: 60px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            margin-bottom: 50px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test__wrap">
+        <div class="title">
+            <span>프로그래머스 코딩테스트 연습 문제지</span>
+            <h1>코딩 영역</h1>
+            <em>Lv.1</em>
+        </div>
+        <div class="info">
+            <table class="test__info__table" style="width: 30%;">
+                <colgroup>
+                    <col style="width: 30%;">
+                    <col style="width: 70%;">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td>성명</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="test__info__table" style="width: 50%;">
+                <colgroup>
+                    <col style="width: 30%;">
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col style="width: 2%;">
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td>수험 번호</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>-</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="test">
+            <span>콜라츠 추측</span>
+            10. 1937년 Collatz란 사람에 의해 제기된 이 추측은, 주어진 수가 1이 될 때까지 다음 작업을 반복하면, 모든 수를 1로 만들 수 있다는 추측입니다. 작업은 다음과 같습니다.<br>
+            <div class="test_box">
+                1-1. 입력된 수가 짝수라면 2로 나눕니다.<br>
+                1-2. 입력된 수가 홀수라면 3을 곱하고 1을 더합니다.<br>
+                2. 결과로 나온 수에 같은 작업을 1이 될 때까지 반복합니다.
+            </div>
+            예를 들어, 주어진 수가 6이라면 6 → 3 → 10 → 5 → 16 → 8 → 4 → 2 → 1 이 되어 총 8번 만에 1이 됩니다. 위 작업을 몇 번이나 반복해야 하는지 반환하는 함수,
+            solution을 완성해 주세요. 단, 주어진 수가 1인 경우에는 0을, 작업을 500번 반복할 때까지 1이 되지 않는다면 –1을 반환해 주세요.
+            <em>
+                * 입력된 수, num은 1 이상 8,000,000 미만인 정수입니다.
+            </em>
+        </div>
+        <div class="t_code">
+<pre><code class="language-js">function solution(num) {
+    var answer = 0;
+    for(let i=0; i<=500; i++){
+        if(num !== 1){
+            if(num % 2 == 0){
+                num /= 2;
+            } else {
+                num = num * 3 + 1;
+            }
+        } else {
+            return answer = i;
+        }
+    }
+    return answer = -1;
+}
+</code></pre>
+        </div>
+        <div class="answer">
+            <span>나의 풀이</span>
+            for문과 if을 활용해 조건에 맞게 값을 리턴시켰습니다.
+        </div>
+
+        <div class="t_code">
+<pre><code class="language-js">function collatz(num) {
+    var answer = 0;
+    while(num !=1 && answer !=500){
+        num%2==0 ? num = num/2 : num = num*3 +1;
+    answer++;
+    }
+    return num == 1 ? answer : -1;
+}
+</code></pre>
+        </div>
+        <div class="answer">
+            <span>다른 풀이</span>
+            While문을 사용하는게 더 깔끔하게 보이네요 !
+        </div>
+
+        <div class="t_code">
+<pre><code class="language-js">function collatz(num,count = 0) {
+    return num == 1 ? (count >= 500 ? -1 : count) : collatz(num % 2 == 0 ? num / 2 : num * 3 + 1,++count);
+}
+</code></pre>
+        </div>
+        <div class="answer">
+            <span>다른 풀이</span>
+            삼항연산식으로 풀고 싶었는데 보기만 해도 어질,,
+        </div>
+
+        <script src="../../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+</body>
+
+</html>
