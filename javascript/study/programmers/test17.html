@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>코딩 테스트 15</title>
+    <title>코딩 테스트 17</title>
 
     <link rel="stylesheet" href="../../assets/css/dracula.css">
 
@@ -191,42 +191,48 @@
             </table>
         </div>
         <div class="test">
-            <span>문자열을 정수로 바꾸기</span>
-            15. 문자열 s를 숫자로 변환한 결과를 반환하는 함수, solution을 완성하세요.
+            <span>정수 내림차순으로 배치하기</span>
+            17. 함수 solution은 정수 n을 매개변수로 입력받습니다. n의 각 자릿수를 큰것부터 작은 순으로 정렬한 새로운 정수를 리턴해주세요. 예를들어 n이 118372면 873211을 리턴하면 됩니다.
             <em>
-                * s의 길이는 1 이상 5이하입니다.<br>
-                * s의 맨앞에는 부호(+, -)가 올 수 있습니다.<br>
-                * s는 부호와 숫자로만 이루어져있습니다.<br>
-                * s는 "0"으로 시작하지 않습니다.<br>
-                ex) str = "1234" => 1234 반환 / str = "-1234" => -1234 반환
+                * n은 1이상 8000000000 이하인 자연수입니다.<br>
+                ex) n = 118372 > return = 873211
             </em>
         </div>
         <div class="t_code">
-            <pre><code class="language-js">function solution(s) {
-    return Number(s);
+<pre><code class="language-js">function solution(n) {
+    return Number(n.toString().split("").sort().reverse().join(""));
 }
 </code></pre>
         </div>
         <div class="answer">
             <span>나의 풀이</span>
-            Number 메서드를 활용하여 풀었습니다.
+            split 으로 나누고 sort로 정렬 후 조인하여 출력하였습니다.
         </div>
 
         <div class="t_code">
-            <pre><code class="language-js">function strToInt(str){
-    return str/1
+<pre><code class="language-js">function solution(n) {
+    //숫자가 분명히 더 빠름
+    var nums =[];
+    do{
+        nums.push(n%10);
+        n=Math.floor(n/10);
+    } while(n>0)
+
+    return nums.sort((a,b)=>b-a).join('')*1;
+    //문자는 느림
+    return (n+"").split('').sort((a,b)=>b-a).join('')*1;
 }
 </code></pre>
         </div>
         <div class="answer">
             <span>다른 풀이</span>
-            String에 사칙연산을 쓸 경우 str을 num으로 인식하는 자바스크립트의 기능을 이용해 풀어주었네요 !(암시적 형변환)
+            마지막 곱하기 1을 해주어 형변환을 시켜주었네요 !
         </div>
 
-        <script src="../../assets/js/highlight.min.js"></script>
-        <script>
-            hljs.highlightAll();
-        </script>
+<script src="../../assets/js/highlight.min.js"></script>
+<script>
+    hljs.highlightAll();
+</script>
 </body>
 
 </html>

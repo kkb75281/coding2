@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>코딩 테스트 15</title>
+    <title>코딩 테스트 18</title>
 
     <link rel="stylesheet" href="../../assets/css/dracula.css">
 
@@ -191,42 +191,44 @@
             </table>
         </div>
         <div class="test">
-            <span>문자열을 정수로 바꾸기</span>
-            15. 문자열 s를 숫자로 변환한 결과를 반환하는 함수, solution을 완성하세요.
+            <span>가운데 글자 가져오기</span>
+            19. 단어 s의 가운데 글자를 반환하는 함수, solution을 만들어 보세요. 단어의 길이가 짝수라면 가운데 두글자를 반환하면 됩니다.
             <em>
-                * s의 길이는 1 이상 5이하입니다.<br>
-                * s의 맨앞에는 부호(+, -)가 올 수 있습니다.<br>
-                * s는 부호와 숫자로만 이루어져있습니다.<br>
-                * s는 "0"으로 시작하지 않습니다.<br>
-                ex) str = "1234" => 1234 반환 / str = "-1234" => -1234 반환
+                * s는 길이가 1 이상, 100이하인 스트링입니다.
             </em>
         </div>
         <div class="t_code">
-            <pre><code class="language-js">function solution(s) {
-    return Number(s);
+<pre><code class="language-js">function solution(s) {
+    var answer = '';
+    
+    if (s.length % 2 == 0 ) {
+        answer = s[s.length / 2 - 1] + s[s.length / 2];
+    } else {
+        answer = s[Math.floor(s.length/2)];
+    }
+    return answer;
 }
 </code></pre>
         </div>
         <div class="answer">
             <span>나의 풀이</span>
-            Number 메서드를 활용하여 풀었습니다.
+            중간에 반내림을 해주는 이유는 인덱스가 0부터 시작하기 때문 !
         </div>
 
         <div class="t_code">
-            <pre><code class="language-js">function strToInt(str){
-    return str/1
+<pre><code class="language-js">function solution(s) {
+    return s.substr(Math.ceil(s.length / 2) - 1, s.length % 2 === 0 ? 2 : 1);
 }
 </code></pre>
         </div>
         <div class="answer">
             <span>다른 풀이</span>
-            String에 사칙연산을 쓸 경우 str을 num으로 인식하는 자바스크립트의 기능을 이용해 풀어주었네요 !(암시적 형변환)
         </div>
 
-        <script src="../../assets/js/highlight.min.js"></script>
-        <script>
-            hljs.highlightAll();
-        </script>
+<script src="../../assets/js/highlight.min.js"></script>
+<script>
+    hljs.highlightAll();
+</script>
 </body>
 
 </html>

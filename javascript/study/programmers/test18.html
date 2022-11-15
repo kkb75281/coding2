@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>코딩 테스트 15</title>
+    <title>코딩 테스트 18</title>
 
     <link rel="stylesheet" href="../../assets/css/dracula.css">
 
@@ -191,42 +191,69 @@
             </table>
         </div>
         <div class="test">
-            <span>문자열을 정수로 바꾸기</span>
-            15. 문자열 s를 숫자로 변환한 결과를 반환하는 함수, solution을 완성하세요.
+            <span>두 정수 사이의 합</span>
+            18. 두 정수 a, b가 주어졌을 때 a와 b 사이에 속한 모든 정수의 합을 리턴하는 함수, solution을 완성하세요.
+            예를 들어 a = 3, b = 5인 경우, 3 + 4 + 5 = 12이므로 12를 리턴합니다.
             <em>
-                * s의 길이는 1 이상 5이하입니다.<br>
-                * s의 맨앞에는 부호(+, -)가 올 수 있습니다.<br>
-                * s는 부호와 숫자로만 이루어져있습니다.<br>
-                * s는 "0"으로 시작하지 않습니다.<br>
-                ex) str = "1234" => 1234 반환 / str = "-1234" => -1234 반환
+                * a와 b가 같은 경우는 둘 중 아무 수나 리턴하세요.<br>
+                * a와 b는 -10,000,000 이상 10,000,000 이하인 정수입니다.<br>
+                * a와 b의 대소관계는 정해져있지 않습니다.
             </em>
         </div>
         <div class="t_code">
-            <pre><code class="language-js">function solution(s) {
-    return Number(s);
+<pre><code class="language-js">function solution(a, b) {
+    var answer = 0;
+    if(a>=b){
+        for(let i=b; i<=a; i++){
+            answer+=i;
+        }
+    }else{
+        for(let j=a; j<=b; j++){
+            answer+=j;
+        }
+    }
+    return answer;
 }
 </code></pre>
         </div>
         <div class="answer">
             <span>나의 풀이</span>
-            Number 메서드를 활용하여 풀었습니다.
+            a와 b의 대소관계가 정해지지 않았으므로 케이스를 나눠서 코드를 짜보았습니다.
         </div>
 
         <div class="t_code">
-            <pre><code class="language-js">function strToInt(str){
-    return str/1
+<pre><code class="language-js">function adder(a, b){
+    var result = 0
+    return (a+b)*(Math.abs(b-a)+1)/2;
 }
 </code></pre>
         </div>
         <div class="answer">
             <span>다른 풀이</span>
-            String에 사칙연산을 쓸 경우 str을 num으로 인식하는 자바스크립트의 기능을 이용해 풀어주었네요 !(암시적 형변환)
+            가우스 공식을 여기서 보다니..
         </div>
 
-        <script src="../../assets/js/highlight.min.js"></script>
-        <script>
-            hljs.highlightAll();
-        </script>
+        <div class="t_code">
+<pre><code class="language-js">function solution(a, b) {
+    var answer = 0;
+    var min = Math.min(a, b);
+    var max = Math.max(a, b);
+    for(var i=min; i <= max; i++){
+        answer+=i;
+    }
+    return answer;
+}
+</code></pre>
+        </div>
+        <div class="answer">
+            <span>다른 풀이</span>
+            a와 b 중 최댓값과 최솟값을 구하고 for문을 활용하여 그 두 수 사이의 값을 더해주었네요 !
+        </div>
+
+<script src="../../assets/js/highlight.min.js"></script>
+<script>
+    hljs.highlightAll();
+</script>
 </body>
 
 </html>
