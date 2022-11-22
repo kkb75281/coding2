@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코딩 테스트 27</title>
+
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+
+    <style>
+        @font-face {
+            font-family: 'Eulyoo1945';
+            font-weight: 400;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.eot');
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.eot?#iefix') format('embedded-opentype'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.ttf') format("truetype");
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Eulyoo1945';
+            font-weight: 600;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.eot');
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.eot?#iefix') format('embedded-opentype'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.ttf') format("truetype");
+            font-display: swap;
+        }
+
+        .test__wrap {
+            margin: 0;
+            padding: 0;
+            padding: 0 5rem;
+            font-family: 'Eulyoo1945';
+            font-weight: 400;
+        }
+
+        .title {
+            text-align: center;
+            padding-top: 50px;
+            position: relative;
+        }
+
+        .title h1 {
+            margin: 30px 0;
+            font-size: 40px;
+            font-weight: 600;
+        }
+
+        .title em {
+            position: absolute;
+            content: '';
+            bottom: 0;
+            right: 6.5rem;
+            font-style: normal;
+            border: 1px solid #202B3D;
+            border-radius: 10px;
+            padding: 10px 30px;
+        }
+
+        .info {
+            display: flex;
+            flex-wrap: nowrap;
+            padding: 0 10rem;
+            margin-bottom: 50px;
+        }
+
+        .info .test__info__table {
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        .info .test__info__table td {
+            padding: 7px;
+            border: 1px solid #202B3D;
+            text-align: center;
+        }
+
+        .test {
+            width: 100%;
+            padding: 20px;
+            padding-top: 60px;
+            border: 1px solid #202B3D;
+            border-radius: 5px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        .test span,
+        .answer span {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #202B3D;
+            color: #fff;
+            border-radius: 30px;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
+        .test_box {
+            width: 100%;
+            background-color: #202b3d29;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 10px 0;
+        }
+
+        .test em {
+            width: 100%;
+            font-style: normal;
+            padding-left: 14px;
+            padding-top: 10px;
+            color: #777;
+            line-height: 1.4;
+        }
+
+        .answer {
+            background-color: #f5f5f5;
+            padding: 20px;
+            padding-top: 60px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            margin-bottom: 50px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test__wrap">
+        <div class="title">
+            <span>프로그래머스 코딩테스트 연습 문제지</span>
+            <h1>코딩 영역</h1>
+            <em>Lv.1</em>
+        </div>
+        <div class="info">
+            <table class="test__info__table" style="width: 30%;">
+                <colgroup>
+                    <col style="width: 30%;">
+                    <col style="width: 70%;">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td>성명</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="test__info__table" style="width: 50%;">
+                <colgroup>
+                    <col style="width: 30%;">
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col style="width: 2%;">
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td>수험 번호</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>-</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="test">
+            <span>약수의 개수와 덧셈</span>
+            27. 두 정수 left와 right가 매개변수로 주어집니다. left부터 right까지의 모든 수들 중에서, 약수의 개수가 짝수인 수는 더하고, 약수의 개수가 홀수인 수는 뺀 수를 return
+            하도록 solution 함수를 완성해주세요.
+            <em>
+                * 1 ≤ left ≤ right ≤ 1,000
+            </em>
+        </div>
+        <div class="t_code">
+            <pre><code class="language-js">function solution(left, right) {
+    let count = 0;
+    for(let i = left; i<=right; i++) {
+        let array = [];
+        for(let j = 0; j <= i; j++) {
+            if(i % j === 0) array.push(j)
+        }
+        array.length % 2 === 0 ? count += i : count -= i
+    }
+    return count
+}
+</code></pre>
+        </div>
+        <div class="answer">
+            <span>나의 풀이</span>
+            for문을 활용하여 나누어 떨어지는 수가 나오면 배열에 저장시킨 후 배열이 짝수라면 count 값에 +, 그렇지 않다면 -로 넣어주었습니다.
+        </div>
+
+        <div class="t_code">
+            <pre><code class="language-js">function solution(left, right) {
+    var answer = 0;
+    for (let i = left; i <= right; i++) {
+        if (Number.isInteger(Math.sqrt(i))) {
+            answer -= i;
+        } else {
+            answer += i;
+        }
+    }
+    return answer;
+}
+</code></pre>
+        </div>
+        <div class="answer">
+            <span>다른 풀이</span>
+            '제곱근이 정수면 약수의 개수가 홀수'라는 사실을 배워갑니다.
+        </div>
+
+        <script src="../../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+</body>
+
+</html>
