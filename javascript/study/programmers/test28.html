@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코딩 테스트 28</title>
+
+    <link rel="stylesheet" href="../../assets/css/dracula.css">
+
+    <style>
+        @font-face {
+            font-family: 'Eulyoo1945';
+            font-weight: 400;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.eot');
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.eot?#iefix') format('embedded-opentype'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945Regular.ttf') format("truetype");
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Eulyoo1945';
+            font-weight: 600;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.eot');
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.eot?#iefix') format('embedded-opentype'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/eulyoo/Eulyoo1945SemiBold.ttf') format("truetype");
+            font-display: swap;
+        }
+
+        .test__wrap {
+            margin: 0;
+            padding: 0;
+            padding: 0 5rem;
+            font-family: 'Eulyoo1945';
+            font-weight: 400;
+        }
+
+        .title {
+            text-align: center;
+            padding-top: 50px;
+            position: relative;
+        }
+
+        .title h1 {
+            margin: 30px 0;
+            font-size: 40px;
+            font-weight: 600;
+        }
+
+        .title em {
+            position: absolute;
+            content: '';
+            bottom: 0;
+            right: 6.5rem;
+            font-style: normal;
+            border: 1px solid #202B3D;
+            border-radius: 10px;
+            padding: 10px 30px;
+        }
+
+        .info {
+            display: flex;
+            flex-wrap: nowrap;
+            padding: 0 10rem;
+            margin-bottom: 50px;
+        }
+
+        .info .test__info__table {
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        .info .test__info__table td {
+            padding: 7px;
+            border: 1px solid #202B3D;
+            text-align: center;
+        }
+
+        .test {
+            width: 100%;
+            padding: 20px;
+            padding-top: 60px;
+            border: 1px solid #202B3D;
+            border-radius: 5px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        .test span,
+        .answer span {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #202B3D;
+            color: #fff;
+            border-radius: 30px;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
+        .test_box {
+            width: 100%;
+            background-color: #202b3d29;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 10px 0;
+        }
+
+        .test em {
+            width: 100%;
+            font-style: normal;
+            padding-left: 14px;
+            padding-top: 10px;
+            color: #777;
+            line-height: 1.4;
+        }
+
+        .answer {
+            background-color: #f5f5f5;
+            padding: 20px;
+            padding-top: 60px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            margin-bottom: 50px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test__wrap">
+        <div class="title">
+            <span>프로그래머스 코딩테스트 연습 문제지</span>
+            <h1>코딩 영역</h1>
+            <em>Lv.1</em>
+        </div>
+        <div class="info">
+            <table class="test__info__table" style="width: 30%;">
+                <colgroup>
+                    <col style="width: 30%;">
+                    <col style="width: 70%;">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td>성명</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="test__info__table" style="width: 50%;">
+                <colgroup>
+                    <col style="width: 30%;">
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col style="width: 2%;">
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td>수험 번호</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>-</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="test">
+            <span>부족한 금액 계산하기</span>
+            28. 새로 생긴 놀이기구는 인기가 매우 많아 줄이 끊이질 않습니다. 이 놀이기구의 원래 이용료는 price원 인데, 놀이기구를 N 번 째 이용한다면 원래 이용료의 N배를 받기로 하였습니다. 즉, 처음 이용료가 100이었다면 2번째에는 200, 3번째에는 300으로 요금이 인상됩니다.
+            놀이기구를 count번 타게 되면 현재 자신이 가지고 있는 금액에서 얼마가 모자라는지를 return 하도록 solution 함수를 완성하세요.
+            단, 금액이 부족하지 않으면 0을 return 하세요.
+            <em>
+                * 놀이기구의 이용료 price : 1 ≤ price ≤ 2,500, price는 자연수<br>
+                * 처음 가지고 있던 금액 money : 1 ≤ money ≤ 1,000,000,000, money는 자연수<br>
+                * 놀이기구의 이용 횟수 count : 1 ≤ count ≤ 2,500, count는 자연수
+            </em>
+        </div>
+        <div class="t_code">
+<pre><code class="language-js">function solution(price, money, count) {
+    let totalPrice = 0;
+    
+    for(let i=1;i<=count;i++){
+        totalPrice += price * i;
+    }
+    
+    return money > totalPrice ? 0 : totalPrice-money
+}
+</code></pre>
+        </div>
+        <div class="answer">
+            <span>나의 풀이</span>
+            for문과 삼항연산식을 활용하여 풀어주었습니다 !
+        </div>
+
+        <div class="t_code">
+<pre><code class="language-js">function solution(price, money, count) {
+    const tmp = price * count * (count + 1) / 2 - money;
+    return tmp > 0 ? tmp : 0;
+}
+</code></pre>
+        </div>
+        <div class="answer">
+            <span>다른 풀이</span>
+            가우스 공식을 활용하니 코드가 간단해지네요 !
+        </div>
+
+        <script src="../../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+</body>
+
+</html>
